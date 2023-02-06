@@ -1,18 +1,18 @@
 journalDetails = {
 
-	'Durga_Aapaduttara_Stava': 'DurgaAapaduttara.html',
-	'Shri_Guru_Stotram': 'GuruStotram.html',
-	'Achyutasyashtakam': 'Achyutasyashtakam.html',
-	'Shri_Rama_Stotram': 'ShriRamaStotram.html',
-	'Shri_Guru_Padukaa_Stotram': 'ShriGuruPadukaaStotram.html',
-	'Gurvashtakam': 'Gurvashtakam.html',
-	'GuruDhyaanam': 'GuruDhyaanam.html',
-	'BGEndingPrayer': 'BGEndingPrayer.html',
-	'BGAarti': 'BGAarti.html',
-	'HaraHaraShambo': 'HaraHaraShambo.html',
-	'Seshadri_Giriyalli': 'Seshadri_Giriyalli.html',
-	'Dasavatara_Stotram': 'Dasavatara_Stotram.html',
-	'AntayuNeeve': 'AntayuNeeve.html',
+	'Durga_Aapaduttara_Stava': 'sb/DurgaAapaduttara.html',
+	'Shri_Guru_Stotram': 'sb/GuruStotram.html',
+	'Achyutasyashtakam': 'sb/Achyutasyashtakam.html',
+	'Shri_Rama_Stotram': 'sb/ShriRamaStotram.html',
+	'Shri_Guru_Padukaa_Stotram': 'sb/ShriGuruPadukaaStotram.html',
+	'Gurvashtakam': 'sb/Gurvashtakam.html',
+	'GuruDhyaanam': 'sb/GuruDhyaanam.html',
+	'BGEndingPrayer': 'sb/BGEndingPrayer.html',
+	'BGAarti': 'sb/BGAarti.html',
+	'HaraHaraShambo': 'sb/HaraHaraShambo.html',
+	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
+	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
+	'AntayuNeeve': 'sb/AntayuNeeve.html',
 };
 
 // keep a global reference to iframe as it will be needed multiple times
