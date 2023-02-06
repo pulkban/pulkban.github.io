@@ -19,6 +19,8 @@ journalDetails = {
 	'ShardhaaBhujangaPryayathashtakam': 'ShardhaaBhujangaPryayathashtakam.html',
 };
 
+
+
 // keep a global reference to iframe as it will be needed multiple times
 myIframe = document.getElementById("my-iframe");
 
