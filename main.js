@@ -12,7 +12,9 @@ journalDetails = {
 	'HaraHaraShambo': 'sb/HaraHaraShambo.html',
 	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
 	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
-	'AntayuNeeve': 'sb/AntayuNeeve.html'
+	'AntayuNeeve': 'sb/AntayuNeeve.html',
+	'ShriDattaStavam': 'sb/ShriDattaStavam.html',
+	
 };
 
 // keep a global reference to iframe as it will be needed multiple times
