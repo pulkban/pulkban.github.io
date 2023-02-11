@@ -1,5 +1,4 @@
 journalDetails = {
-
 	'Durga_Aapaduttara_Stava': 'sb/DurgaAapaduttara.html',
 	'Shri_Guru_Stotram': 'sb/GuruStotram.html',
 	'Achyutasyashtakam': 'sb/Achyutasyashtakam.html',
@@ -14,7 +13,6 @@ journalDetails = {
 	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
 	'AntayuNeeve': 'sb/AntayuNeeve.html',
 	'ShriDattaStavam': 'sb/ShriDattaStavam.html',
-	
 };
 
 // keep a global reference to iframe as it will be needed multiple times
