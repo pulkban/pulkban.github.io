@@ -9,14 +9,14 @@ journalDetails = {
 	'SammohanaKrishnaShlokam': 'lb/SammohanaKrishnaShlokam.html',
 	'ShantiMantra': 'lb/ShantiMantra.html',
 	'ShriSthuthi': 'lb/ShriSthuthi.html',
-	'ShriDurgaSapthashloki': 'ShriDurgaSapthashloki.html',
-	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
-	'MeenakshiPancharatnam': 'MeenakshiPancharatnam.html',
-	'ShreeKaamakshiStotram': 'ShreeKaamakshiStotram.html',
-	'NavaMangaliStotram': 'NavaMangaliStotram.html',
-	'ShreeAnnapoornaAshtakam': 'ShreeAnnapoornaAshtakam.html',
-	'ShreeLalithaPanchakam': 'ShreeLalithaPanchakam.html',
-	'ShardhaaBhujangaPryayathashtakam': 'ShardhaaBhujangaPryayathashtakam.html',
+	'ShriDurgaSapthashloki': 'lb/ShriDurgaSapthashloki.html',
+	'ShreeRajaRajeswariAshtakam': 'lb/ShreeRajaRajeswariAshtakam.html',
+	'MeenakshiPancharatnam': 'lb/MeenakshiPancharatnam.html',
+	'ShreeKaamakshiStotram': 'lb/ShreeKaamakshiStotram.html',
+	'NavaMangaliStotram': 'lb/NavaMangaliStotram.html',
+	'ShreeAnnapoornaAshtakam': 'lb/ShreeAnnapoornaAshtakam.html',
+	'ShreeLalithaPanchakam': 'lb/ShreeLalithaPanchakam.html',
+	'ShardhaaBhujangaPryayathashtakam': 'lb/ShardhaaBhujangaPryayathashtakam.html',
 };
 
 
