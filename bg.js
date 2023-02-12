@@ -1,10 +1,7 @@
 journalDetails = {
 
 	'BG_Prayer': 'bg/BG_Prayer.html',
-	'BG_SapthaShloki': 'bg/BG_SapthaShloki.html',
-	'BG_Mahatmyam': 'bg/BG_Mahatmyam.html',
-	'BGAarti': 'bg/BGAarti.html',
-	'BGEndingPrayer': 'bg/BGEndingPrayer.html',
+
 	'BG_01_Chapter': 'bg/BG_01_Chapter.html',
 	'BG_02_Chapter': 'bg/BG_02_Chapter.html',
 	'BG_03_Chapter': 'bg/BG_03_Chapter.html',
@@ -23,7 +20,10 @@ journalDetails = {
 	'BG_16_Chapter': 'bg/BG_16_Chapter.html',
 	'BG_17_Chapter': 'bg/BG_17_Chapter.html',
 	'BG_18_Chapter': 'bg/BG_18_Chapter.html',
-	
+	'BGEndingPrayer': 'bg/BGEndingPrayer.html',
+	'BGAarti': 'bg/BGAarti.html',
+	'BG_SapthaShloki': 'bg/BG_SapthaShloki.html',
+	'BG_Mahatmyam': 'bg/BG_Mahatmyam.html',
 };
 
 
