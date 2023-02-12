@@ -4,6 +4,7 @@ journalDetails = {
 	'GaneshChathurthi': 'pooja/GaneshChathurthi.html',
 	'Taligai': 'pooja/Taligai.html',
 	'Chenchalamma': 'pooja/Chenchalamma.html',
+	'Diwali': 'pooja/Diwali.html',
 };
 
 
