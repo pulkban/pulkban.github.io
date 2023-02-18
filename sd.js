@@ -36,11 +36,14 @@ journalDetails = {
 	'SaraswathiSahasranamaStotram': 'sd/SaraswathiSahasranamaStotram.html',
 	'ShriVarahiKavacham': 'sd/ShriVarahiKavacham.html',
 	'ShyamalaDandakam': 'sd/ShyamalaDandakam.html',
+	'SripadaSapthami': 'sd/SripadaSapthami.html',
+	'SoundaryaLahari': 'sd/SoundaryaLahari.html',
 	'SwayamvaraParvatiMantramaala': 'sd/SwayamvaraParvatiMantramaala.html',
 	'Thiruvempavai': 'sd/Thiruvempavai.html',
 	'TripurasundariAshtakam': 'sd/TripurasundariAshtakam.html',
 	'Thirupalliyezhuchi': 'sd/Thirupalliyezhuchi.html',
 	'VaaraahiKavacham': 'sd/VaaraahiKavacham.html',
+	
 
 	//--Andal
 	'sep4':'Andaal',	
@@ -78,10 +81,7 @@ journalDetails = {
 	'ShriShivaMaanasaPooja': 'sd/ShriShivaMaanasaPooja.html',
 	'ShriShivaMangalashtakam': 'sd/ShriShivaMangalashtakam.html',
 	'ShriRudhrashtakam': 'sd/ShriRudhrashtakam.html',
-	'ShriShivaThaandavaStothram': 'sd/ShriShivaThaandavaStothram.html',
 	'SivaSivane': 'sd/SivaSivane.html',
-	'SoundaryaLahari': 'sd/SoundaryaLahari.html',
-	'SripadaSapthami': 'sd/SripadaSapthami.html',
 	'SivanandaLahari': 'sd/SivanandaLahari.html',
 	'ShivaShadaksharaStotram': 'sd/ShivaShadaksharaStotram.html',
 	'NatarajarStothram': 'sd/NatarajarStothram.html',
