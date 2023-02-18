@@ -1,14 +1,15 @@
 journalDetails = {
 
-	'SivanMantras': 'sd/SivanMantras.html',
-	'DhyanaShloka': 'sd/DhyanaShloka.html',
-	'AdityaHrudayam': 'sd/AdityaHrudayam.html',
-	'DurgaChandrakalaStuti': 'sd/DurgaChandrakalaStuti.html',
-	'GuruMantra': 'sd/GuruMantra.html',
-	'NavaratnaMalika': 'sd/NavaratnaMalika.html',
-	'NithyaParayanaShloka': 'sd/NithyaParayanaShloka.html',
-	'SammohanaKrishnaShlokam': 'sd/SammohanaKrishnaShlokam.html',
 	'ShantiMantra': 'sd/ShantiMantra.html',
+	'DhyanaShloka': 'sd/DhyanaShloka.html',
+	'GuruMantra': 'sd/GuruMantra.html',
+	'NithyaParayanaShloka': 'sd/NithyaParayanaShloka.html',
+	'AdityaHrudayam': 'sd/AdityaHrudayam.html',
+
+	//--Andal
+	'sep9':'Devi',
+	'DurgaChandrakalaStuti': 'sd/DurgaChandrakalaStuti.html',
+	'NavaratnaMalika': 'sd/NavaratnaMalika.html',
 	'ShriSthuthi': 'sd/ShriSthuthi.html',
 	'ShriDurgaSapthashloki': 'sd/ShriDurgaSapthashloki.html',
 	'ShreeRajaRajeswariAshtakam': 'sd/ShreeRajaRajeswariAshtakam.html',
@@ -16,53 +17,56 @@ journalDetails = {
 	'ShreeKaamakshiStotram': 'sd/ShreeKaamakshiStotram.html',
 	'NavaMangaliStotram': 'sd/NavaMangaliStotram.html',
 	'ShreeAnnapoornaAshtakam': 'sd/ShreeAnnapoornaAshtakam.html',
-	'ShreeLalithaPanchakam': 'sd/ShreeLalithaPanchakam.html',
 	'ShardhaaBhujangaPryayathashtakam': 'sd/ShardhaaBhujangaPryayathashtakam.html',
-	'ArdhaNaareshwariStothram': 'sd/ArdhaNaareshwariStothram.html',
-	'BrahmaSamhita': 'sd/BrahmaSamhita.html',
-	'ChandrashekaramAshtakam': 'sd/ChandrashekaramAshtakam.html',
-	'ShriSwaminathaAshtakam': 'sd/ShriSwaminathaAshtakam.html',
-	'Thotakaashtakam': 'sd/Thotakaashtakam.html',
-	'NavagrahaStothram': 'sd/NavagrahaStothram.html',
+	'NavagrahaStothram': 'sd/NavagrahaSthothra.html',
 	'DeviKhadgamalaStothram': 'sd/DeviKhadgamalaStothram.html',
 	'DurgaPancharatnam': 'sd/DurgaPancharatnam.html',
 	'DurgaSahasranamaStothram': 'sd/DurgaSahasranamaStothram.html',
-	'GanaNayakaAshtakam': 'sd/GanaNayakaAshtakam.html',
-	'GaneshaBhujangam': 'sd/GaneshaBhujangam.html',
 	'IndrakshiStothram': 'sd/IndrakshiStothram.html',
-	'ShriDakshinaaMoorthyStothram': 'sd/ShriDakshinaaMoorthyStothram.html',
-	'ShriRamarStothram': 'sd/ShriRamarStothram.html',
-	'ShriKrishnaashtakam': 'sd/ShriKrishnaashtakam.html',
 	'MahalakshmiSthuthi': 'sd/MahalakshmiSthuthi.html',
 	'NavagrahaSthothra': 'sd/NavagrahaSthothra.html',
 	'ShriThulasiSthothram': 'sd/ShriThulasiSthothram.html',
-	'GuruvathaPureeshaPancharatnam': 'sd/GuruvathaPureeshaPancharatnam.html',
 	'ShriKamalaJadayitAshtakam': 'sd/ShriKamalaJadayitAshtakam.html',
 	'KanakadharaStothram': 'sd/KanakadharaStothram.html',
 	'LakshmiAshtotraSathanamaStotram': 'sd/LakshmiAshtotraSathanamaStotram.html',
 	'SriLakshmiSahasranamaStothram': 'sd/SriLakshmiSahasranamaStothram.html',
+	'MahishasuraMaridini': 'sd/MahishasuraMaridini.html',
+	'MantraMartuka': 'sd/MantraMartuka.html',
+	'ShriRajarajeshwariNamaste': 'sd/ShriRajarajeshwariNamaste.html',
+	'SaraswathiSahasranamaStotram': 'sd/SaraswathiSahasranamaStotram.html',
+	'ShriVarahiKavacham': 'sd/ShriVarahiKavacham.html',
+	'ShyamalaDandakam': 'sd/ShyamalaDandakam.html',
+	'SwayamvaraParvatiMantramaala': 'sd/SwayamvaraParvatiMantramaala.html',
+	'Thiruvempavai': 'sd/Thiruvempavai.html',
+	'TripurasundariAshtakam': 'sd/TripurasundariAshtakam.html',
+	'Thirupalliyezhuchi': 'sd/Thirupalliyezhuchi.html',
+	'VaaraahiKavacham': 'sd/VaaraahiKavacham.html',
+
+	//--Andal
+	'sep4':'Andaal',	
+	'Thiruppavai': 'sd/Thiruppavai.html',
+	'VaaranamAayiram': 'sd/VaaranamAayiram.html',
+	
+	//--Lalitha
+	'sep5':'Lalitha',
 	'SriLalithaNavarathnaMalai': 'sd/SriLalithaNavarathnaMalai.html',
 	'LalithaSahasranamam': 'sd/LalithaSahasranamam.html',
 	'LalithaStavaRatnam': 'sd/LalithaStavaRatnam.html',
 	'LalithaTrishati': 'sd/LalithaTrishati.html',
-	'MahishasuraMaridini': 'sd/MahishasuraMaridini.html',
-	'MantraMartuka': 'sd/MantraMartuka.html',
-	'MookaPanchaShathi': 'sd/MookaPanchaShathi.html',
-	'MukundaMaala': 'sd/MukundaMaala.html',
-	'NaamaRamayana': 'sd/NaamaRamayana.html',
-	'NatarajarStothram': 'sd/NatarajarStothram.html',
-	'PanchaayudhaStotram': 'sd/PanchaayudhaStotram.html',
-	'ShriRajarajeshwariNamaste': 'sd/ShriRajarajeshwariNamaste.html',
-	'SaraswathiSahasranamaStotram': 'sd/SaraswathiSahasranamaStotram.html',
-	'ShivaShadaksharaStotram': 'sd/ShivaShadaksharaStotram.html',
-	'ShivaThaandava': 'sd/ShivaThaandava.html',
-	'ShriVarahiKavacham': 'sd/ShriVarahiKavacham.html',
-	'ShyamalaDandakam': 'sd/ShyamalaDandakam.html',
-	'SivanandaLahari': 'sd/SivanandaLahari.html',
-	'ShivaStothram': 'sd/ShivaStothram.html',
-	'MahaMrtyunjayaMantra': 'sd/MahaMrtyunjayaMantra.html',
+	'ShreeLalithaPanchakam': 'sd/ShreeLalithaPanchakam.html',
+
+
+	//--Ganesha
+	'sep8':'Ganesha',
+	'GanaNayakaAshtakam': 'sd/GanaNayakaAshtakam.html',
+	'GaneshaBhujangam': 'sd/GaneshaBhujangam.html',
+
+	//--Sivan
+	'sep1':'Sivan',
+	'SivanMantras': 'sd/SivanMantras.html',
 	'Lingashtakam': 'sd/Lingashtakam.html',
 	'Bilwashtakam': 'sd/Bilwashtakam.html',
+	'ShivaThaandava': 'sd/ShivaThaandava.html',
 	'ShivaPanchaaksharaStothram': 'sd/ShivaPanchaaksharaStothram.html',
 	'MargabandhuStothram': 'sd/MargabandhuStothram.html',
 	'ShriKaalabhairavaAshtakam': 'sd/ShriKaalabhairavaAshtakam.html',
@@ -78,18 +82,41 @@ journalDetails = {
 	'SivaSivane': 'sd/SivaSivane.html',
 	'SoundaryaLahari': 'sd/SoundaryaLahari.html',
 	'SripadaSapthami': 'sd/SripadaSapthami.html',
+	'SivanandaLahari': 'sd/SivanandaLahari.html',
+	'ShivaShadaksharaStotram': 'sd/ShivaShadaksharaStotram.html',
+	'NatarajarStothram': 'sd/NatarajarStothram.html',
+	'ShriDakshinaaMoorthyStothram': 'sd/ShriDakshinaaMoorthyStothram.html',
+	'ChandrashekaramAshtakam': 'sd/ChandrashekaramAshtakam.html',
+	'ArdhaNaareshwariStothram': 'sd/ArdhaNaareshwariStothram.html',
+
+	
+	//--Subramanya
+	'sep2':'Subramanya',
 	'SriSubrahmanyaBhujangam': 'sd/SriSubrahmanyaBhujangam.html',
 	'SubramanyaSahasranamam': 'sd/SubramanyaSahasranamam.html',
-	'SriVenkateshwaraSuprabhatam': 'sd/SriVenkateshwaraSuprabhatam.html',
-	'SwayamvaraParvatiMantramaala': 'sd/SwayamvaraParvatiMantramaala.html',
-	'Thiruppavai': 'sd/Thiruppavai.html',
-	'Thiruvempavai': 'sd/Thiruvempavai.html',
-	'TripurasundariAshtakam': 'sd/TripurasundariAshtakam.html',
-	'Thirupalliyezhuchi': 'sd/Thirupalliyezhuchi.html',
-	'VaaraahiKavacham': 'sd/VaaraahiKavacham.html',
-	'VaaranamAayiram': 'sd/VaaranamAayiram.html',
+	'ShriSwaminathaAshtakam': 'sd/ShriSwaminathaAshtakam.html',
 	'VelMaaral': 'sd/VelMaaral.html',
+
+
+	//--Rama Krishna Vishnu
+	'sep3':'Rama Krishna Vishnu',	
+	'SriVenkateshwaraSuprabhatam': 'sd/SriVenkateshwaraSuprabhatam.html',
+	'GuruvathaPureeshaPancharatnam': 'sd/GuruvathaPureeshaPancharatnam.html',
+	'ShriRamarStothram': 'sd/ShriRamarStothram.html',
+	'ShriKrishnaashtakam': 'sd/ShriKrishnaashtakam.html',
+	'SammohanaKrishnaShlokam': 'sd/SammohanaKrishnaShlokam.html',
+	'BrahmaSamhita': 'sd/BrahmaSamhita.html',
+	'MukundaMaala': 'sd/MukundaMaala.html',
+	'NaamaRamayana': 'sd/NaamaRamayana.html',
+	'PanchaayudhaStotram': 'sd/PanchaayudhaStotram.html',
+
+	//--Large
+	'sep7':'Mooka Pancha Shathi',	
+	'MookaPanchaShathi': 'sd/MookaPanchaShathi.html',
 	
+	//--Misc
+	'sep11':'Miscellaneous',	
+	'Thotakaashtakam': 'sd/Thotakaashtakam.html',
 };
 
 
@@ -105,7 +132,13 @@ function populateNavbar()
     {
         // add a button for each person
         // make it call main on click with event
-        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+		if(person.startsWith("sep")) {
+			console.log('you saw sep');
+			myNavbar.innerHTML += `<hr><b>${journalDetails[person]}</b><hr>`;
+			
+		} else {
+			myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`;
+		}
     }
 }
 
