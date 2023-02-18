@@ -1,5 +1,6 @@
 journalDetails = {
 
+	'SivanMantras': 'sd/SivanMantras.html',
 	'DhyanaShloka': 'sd/DhyanaShloka.html',
 	'AdityaHrudayam': 'sd/AdityaHrudayam.html',
 	'DurgaChandrakalaStuti': 'sd/DurgaChandrakalaStuti.html',
@@ -142,6 +143,6 @@ function showIframe(currentEvent)
 // populate navbar on pageload
 populateNavbar()
 
-// show first person's journal automatically
+// show first shloka by default
 document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['DhyanaShloka']}" style="width: 100%; height: 100vh;"></iframe>`;
 
