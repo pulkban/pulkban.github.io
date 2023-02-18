@@ -1,4 +1,5 @@
 journalDetails = {
+	'NRN_Dhyaanam': 'nrn/NRN_Dhyaanam.html',
 	'NRN_Dasakam_01': 'nrn/NRN_Dasakam_01.html',
 	'NRN_Dasakam_02': 'nrn/NRN_Dasakam_02.html',
 	'NRN_Dasakam_03': 'nrn/NRN_Dasakam_03.html',
@@ -6,6 +7,7 @@ journalDetails = {
 	'NRN_Dasakam_05': 'nrn/NRN_Dasakam_05.html',
 	'NRN_Dasakam_06': 'nrn/NRN_Dasakam_06.html',
 	'NRN_Dasakam_07': 'nrn/NRN_Dasakam_07.html',
+	'NRN_Dasakam_08': 'nrn/NRN_Dasakam_08.html',
 };
 
 
