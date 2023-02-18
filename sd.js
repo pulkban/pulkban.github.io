@@ -6,6 +6,10 @@ journalDetails = {
 	'NithyaParayanaShloka': 'sd/NithyaParayanaShloka.html',
 	'AdityaHrudayam': 'sd/AdityaHrudayam.html',
 
+	//--Hanuman
+	'sep14':'Hanuman',
+	'HanumanChalisa': 'sd/HanumanChalisa.html',
+	
 	//--Andal
 	'sep9':'Devi',
 	'DurgaChandrakalaStuti': 'sd/DurgaChandrakalaStuti.html',
