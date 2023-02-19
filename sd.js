@@ -10,7 +10,7 @@ journalDetails = {
 	'sep14':'Hanuman',
 	'HanumanChalisa': 'sd/HanumanChalisa.html',
 	
-	//--Andal
+	//--Devi
 	'sep9':'Devi',
 	'DurgaChandrakalaStuti': 'sd/DurgaChandrakalaStuti.html',
 	'NavaratnaMalika': 'sd/NavaratnaMalika.html',
@@ -47,6 +47,7 @@ journalDetails = {
 	'TripurasundariAshtakam': 'sd/TripurasundariAshtakam.html',
 	'Thirupalliyezhuchi': 'sd/Thirupalliyezhuchi.html',
 	'VaaraahiKavacham': 'sd/VaaraahiKavacham.html',
+	'AkilandeswariAksharamalika': 'sd/AkilandeswariAksharamalika.html',
 	
 
 	//--Andal
@@ -60,7 +61,7 @@ journalDetails = {
 	'LalithaSahasranamam': 'sd/LalithaSahasranamam.html',
 	'LalithaStavaRatnam': 'sd/LalithaStavaRatnam.html',
 	'LalithaTrishati': 'sd/LalithaTrishati.html',
-	'ShreeLalithaPanchakam': 'sd/ShreeLalithaPanchakam.html',
+	'ShreeLalithaPanchakam': 'sd/ShreeLalithaPanchakam.html',	
 
 
 	//--Ganesha

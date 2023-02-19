@@ -6,8 +6,6 @@ journalDetails = {
 	'Shri_Guru_Padukaa_Stotram': 'sb/ShriGuruPadukaaStotram.html',
 	'Gurvashtakam': 'sb/Gurvashtakam.html',
 	'GuruDhyaanam': 'sb/GuruDhyaanam.html',
-	'BGEndingPrayer': 'sb/BGEndingPrayer.html',
-	'BGAarti': 'sb/BGAarti.html',
 	'HaraHaraShambo': 'sb/HaraHaraShambo.html',
 	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
 	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
