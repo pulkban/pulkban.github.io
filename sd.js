@@ -48,6 +48,7 @@ journalDetails = {
 	'Thirupalliyezhuchi': 'sd/Thirupalliyezhuchi.html',
 	'VaaraahiKavacham': 'sd/VaaraahiKavacham.html',
 	'AkilandeswariAksharamalika': 'sd/AkilandeswariAksharamalika.html',
+	'Durga_Aapaduttara_Stava': 'sb/DurgaAapaduttara.html',
 	
 
 	//--Andal
@@ -93,7 +94,11 @@ journalDetails = {
 	'ShriDakshinaaMoorthyStothram': 'sd/ShriDakshinaaMoorthyStothram.html',
 	'ChandrashekaramAshtakam': 'sd/ChandrashekaramAshtakam.html',
 	'ArdhaNaareshwariStothram': 'sd/ArdhaNaareshwariStothram.html',
-
+	'HaraHaraShambo': 'sb/HaraHaraShambo.html',
+	'Gurvashtakam': 'sb/Gurvashtakam.html',
+	'GuruDhyaanam': 'sb/GuruDhyaanam.html',
+	'Shri_Guru_Padukaa_Stotram': 'sb/ShriGuruPadukaaStotram.html',
+	'Shri_Guru_Stotram': 'sb/GuruStotram.html',
 	
 	//--Subramanya
 	'sep2':'Subramanya',
@@ -114,6 +119,11 @@ journalDetails = {
 	'MukundaMaala': 'sd/MukundaMaala.html',
 	'NaamaRamayana': 'sd/NaamaRamayana.html',
 	'PanchaayudhaStotram': 'sd/PanchaayudhaStotram.html',
+	'ShriDattaStavam': 'sb/ShriDattaStavam.html',
+	'AntayuNeeve': 'sb/AntayuNeeve.html',
+	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
+	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
+	'Shri_Rama_Stotram': 'sb/ShriRamaStotram.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
