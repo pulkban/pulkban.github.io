@@ -1,17 +1,13 @@
 journalDetails = {
-	'Durga_Aapaduttara_Stava': 'sb/DurgaAapaduttara.html',
-	'Shri_Guru_Stotram': 'sb/GuruStotram.html',
-	'Achyutasyashtakam': 'sb/Achyutasyashtakam.html',
-	'Shri_Rama_Stotram': 'sb/ShriRamaStotram.html',
-	'Shri_Guru_Padukaa_Stotram': 'sb/ShriGuruPadukaaStotram.html',
-	'Gurvashtakam': 'sb/Gurvashtakam.html',
-	'GuruDhyaanam': 'sb/GuruDhyaanam.html',
-	'HaraHaraShambo': 'sb/HaraHaraShambo.html',
-	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
-	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
-	'AntayuNeeve': 'sb/AntayuNeeve.html',
-	'ShriDattaStavam': 'sb/ShriDattaStavam.html',
+
+	'GaneshStarting': 'GaneshStarting.html',
+	'GaneshChathurthi': 'GaneshChathurthi.html',
+	'Taligai': 'Taligai.html',
+	'Chenchalamma': 'Chenchalamma.html',
+	'Diwali': 'Diwali.html',
 };
+
+
 
 // keep a global reference to iframe as it will be needed multiple times
 myIframe = document.getElementById("my-iframe");
@@ -63,5 +59,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first person's journal automatically
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Durga_Aapaduttara_Stava']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['GaneshStarting']}" style="width: 100%; height: 100vh;"></iframe>`;
 

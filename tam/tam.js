@@ -1,10 +1,9 @@
 journalDetails = {
 
-	'Vizhiyile': 'tam/Vizhiyile.html',
-	'Mandram': 'tam/Mandram.html',
-	'Malare': 'tam/Malare.html',
-	
-	
+	'Vizhiyile': 'Vizhiyile.html',
+	'Mandram': 'Mandram.html',
+	'Malare': 'Malare.html',
+	'Meenamma': 'Meenamma.html',
 };
 
 

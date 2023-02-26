@@ -1,13 +1,17 @@
 journalDetails = {
-
-	'GaneshStarting': 'pooja/GaneshStarting.html',
-	'GaneshChathurthi': 'pooja/GaneshChathurthi.html',
-	'Taligai': 'pooja/Taligai.html',
-	'Chenchalamma': 'pooja/Chenchalamma.html',
-	'Diwali': 'pooja/Diwali.html',
+	'Durga_Aapaduttara_Stava': 'DurgaAapaduttara.html',
+	'Shri_Guru_Stotram': 'GuruStotram.html',
+	'Achyutasyashtakam': 'Achyutasyashtakam.html',
+	'Shri_Rama_Stotram': 'ShriRamaStotram.html',
+	'Shri_Guru_Padukaa_Stotram': 'ShriGuruPadukaaStotram.html',
+	'Gurvashtakam': 'Gurvashtakam.html',
+	'GuruDhyaanam': 'GuruDhyaanam.html',
+	'HaraHaraShambo': 'HaraHaraShambo.html',
+	'Seshadri_Giriyalli': 'Seshadri_Giriyalli.html',
+	'Dasavatara_Stotram': 'Dasavatara_Stotram.html',
+	'AntayuNeeve': 'AntayuNeeve.html',
+	'ShriDattaStavam': 'ShriDattaStavam.html',
 };
-
-
 
 // keep a global reference to iframe as it will be needed multiple times
 myIframe = document.getElementById("my-iframe");
@@ -59,5 +63,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first person's journal automatically
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['GaneshStarting']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Durga_Aapaduttara_Stava']}" style="width: 100%; height: 100vh;"></iframe>`;
 
