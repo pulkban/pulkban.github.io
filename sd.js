@@ -9,6 +9,7 @@ journalDetails = {
 	//--Hanuman
 	'sep14':'Hanuman',
 	'HanumanChalisa': 'sd/HanumanChalisa.html',
+	'YantrodharakaHuanumanStotram': 'sd/YantrodharakaHuanumanStotram.html',
 	
 	//--Devi
 	'sep9':'Devi',
