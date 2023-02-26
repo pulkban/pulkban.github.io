@@ -28,7 +28,7 @@ function populateNavbar()
 // to implement it we will have to clear this hightlight from previously clicked name
 // so keep last event handy to modify its highlight
 var lastEvent = null;
-
+e
 function showIframe(currentEvent)
 {
     // find title of button which was pressed
