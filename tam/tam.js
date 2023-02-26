@@ -5,6 +5,7 @@ journalDetails = {
 	'Malare': 'Malare.html',
 	'Meenamma': 'Meenamma.html',
 	'Poove': 'Poove.html',
+	'msv_medley': 'msv_medley.html',
 };
 
 
@@ -28,7 +29,7 @@ function populateNavbar()
 // to implement it we will have to clear this hightlight from previously clicked name
 // so keep last event handy to modify its highlight
 var lastEvent = null;
-e
+
 function showIframe(currentEvent)
 {
     // find title of button which was pressed
