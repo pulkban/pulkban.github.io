@@ -125,6 +125,7 @@ journalDetails = {
 	'Dasavatara_Stotram': 'sb/Dasavatara_Stotram.html',
 	'Seshadri_Giriyalli': 'sb/Seshadri_Giriyalli.html',
 	'Shri_Rama_Stotram': 'sb/ShriRamaStotram.html',
+	'VishnuSahasraNamam': 'sb/VishnuSahasraNamam.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
