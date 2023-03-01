@@ -131,6 +131,10 @@ journalDetails = {
 	'sep7':'Mooka Pancha Shathi',	
 	'MookaPanchaShathi': 'MookaPanchaShathi.html',
 	
+	//--Large
+	'sep16':'Devi Narayaneeyam',	
+	'DeviNarayaneeyam': 'DeviNarayaneeyam.html',
+	
 	//--Misc
 	'sep11':'Miscellaneous',	
 	'Thotakaashtakam': 'Thotakaashtakam.html',
