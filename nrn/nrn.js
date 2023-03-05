@@ -10,6 +10,8 @@ journalDetails = {
 	'NRN_Dasakam_08': 'NRN_Dasakam_08.html',
 	'NRN_Dasakam_09': 'NRN_Dasakam_09.html',
 	'NRN_Dasakam_10': 'NRN_Dasakam_10.html',
+	'NRN_Dasakam_11': 'NRN_Dasakam_11.html',
+	'NRN_Dasakam_12': 'NRN_Dasakam_12.html',
 };
 
 
