@@ -1,6 +1,9 @@
 journalDetails = {
 
 	'Geography': 'Geography.html',
+	'WordQuiz': 'WordQuiz.html',
+	'C1 Exam': 'c1.html',
+	'Salesforce Developer': 'sf.html',
 };
 
 

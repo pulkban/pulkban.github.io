@@ -24,6 +24,9 @@ journalDetails = {
 	'BGAarti': 'BGAarti.html',
 	'BG_SapthaShloki': 'BG_SapthaShloki.html',
 	'BG_Mahatmyam': 'BG_Mahatmyam.html',
+	
+	'BGQuiz': 'BGQuiz.html',
+
 };
 
 
