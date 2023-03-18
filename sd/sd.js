@@ -100,6 +100,8 @@ journalDetails = {
 	'GuruDhyaanam': '../sb/GuruDhyaanam.html',
 	'Shri_Guru_Padukaa_Stotram': '../sb/ShriGuruPadukaaStotram.html',
 	'Shri_Guru_Stotram': '../sb/GuruStotram.html',
+	'ShivaSahasranamam': '../sb/ShivaSahasranamam.html',
+	
 	
 	//--Subramanya
 	'sep2':'Subramanya',

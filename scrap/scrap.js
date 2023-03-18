@@ -1,6 +1,6 @@
 journalDetails = {
 
-	'Geography': 'Geography.html',
+	'Notes': 'Notes.html',
 	'WordQuiz': 'WordQuiz.html',
 	'C1 Exam': 'c1.html',
 	'Salesforce Developer': 'sf.html',
@@ -58,5 +58,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first person's journal automatically
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Geography']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Notes']}" style="width: 100%; height: 100vh;"></iframe>`;
 
