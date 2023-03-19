@@ -33,7 +33,7 @@
 </head>
 
 <body onload="loadWords()">
-<div class="p-3">
+<div class="m-4">
 	<br>
 	<h2 class="text-center"><strong>Pranev questions - Grade 3H</strong></h2>
 	<hr style="border-top: 2px dotted red" />
@@ -72,15 +72,16 @@
 	<blockquote><p class="h2" id="answer">Answer</p></blockquote>
 	
 	<div class="row">
-		<button type="button" accesskey="a" class="btn btn-warning" style="margin: 10px 5px 0px 0px;" onclick = "showAnswer()">Show Answer</button>
-		<button type="button" accesskey="n" class="btn btn-success" style="margin: 10px 5px 0px 0px;" onclick = "nextQuote()">Next Question</button>
+		<div class="col-sm-6"> <button type="button" accesskey="a" class="btn btn-warning w-100" onclick = "showAnswer()">Show Answer</button> </div>
+		<div class="col-sm-6"><button type="button" accesskey="n" class="btn btn-success w-100" onclick = "nextQuote()">Next Question</button></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6"> <button type="button" accesskey="l" id="show" class="btn btn-info w-100" onclick = "showAll()">Show All</button> </div>
+		<div class="col-sm-6"><button type="button" accesskey="h" id="hide" class="btn btn-info w-100" onclick = "hideAll()">Hide All</button></div>
 	</div>
 	
-	<!--SHOW ALL and Table-->
-	<div class="row"><button type="button" accesskey="l" id="show" class="btn btn-info" style="margin: 10px 5px 0px 0px;" onclick = "showAll()">Show All</button></div>
-	
-	<!--HIDE ALL -->
-	<div class="row"><button type="button" accesskey="h" id="hide" class="btn btn-info" style="margin: 10px 5px 0px 0px;" onclick = "hideAll()">Hide All</button></div>
+
 	
 	<!--TABLE-->
 	<div id="qsTable" class="bg-light">
