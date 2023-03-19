@@ -50,6 +50,7 @@ journalDetails = {
 	'VaaraahiKavacham': 'VaaraahiKavacham.html',
 	'AkilandeswariAksharamalika': 'AkilandeswariAksharamalika.html',
 	'Durga_Aapaduttara_Stava': '../sb/DurgaAapaduttara.html',
+	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
 	
 
 	//--Andal
@@ -109,6 +110,10 @@ journalDetails = {
 	'SubramanyaSahasranamam': 'SubramanyaSahasranamam.html',
 	'ShriSwaminathaAshtakam': 'ShriSwaminathaAshtakam.html',
 	'VelMaaral': 'VelMaaral.html',
+	
+	//--Saibaba
+	'sep19':'Saibaba',
+	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
 
 
 	//--Rama Krishna Vishnu

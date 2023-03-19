@@ -63,6 +63,15 @@ function showAll() {
 	strFullTableContents = strFullTableContents + '</tbody></table>';
 	
 	qsTable.innerHTML = strFullTableContents;
+	document.getElementById('show').style.visibility = 'hidden';
+	document.getElementById('hide').style.visibility = 'visible';
+}
+
+function hideAll() {
+	var qsTable = document.getElementById("qsTable");
+	qsTable.innerHTML = "";
+	document.getElementById('show').style.visibility = 'visible';
+	document.getElementById('hide').style.visibility = 'hidden';
 }
 
 //JS: helper Functions
@@ -101,7 +110,7 @@ function clear() {
 }
 
 function createRadio(value, optionToBeDisplayed, index) {	
-	return '<div class="form-check"> <input class="form-check-input" type="radio" id="option'+value+'" name="options" value="'+value+'"><label class="form-check-label" for="option'+value+'" id="'+value+'" index="' + index + '">'+optionToBeDisplayed+'</label><br></div>';
+	return '<div class="form-check mt-3"> <input class="form-check-input" type="radio" id="option'+value+'" name="options" value="'+value+'"><label class="form-check-label" for="option'+value+'" id="'+value+'" index="' + index + '">'+optionToBeDisplayed+'</label><br></div>';
 }
 function createCheckbox(value, optionToBeDisplayed, index) {	
 	return '<div class="form-check"> <input class="form-check-input" type="checkbox" id="checkbox'+value+'" name="options" value="'+value+'"><label class="form-check-label" for="checkbox'+value+'" id="'+value+'" index="' + index + '">'+optionToBeDisplayed+'</label><br></div>';
