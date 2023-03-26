@@ -16,14 +16,14 @@ journalDetails = {
 	'NRN_Dasakam_14': 'NRN_Dasakam_14.html',
 	'NRN_Dasakam_15': 'NRN_Dasakam_15.html',
 	'NRN_Dasakam_16': 'NRN_Dasakam_16.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_17.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_18.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_19.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_20.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_21.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_22.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_23.html',
-	'NRN_Dasakam_16': 'NRN_Dasakam_24.html',
+	'NRN_Dasakam_17': 'NRN_Dasakam_17.html',
+	'NRN_Dasakam_18': 'NRN_Dasakam_18.html',
+	'NRN_Dasakam_19': 'NRN_Dasakam_19.html',
+	'NRN_Dasakam_20': 'NRN_Dasakam_20.html',
+	'NRN_Dasakam_21': 'NRN_Dasakam_21.html',
+	'NRN_Dasakam_22': 'NRN_Dasakam_22.html',
+	'NRN_Dasakam_23': 'NRN_Dasakam_23.html',
+	'NRN_Dasakam_24': 'NRN_Dasakam_24.html',
 };
 
 
