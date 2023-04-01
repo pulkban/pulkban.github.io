@@ -6,6 +6,7 @@ journalDetails = {
 	'Meenamma': 'Meenamma.html',
 	'Poove': 'Poove.html',
 	'msv_medley': 'msv_medley.html',
+	'Kalyanamu': 'kalyanamu.html',
 };
 
 
