@@ -5,6 +5,7 @@ journalDetails = {
 	'C1 Exam': 'c1.html',
 	'Salesforce Developer': 'sf.html',
 	'Aura Code 1': 'AuraCode1.html',
+	'WordPower': 'WordPower.html'
 };
 
 

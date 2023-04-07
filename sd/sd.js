@@ -51,7 +51,11 @@ journalDetails = {
 	'AkilandeswariAksharamalika': 'AkilandeswariAksharamalika.html',
 	'Durga_Aapaduttara_Stava': '../sb/DurgaAapaduttara.html',
 	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
-	
+	'JayaJayaDev_Song': 'JayaJayaDev_Song.html',
+	'Verkadu_Song': 'Verkadu_Song.html',
+	'MangalaRoopini_Song': 'MangalaRoopini_Song.html',
+	'AyigiriNandini_Song': 'AyigiriNandini_Song.html',
+	'OmSakthiPotri': 'OmSakthiPotri.html',
 
 	//--Andal
 	'sep4':'Andaal',	
@@ -102,6 +106,7 @@ journalDetails = {
 	'Shri_Guru_Padukaa_Stotram': '../sb/ShriGuruPadukaaStotram.html',
 	'Shri_Guru_Stotram': '../sb/GuruStotram.html',
 	'ShivaSahasranamam': '../sd/ShivaSahasranamam.html',
+	'ShivaStutiBhajan': '../sd/ShivaStutiBhajan.html',
 	
 	
 	//--Subramanya
