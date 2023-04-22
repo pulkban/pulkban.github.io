@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<section class="bg-light py-4 my-5">
+    <div class="container">
+	
+
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Vatican Apostolic Archive</h3> <p class="card-text"> <small> 
+							==================SF GEneral<br>
+							<li>Standard vs Custom Object - OK<br>
+							<li>Role vs Profile – OK<br>
+							<li>Permission Set – notOK<br>
+							<li>Validation Rule – OK<br>
+							<li>SOQL vs SOSL – OK<br>
+							<li>Group By - notOK<br>
+							<br>
+							<li>Relationships – OK<br>
+							<li>Junction object - manyToMany – OK<br>
+							<li>Dashboards vs Reports - OK<br>
+							<li>Delegate Admin - Impersonation - <br>
+							<li>Partial (5D, 5G) - takes only 10K records<br>
+							<li>While create Sandbox - how do you obfuscate the data (SF Data Masks)<br>
+							<li>Sandbox user = <prod_user>.<sandboxName><br>
+							<li>Explain ChangeSet<br>
+							<li>WorkFlow vs ProcessBuilder – OK<br>
+							<li>RegEx<br>
+							<li>which are mandatory fields by default in Acc, Cont, Opp, Case<br>
+							<li>OppContactRole - means (its junction object)<br>
+							<li>External lookup (SF Connect - outside SF - eg OracleID)<br>
+							<li>Identity object - (Contact in 2 different accounts - howz GDPR playing then?)<br>
+							<li>MasDetRec - 25 fields roll up - sumOfChild(InvoiceLine)<br>
+							<li>Invoice has contact lookupField - what happens if u delete contact (its LKP rel)<br>
+							<li>Can we use profile to restrict List View visibility - (ans No - only Role,PubGroup since List view is for records)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Workflow</h3> <p class="card-text"> <small> 
+							==================Workflow<br>
+							<li>Workflow - on every edit (or) only once an edit (ans CanbeConfigured)<br>
+							<li>WF - Rule Criteria - is it mandatory - how to circumvent (by marking=true)<br>
+							<li>due to WF, it has put email in queue - lets say u change the oppStatus to Open - will it remove - (ans: no - you might manually delete)<br>
+							<li>SSN is mandatory - but only for US folks - how to make? (ans: ValidationRule)<br>
+							<li>Account Register mandatory - but RSM in road - how to handle? (ans: make the timing of OppCreation mandatory; or Quick Submit)<br>
+							<li>More than 1 million dollar deal - I need approve (use Approval process)<br>
+							<li>Approval sent - but realized not needed - [Allow Submitters to Recall Approval Requests]<br>
+							<li>in Approval process - whats the 1st default action? (ans: LockRec)<br>
+							<li>How to start Approval - [ans: introduce submit for approval button]<br>
+							<li>where do u see concept locking record in SF Admin (ans: Approval)<br>
+							<li>ProcessBuilder-1 updates false, PB-2 to true again PB-1 to false - when will it stop / how to handle? (6 times recursive)<br>
+							<li>Quip documents (embedded doc in sf) - can update in PBuilder<br>
+							<li>Process Builder - On click of Save - Recursive (max 6 times)<br>
+							<li>Process Builder - but even if description change - still PB's condition will be met - will it fire - can I stop - (ans: YES but how)<br>
+							<li>PB - 1 critera true, so 1 action done - now, 2nd criteria true - it should do 2nd action - (can this be done = Yes - if it should not be done - mark STOP as last action)<br>
+							<li>PB I want to create a new DOCUMENT - which actionType (Quip?)<br>
+							<li>PB - can you call APEX (ans Yes) - can you pass parameters (ans Yes)<br>
+							<li>Name the permissions regarding flows (ans Manage, Run flows)<br>
+							<br>
+							<li>how many types of flows are there (ans 4)<br>
+							<li>Screen Flows (like wizard) - when you are on call with customer - one screen after another screen<br>
+							<li>Event based flows - which ones (ans when time comes, run) (ans when recordInsert?)<br>
+							<li>let flow be there - I will call when I want (ans Autolaunched Flow) - APEX call, REST, Buttons<br>
+							<br>
+							<li>Can I create a duplicate in workflow field update and escape duplication rules(YES!)<br>
+							<li>Can I overcome validation rule in workflow field update and escape (YES!)<br>
+							<br>
+						</small> </p>
+                    </div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Security</h3> <p class="card-text"> <small> 
+							======================================Security<br>
+							<li>Security - OrgWide if you want to configure - what could that be (ans Private - you start in restrictive mode and then slowly open - org also has publicRead, publicWrite too)<br>
+							<li>I click - PDF not coming (in VF page) - empty white page - which setting (ans ClickJack) - if you enable clickJack - wanna still see pdf - whitelist it<br>
+							<li>if someone wants to access salesforce (e.g. vf page - put in whitelist); if salesforce want to access external - put in remoteSites<br>
+							<li>'Controlled by Parent' - where do u see this - (ans in sharing settings)<br>
+							<li>Change owner of record - options in Account, Contact, Lead, Cases, Contacts (Ac/Cont: user, partUser, commUser) (Lead: user, queue, partUser) - another q: Are queues available for customObjects (ans: No?)<br>
+							<li>I am EastSalesMgr - WestSales mgr is my peer so he cant see my records - how can he see then 2 options? (ans SharingRules, PubGroups)<br>
+							<li>If you have to share recs with your peer SalesManager (teamB), is it only for him or his reportees (ans: only HIM) - what to do even for his reportees (ans: Roles and Subordinates)<br>
+							<li>I can create sharing rule for Opp, Case but I cannot do for Invoice (I cant see only) why? (ans: inside OWD - u might have marked inherit from parent)<br>
+							<li>When you share opportunity to your peer manager - does it share Opp's parent Account rec also - (ans Yes)<br>
+							<li>Is Sharing Instant - (ans: no will take a while and gives notification once done)<br>
+							<li>Opp is won, share with everyone in company - how? (ans share with criteria: won=isTrue to: rolesAndSubords=CEO)<br>
+							<li>for an Opp, I cant see Sharing button - went to layout - the button is already dragged and placed in layout - (ans: for this object - OWD might be already Public Read/Write)<br>
+							<li>for an Opp record - manual sharing - can I add 2 roles and 2 public groups (or) either of role or users (ans: yes you can keep appending)<br>
+							<li>What is the use of sharing rules if profile does not allow the object to be seen (ans: true that, no use - the base of the pyramid is always the profile/perm sets)<br>
+							<li>Profile View All - does it obey sharing rules (ans: No - regardless of any sharing rules - show it, same for modify all - clean bypass)<br>
+							<li>On Monday, major upgrade is there - I dont want anyone to login to CRM salesforce (ans go to LoginHours - set start=12:00 end=12:00)<br>
+							<li>Network IP ranges - howz that different from Login IP ranges (ans Login IP arranges allows u to login after activation - network IP ranges do not need this 2FA authentication etc - its trusted)<br>
+							<li>Using SF's standard profiles - is it good / advantageous? (ans No - I cant update any object level setting - so, I better clone create 'Udhay Standard Profile' and do updates)<br>
+							<li>Does PermSet have a license associated - if so, whats the use? is it mandatory? - (ans No, not mandatory - some generic permission enablement like createReports dont need license - but for doing something complicated, u need to buy the license and associate it to permission set)<br>
+							<li>Can you tell soemthing that is not present in PermSets but present in Profiles (ans Session settings, Login hours, Password policy)<br>
+							<li>I want compliance manager to delete and export records (PSGrp-1) - and I assign same PSGrp-1 to Admin - but I dont want Admin to delete (ans: Add SuperAdmin Muting which negates delete perm)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Reports</h3> <p class="card-text"> <small> 
+							======================================Reports<br>
+							<li>If I want to send report daily once (ans Schedule it)<br>
+							<li>Reports go to a group of users who might have permission, who might not have permission to see thos records - true/false - explain (ans Yes - it depends on Running User for the report)<br>
+							<li>You are scheduling the report - now u went to scheduled jobs - u can see there - open and unschedule - will it remove (ans Yes)<br>
+							<li>So frustrating to keep on getting scheduled report - I just want to get report when there is an account that has more than 5 opps (or) only when that day, opp acount exceeded/changed to $200K - how (ans: Subscribe option - give condition)<br>
+							<li>An every stage how many opps are there - which rep (ans: Summary like groupBy)<br>
+							<li>x axis and y axis - like type vs Stage of opp whic rep (ans Matrix report)<br>
+							<li>if Opp amount between 50K and 100K - put in a group, 100-150K - group c - how to put (ans: bucket fields create)<br>
+							<li>'Object limit reached' where do u see in Rep/Dashboard (ans: in 'Report type'[like custom struct] and max 4 - e.g. Account and Opps with orders and order products)<br>
+							<li>Can account be linked to another account of same obj (ans Yes, Parent account)<br>
+							<li>a customer asks: I want Opportunities and Accounts in a report - would you create a reportType (ans: if u r new, you will realize there is no such report type and you might start creating one for urself - but if you are experienced, u will pick opportunity and automatically there is access to parent object)<br>
+							<br>
+							==Dashboards<br>
+							<li>How many columns are present in dashboard deisgn (ans 3 by default)<br>
+							<li>Dashboard - run as logged-in user / run as other user<br>
+							<li>If I want to see dashboards on my chatter - what should one do (ans go to feedTracking and Enable for dashboards)<br>
+							<li>if gorge chart has to move from yellow to red - post it in chatter - how to do (ans hit follow link against that gorge chart)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Data</h3> <p class="card-text"> <small> 
+							======================================Data<br>
+							<li>When duplicate is checked, does it check all records (ans NO - only where u have access - you can also byPass)<br>
+							<li>dup - can i warn and go ahead and create(ans YES)<br>
+							<li>dup - can I update such a way it create duplicate (ans Optional - u can chose to Allow/Block)<br>
+							<li>Dup rule -> Match rule -> how to match John and Jon both being duplicate? (ans firstName - fuzzy:First Name)<br>
+							<li>local install tool which one (eg DataLoader)<br>
+							<li>Can we import all object's records using import wizard (ans no - not Opps, for eg)<br>
+							<li>Want to check duplicate while upload - which one {ans only Import Wizard not DL or DL.io)<br>
+							<li>Dont want to fire WF / Flows (ans you can off in Import wizard not DL / DL.io)<br>
+							<li>Which objects Import Wizard dont support (ans Opportunity)<br>
+							<li>Concept of ExternalID text field? (ans: if you have 1-1 between external sys Opport <-> Invoice)<br>
+							<li>deleted recs shouldnt go recycle bin - which option (ans HardDelete)<br>
+							<li>I wanted to export recycle bin records also - how (ans Use Export all in dataLoader)<br>
+							<li>2 auth ways to connect dataLoader with SF (ans OAuth, Password, but why would u give password?)<br>
+							<li>what is OAuth - (ans service to service; service 2 will ask you for certian read/write rights - once you give - generates Oauth2 and gives it to requester - decoded by JWT)<br>
+							<li>JWT - means (ans: signed interaction details in form of JSON - let client take - server cant maintain in Redis - what if Redis go down - oof)<br>
+							<li>Dataloader: Can I upload XLS or XLSX (ans: only CSV)<br>
+							<li>There are 20 columns, lets say, in Excel - pain to keep mapping for updating - what to do (ans: use AutoMatch - keep column headers same)<br>
+							<li>Import wiz - does it need install (ans No, its web-based)<br>
+							<li>For import data update - i dont have SF ID, rather email - will it work (ans Yes, Import wiz works beautifully - not the dataLoader - there ID/ExtID alone is needed is needed for update; Import wizard upto 100MB a file)<br>
+							<li>I want title (from CSV) to go to both Contact.title and Contact.designation - possible (ans: No, 1-1 in one object only)<br>
+							<li>can phone be put in both account.Phone and contact.Phone (ans Yes)<br>
+							<li>Dataloader.io is from __ (ans Mulesoft)<br>
+							<li>Mike leaves company - he is owner of acc / opps - what should I do (ans MassTransfer Accs - Opps will come automatically)<br>
+							<li>Mike leaves - can I transfer to another user only or queue too (ans Queue too)<br>
+							<li>massDelete - can I keep on deleting? (ans No - Recyclebin has limited space only)<br>
+							<li>I create custom object and put some 100s of data - can I transfer to Mike? (ans No, it should have owner field)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Sales</h3> <p class="card-text"> <small> 
+							======================================Sales<br>
+							<li>Potential customers are __ (ans Leads)<br>
+							<li>Name few channels (ans Phone, Email, Website, Social media || Pardot-EmailMarketing, MarkCloud)<br>
+							<li>Where does the actual sales process really kicks in (ans no Lead / Acc / Cont - its Opportunity)<br>
+							<li>Lead - typical Ratings? (ans Warm Cold Hot)<br>
+							<li>Lead status typical? (ans Working-Not contacted, contacted)<br>
+							<li>Whats CreatedBy when Lead is created thro webToLead (ans since the external users are not in system, you can assign an user for W2L)<br>
+							<li>I want to submit ThankYou on W2L submit (ans Configure returnURL)<br>
+							<li>Bots create lot of W2L - how to avoid (ans Enable Captcha)<br>
+							<li>Give a score to Lead if Emps>100 and Indus=Banking - how will u do (ans create a number field - advanced formula IF (Numb > 100, 10, 0) + IF ( TEXT(Ind) = 'Banking', 20, 0))<br>
+							<li>ON Lead INsert - I want to send Thanks email - how? (ans use Auto Lead Response (we can also use Wflow?) - ensure a template is ready)<br>
+							<li>based on lead on a product - different emails - how (ans, create multiple lead auto resp rules - put a sort order CAREFULLY - if the instant it matches any rule - send mail and STOP)<br>
+							<li>Lead Auto Resp - if subject line CONTAINS prod name - u can do that? (ans Yes - RegEx?)<br>
+							<li>When you convert Lead - which all objects the data goes thro (ans Accou, Contact, Opportunity)<br>
+							<li>Assignment rules are only for __ (ans Leads, Cases)<br>
+							<li>When you update a Lead - will the assignment rules fire? (ans No, only New)<br>
+							<li>2 ways to HOLD lead assignment automatically? (ans make Inactive rule, uncheck when new Lead is created)<br>
+							<li>What changes when a stage of Opp changes (ans the probabbility %)<br>
+							<li>Whats the use of Opp's probabbility on amount (ans the Expected revenue = prob <li>amount)<br>
+							<li>Impact of Product on Opp? (ans add 2prod 10K each, the opp amount automatically changes to 20K and so exp revenue, which is based on prob)<br>
+							<li>in Opp, which field has history tracked predominantly (ans Stage History)<br>
+							<li>Does product object have price to it? (ans No - it is present in appropr priceBook - depends on VIP or normal)<br>
+							<li>How does Salesforce identify similar opp (ans Account, ContactRole, Type combination)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Campaign</h3> <p class="card-text"> <small> 
+							======================================Campaign<br>
+							<li>Which object is used to track ROI in SF (ans Campaign)<br>
+							<li>Can campaign have a child? (ans Yes, Parent campaign)<br>
+							<li>Who are the potential campaign members (ans Contact, Lead, nowadays Account)<br>
+							<li>What are the typical statuses of campaign members (ans Responded, Added)<br>
+							<li>Lead was a member of Campaign, now Lead gets converted to Opp, cont, acc - what happens (ans Opp is added as member to campaign)<br>
+							<li>If you want to create campaign, which permission u should be enabled with (ans U should be marketing user checked in user record - but does it take a license? donno)<br>
+							<li>Tell which std object has a PATH (ans Opportunity's STAGE)<br>
+							<li>For which all, we can setup PATH (ans actually any Picklist field with vals)<br>
+							<li>for every stage (a val in pickList), what can I show (ans you can show upto 5 key fields of that obj (or) some guidance)<br>
+							<li>Einstein - which object is it relevant to (ans Lead / Opp Scoring - creates a Global model with 1000+ leads across orgs and creates scoring - Leads/Opp - recrod, activities and history are other main fields it considers - scoring between 0-99)<br>
+							<li>Forecast impacted based on __ (ans user ownership changes, opp record changes, territory mgt changes, https://admintoarchitect.com/sfForecastsOverview) - https://admintoarchitect.com/sfEDO<br>
+							<li>Forecast impact - how (ans groupBy(Stage), sum(ExpectedRevenue=prob*amount))<br>
+							<li>Name few global actions (ans new lead/opp - for RSMs on road - real fast on Mobile, logCall, newEvent - you can define more in setup - it need not be associated to AN OBJECT)<br>
+							<li>Quickly I want to launch a VF page by RSM - can I (ans Yes, in Global actions)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Case</h3> <p class="card-text"> <small> 
+							======================================Case<br>
+							<li>Open multiple tabs and create an App - how? (ans: Create App-> Console)<br>
+							<li>By default the owner of case? (ans: User, it can be changed to Queue also)<br>
+							<li>Automated Case user - what? (ans: when case is automatically created from W2C)<br>
+							<li>for Case, u have Support Process - means (ans it helps to define various status of a case e.g. for PRODUCT, Working, Expected, Closed, Onsite sup && for CONSULTANCY, Working, Remote, Closed)<br>
+							<li>A case is not getting closed, wat next (ans Escalation.  Rule, RuleEntries, n Escalation actions - viz. Reassign, Notification)<br>
+							<li>Explain email2Case (ans cust sends email to help@mirketa - it forwards to asdfladfwper@salefoce.com - case created)<br>
+							<li>Most used Email2Case or Web2Case - (ans WebToCase)<br>
+							<li>Web2C - what code is written on submit (ans formAction to an URL with POST)<br>
+							<li>Web2C - does it only create case - can it link with Contact (ans: Yes, put an email - if email matches - direct link, super!)<br>
+							<li>Relating case, what is present in classic not in lightning (ans Solutions)<br>
+							<li>Case has pre-loaded way of resolving - whats it (ans Solutions - its an object on its own, having layout, fields, validations etc)<br>
+							<li>Can solution be categorized like meta tags (ans Yes, u can associate categories to that solution record)<br>
+							<li>Something like wikipedia - whats there for case (ans Knowledge - associate with meta tags from 4-5 field's values - done)<br>
+							<li>Knowledge - can we allow user to create their own (yes)<br>
+							<li>Some of the knowledge articles - privileged and only some users can see - how to config (ans create a Data categories and assign it at their profile level)<br>
+							<li>For resolving case, which are the static guides (ans Solution, Knowledge/Articles, Ideas?)<br>
+							<li>I tell something, someone votes it up, comments too - what am I talking about (ans Ideas)<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Dig Exp</h3> <p class="card-text"> <small> 
+							======================================Digital Experience / Community<br>
+							<li>Give some names of community/Digital experience in SF (ans Koa, Kokua, Aloha, Napili)<br>
+							<br>
+							======================================Productivity<br>
+							<li>6 phone calls, 2 cust - then 95% of winning chances - where do I start from (ans Activity mgt)<br>
+							<li>In related items lets say, Account - 2 section but from same object - e.g.? (ans Open activity, Activity History)<br>
+							<li>Something has a dateTime but other thing as Start/End dateTime (ans Task, Event)<br>
+							<li>Mention the object for Task and Event (ans one and the same Activity; Activity- you can add custom fields but not for Task/Event and they have fixed)<br>
+							<br>
+							======================================SEQUENCE of Execution<br>
+							FLOWS<br>
+							<li>in flow - gather data in UI - evaluate (decision) - do action <br>
+								<li>whats the order of execution <br>
+								validation rules(layout-specific, rule-specific - system, <br>
+								record-triggered FLOWS, <br>
+								before TRIGGERs, <br>
+								again VALIDATION rule(both Sys and Custom validation rules), <br>
+								DUPLICATE rules (as we defined), <br>
+								SAVE(no commit), <br>
+								after TRIGGERs <br>
+								(2nd set - Assignment Rules, autoResp Rules)<br>
+								(3rd set - WF updates record, and bcoz of this: system validation rules only - not again custom validation rules, duplicate rules)<br>
+								(4th set - Escalation rules, Processes, Entitlement rules)<br>
+								(5th set - Rollup to parent and Parent's SAVE procedure)<br>
+								(6th set - Criteria based sharing evaluation)<br>
+								COMMIT<br>
+								Post Commit Logic???<br>
+							<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">SOQL / Batch</h3> <p class="card-text"> <small> 
+						======================================SOQL Injection<br>
+						<li>example for SOQL Inject secuty (ans if user=admin-- select id from user where user=admin-- and password = 'x - in this case a part of SOQL is commented)<br>
+						<li>which method u can use to avoid (ans escapeSingleQuotes)<br>
+						<li>bind variable - does it help for vulnerability (ans: instead of using ....where firstname = \"+var+\", USE rather :where firstname = :var1 - this way you can avoid falling in trap of 'test LIMIT 1')<br>
+						<li>cross site requ forgery - explain (ans u r in BankA - from there u go site 2 by clicking a link - site 2 can acquire that token and do some txns on ur behalf in BankA)<br>
+						<br>
+						======================================BATCH APEX<br>
+						<li>what does start do? (ans get all recs on which the processing has to happen)<br>
+						<li>example (ans at midnight 12 - get all recs - update status=Paid, desc=Batchieee - send email)<br>
+						<li>datatype where records are stored (ans return datatype is Database.QueryLocator)<br>
+						<li>typical structure on how batch executes? (ans <br>
+							inStart-getAllRecs; <br>
+							execute-listIsThere - loopThro - typeCastEachObject - uKnowWhichOne - doWork - dont worry - just use Database.update(lstCustToUpdate);<br>
+							finish-U Have Database.batchableContect bc - bc.GetJobId - getAll from AsyncApexJob where id= :BC.getJobId - send email<br>
+							finally - make object - objBatch1 = new BatchClass() - Database.executeBatch(objBatch1);<br>
+						<li>Which class u use to send email (ans <br>
+							new Messaging.SingleEmailMessage() - objMail.setToAddress(); objMail.setBody())<br>
+							Messaging.sendEmail(SingleEmailMessage[] {objMail});<br>
+						<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
+							======================================LOGS<br>
+							<li>How to see Logs? (ans - Debug Logs enable - for 1 hr/1day - update the record on layout - come and check all sys.debugs)<br>
+							<br>
+							======================================TestClass<br>
+							<li>whats the use of @isTest? - (ans - to give indication that this is testclass and will not count for code limit)<br>
+							<li>seeAllData = true - means? - (ans - give permission to see all the org's data)<br>
+							<li>other important methods- (ans: Test.startTest() Test.stopTest() Systemassert)<br>
+							<li>% needed? - (ans 75)<br>
+							<li>typical structure - (ans<br>
+								a class with @isTest annotation, <br>
+								static method void t1()<br>
+								//create data like insert objCust;  Test.start...update objCust....Test.stopTest(); lstInv = [select invoice where cust=obj.id] system.assertEquals(1, lstInv.size())<br>
+								<br>
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
+							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
+							<li>Abrahalm Lincoln, Theodre Roosevelet, Woodrow Wilson - top 3 folks
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
+							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
+							<li>Abrahalm Lincoln, Theodre Roosevelet, Woodrow Wilson - top 3 folks
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
+							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+    </div>
+</section>
+
+
+</body>
+</html> 
+
