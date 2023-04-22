@@ -24,9 +24,12 @@ journalDetails = {
 	'NRN_Dasakam_22': 'NRN_Dasakam_22.html',
 	'NRN_Dasakam_23': 'NRN_Dasakam_23.html',
 	'NRN_Dasakam_24': 'NRN_Dasakam_24.html',
+	'NRN_Dasakam_25': 'NRN_Dasakam_25.html',
+	'NRN_Dasakam_26': 'NRN_Dasakam_26.html',
+	'NRN_Dasakam_27': 'NRN_Dasakam_27.html',
+	'NRN_Dasakam_28': 'NRN_Dasakam_28.html',
+	'NRN_Dasakam_29': 'NRN_Dasakam_29.html',
 };
-
-
 
 // keep a global reference to iframe as it will be needed multiple times
 myIframe = document.getElementById("my-iframe");
