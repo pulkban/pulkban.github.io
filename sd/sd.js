@@ -5,6 +5,11 @@ journalDetails = {
 	'GuruMantra': 'GuruMantra.html',
 	'NithyaParayanaShloka': 'NithyaParayanaShloka.html',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
+	
+	//--Frequent
+	'sep88':'Frequent',
+	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
+	'HanumanChalisa': 'HanumanChalisa.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',

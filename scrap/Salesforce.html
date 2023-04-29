@@ -17,7 +17,7 @@
 			<div class="col-md-6 col-lg-6">
                 <div class="card my-3">
                     <div class="card-body">
-						<h3 class="card-title">Vatican Apostolic Archive</h3> <p class="card-text"> <small> 
+						<h3 class="card-title">SF General</h3> <p class="card-text"> <small> 
 							==================SF GEneral<br>
 							<li>Standard vs Custom Object - OK<br>
 							<li>Role vs Profile – OK<br>
@@ -346,7 +346,7 @@
 			<div class="col-md-6 col-lg-6">
                 <div class="card my-3">
                     <div class="card-body">
-						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
+						<h3 class="card-title">Logs / Test Class</h3> <p class="card-text"> <small> 
 							======================================LOGS<br>
 							<li>How to see Logs? (ans - Debug Logs enable - for 1 hr/1day - update the record on layout - come and check all sys.debugs)<br>
 							<br>
@@ -492,7 +492,97 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
-							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
+							============PD1 General / SOSL / SOQL<br>
+							<li>context sensitive 2 ways? (ans SF standard, vf page also)<br>
+							<li>Is there a dataType called ExternalID (no - but while giving name - u need to mark it)<br>
+							<li>2 ways to manipulate (a) DML, b) Database methods)<br>
+							<li>how many records deleted as part of delete dml (ans: lstCustToDel.size())<br>
+							<li>how to select deleted records also (in bin) (ans: .... Like 'VCR%' ALL ROWS)<br>
+							<li>if you need partial update method? (ans: use Database.)<br>
+							<li>for partial, what value for 2nd param of Database. (ans allOrNone=false)<br>
+							<li>Using SOQL can I query multi objects (ans Yes - but related ones only e.g. Opp/Acc)<br>
+							<br>
+							===SOSL<br>
+							<li>I dont know which object something is (ans SOSL)<br>
+							<li>what to use if a string is in various unrelated objects too (ans SOSL)<br>
+							<li>Morphological tokenization CJKT means (Chinese Jap Kore Thai - accurate results)<br>
+							<li>Which is faster SOSL/SOQL (ans SOSL - for a field - tokenize multiTerms and builds searchIndex)<br>
+							<li>SOSL are available in __ (e.g. APEX, SOAP/REST, VF controllers, SchemaExplorer)<br>
+							<li>You want to find just email in SOSL - approach?? (ans FIND... IN(EMAIL Fields)<br>
+							<li>SOSL - after finding -return only these (Eg. Opp(Name,Email,ID); Cont(Name))<br>
+							<li>in SOSL max? (2000 - you can say LIMIT n)<br>
+							<li>for multiple pages - how to use SOSL (ans OFFSET)<br>
+							<li>SOSL to translate UserLang - how? (ans toLabel(fields))<br>
+							<li>SOSL to search metadata too how? (ans Labels? - which are display value of fields in layout WITH METADATA = 'Labels')<br>
+							<li>SOSL - multiple experience site is there - how to filter (ans use with NETWORK IN (NetworkID1, ID4)<br>
+							<li>Name can have ABC, Description also has ABC - how to rettrieve SOSL (ans FIND 'ABC' in ALL Fields RETURNING Cust(id, name, desc))<br>
+							<li>Leads created in this quarter - how - SOSL (ans createddate = THIS_FISCAL_QUARTER)<br>
+							<br>
+							===SOQL<br>
+							<li>Can I use wildcard like Select <li>from account (ans No - u need to specify fields)<br>
+							<li>contact and its account name? (select contact.firstname, contact.account.name from contact)<br>
+							<li>An object that spans across 2 objects / 2 layouts (ans Event / Task / Activity - differentiate using typeOf)<br>
+							<li>In contact how is name different from firstname or lastname (ans name = first + last)<br>
+							<li>SOQL where For multi select (ans where subject = 'Comp;English'-both mand)<br>
+							<li>SOQL where For multi select either compEnglish or Maths (ans subject includes ('Comp;Eng', 'Maths')<br>
+							<li>List all children with their parent how (ans easy 1:1 so, select id, name, parent_M__r.name from children;  here parent_M is name of the field)<br>
+								=> select id, name, account.name from contact<br>
+								=> select id, name, Customer_M__r.name from Invoice__c where Customer_M__r.Name = 'Ravi'<br>
+							<li>List all parents with their multiple children (ans firstly get childRelationshipName which is generally pluralOfchildren - see in objectManager though)<br>
+								=>[STD] select id, name, (Select name from contacts) from account<br>
+								=>[CUS] select id, name, (Select name from Invoices__r) from Cust__c  [took time to get Invoices__r]<br>
+							https://www.youtube.com/watch?v=y0BLIlRvbFU<br>
+							<li>wild card for just 1 character? (ans _)<br>
+							<li>When you retrieve Customer and its related children - a lstCustomers comes - from there how to get list of Invoices (ans: List<Invoice__c> lstInvoices = lstCust[0].Invoices__r; [SELECT id, (select id, name from Invoices__r) from cust__c where name = 'Arabic 1'];<br>
+							<li>Print children and parent's name in APEX (ans select id, name, Customer_M__r.Name from Invoice__c Limit 10; System.debug(objInvoice.Customer_M__r.Name);)<br>
+							<li>For every cust, add all invoices and show sum - what is return type of such query (ans AggregateResult[] lstGroupedResults)<br>
+							<li>For every cust, add all invoices - store in listVariable - now, how to get values from each index item of list (ans lstGroupedResults[i].get('amt') - amt is the alias = sum())<br>
+							<li>for every cust, get max amt, min amit - (ans AggregateResult[] agg- then agg[0].get(maxamt))<br>
+							<li>bind variable? (ans where name = :var1)
+						</small> </p>
+					</div>
+                </div>
+            </div>
+		</div>
+		
+		<!--Row-->
+		<div class="row">  
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">APEX</h3> <p class="card-text"> <small> 
+							===APEX<br>
+							<li>other than ins upd del others? (merge undelete and upsert)<br>
+							<li>u update contactA - and if the trigger updates contactB, again contactB's update trigger will fire - isnt that problem (ans: yes - recursive or hit limit - all will happen in 1 txn)<br>
+							<li>after record save can I query field history (ans No - until the after trigger completes)<br>
+							<li>in afterInsert - you make a callout - what if response takes long time (ans No - u should only make it async - trigger cant wait)<br>
+							<li>all are bulk triggers - yes/no? (yes)<br>
+							<li>event object - recurring - processed in bulk? (ans no - )<br>
+							<li>Trigger has variables they are? (isExecuting isINsert isUpdate...)<br>
+							<li>trigger variables are from this class (System.Trigger)<br>
+							<li>an apex code can be executed via a trigger or vf page or sfUI or api - how to know (ans use isExecuting() - if true, trigger)<br>
+							<li>when cust status is active - create invoice - but everytime if a description is updated - it keeps on creating invoice (ans check the trigger.old - customer status)<br>
+							<li>old status was not active and now active how (ans objCust.stats = active && trigger.oldmap.get(objCust.id).status != 'active')<br>
+							<li>on create of account - how will u create a contact trigger (ans there use c.accountid instead of c.account = objAcc.id;)<br>
+							<li>Account objAccount - does it only have id, name etc - (ans no - it has .addError('cant delete') - can be used in trg - that will display in SF webPage)<br>
+							<li>form validations before insert - how (ans inside beforeInsert System.assertEquals('Udhay', objAcc.name);<br>
+							<li>How many triggers recommended per object (ans just one - rest handle in apexclass - pass trigger.new, .oldMap)<br>
+							<li>When you update a record for Opp.stage=çlosed'-> show error	 -> will u use trigger.new[0].addError or trigger.old[0].addError - to see 'We hit a snag!'(ans: trigger.new[0].addError())
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">Governor</h3> <p class="card-text"> <small> 
+							===Governor<br>
+							<li>which are the gov (ans CPU, Mem, Time of exec)<br>
+							<li>limits are monitored 2 ways - which? (ans per txn, per cust)<br>
+							<li>how to see how many dmlStatements got executed (ans static class Limit.getLimitDmlStatements());<br>
+							<li>how to catch gov limit exception (ans you cant catch Gov limit exceptions)<br>
+							<li>how to write SOQL to retrieve all invoices of cust from custInvoiceMap variable (ans [select id, name (select id, name, desc, amoung from invoices__r) from cust__c where id in :custMap.keySet()] ==> and this will be stored in lstCust (list<cust__c>)<br>
+							<li>Why Trigger.new and Trigger.newMap are there (ans since map has ids as key - a) you can search in single shot .get(id) and b) you can use .keySet() and do SOQL fetch all relevant children records if any)
 						</small> </p>
 					</div>
                 </div>
@@ -505,7 +595,55 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
-							<li>Abrahalm Lincoln, Theodre Roosevelet, Woodrow Wilson - top 3 folks
+							===Visual Force<br>
+							<li>Why is VF called component-based UI framework (ans customTags that include n HTML tags with its placing - tag-based markup language)<br>
+							<li>Is VF MVC - so what? (ans front end folks can work separately and so backend controller folks - not tightly coupled)<br>
+							<li>How about VF integration (ans u can do with HTML CSS Ajax jQuery!!!<br>
+							<li>multiple places to create vf page (ans just say...com/apex/u1 - vf created; setUp-&gt;VF Pages; DevConsole - New VF Page)<br>
+							<li>how many types of vf tags (ans 7 - input, select, form, action, Style;  Output, Page)<br>
+							<li>Similar to &lt;html&gt;- whats the first basic tag in vf (ans &lt;apex:page&gt;<br>
+							<li>first set of page tags? (ans: page, pageblock, pageblocksection, pageblocksectionitem)<br>
+							<li>tag for button (ans apex:commandbutton value="s")<br>
+							<li>button to appear top and bottom both (ans enclose in apex pageblock buttons)<br>
+							<li>whats mandatory for button to appear (ans apex:form)<br>
+							<li>where do u see different severity codes (ans apex:pageMessage error,info,warning,confirm)<br>
+							<li>every single cell - what is the corresponding tag in VF (ans apex:outputText equivalent to td)<br>
+							<li>equivalent for &lt;table&gt; in VF (ans apex:panelgrid - attributes: columns id border)<br>
+							<li>tag for tabs? (ans apex:tabpanel and apex:tab)<br>
+							<li>everytime you switch between tabs should not call server and page refresh - how? (ans: switchtype="client")<br>
+							<li>&lt;a&gt; anchor tag equivalent (ans: apex:outputLink)<br>
+							<li>if inputText - whats the mandatory enclosing tag (ans apex:form)<br>
+							<li>HTML button's onClick in VF? (ans &lt;apex:commandButton value="save" action"doThis()"&gt;<br>
+							<li>save and quicksave (stadard methods) - difference (ans quickSave will stay in same page; save can go to detail screen or list view)<br>
+							<li>standard object has standard controllers - how about custom objects? (ans custom objects also have standard controllers)<br>
+							<li>typical actions / eventHandlers in standard controllers? (ans save, quickSave, edit, delete, cancel, list(default: recentViewed)<br>
+							<li>how do you refer account's name in vf (ans &lt;apex:inputText value="{!account.name}" /&gt;<br>
+							<li>how do you update a record in vf - the id context? (ans in URL - queryString ?id=a025j00000FzRjk)<br>
+							<li>delete button does not appear for standard controller opp - why? (ans you havent yet fetched opp details for an id)<br>
+							<li>standard Save will take to details of acc/cont/opp; If you delete a record using std controller delete - where it goes (ans it will open the main tab of that object)<br>
+							<li>vf - list - how to associate the list to that list page (ans apex:page stdControl="Account" recordsetVar="lstAccounts")<br>
+							<li>vf pageBlockTable - how to put forEach (ans [[value="{!lstAccounts}" var="a"]] then put apex:column = {!a.Name})<br>
+							<li>when you make listview picklist - how to populate all views - which standard variable u use? (ans: value="{!listviewoptions}" for apex:selectOptions tag)<br>
+							<li>like column inside the pageBlockTable, whats inside dataList (ans: outputText, inputText - you can put anything)<br>
+							<li>diff between inputField and inputText to show a table's field (ans Field will retain based on datatype be it dropdown / date etc - for a picklist value if you put inputText - the value alone will be displayed)<br>
+							<li>when to write custom controller (ans when you want to run VF in system mode - that you dont wanna enforce permissions / FLS of the current user)<br>
+							<li>custom controller means (ans complete skip of std controller - u write from scratch)<br>
+							<li>controller extension (ans whatever present in std/custom controller is there - u add some more features)<br>
+							<li>does controller extension respect the permission/fls/sharingR of user (ans yes and no. Yes, when it extends from std controller - No, if extends from custom controller)<br>
+							<li>in title if I have to say Welcome &lt;user.firstname&gt; (ans: title="Congratulations {!$User.Firstname}" DOLLLAR for system variables) <br>
+							<br>
+							<li>can I have duplicate methods in 2 extensions? will it err? (ans No - whichever method it encounters first, it will pickup)<br>
+							<li>In Extension class - tell the argument for the constructor method (ans it is ApexPages.StandardController)<br>
+							<li>When doing extensions how to get the record in the context (ans ApexPages.StandardController.getRecord());<br>
+							<li>Single/ mulitple record - how many controllers are there (ans 4 - stdController / stdListController; customController / custListController)<br>
+							<li>Account to Vendor - was master-detail - for some reason, can I change to lookup - it is not allowing why? (ans there is a rollup field in acc)<br>
+							<li>while deploying to prod - coverage for apexCode and Trigger (ans apexCode=75%, trigger=1%)<br>
+							<li>how do u write unitTests for APEX's private mthod (ans use TestVisible annotation)<br>
+							<li>if a VF has multiple pages/wizard - user input comes across pages - how do u mimic in ur unit test (ans Test.setCurrentPage(pageRef) - then use ApexPages.currentPage... etc)<br>
+							<li>I write an Apex class to display accounts - PSRs tell they see accounts which they dont own also (ans write class With Sharing keyword)<br>
+							<li>Polymorphic field example (not method) (ans who relationship of the task can be a contact / lead/ account?)<br>
+							<li>if 2 triggers are there for account object beforeInsert? (ans no guarantee on order)<br>
+							<li>just by using string - how to dynamically create class (ans str='public class...' - sforce.create(classes))<br>
 						</small> </p>
 					</div>
                 </div>
@@ -520,6 +658,8 @@
                 </div>
             </div>
 		</div>
+		
+
 		
     </div>
 </section>
