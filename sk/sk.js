@@ -62,5 +62,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first person's journal automatically
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['SK_Sargam_01']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['SK_Dhyaanam']}" style="width: 100%; height: 100vh;"></iframe>`;
 
