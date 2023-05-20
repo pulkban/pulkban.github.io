@@ -146,7 +146,6 @@ journalDetails = {
 	'Shri_Rama_Stotram': '../sb/ShriRamaStotram.html',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
 	'RamaRakshaStotram': 'RamaRakshaStotram.html',
-	
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
@@ -160,6 +159,7 @@ journalDetails = {
 	'sep11':'Miscellaneous',	
 	'Thotakaashtakam': 'Thotakaashtakam.html',
 	'MaatruPanchakam_AdiShankar': 'MaatruPanchakam_AdiShankar.html',
+	'SuryaShatakam': 'SuryaShatakam.html',
 };
 
 
