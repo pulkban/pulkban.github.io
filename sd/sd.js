@@ -159,7 +159,7 @@ journalDetails = {
 	'sep11':'Miscellaneous',	
 	'Thotakaashtakam': 'Thotakaashtakam.html',
 	'MaatruPanchakam_AdiShankar': 'MaatruPanchakam_AdiShankar.html',
-	'SuryaShatakam': 'SuryaShatakam.html',
+	'SuryaShatakam': 'Suryashatakam.html',
 };
 
 
