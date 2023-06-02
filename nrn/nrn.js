@@ -49,7 +49,17 @@ journalDetails = {
 	'NRN_Dasakam_47': 'NRN_Dasakam_47.html',
 	'NRN_Dasakam_48': 'NRN_Dasakam_48.html',
 	'NRN_Dasakam_49': 'NRN_Dasakam_49.html',
-	
+	'NRN_Dasakam_50': 'NRN_Dasakam_50.html',
+	'NRN_Dasakam_51': 'NRN_Dasakam_51.html',
+	'NRN_Dasakam_52': 'NRN_Dasakam_52.html',
+	'NRN_Dasakam_53': 'NRN_Dasakam_53.html',
+	'NRN_Dasakam_54': 'NRN_Dasakam_54.html',
+	'NRN_Dasakam_55': 'NRN_Dasakam_55.html',
+	'NRN_Dasakam_56': 'NRN_Dasakam_56.html',
+	'NRN_Dasakam_57': 'NRN_Dasakam_57.html',
+	'NRN_Dasakam_58': 'NRN_Dasakam_58.html',
+	'NRN_Dasakam_59': 'NRN_Dasakam_59.html',
+	'NRN_Dasakam_60': 'NRN_Dasakam_60.html',
 };
 
 // keep a global reference to iframe as it will be needed multiple times
