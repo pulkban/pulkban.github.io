@@ -10,6 +10,22 @@ journalDetails = {
 	'SK_Sargam_08': 'SK_Sargam_08.html',
 	'SK_Sargam_09': 'SK_Sargam_09.html',
 	'SK_Sargam_10': 'SK_Sargam_10.html',
+	'SK_Sargam_11': 'SK_Sargam_11.html',
+	'SK_Sargam_12': 'SK_Sargam_12.html',
+	'SK_Sargam_13': 'SK_Sargam_13.html',
+	'SK_Sargam_14': 'SK_Sargam_14.html',
+	'SK_Sargam_15': 'SK_Sargam_15.html',
+	'SK_Sargam_16': 'SK_Sargam_16.html',
+	'SK_Sargam_17': 'SK_Sargam_17.html',
+	'SK_Sargam_18': 'SK_Sargam_18.html',
+	'SK_Sargam_19': 'SK_Sargam_19.html',
+	'SK_Sargam_20': 'SK_Sargam_20.html',
+	'SK_Sargam_21': 'SK_Sargam_21.html',
+	'SK_Sargam_22': 'SK_Sargam_22.html',
+	'SK_Sargam_23': 'SK_Sargam_23.html',
+	'SK_Sargam_24': 'SK_Sargam_24.html',
+	'SK_Sargam_25': 'SK_Sargam_25.html',
+	'SK_Sargam_26': 'SK_Sargam_26.html',
 };
 
 // keep a global reference to iframe as it will be needed multiple times
