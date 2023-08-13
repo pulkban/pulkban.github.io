@@ -10,6 +10,9 @@ journalDetails = {
 	'sep88':'Frequent',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
 	'HanumanChalisa': 'HanumanChalisa.html',
+	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
+	'LalithaSahasranamam': 'LalithaSahasranamam.html',
+	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
