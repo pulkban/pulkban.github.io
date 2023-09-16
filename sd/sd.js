@@ -13,6 +13,7 @@ journalDetails = {
 	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
 	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
+	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
