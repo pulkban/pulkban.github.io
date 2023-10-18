@@ -5,7 +5,6 @@ journalDetails = {
 	'DhyanaShloka': 'DhyanaShloka.html',
 	'GuruMantra': 'GuruMantra.html',
 	'NithyaParayanaShloka': 'NithyaParayanaShloka.html',
-	'AdityaHrudayam': 'AdityaHrudayam.html',
 	
 	//--Frequent
 	'sep88':'Frequent',
@@ -16,11 +15,13 @@ journalDetails = {
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
 	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
 	'KanakadharaStothram': 'KanakadharaStothram.html',
+	'AdityaHrudayam': 'AdityaHrudayam.html',
+	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
 	'HanumanChalisa': 'HanumanChalisa.html',
-	'YantrodharakaHuanumanStotram': 'YantrodharakaHuanumanStotram.html',
+	'YantrodharakaHanumanStotram': 'YantrodharakaHanumanStotram.html',
 	'SundaraKaantam': 'SundaraKaantam.html',
 	
 	//--Devi
