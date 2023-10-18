@@ -15,6 +15,7 @@ journalDetails = {
 	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
 	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
+	'KanakadharaStothram': 'KanakadharaStothram.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
@@ -43,7 +44,6 @@ journalDetails = {
 	'NavagrahaSthothra': 'NavagrahaSthothra.html',
 	'ShriThulasiSthothram': 'ShriThulasiSthothram.html',
 	'ShriKamalaJadayitAshtakam': 'ShriKamalaJadayitAshtakam.html',
-	'KanakadharaStothram': 'KanakadharaStothram.html',
 	'LakshmiAshtotraSathanamaStotram': 'LakshmiAshtotraSathanamaStotram.html',
 	'SriLakshmiSahasranamaStothram': 'SriLakshmiSahasranamaStothram.html',
 	'MahishasuraMaridini': 'MahishasuraMaridini.html',
