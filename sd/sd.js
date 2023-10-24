@@ -17,6 +17,7 @@ journalDetails = {
 	'KanakadharaStothram': 'KanakadharaStothram.html',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
+	'GowriDashakam': 'GowriDashakam.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
