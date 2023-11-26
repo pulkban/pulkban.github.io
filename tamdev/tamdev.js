@@ -10,9 +10,9 @@ journalDetails = {
 	'onnamPadi': 'onnamPadi.html',
 	'sellathaa': 'sellathaa.html',
 	'thirupparang': 'thirupparang.html',
-	
+
+	'sep88':'Islam',
 	'allahAllah': 'allahAllah.html',
-	
 };
 
 
@@ -28,7 +28,13 @@ function populateNavbar()
     {
         // add a button for each person
         // make it call main on click with event
-        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+		if(person.startsWith("sep")) {
+			console.log('you saw sep');
+			myNavbar.innerHTML += `<hr><b>${journalDetails[person]}</b><hr>`;
+			
+		} else {
+			myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`;
+		}
     }
 }
 
@@ -66,6 +72,6 @@ function showIframe(currentEvent)
 // populate navbar on pageload
 populateNavbar()
 
-// show first person's journal automatically
+// show first shloka by default
 document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['alaiPayuthey']}" style="width: 100%; height: 100vh;"></iframe>`;
 
