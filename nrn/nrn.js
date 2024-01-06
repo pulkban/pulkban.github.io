@@ -1,4 +1,5 @@
 journalDetails = {
+	'NRN_Kavacham': 'NRN_Kavacham.html',
 	'NRN_Dhyaanam': 'NRN_Dhyaanam.html',
 	'NRN_Dasakam_01': 'NRN_Dasakam_01.html',
 	'NRN_Dasakam_02': 'NRN_Dasakam_02.html',
