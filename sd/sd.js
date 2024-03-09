@@ -10,6 +10,9 @@ journalDetails = {
 	'sep88':'Frequent',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
 	'HanumanChalisa': 'HanumanChalisa.html',
+	'Dasavatara_Stotram': '../sb/Dasavatara_Stotram.html',
+	'Seshadri_Giriyalli': '../sb/Seshadri_Giriyalli.html',
+	'Shri_Rama_Stotram': '../sb/ShriRamaStotram.html',
 	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
 	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
@@ -18,6 +21,7 @@ journalDetails = {
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
 	'GowriDashakam': 'GowriDashakam.html',
+	'SwayamvaraParvatiMantramaala': 'SwayamvaraParvatiMantramaala.html',
 
 	//--Hanuman
 	'sep14':'Hanuman',
