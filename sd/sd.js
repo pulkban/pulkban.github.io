@@ -125,7 +125,7 @@ journalDetails = {
 	'Shri_Guru_Stotram': '../sb/GuruStotram.html',
 	'ShivaSahasranamam': '../sd/ShivaSahasranamam.html',
 	'ShivaStutiBhajan': '../sd/ShivaStutiBhajan.html',
-	
+	'ShivaKavacham': 'ShivaKavacham.html',
 	
 	//--Subramanya
 	'sep2':'Subramanya',
@@ -159,6 +159,7 @@ journalDetails = {
 	'RamaRakshaStotram': 'RamaRakshaStotram.html',
 	'RamaSankshepaRamayanam': 'RamaSankshepaRamayanam.html',
 	'GayatriRamayanam': 'GayatriRamayanam.html',
+	'RaghuveeraGadyam': 'RaghuveeraGadyam.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
