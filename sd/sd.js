@@ -160,6 +160,7 @@ journalDetails = {
 	'RamaSankshepaRamayanam': 'RamaSankshepaRamayanam.html',
 	'GayatriRamayanam': 'GayatriRamayanam.html',
 	'RaghuveeraGadyam': 'RaghuveeraGadyam.html',
+	'RamaMangalam_Bhadrachala': 'RamaMangalam_Bhadrachala.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
