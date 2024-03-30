@@ -74,6 +74,7 @@ journalDetails = {
 	'AyigiriNandini_Song': 'AyigiriNandini_Song.html',
 	'OmSakthiPotri': 'OmSakthiPotri.html',
 	'DeviKeshadiPadaVarnanam': 'DeviKeshadiPadaVarnanam.html',
+	'AnandaSagaraStavam': 'AnandaSagaraStavam.html',
 
 	//--Andal
 	'sep4':'Andaal',	
