@@ -162,6 +162,7 @@ journalDetails = {
 	'GayatriRamayanam': 'GayatriRamayanam.html',
 	'RaghuveeraGadyam': 'RaghuveeraGadyam.html',
 	'RamaMangalam_Bhadrachala': 'RamaMangalam_Bhadrachala.html',
+	'Lakshmi Narasimha Karaavalambha': '../nrn/NRN_LakshmiNarasimhaKaraavalambha.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
