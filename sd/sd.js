@@ -162,6 +162,7 @@ journalDetails = {
 	'GayatriRamayanam': 'GayatriRamayanam.html',
 	'RaghuveeraGadyam': 'RaghuveeraGadyam.html',
 	'RamaMangalam_Bhadrachala': 'RamaMangalam_Bhadrachala.html',
+	'Narayana Kavacham': '../nrn/NRN_Kavacham.html',
 	'Lakshmi Narasimha Karaavalambha': '../nrn/NRN_LakshmiNarasimhaKaraavalambha.html',
 
 	//--Large
