@@ -127,6 +127,7 @@ journalDetails = {
 	'ShivaSahasranamam': '../sd/ShivaSahasranamam.html',
 	'ShivaStutiBhajan': '../sd/ShivaStutiBhajan.html',
 	'ShivaKavacham': 'ShivaKavacham.html',
+	'AtmarpanaStuti': 'AtmarpanaStuti.html',
 	
 	//--Subramanya
 	'sep2':'Subramanya',
