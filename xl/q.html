@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Excel File</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.0/exceljs.min.js"></script>
 </head>
 <body>
     <h1>Update and Download Excel File</h1>
@@ -16,12 +16,12 @@
                 const response = await fetch('your-file.xlsx'); // Replace with the actual file path
                 const arrayBuffer = await response.arrayBuffer();
 
-                // Read the workbook from the arrayBuffer
-                const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+                // Create a new workbook and load the existing file
+                const workbook = new ExcelJS.Workbook();
+                await workbook.xlsx.load(arrayBuffer);
 
                 // Access the first worksheet
-                const sheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[sheetName];
+                const worksheet = workbook.getWorksheet(1);
 
                 // New data to be added starting from row 14
                 const newData = [
@@ -31,24 +31,14 @@
                     ["Mike Johnson", "35", "mike@example.com"]
                 ];
 
-                // Convert the new data to worksheet format starting from row 14
-                XLSX.utils.sheet_add_aoa(worksheet, newData, { origin: { r: 13, c: 0 } });
+                // Add new data starting from row 14
+                newData.forEach((row, index) => {
+                    worksheet.insertRow(14 + index, row);
+                });
 
-                // Write the updated workbook to a binary string
-                const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
-
-                // Convert the binary string to an ArrayBuffer
-                function s2ab(s) {
-                    const buf = new ArrayBuffer(s.length);
-                    const view = new Uint8Array(buf);
-                    for (let i = 0; i < s.length; i++) {
-                        view[i] = s.charCodeAt(i) & 0xFF;
-                    }
-                    return buf;
-                }
-
-                // Create a Blob from the ArrayBuffer and trigger the download
-                const blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+                // Write the updated workbook to a Blob
+                const buffer = await workbook.xlsx.writeBuffer();
+                const blob = new Blob([buffer], { type: "application/octet-stream" });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
