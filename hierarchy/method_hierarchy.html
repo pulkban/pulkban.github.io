@@ -21,6 +21,11 @@
 <body>
     <h1>Hierarchy from CSV</h1>
     <input type="file" id="csvFile" accept=".csv" />
+    <div>
+        <label for="searchMethod">Search Method:</label>
+        <input type="text" id="searchMethod" />
+        <button onclick="searchHierarchy()">Search</button>
+    </div>
     <div id="hierarchy" class="hierarchy"></div>
     <textarea id="hierarchyText" rows="10" cols="100"></textarea>
 
