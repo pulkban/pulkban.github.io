@@ -165,6 +165,7 @@ journalDetails = {
 	'RamaMangalam_Bhadrachala': 'RamaMangalam_Bhadrachala.html',
 	'Narayana Kavacham': '../nrn/NRN_Kavacham.html',
 	'Lakshmi Narasimha Karaavalambha': '../nrn/NRN_LakshmiNarasimhaKaraavalambha.html',
+	'PadukaSahasrakam': 'PadukaSahasrakam.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
