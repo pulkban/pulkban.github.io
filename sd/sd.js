@@ -31,6 +31,7 @@ journalDetails = {
 	
 	//--Devi
 	'sep9':'Devi',
+	'DeviAparadhaKshamapanaStotram': 'DeviAparadhaKshamapanaStotram.html',
 	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
 	'NavaratnaMalika': 'NavaratnaMalika.html',
 	'ShriSthuthi': 'ShriSthuthi.html',
