@@ -13,6 +13,46 @@
 
 		
 		<!--Row-->
+		<div class="row">
+			<!--cell-->
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">SF Flows</h3> <p class="card-text"> <small> 
+								<li>special gov limits in flows (ans:2000 flow elements)
+								<li>rec triggered flow - 2 recs - 1 rec 1500 2nd rec also 1500 - will it exceed 2000 limit - (ans Yes)
+								<li>get Recs multiple object possible (ans: no) - even if linked? (ans: no)
+								<li>getRec - for contact - can we query account (ans: might be no?)
+								<li>same triggering record can we update (ans: yes, fast field update)
+								<li>from apex - auto launch flow call? (ans: yes, possible - Flow.Interview flowInterview = Flow.Interview.createInterview(flowName, flowInputs);
+								<li>like async what do we have in flow (ans: orchestration flows?)
+								<li>errors in flow - how to see? (ans: quick find flow interviews, store errors in custom object)
+								<li>difference between normal flow and orchestration flow (normal flow background, orchestration flow - has user interaction...)
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			
+			<!--cell-->
+			<div class="col-md-6 col-lg-6">
+                <div class="card my-3">
+                    <div class="card-body">
+						<h3 class="card-title">SF General</h3> <p class="card-text"> <small> 
+								<li>Account contact relationship(ans: special - its M-D because cascade, its lookup bcoz u can have child without parent
+								<li>U r admin - maintenance mode - how will u stop users logging in (ans: login hours)
+								<li>why 2 kinds of secu, roll-based, profile/perm-based (ans: record level and object level)
+								<li>custom report type how many objects max (ans: 4) - ask if 3rd and 4th shoudl be child of 2nd and 3rd respectively
+								<li>ssn / aadhaar 12 digit how (ans: validation) but after validation, I can still use trigger to change (ans: let him explain order of sequence)
+								<li>'Controlled by Parent' - where do u see this - (ans in sharing settings)
+								<li>for an Opp, I cant see Sharing button - went to layout - the button is already dragged and placed in layout - (ans: for this object - OWD might be already Public Read/Write)
+
+
+						</small> </p>
+					</div>
+                </div>
+            </div>
+			
+		</div>
 		<div class="row">  
 			<div class="col-md-6 col-lg-6">
                 <div class="card my-3">
@@ -92,7 +132,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Security</h3> <p class="card-text"> <small> 
-							======================================Security<br>
 							<li>Security - OrgWide if you want to configure - what could that be (ans Private - you start in restrictive mode and then slowly open - org also has publicRead, publicWrite too)<br>
 							<li>I click - PDF not coming (in VF page) - empty white page - which setting (ans ClickJack) - if you enable clickJack - wanna still see pdf - whitelist it<br>
 							<li>if someone wants to access salesforce (e.g. vf page - put in whitelist); if salesforce want to access external - put in remoteSites<br>
@@ -123,7 +162,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Reports</h3> <p class="card-text"> <small> 
-							======================================Reports<br>
 							<li>If I want to send report daily once (ans Schedule it)<br>
 							<li>Reports go to a group of users who might have permission, who might not have permission to see thos records - true/false - explain (ans Yes - it depends on Running User for the report)<br>
 							<li>You are scheduling the report - now u went to scheduled jobs - u can see there - open and unschedule - will it remove (ans Yes)<br>
@@ -153,7 +191,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Data</h3> <p class="card-text"> <small> 
-							======================================Data<br>
 							<li>When duplicate is checked, does it check all records (ans NO - only where u have access - you can also byPass)<br>
 							<li>dup - can i warn and go ahead and create(ans YES)<br>
 							<li>dup - can I update such a way it create duplicate (ans Optional - u can chose to Allow/Block)<br>
@@ -189,7 +226,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Sales</h3> <p class="card-text"> <small> 
-							======================================Sales<br>
 							<li>Potential customers are __ (ans Leads)<br>
 							<li>Name few channels (ans Phone, Email, Website, Social media || Pardot-EmailMarketing, MarkCloud)<br>
 							<li>Where does the actual sales process really kicks in (ans no Lead / Acc / Cont - its Opportunity)<br>
@@ -225,7 +261,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Campaign</h3> <p class="card-text"> <small> 
-							======================================Campaign<br>
 							<li>Which object is used to track ROI in SF (ans Campaign)<br>
 							<li>Can campaign have a child? (ans Yes, Parent campaign)<br>
 							<li>Who are the potential campaign members (ans Contact, Lead, nowadays Account)<br>
@@ -249,7 +284,6 @@
                 <div class="card my-3">
                     <div class="card-body">
 						<h3 class="card-title">Case</h3> <p class="card-text"> <small> 
-							======================================Case<br>
 							<li>Open multiple tabs and create an App - how? (ans: Create App-> Console)<br>
 							<li>By default the owner of case? (ans: User, it can be changed to Queue also)<br>
 							<li>Automated Case user - what? (ans: when case is automatically created from W2C)<br>
@@ -594,7 +628,7 @@
 			<div class="col-md-6 col-lg-6">
                 <div class="card my-3">
                     <div class="card-body">
-						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
+						<h3 class="card-title">Visual Force</h3> <p class="card-text"> <small> 
 							===Visual Force<br>
 							<li>Why is VF called component-based UI framework (ans customTags that include n HTML tags with its placing - tag-based markup language)<br>
 							<li>Is VF MVC - so what? (ans front end folks can work separately and so backend controller folks - not tightly coupled)<br>
