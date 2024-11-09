@@ -6,7 +6,8 @@ journalDetails = {
 	'Salesforce Developer': 'sf.html',
 	'Aura Code 1': 'AuraCode1.html',
 	'WordPower': 'WordPower.html',
-	'Salesforce': 'Salesforce.html'
+	'Salesforce': 'Salesforce.html',
+	'oldNewName': 'oldNewName.html'
 };
 
 
