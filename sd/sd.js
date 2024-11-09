@@ -9,18 +9,17 @@ journalDetails = {
 	//--Frequent
 	'sep88':'Frequent',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
+	'LalithaSahasranamam': 'LalithaSahasranamam.html',
+	'Lingashtakam': 'Lingashtakam.html',
 	'HanumanChalisa': 'HanumanChalisa.html',
+	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
 	'Dasavatara_Stotram': '../sb/Dasavatara_Stotram.html',
 	'Seshadri_Giriyalli': '../sb/Seshadri_Giriyalli.html',
 	'Shri_Rama_Stotram': '../sb/ShriRamaStotram.html',
 	'ChamundeswariAshtotraSatanamaStotram': 'ChamundeswariAshtotraSatanamaStotram.html',
-	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
-	'ShreeRajaRajeswariAshtakam': 'ShreeRajaRajeswariAshtakam.html',
 	'KanakadharaStothram': 'KanakadharaStothram.html',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
-	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
-	'GowriDashakam': 'GowriDashakam.html',
 	'SwayamvaraParvatiMantramaala': 'SwayamvaraParvatiMantramaala.html',
 
 	//--Hanuman
@@ -32,6 +31,8 @@ journalDetails = {
 	//--Devi
 	'sep9':'Devi',
 	'DeviAparadhaKshamapanaStotram': 'DeviAparadhaKshamapanaStotram.html',
+	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
+	'GowriDashakam': 'GowriDashakam.html',
 	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
 	'NavaratnaMalika': 'NavaratnaMalika.html',
 	'ShriSthuthi': 'ShriSthuthi.html',
