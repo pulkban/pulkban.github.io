@@ -4,210 +4,265 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<title>LWC JS</title>
 </head>
 <body>
 
 <section class="bg-light py-4 my-5">
-    <div class="container">
-	
+<div class="container">
 
+<div class="row">
+			<!--Heading-->
+            <div class="col-12">
+                <h2 class="mb-3 text-primary">JavaScript</h2>
+            </div>
 
-//output of this<br>
-var obj={}<br>
-console.log(typeof obj)<br>
-var obj1=[]<br>
-console.log(typeof obj1)<br>
-...........<br>
-obj<br>
-<hr>
-//output?<br>
-var x1 = 10<br>
-x1 = null<br>
-console.log(typeof x1)<br>
-...........<br>
-obj<br>
-<hr>
-console.log(typeof new String('hello'))<br>
-...........<br>
-obj<br>
-<hr>
-undefined == null<br>
-...true<br>
-undefined === null<br>
-...false<br>
-undefined declared not initialized; null is spl data type<br>
-console.log(3=="3")<br>
-...true<br>
-<hr>
-var obj = {<br>
-	"name": "John",<br>
-	"full name": "John Smith"<br>
-}<br>
-how do u access full name from obj<br>
-...........<br>
-obj["full name"]<br>
-<hr>
-let greeting = "Hi Salesforce!"<br>
-how to print as array<br>
-...........<br>
-let charlist = [...greeting]<br>
-<hr>
-arr1 = ["amazon", "netflix"]<br>
-arr2 = ["sony", "zee"]<br>
-arr3 = combine - how?<br>
-...........<br>
-arr3 = [...arr1, ...arr2]<br>
-<hr>
-let obj1 = {name: "Sam", age:25, date:"5/5/2011"}<br>
-let obj2 = {name: "Raj", age:35}<br>
-obj3 = {...obj1, ...obj2}<br>
-console.log(obj3)<br>
-...........<br>
-{name: "Raj", age:35, date:"5/5/2011"}<br>
-2nd one overrides, extra properties are added as such<br>
-<hr>
-shallow copy - <br>
-...........<br>
-(ans: breaks reference and takes only values unlike var arr10=arr11 - which is only reference)<br>
-<hr>
-let arr = ["amazon", "google", "microsoft"]<br>
-q: get all these values in one shot in many variables<br>
-...........<br>
-let[comp1, comp2, comp3] = arr<br>
-<hr>
-var obj = {<br>
-	"name": "John",<br>
-	"full name": "John Smith"<br>
-}<br>
-q: get all these values in one shot in many variables<br>
-...........<br>
-let{title, age, type} = obj<br>
-<hr>
-Interpolation example?<br>
-...........<br>
-`Hello, ${name}`.. used in recordID for the urls<br>
-<hr>
-str = "How are u doing?"<br>
-console.log(str.indexOf("doing1") - returns?<br>
-...........<br>
--1<br>
-<hr>
-Object.keys - what does it do?<br>
-...........<br>
-prints the keys of json object<br>
-<hr>
-let arr = [2,3,5,7,9,10]<br>
-print newArray that has vals more than 5<br>
-...........<br>
-let filteredVal = arr.filter(function (currItem, index, array) {<br>
-	return currItem > 5<br>
-})<br>
-console.log(filteredVal)<br>
-<hr>
-points = [10,33,12,80,54]<br>
-let sortedVal = points.sort(function(a,b) {<br>
-	return b-a<br>
-})<br>
-console.log(sortedVal)<br>
-...........<br>
-returns array with descending order [80,54,33,12,10]<br>
-a-b will do in ascending<br>
-<hr>
-explain reduce method of array - how many args?<br>
-...........<br>
-4 args<br>
-sum.reduce(function(total, currentVal, index, array) {<br>
-}, initialVal)<br>
-num=[12,78,30]<br>
-sum = num.reduce(function(total, currentItem) {<br>
-	return total+currItem<br>
-},0)<br>
-console.log(sum) ===> 120<br>
-<hr>
-When to use promise in LWC<br>
-...........<br>
-fetching data from server, loading file from system<br>
-...pending can go to resolve() to get fulfilled<br>
-...pending can go to reject() to get rejected<br>
+<div class="col-md-6 col-lg-6 text-wrap">
+<div class="card my-6 text-wrap">
+<div style="overflow-wrap: break-word;" class="card-body">
+<small>
+<xmp>
+//output of this
+var obj={}
+console.log(typeof obj)
+var obj1=[]
+console.log(typeof obj1)
+......................................................................
+obj
+===========================================================================
+//output?
+var x1 = 10
+x1 = null
+console.log(typeof x1)
+......................................................................
+obj
+===========================================================================
+console.log(typeof new String('hello'))
+......................................................................
+obj
+===========================================================================
+undefined == null
+...true
+undefined === null
+...false
+undefined declared not initialized; null is spl data type
+console.log(3=="3")
+...true
+===========================================================================
+var obj = {
+	"name": "John",
+	"full name": "John Smith"
+}
+how do u access full name from obj
+......................................................................
+obj["full name"]
+===========================================================================
+let greeting = "Hi Salesforce!"
+how to print as array
+......................................................................
+let charlist = [...greeting]
+===========================================================================
+arr1 = ["amazon", "netflix"]
+arr2 = ["sony", "zee"]
+arr3 = combine - how?
+......................................................................
+arr3 = [...arr1, ...arr2]
+===========================================================================
+let obj1 = {name: "Sam", age:25, date:"5/5/2011"}
+let obj2 = {name: "Raj", age:35}
+obj3 = {...obj1, ...obj2}
+console.log(obj3)
+......................................................................
+{name: "Raj", age:35, date:"5/5/2011"}
+2nd one overrides, extra properties are added as such
+===========================================================================
+shallow copy - 
+......................................................................
+(ans: breaks reference and takes only values unlike var arr10=arr11 - 
+which is only reference)
+===========================================================================
+let arr = ["amazon", "google", "microsoft"]
+q: get all these values in one shot in many variables
+......................................................................
+let[comp1, comp2, comp3] = arr
+===========================================================================
+var obj = {
+	"name": "John",
+	"full name": "John Smith"
+}
+q: get all these values in one shot in many variables
+......................................................................
+let{title, age, type} = obj
+===========================================================================
+Interpolation example?
+......................................................................
+`Hello, ${name}`.. used in recordID for the urls
+===========================================================================
+str = "How are u doing?"
+console.log(str.indexOf("doing1") - returns?
+......................................................................
+-1
+===========================================================================
+Object.keys - what does it do?
+......................................................................
+prints the keys of json object
+===========================================================================
+let arr = [2,3,5,7,9,10]
+print newArray that has vals more than 5
+......................................................................
+let filteredVal = arr.filter(function (currItem, index, array) {
+	return currItem > 5
+})
+console.log(filteredVal)
+===========================================================================
+</xmp>
+</small>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-6">
+<div class="card my-6">
+<div class="card-body">
+<small>
+<xmp>
+points = [10,33,12,80,54]
+let sortedVal = points.sort(function(a,b) {
+	return b-a
+})
+console.log(sortedVal)
+......................................................................
+returns array with descending order [80,54,33,12,10]
+a-b will do in ascending
+===========================================================================
+explain reduce method of array - how many args?
+......................................................................
+4 args
+sum.reduce(function(total, currentVal, index, array) {
+}, initialVal)
+num=[12,78,30]
+sum = num.reduce(function(total, currentItem) {
+	return total+currItem
+},0)
+console.log(sum) ===> 120
+===========================================================================
+When to use promise in LWC
+......................................................................
+fetching data from server, loading file from system
+...pending can go to resolve() to get fulfilled
+...pending can go to reject() to get rejected
 <img src="img/js_fetch.jpg" alt="JavaScript Fetch Example" />
-<hr>
-Use promise and fetch result from an API<br>
-...........<br>
-for making call a promise with then - it will give 200 - then for just getting values - another then<br>
-fetch('https://api.github.com/users/vrudhay').then(function(result) {<br>
-	result.json()<br>
-}).then(function(response){<br>
-	console.log(response)<br>
-})<br>
-<hr>
-export default vs export - difference and how to import<br>
-...........<br>
-default just that one. export u can use continously<br>
-...u can also export {func1, func2}<br>
-...import {func1, var1} from './utils.js'<br>
-<hr>
-what does import func1, {fun2, fun3} from './utils.js' - <br>
-...........<br>
-func1 is default<br>
-...export default function func1(a, b) {<br>
-	console.log(a-b)<br>
-}<br>
-<hr>
-diff between querySelector and querySelectorAll<br>
-...........<br>
-querySelectorAll returns all div when u use <br>
-let elementAll = document.querySelectorAll('div')<br>
-elementAll (this is not Array rather NodeList)<br>
-<hr>
-if HTML DOM has to be loaded before script is executed, <br>
-...........<br>
-put script tag inside the body tag (or put in head with defer attribute<br>
-<hr>
-event bubble<br>
-...........<br>
-by default bubble - not capture - p first, div next, form next<br>
-<hr>
-click button - creeate event and dispatch it<br>
-............<br>
-&lt;html&gt;<br>
-	&lt;div onclick="callCustomMethod()"&gt;<br>
-	&lt;/div&gt;<br>
-&lt;html&gt;<br>
-function callCustomMethod(){<br>
-	let event = new CustomEvent("hello", {<br>
-		detail: {name: "udhay"}<br>
-	})<br>
-}<br>
-document.addEventListener("hello", function(data){<br>
-	console.log(`hello has called! ${data.detail}`)<br>
-})<br>
-<hr>
-arrrow function example?<br>
-...........<br>
-const abc = () => console.log("hello")<br>
-const sum = data =>  {<br>
-	let sum = data + 10<br>
-	return sum<br>
-}<br>
-console.log(sum(4))<br>
-const sum = (data1, data2) => data1 + data2 + 10<br>
-<hr>
-js - setTimeout, setInterval - explain<br>
-...........<br>
-timeout after sometime only once, after interval keep printing once<br>
-<hr>
-aura vs LWC<br>
-............<br>
-aura = ES5(2009)<br>
-...too much code, rendering slow, modern feature (class, module, promises)<br>
-LWC = ES6(2015)...ES15(Jun2024)<br>
-...shadowDOM, WebComponent, betterPerf (all these from web standards)<br>
-...LWC only for securityStandards, <br>
-aura can have LWC - not otherwise<br>
-both use same base lightning components, same services like LDS, UI API Etc<br>
-<hr>
+--------------HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub API Fetch</title>
+</head>
+<body>
+    <h1>Check the console for the API result</h1>
+    <script src="script.js"></script>
+</body>
+</html>
+--------------js
+fetch('https://api.github.com/users/vrudhay')
+    .then(function(result) {
+		console.log(result)
+        return result.json(); // Parse the JSON from the response
+    })
+    .then(function(response) {
+        console.log(response); // Log the actual contents
+    })
+    .catch(function(error) {
+        console.error('Error fetching data:', error);
+    });
+
+===========================================================================
+Use promise and fetch result from an API
+......................................................................
+for making call a promise with then - it will give 200 - 
+then for just getting values - another then
+fetch('https://api.github.com/users/vrudhay').then(function(result) {
+	result.json()
+}).then(function(response){
+	console.log(response)
+})
+===========================================================================
+export default vs export - difference and how to import
+......................................................................
+default just that one. export u can use continously
+...u can also export {func1, func2}
+...import {func1, var1} from './utils.js'
+===========================================================================
+what does import func1, {fun2, fun3} from './utils.js' - 
+......................................................................
+func1 is default
+...export default function func1(a, b) {
+	console.log(a-b)
+}
+===========================================================================
+diff between querySelector and querySelectorAll
+......................................................................
+querySelectorAll returns all div when u use 
+let elementAll = document.querySelectorAll('div')
+elementAll (this is not Array rather NodeList)
+===========================================================================
+if HTML DOM has to be loaded before script is executed, 
+......................................................................
+put script tag inside the body tag (or put in head with defer attribute
+===========================================================================
+event bubble
+......................................................................
+by default bubble - not capture - p first, div next, form next
+===========================================================================
+click button - create event and dispatch it
+.......................................................................
+<html>
+	<div onclick="callCustomMethod()"></div>
+</html>
+function callCustomMethod(){
+	let event = new CustomEvent("hello", {
+		detail: {name: "udhay"}
+	})
+}
+document.addEventListener("hello", function(data){
+	console.log(`hello has called! ${data.detail}`)
+})
+===========================================================================
+arrrow function example?
+......................................................................
+const abc = () => console.log("hello")
+const sum = data =>  {
+	let sum = data + 10
+	return sum
+}
+console.log(sum(4))
+const sum = (data1, data2) => data1 + data2 + 10
+===========================================================================
+js - setTimeout, setInterval - explain
+......................................................................
+timeout after sometime only once, after interval keep printing once
+===========================================================================
+aura vs LWC
+.......................................................................
+aura = ES5(2009)
+...too much code, rendering slow, modern feature (class, module, promises)
+LWC = ES6(2015)...ES15(Jun2024)
+...shadowDOM, WebComponent, betterPerf (all these from web standards)
+...LWC only for securityStandards, 
+aura can have LWC - not otherwise
+both use same base lightning components, same services like LDS, UI API Etc
+===========================================================================
+</xmp>
+</small>
+</div>
+</div>
+</div>
+
+</div>
 
 </div>
 </section>
 </body>
-</html> 
+</html>
