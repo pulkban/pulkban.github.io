@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Clock</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-top: 20px;
+        }
+        .clock-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+        .clock-number span {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .hour-hand, .minute-hand {
+            position: absolute;
+            width: 6px;
+            height: 80px;
+            background: black;
+            transform-origin: bottom;
+            bottom: 50%;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            clip-path: polygon(50% 0%, 100% 100%, 50% 80%, 0% 100%);
+        }
+        .minute-hand {
+            height: 100px;
+            background: red;
+        }
+        .clock-number {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .clock-number span {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn btn-primary mb-3" onclick="setRandomTime()">Set Random Time</button>
+    <div class="clock-container">
+        <div class="hour-hand" id="hourHand"></div>
+        <div class="minute-hand" id="minuteHand"></div>
+        <div class="clock-number">
+            <span style="top: 5%; left: 50%">12</span>
+            <span style="top: 19%; left: 82%">1</span>
+            <span style="top: 34%; left: 93%">2</span>
+            <span style="top: 50%; left: 96%">3</span>
+            <span style="top: 66%; left: 93%">4</span>
+            <span style="top: 81%; left: 82%">5</span>
+            <span style="top: 92%; left: 50%">6</span>
+            <span style="top: 81%; left: 18%">7</span>
+            <span style="top: 66%; left: 7%">8</span>
+            <span style="top: 50%; left: 4%">9</span>
+            <span style="top: 34%; left: 7%">10</span>
+            <span style="top: 19%; left: 18%">11</span>
+        </div>
+    </div>
+    <script>
+        function setRandomTime() {
+            let hours = Math.floor(Math.random() * 12) + 1;
+            let minutes = [0, 15, 30, 45][Math.floor(Math.random() * 4)];
+            let hourDeg = (hours % 12) * 30 + (minutes / 60) * 30;
+            let minuteDeg = minutes * 6;
+            document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+            document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+        }
+    </script>
+</body>
+</html>
