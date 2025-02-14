@@ -16,7 +16,7 @@
             transform: translateX(-50%);
             font-size: 4em;
             text-align: center;
-            animation: fall 3s linear forwards;
+            animation: fall 5s linear forwards;
         }
     </style>
 </head>
@@ -25,11 +25,20 @@
         <h1>Falling Words Game</h1>
         <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
         <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
+        <button class="btn btn-warning mt-3" onclick="togglePause()">Pause</button>
+        <div class="mt-3">
+            <label><input type="radio" name="speed" value="1" onclick="changeSpeed(1)"> 1 sec</label>
+            <label><input type="radio" name="speed" value="3" onclick="changeSpeed(3)" checked> 3 sec</label>
+            <label><input type="radio" name="speed" value="5" onclick="changeSpeed(5)"> 5 sec</label>
+        </div>
     </div>
     
     <script>
         const words = ["Cat", "Dog", "Sun", "Tree", "Fish", "Cement", "Building", "Drink", "Eat", "Apple", "Banana"];
         const container = document.getElementById('falling-words-container');
+        let isPaused = false;
+        let currentWord = null;
+        let fallDuration = 3; // Default fall duration
         
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -43,7 +52,9 @@
                 const div = document.createElement('div');
                 div.className = 'falling-word';
                 div.textContent = word;
+                div.style.animation = `fall ${fallDuration}s linear forwards`;
                 container.appendChild(div);
+                currentWord = div;
                 
                 div.addEventListener('animationend', () => {
                     container.removeChild(div);
@@ -56,10 +67,31 @@
             while (true) { // Infinite loop for repeating the game
                 shuffleArray(words);
                 for (let i = 0; i < words.length; i++) {
+                    if (isPaused) {
+                        await new Promise(resolve => {
+                            const checkPause = setInterval(() => {
+                                if (!isPaused) {
+                                    clearInterval(checkPause);
+                                    resolve();
+                                }
+                            }, 100);
+                        });
+                    }
                     await createFallingWord(words[i]);
                     await new Promise(resolve => setTimeout(resolve, 500)); // Short delay before next word
                 }
             }
+        }
+        
+        function togglePause() {
+            isPaused = !isPaused;
+            if (currentWord) {
+                currentWord.style.animationPlayState = isPaused ? 'paused' : 'running';
+            }
+        }
+
+        function changeSpeed(speed) {
+            fallDuration = speed;
         }
     </script>
 </body>
