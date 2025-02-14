@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Words</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @keyframes fall {
+            0% { top: 0; opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+        .falling-word {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4em;
+            text-align: center;
+            animation: fall 3s linear forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Falling Words Game</h1>
+        <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
+        <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
+    </div>
+    
+    <script>
+        const words = ["Cat", "Dog", "Sun", "Tree", "Fish", "Cement", "Building", "Drink", "Eat", "Apple", "Banana"];
+        const container = document.getElementById('falling-words-container');
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        
+        function createFallingWord(word) {
+            return new Promise(resolve => {
+                const div = document.createElement('div');
+                div.className = 'falling-word';
+                div.textContent = word;
+                container.appendChild(div);
+                
+                div.addEventListener('animationend', () => {
+                    container.removeChild(div);
+                    resolve();
+                });
+            });
+        }
+        
+        async function startFallingWords() {
+            while (true) { // Infinite loop for repeating the game
+                shuffleArray(words);
+                for (let i = 0; i < words.length; i++) {
+                    await createFallingWord(words[i]);
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Short delay before next word
+                }
+            }
+        }
+    </script>
+</body>
+</html>
