@@ -43,12 +43,14 @@ var qbPics = [
 { "question": "Select right phrase for him &gt;&gt;&gt;gen_nehru","type": "single","options" : {"A": "Jai Jawan Jai Kissan","B": "Gandhi","C": "Hey Ram","D": "Children's day"},"answer": "D"},
 { "question": "Select right sentence for him &gt;&gt;&gt;gen_lal","type": "single","options" : {"A": "Father of nation","B": "Children's day","C": "United India from 500 pieces","D": "Jai Jawan Jai Kissan"},"answer": "D"},
 { "question": "Which is right sentence representing him &gt;&gt;&gt;gen_patel","type": "single","options" : {"A": "Father of nation","B": "Children's day","C": "Jai Jawan Jai Kissan","D": "India in 500 pieces - he united"},"answer": "D"},
-{"question":"Identify him/her >>> gen_messi","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Ronaldinho"},"answer":"B"}
-{"question":"Identify him/her >>> gen_ronaldo","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Ronaldinho"},"answer":"A"}
-{"question":"Identify him/her >>> gen_beckham","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Beckham","D":"Ronaldinho"},"answer":"C"}
-{"question":"Identify him/her >>> gen_pele","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Pele"},"answer":"D"}
-{"question":"Identify him/her >>> gen_neymar","type":"single","options":{"A":"Suarez","B":"Neymar","C":"Griezmann","D":"Hazard"},"answer":"B"}
-{"question":"Identify him/her >>> gen_mbappe","type":"single","options":{"A":"Vinicius Jr.","B":"Mbappe","C":"Lautaro Martinez","D":"Foden"},"answer":"B"}
+
+{"question":"Identify him &gt;&gt;&gt;gen_saroj","type": "single","options" : {"A": "Indira Gandhi","B": "Jayalalitha","C": "Old lady","D": "Sarojini Naidu"},"answer": "D"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_messi","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Ronaldinho"},"answer":"B"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_ronaldo","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Ronaldinho"},"answer":"A"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_beckham","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Beckham","D":"Ronaldinho"},"answer":"C"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_pele","type":"single","options":{"A":"Ronaldo","B":"Messi","C":"Mbappe","D":"Pele"},"answer":"D"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_neymar","type":"single","options":{"A":"Suarez","B":"Neymar","C":"Griezmann","D":"Hazard"},"answer":"B"},
+{"question":"Identify him/her &gt;&gt;&gt;gen_mbappe","type":"single","options":{"A":"Vinicius Jr.","B":"Mbappe","C":"Lautaro Martinez","D":"Foden"},"answer":"B"},
 
 
 
