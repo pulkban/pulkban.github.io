@@ -39,11 +39,17 @@
     </div>
     
     <script>
-        const levelWords = {
-            1: ["Cat", "Dog", "Sun", "Tree", "Fish"],
-            2: ["Cement", "Building", "Drink", "Eat", "Apple"],
-            3: ["Banana", "Walk", "Fly", "Run", "Sit", "Stand", "Sleep", "Laugh", "Smile"]
-        };
+		const levelWords = {
+			1: ["Cat", "Dog", "Sun", "Tree", "Fish"],
+			2: ["Cement", "Building", "Drink", "Eat", "Apple", 
+				"Market", "Place", "Grocery", "Chemist", "Stationery", 
+				"Police", "Station", "Protect", "School", "Teacher", 
+				"Ambulance", "Fire", "Swing", "Farmer", "Carpenter", 
+				"Cobbler", "Doctor", "Nurse"],
+			3: ["Banana", "Walk", "Fly", "Run", "Sit", "Stand", 
+				"Sleep", "Laugh", "Smile"]
+		};
+
         const container = document.getElementById('falling-words-container');
         let isPaused = false;
         let currentWord = null;
