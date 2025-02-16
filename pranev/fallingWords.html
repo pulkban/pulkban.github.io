@@ -24,20 +24,24 @@
     <div class="container text-center">
         <h1>Falling Words Game</h1>
         <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
-        <div class="mt-3">
-            <label><input type="radio" name="level" value="1" checked> Level 1</label>
-            <label><input type="radio" name="level" value="2"> Level 2</label>
-            <label><input type="radio" name="level" value="3"> Level 3</label>
-			<label><input type="radio" name="level" value="4"> Hindi</label>
-			<label><input type="radio" name="level" value="5"> Kannada</label>
-        </div>
+		<div class="mt-3">
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-primary"><input type="radio" name="level" value="1" autocomplete="off" checked> Level 1</label>
+				<label class="btn btn-outline-primary"><input type="radio" name="level" value="2" autocomplete="off"> Level 2</label>
+				<label class="btn btn-outline-primary"><input type="radio" name="level" value="3" autocomplete="off"> Level 3</label>
+				<label class="btn btn-outline-primary"><input type="radio" name="level" value="4" autocomplete="off"> Hindi</label>
+				<label class="btn btn-outline-primary"><input type="radio" name="level" value="5" autocomplete="off"> Kannada</label>
+			</div>
+		</div>
         <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
         <button class="btn btn-warning mt-3" onclick="togglePause()">Pause</button>
-        <div class="mt-3">
-            <label><input type="radio" name="speed" value="1" onclick="changeSpeed(1)"> 1 sec</label>
-            <label><input type="radio" name="speed" value="3" onclick="changeSpeed(3)" checked> 3 sec</label>
-            <label><input type="radio" name="speed" value="5" onclick="changeSpeed(5)"> 5 sec</label>
-        </div>
+		<div class="mt-3">
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-outline-secondary"><input type="radio" name="speed" value="1" autocomplete="off" onclick="changeSpeed(1)"> 1 sec</label>
+				<label class="btn btn-outline-secondary active"><input type="radio" name="speed" value="3" autocomplete="off" onclick="changeSpeed(3)" checked> 3 sec</label>
+				<label class="btn btn-outline-secondary"><input type="radio" name="speed" value="5" autocomplete="off" onclick="changeSpeed(5)"> 5 sec</label>
+			</div>
+		</div>
     </div>
     
     <script>
@@ -121,6 +125,13 @@
         function changeSpeed(speed) {
             fallDuration = speed;
         }
+		
+		document.querySelectorAll('.btn-group-toggle input[type="radio"]').forEach(input => {
+			input.addEventListener('change', function() {
+				document.querySelectorAll(`[name="${this.name}"]`).forEach(el => el.parentElement.classList.remove('active'));
+				this.parentElement.classList.add('active');
+			});
+		});
     </script>
 </body>
 </html>
