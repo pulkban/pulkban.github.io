@@ -85,6 +85,7 @@ function determineChapter() {
 	if (cmbChapter.value == 6) questions = qbMaths;
 	if (cmbChapter.value == 7) questions = qbKannada;
 	if (cmbChapter.value == 8) questions = qbHindi;
+	if (cmbChapter.value == 9) questions = qbPics;
 	
 	window.localStorage.setItem("chapter", cmbChapter.value);
 	
