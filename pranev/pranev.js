@@ -1,6 +1,8 @@
 journalDetails = {
 
 	'Falling Words': 'fallingWords.html',
+	'Falling Words 2': 'fallingWords2.html',
+	'Falling Pics': 'fallingPics.html',
 	'Clock': 'clock.html',
 	'Quiz': 'q.html'
 };

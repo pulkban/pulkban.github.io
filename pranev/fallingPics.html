@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Images</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @keyframes fall {
+            0% { top: 0; opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+        .falling-image {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: fall 5s linear forwards;
+        }
+        .falling-image img {
+            max-width: 200px; /* Adjust size as needed */
+            height: auto;
+        }
+        #answer-display {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Falling Images</h1>
+        <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
+        <div class="mt-3">
+            <select id="level-select" class="form-control">
+                <option value="football">Football</option>
+                <option value="flag">Flag</option>
+				<option value="flags">Flags</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
+        <button class="btn btn-info mt-3" onclick="showAnswer()">Show Answer</button>
+        <button class="btn btn-warning mt-3" onclick="togglePause()">Pause Now</button>
+        <div id="answer-display"></div>
+        <div class="mt-3">
+            <select id="speed-select" class="form-control" onchange="changeSpeed(this.value)">
+                <option value="1">1 sec</option>
+                <option value="3" selected>3 sec</option>
+                <option value="5">5 sec</option>
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        const levelWords = {
+            "football": ["gen_bebeto.jpg", "gen_beckham.jpg", "gen_jairzinho.jpg", "gen_maradona.jpg", "gen_mbappe.jpg", "gen_messi.jpg", "gen_neymar.jpg", "gen_neymar2.jpg", "gen_pele.jpg", "gen_pele2.jpg", "gen_rivaldo.jpg", "gen_romario.jpg", "gen_ronaldo.jpg", "gen_ronaldo2.jpg", "gen_tostao.jpg", "gen_zico.jpg", "gen_zidane.jpg"],
+			
+			"flag": ["Afghanistan.png", "Argentina.png", "Armenia.png", "Australia.png", "Austria.png", "Azerbaijan.png", "Bahamas.png", "Bahrain.png", "Bangladesh.png", "Belgium.png", "Bhutan.png", "Brazil.png", "Cambodia.png", "Canada.png", "China.png", "Cuba.png", "Denmark.png", "Dominican_Republic.png", "Egypt.png", "Finland.png", "France.png", "Germany.png", "Gibraltar.png", "Greece.png", "Greenland.png", "Hong_Kong.png", "Hungary.png", "Iceland.png", "India.png", "Indonesia.png", "Iran.png", "Iraq.png", "Israel.png", "Italy.png", "Jamaica.png", "Japan.png", "Kenya.png", "Kuwait.png", "Liberia.png", "Libya.png", "Malaysia.png", "Maldives.png", "Mexico.png", "Morocco.png", "Myanmar.png", "Nepal.png", "Netherlands.png", "New_Zealand.png", "Nigeria.png", "North_Korea.png", "Norway.png", "Oman.png", "Pakistan.png", "Philippines.png", "Poland.png", "Portugal.png", "Qatar.png", "Saudi_Arabia.png", "Singapore.png", "South_Africa.png", "South_Korea.png", "Soviet_Union.png", "Spain.png", "Sri_Lanka.png", "Switzerland.png", "Taiwan.png", "Thailand.png", "Tibet.png", "Trinidad_and_Tobago.png", "Turkey.png", "UAE.png", "Uganda.png", "Ukraine.png", "United_Kingdom.png", "United_States_of_America.png", "Vatican_City.png", "Vietnam.png", "Yemen.png", "Zimbabwe.png"],
+			
+			"flags": ["Albania.png", "Algeria.png", "American_Samoa.png", "Andorra.png", "Angola.png", "Anguilla.png", "Antigua_and_Barbuda.png", "Aruba.png", "Barbados.png", "Belarus.png", "Belize.png", "Benin.png", "Bermuda.png", "Bolivia.png", "Bosnia.png", "Botswana.png", "British_Virgin_Islands.png", "Brunei.png", "Bulgaria.png", "Burkina_Faso.png", "Burundi.png", "Cameroon.png", "Cape_Verde.png", "Cayman_Islands.png", "Central_African_Republic.png", "Chad.png", "Chile.png", "Christmas_Island.png", "Colombia.png", "Comoros.png", "Cook_Islands.png", "Costa_Rica.png", "Croatia.png", "Cyprus.png", "Cyprus_Northern.png", "Czech_Republic.png", "Côte_d'Ivoire.png", "Democratic_Republic_of_the_Congo.png", "Djibouti.png", "Dominica.png", "Ecuador.png", "El_Salvador.png", "Equatorial_Guinea.png", "Eritrea.png", "Estonia.png", "Ethiopia.png", "Falkland_Islands.png", "Faroe_Islands.png", "Fiji.png", "French_Polynesia.png", "Gabon.png", "Gambia.png", "Georgia.png", "Ghana.png", "Grenada.png", "Guam.png", "Guatemala.png", "Guinea.png", "Guinea_Bissau.png", "Guyana.png", "Haiti.png", "Honduras.png", "Ireland.png", "Jordan.png", "Kazakhstan.png", "Kiribati.png", "Kyrgyzstan.png", "Laos.png", "Latvia.png", "Lebanon.png", "Lesotho.png", "Liechtenstein.png", "Lithuania.png", "Luxembourg.png", "Macao.png", "Macedonia.png", "Madagascar.png", "Malawi.png", "Mali.png", "Malta.png", "Marshall_Islands.png", "Martinique.png", "Mauritania.png", "Mauritius.png", "Micronesia.png", "Moldova.png", "Monaco.png", "Mongolia.png", "Montserrat.png", "Mozambique.png", "Namibia.png", "Nauru.png", "Netherlands_Antilles.png", "Nicaragua.png", "Niger.png", "Niue.png", "Norfolk_Island.png", "Palau.png", "Panama.png", "Papua_New_Guinea.png", "Paraguay.png", "Peru.png", "Pitcairn_Islands.png", "Puerto_Rico.png", "Republic_of_the_Congo.png", "Romania.png", "Russian_Federation.png", "Rwanda.png", "Saint_Kitts_and_Nevis.png", "Saint_Lucia.png", "Saint_Pierre.png", "Saint_Vicent_and_the_Grenadines.png", "Samoa.png", "San_Marino.png", "Sao_Tomé_and_Príncipe.png", "Senegal.png", "Serbia_and_Montenegro.png", "Seychelles.png", "Sierra_Leone.png", "Slovakia.png", "Slovenia.png", "Soloman_Islands.png", "Somalia.png", "South_Georgia.png", "Sudan.png", "Suriname.png", "Swaziland.png", "Sweden.png", "Syria.png", "Tajikistan.png", "Tanzania.png", "Timor-Leste.png", "Togo.png", "Tonga.png", "Tunisia.png", "Turkmenistan.png", "Turks_and_Caicos_Islands.png", "Tuvalu.png", "Uruguay.png", "US_Virgin_Islands.png", "Uzbekistan.png", "Vanuatu.png", "Venezuela.png", "Wallis_and_Futuna.png", "Zambia.png"]
+
+        };
+
+        const container = document.getElementById('falling-words-container');
+        const answerDisplay = document.getElementById('answer-display');
+        let isPaused = false;
+        let currentImage = null;
+        let fallDuration = 3;
+        let currentImageFile = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function createFallingImage(imageFile, folder) {
+            return new Promise(resolve => {
+                const div = document.createElement('div');
+                div.className = 'falling-image';
+                const img = document.createElement('img');
+                img.src = `./pics/${folder}/${imageFile}`; // Use folder in the path
+                img.alt = imageFile.split('.')[0];
+                div.appendChild(img);
+                div.style.animation = `fall ${fallDuration}s linear forwards`;
+                div.style.animationPlayState = isPaused ? 'paused' : 'running';
+                container.appendChild(div);
+                currentImage = div;
+                currentImageFile = imageFile; // Store current image file for answer
+
+                div.addEventListener('animationend', () => {
+                    container.removeChild(div);
+                    answerDisplay.textContent = ''; // Clear answer when animation ends
+                    resolve();
+                });
+            });
+        }
+
+        async function startFallingWords() {
+            const selectedLevel = document.getElementById('level-select').value;
+            const images = levelWords[selectedLevel] ? [...levelWords[selectedLevel]] : []; // Fallback to empty array
+            if (images.length === 0) {
+                console.error(`No images found for folder: ${selectedLevel}`);
+                return;
+            }
+            container.innerHTML = '<div id="answer-display"></div>'; // Reset container with answer div
+            isPaused = false;
+
+            while (true) {
+                shuffleArray(images);
+                for (let i = 0; i < images.length; i++) {
+                    if (isPaused) {
+                        await new Promise(resolve => {
+                            const checkPause = setInterval(() => {
+                                if (!isPaused) {
+                                    clearInterval(checkPause);
+                                    resolve();
+                                }
+                            }, 100);
+                        });
+                    }
+                    await createFallingImage(images[i], selectedLevel); // Pass folder name
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            document.querySelectorAll('.falling-image').forEach(image => {
+                image.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+        }
+
+        function changeSpeed(speed) {
+            fallDuration = speed;
+        }
+
+        function showAnswer() {
+            if (currentImageFile) {
+                const answer = currentImageFile.split('.')[0]; // Remove extension
+                answerDisplay.textContent = answer;
+            } else {
+                answerDisplay.textContent = 'No image falling yet!';
+            }
+        }
+    </script>
+</body>
+</html>
