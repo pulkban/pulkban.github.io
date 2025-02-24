@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Multiplication Questions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @keyframes fall {
+            0% { top: 0; opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+        .falling-question {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4em;
+            text-align: center;
+            animation: fall 5s linear forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Falling Multiplication Questions</h1>
+        <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
+        <button class="btn btn-primary mt-3" onclick="startFallingQuestions()">Start Game</button>
+        <button class="btn btn-warning mt-3" onclick="togglePause()">Pause</button>
+        <div class="mt-3">
+            <select id="speed-select" class="form-control" onchange="changeSpeed(this.value)">
+                <option value="1">1 sec</option>
+                <option value="3" selected>3 sec</option>
+                <option value="5">5 sec</option>
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        function generateMultiplicationQuestions() {
+            const questions = [];
+            const tables = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+            while (questions.length < 10) {
+                const table = tables[Math.floor(Math.random() * tables.length)];
+                const multiplier = Math.floor(Math.random() * 10) + 1; // 1 to 10
+                const question = `${table} x ${multiplier} =`;
+                if (!questions.includes(question)) {
+                    questions.push(question);
+                }
+            }
+            return questions;
+        }
+
+        const container = document.getElementById('falling-words-container');
+        let isPaused = false;
+        let currentQuestion = null;
+        let fallDuration = 3;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function createFallingQuestion(question) {
+            return new Promise(resolve => {
+                const div = document.createElement('div');
+                div.className = 'falling-question';
+                div.textContent = question;
+                div.style.animation = `fall ${fallDuration}s linear forwards`;
+                div.style.animationPlayState = isPaused ? 'paused' : 'running';
+                container.appendChild(div);
+                currentQuestion = div;
+
+                div.addEventListener('animationend', () => {
+                    container.removeChild(div);
+                    resolve();
+                });
+            });
+        }
+
+        async function startFallingQuestions() {
+            const questions = generateMultiplicationQuestions();
+            container.innerHTML = '';
+            isPaused = false;
+
+            while (true) {
+                shuffleArray(questions);
+                for (let i = 0; i < questions.length; i++) {
+                    if (isPaused) {
+                        await new Promise(resolve => {
+                            const checkPause = setInterval(() => {
+                                if (!isPaused) {
+                                    clearInterval(checkPause);
+                                    resolve();
+                                }
+                            }, 100);
+                        });
+                    }
+                    await createFallingQuestion(questions[i]);
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            document.querySelectorAll('.falling-question').forEach(question => {
+                question.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+        }
+
+        function changeSpeed(speed) {
+            fallDuration = speed;
+        }
+    </script>
+</body>
+</html>
