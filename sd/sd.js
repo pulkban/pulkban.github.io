@@ -95,7 +95,7 @@ journalDetails = {
 	//--Ganesha
 	'sep8':'Ganesha',
 	'GanaNayakaAshtakam': 'GanaNayakaAshtakam.html',
-	'GaneshaBhujangam': 'GaneshaBhujangam.html',
+	'Gananayaka': 'Gananayaka.html',
 
 	//--Sivan
 	'sep1':'Sivan',
@@ -170,6 +170,7 @@ journalDetails = {
 	'Narayana Kavacham': '../nrn/NRN_Kavacham.html',
 	'Lakshmi Narasimha Karaavalambha': '../nrn/NRN_LakshmiNarasimhaKaraavalambha.html',
 	'PadukaSahasrakam': 'PadukaSahasrakam.html',
+	'JaiShriRamSong': 'JaiShriRamSong.html',
 
 	//--Large
 	'sep7':'Mooka Pancha Shathi',	
