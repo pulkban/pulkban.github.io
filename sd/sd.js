@@ -130,6 +130,9 @@ journalDetails = {
 	'ShivaStutiBhajan': '../sd/ShivaStutiBhajan.html',
 	'ShivaKavacham': 'ShivaKavacham.html',
 	'AtmarpanaStuti': 'AtmarpanaStuti.html',
+	'OdiOdiUtkalandha': 'OdiOdiUtkalandha.html',
+	'NatarajarPathu': 'NatarajarPathu.html',
+	'BhoShambo': 'BhoShambo.html',
 	
 	//--Subramanya
 	'sep2':'Subramanya',
@@ -141,7 +144,6 @@ journalDetails = {
 	//--Saibaba
 	'sep19':'Saibaba',
 	'ShriSainathaAshtakam': 'ShriSainathaAshtakam.html',
-
 
 	//--Rama Krishna Vishnu
 	'sep3':'Rama Krishna Vishnu',	
