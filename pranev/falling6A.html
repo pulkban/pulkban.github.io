@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Questions and Images</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @keyframes fall {
+            0% { top: 0; opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+        .falling-item {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: fall 5s linear forwards;
+        }
+        .falling-item.question {
+            font-size: 1.5em;
+            white-space: pre-wrap;
+        }
+        .falling-item.image img {
+            max-width: 200px;
+            height: auto;
+        }
+        #answer-display {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Falling Questions and Images</h1>
+        <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
+        <div class="mt-3">
+            <select id="level-select" class="form-control">
+                <option value="general">General Knowledge</option>
+                <option value="pics">Pics</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
+        <button class="btn btn-info mt-3" onclick="showAnswer()">Show Answer</button>
+        <button class="btn btn-warning mt-3" onclick="togglePause()">Pause Now</button>
+        <div id="answer-display"></div>
+        <div class="mt-3">
+            <select id="speed-select" class="form-control" onchange="changeSpeed(this.value)">
+                <option value="1">1 sec</option>
+                <option value="3" selected>3 sec</option>
+                <option value="5">5 sec</option>
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        const levelWords = {
+            "general": [
+                // Fill in the blanks
+                { text: "Which is the largest flower in the world_________.", answer: "Rafflesia", type: "question" },
+                { text: "Which pigment plays a vital role in photosynthesis_________.", answer: "Chlorophyll", type: "question" },
+                { text: "Which state is in the southernmost tip of India_________.", answer: "Tamil Nadu", type: "question" },
+                { text: "Name the satellite launched by India to explore Mars_________.", answer: "Mangalyaan", type: "question" },
+                { text: "Which country will host Asian Games 2026_________.", answer: "Japan", type: "question" },
+                { text: "What is the full form of PDF_________.", answer: "Portable Document Format", type: "question" },
+                { text: "Which American inventor is known for the invention of the compact disc_________.", answer: "James Russel", type: "question" },
+                { text: "Give an example for a nitrogen fixing bacteria seen in leguminous plants_________.", answer: "Rhizobium", type: "question" },
+                { text: "Who is the first Indian to win Ramon Magsaysay award_________.", answer: "Acharya Vinoba Bhave", type: "question" },
+                { text: "Which planet is known as ‘Red Planet’_________.", answer: "Mars", type: "question" },
+                
+                // Statements (fill in the blanks style)
+                { text: "The famous book ‘Arthashastra’, is written by_________.", answer: "Chanakya", type: "question" },
+                { text: "The ancient name of the river Ravi is_________.", answer: "Iravati", type: "question" },
+                { text: "The organelle that is referred as the ‘power house of a cell’ is_________.", answer: "Mitochondria", type: "question" },
+                { text: "The planet having seven rings with gaps and divisions in between them is_________.", answer: "Saturn", type: "question" },
+                { text: "The pigment contained in the rod cells of human eye is_________.", answer: "Rhodopsin", type: "question" },
+                { text: "The study of muscles is called_________.", answer: "Myology", type: "question" },
+                { text: "Simple goitre is caused due to the deficiency of_________.", answer: "Iodine", type: "question" },
+                { text: "Jalian Wala Bhag tragedy took place in the year_________.", answer: "1919", type: "question" },
+                { text: "The city of Ujjain is on the banks of the river_________.", answer: "Kshipra", type: "question" },
+                { text: "Broca’s area in cerebrum is related to_________.", answer: "Speech", type: "question" },
+                
+                // Choose the best answer (as questions, no options)
+                { text: "The name of parliament of China is National people’s Congress. Which is Japan’s parliament?", answer: "National diet", type: "question" },
+                { text: "Capital of Italy is Rome. Which is the capital of Sweden?", answer: "Stockholm", type: "question" },
+                { text: "The first woman to swim across English Channel:", answer: "Arati Saha", type: "question" },
+                { text: "Which continent is represented by the yellow-coloured ring in the Olympics logo?", answer: "Asia", type: "question" },
+                { text: "Which day is celebrated as National Sports Day in India?", answer: "August 29", type: "question" },
+                { text: "Deuce, Drop, Smash are terms related to:", answer: "Badminton", type: "question" },
+                { text: "‘Sunny Days’ is the autobiography of:", answer: "Sunil Gavaskar", type: "question" },
+                { text: "Archery is the national game of:", answer: "Bhutan", type: "question" },
+                { text: "The planet with the name Greek God who is considered as ‘Lord of the Heaven.’", answer: "Jupiter", type: "question" },
+                { text: "Where was the first Indian post office outside the country established?", answer: "Antarctica", type: "question" }
+            ],
+            "pics": [
+                { text: "AlexanderFlemingPencillin.jpg", answer: "AlexanderFlemingPencillin", type: "image" },
+                { text: "BillGatesMicrosoft.jpg", answer: "BillGatesMicrosoft", type: "image" },
+                { text: "CharlesBabbageFatherOfComp.jpg", answer: "CharlesBabbageFatherOfComp", type: "image" },
+                { text: "FaHienChineseMonk400BCE.jpg", answer: "FaHienChineseMonk400BCE", type: "image" },
+                { text: "SabeerBhatiaHotmail2MB.jpg", answer: "SabeerBhatiaHotmail2MB", type: "image" }
+            ]
+        };
+
+        const container = document.getElementById('falling-words-container');
+        const answerDisplay = document.getElementById('answer-display');
+        let isPaused = false;
+        let currentItem = null;
+        let fallDuration = 3;
+        let currentItemObj = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function createFallingItem(itemObj) {
+            return new Promise(resolve => {
+                const div = document.createElement('div');
+                div.className = 'falling-item';
+                if (itemObj.type === "question") {
+                    div.classList.add('question');
+                    div.textContent = itemObj.text;
+                } else if (itemObj.type === "image") {
+                    div.classList.add('image');
+                    const img = document.createElement('img');
+                    img.src = `./pics/pranev_6a/${itemObj.text}`;
+                    img.alt = itemObj.answer;
+                    div.appendChild(img);
+                }
+                div.style.animation = `fall ${fallDuration}s linear forwards`;
+                div.style.animationPlayState = isPaused ? 'paused' : 'running';
+                container.appendChild(div);
+                currentItem = div;
+                currentItemObj = itemObj;
+
+                div.addEventListener('animationend', () => {
+                    container.removeChild(div);
+                    answerDisplay.textContent = '';
+                    resolve();
+                });
+            });
+        }
+
+        async function startFallingWords() {
+            const selectedLevel = document.getElementById('level-select').value;
+            const items = levelWords[selectedLevel] ? [...levelWords[selectedLevel]] : [];
+            if (items.length === 0) {
+                console.error(`No items found for: ${selectedLevel}`);
+                return;
+            }
+            container.innerHTML = '<div id="answer-display"></div>';
+            isPaused = false;
+
+            while (true) {
+                shuffleArray(items);
+                for (let i = 0; i < items.length; i++) {
+                    if (isPaused) {
+                        await new Promise(resolve => {
+                            const checkPause = setInterval(() => {
+                                if (!isPaused) {
+                                    clearInterval(checkPause);
+                                    resolve();
+                                }
+                            }, 100);
+                        });
+                    }
+                    await createFallingItem(items[i]);
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            document.querySelectorAll('.falling-item').forEach(item => {
+                item.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+        }
+
+        function changeSpeed(speed) {
+            fallDuration = speed;
+        }
+
+        function showAnswer() {
+            if (currentItemObj) {
+                answerDisplay.textContent = currentItemObj.answer;
+            } else {
+                answerDisplay.textContent = 'No item falling yet!';
+            }
+        }
+    </script>
+</body>
+</html>
