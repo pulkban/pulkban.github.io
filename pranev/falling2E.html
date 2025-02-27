@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Questions and Images</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @keyframes fall {
+            0% { top: 0; opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+        .falling-item {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: fall 5s linear forwards;
+        }
+        .falling-item.question {
+            font-size: 1.5em;
+            white-space: pre-wrap;
+        }
+        .falling-item.image img {
+            max-width: 400px;
+            height: auto;
+        }
+        #answer-display {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Falling Questions and Images</h1>
+        <div id="falling-words-container" style="position: relative; height: 500px; overflow: hidden;"></div>
+        <div class="mt-3">
+            <select id="level-select" class="form-control">
+                <option value="general">General Knowledge</option>
+                <option value="pics">Pics</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="startFallingWords()">Start Game</button>
+        <button class="btn btn-info mt-3" onclick="showAnswer()">Show Answer</button>
+        <button class="btn btn-warning mt-3" onclick="togglePause()">Pause Now</button>
+        <div id="answer-display"></div>
+        <div class="mt-3">
+            <select id="speed-select" class="form-control" onchange="changeSpeed(this.value)">
+                <option value="1">1 sec</option>
+                <option value="3" selected>3 sec</option>
+                <option value="5">5 sec</option>
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        const levelWords = {
+            "general": [
+                { text: "Which is the largest flower_________.", answer: "Rafflesia Arnoldii", type: "question" },
+                { text: "In which part of Tapioca is food stored_________.", answer: "plant", type: "question" },
+                { text: "The book 'Gitanjali' is written by_________.", answer: "Rabindranath Tagore", type: "question" },
+                { text: "I.T. stands for_________.", answer: "Information technology", type: "question" },
+                { text: "American Tennis player won 23 singles titles_________.", answer: "Serena Williams", type: "question" },
+                { text: "A famous martial artist and actor popularized in Kungfu________.", answer: "Bruce Lee", type: "question" },
+                { text: "A game in which the player dribbles and then shoots the ball in a high hoop_________.", answer: "Basket ball", type: "question" },
+                { text: "Won National award 4 times playback singer_________.", answer: "Shreya Ghoshal", type: "question" },
+                { text: "Who is considered as 'Nataraja' (King of Dancing)", answer: "Lord Shiva", type: "question" },
+                { text: "Nautanki is a dance form popular in", answer: "Uttar Pradesh", type: "question" },
+                { text: "In which Shakespeare Drama does 'Brutus' appear", answer: "Julius Caesar", type: "question" },
+                { text: "Find out the next number in the series 5, 7, 11, 13, ____", answer: "15", type: "question" },
+                { text: "If A+B= 8 and B+C=5, A+C= ?", answer: "10", type: "question" },
+                { text: "Match the following:\n1) T.V.               – Remote control\n2) Loud speaker    – microphone\n3) Electric bulb   – Filament\n4) Fan              – Regulator\n5) Phantoms        – Lee Falk\n6) Aladdin          – Arabic Folk tale\n7) Cendrillon       – Cinderella", answer: "", type: "question" }
+            ],
+            "pics": [
+                { text: "AjantaCaves.jpg", answer: "AjantaCaves", type: "image" },
+                { text: "Golden Temple.jpg", answer: "Golden Temple", type: "image" },
+                { text: "Hospital.jpg", answer: "Hospital", type: "image" },
+                { text: "PsalmSunday.jpg", answer: "PsalmSunday", type: "image" },
+                { text: "RailwayCrossing.jpg", answer: "RailwayCrossing", type: "image" },
+                { text: "RakshaBandhan.jpg", answer: "RakshaBandhan", type: "image" },
+                { text: "RedFort.jpg", answer: "RedFort", type: "image" },
+                { text: "SchoolZone.jpg", answer: "SchoolZone", type: "image" }
+            ]
+        };
+
+        const container = document.getElementById('falling-words-container');
+        const answerDisplay = document.getElementById('answer-display');
+        let isPaused = false;
+        let currentItem = null;
+        let fallDuration = 3;
+        let currentItemObj = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function createFallingItem(itemObj) {
+            return new Promise(resolve => {
+                const div = document.createElement('div');
+                div.className = 'falling-item';
+                if (itemObj.type === "question") {
+                    div.classList.add('question');
+                    div.textContent = itemObj.text;
+                } else if (itemObj.type === "image") {
+                    div.classList.add('image');
+                    const img = document.createElement('img');
+                    img.src = `./pics/kavya_2e/${itemObj.text}`;
+                    img.alt = itemObj.answer;
+                    div.appendChild(img);
+                }
+                div.style.animation = `fall ${fallDuration}s linear forwards`;
+                div.style.animationPlayState = isPaused ? 'paused' : 'running';
+                container.appendChild(div);
+                currentItem = div;
+                currentItemObj = itemObj;
+
+                div.addEventListener('animationend', () => {
+                    container.removeChild(div);
+                    answerDisplay.textContent = '';
+                    resolve();
+                });
+            });
+        }
+
+        async function startFallingWords() {
+            const selectedLevel = document.getElementById('level-select').value;
+            const items = levelWords[selectedLevel] ? [...levelWords[selectedLevel]] : [];
+            if (items.length === 0) {
+                console.error(`No items found for: ${selectedLevel}`);
+                return;
+            }
+            container.innerHTML = '<div id="answer-display"></div>';
+            isPaused = false;
+
+            while (true) {
+                shuffleArray(items);
+                for (let i = 0; i < items.length; i++) {
+                    if (isPaused) {
+                        await new Promise(resolve => {
+                            const checkPause = setInterval(() => {
+                                if (!isPaused) {
+                                    clearInterval(checkPause);
+                                    resolve();
+                                }
+                            }, 100);
+                        });
+                    }
+                    await createFallingItem(items[i]);
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
+            }
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            document.querySelectorAll('.falling-item').forEach(item => {
+                item.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+        }
+
+        function changeSpeed(speed) {
+            fallDuration = speed;
+        }
+
+        function showAnswer() {
+            if (currentItemObj) {
+                answerDisplay.textContent = currentItemObj.answer;
+            } else {
+                answerDisplay.textContent = 'No item falling yet!';
+            }
+        }
+    </script>
+</body>
+</html>

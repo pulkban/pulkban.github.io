@@ -6,6 +6,7 @@ journalDetails = {
 	'Falling Table': 'fallingTables.html',
 	'Clock': 'clock.html',
 	'Quiz': 'q.html'
+	'Falling 2E GK': 'falling2E.html',
 };
 
 
