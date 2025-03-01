@@ -8,7 +8,8 @@ journalDetails = {
 	'Quiz': 'q.html',
 	
 	'Falling 2E GK': 'falling2E.html',
-	'Falling 6A GK': 'falling6A.html'
+	'Falling 6A GK': 'falling6A.html',
+	'falling2EHindi': 'falling2EHindi.html'
 };
 
 
