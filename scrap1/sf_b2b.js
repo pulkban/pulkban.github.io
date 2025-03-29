@@ -124,7 +124,7 @@ window.getQuestions = function() {
         "C": "ccrz.ccUtil…. (Map<String,Object> mp, String key, Object ob)",
         "D": "ccrz.ccUtil.defaultValue(Map<String,Object> mp, String key, Object ob)"
     }, 
-    "answer": ["B"] 
+    "answer": ["A"] 
 },
 { 
     "question": "The sizing keys used in the Salesforce B2B Commerce Global APIs have five distinct operations.\n\nWhat are three of these operations?", 
