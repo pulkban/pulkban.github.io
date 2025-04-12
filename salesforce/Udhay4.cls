@@ -156,6 +156,7 @@ public class Udhay {
             c.Status = 'Closed';
             c.SubStatus__c = 'Completed';
             c.IntegrationStatus__c = 'Sent to TTX';
+			c.EnrolledDate__c = Date.newInstance(Integer.valueOf(c.AssessmentYear__c), 6, 15);
             c.SequenceNumber__c = 1;
             c.RollYear__c = c.AssessmentYear__c;
             c.Type = 'Regular';
