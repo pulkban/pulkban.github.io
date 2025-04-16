@@ -1,6 +1,6 @@
 //Udhay.createProperty1('5783 103', 'Normal', '0000 000');
 //Udhay.createProperty1('5778 001', 'Timeshare', '0000 000');
-//Udhay.deleteProperty();
+//Udhay.deleteProperty('a1Jcp000003I80gEAC'); 
 public class Udhay {
     public static Date eventDate = Date.valueOf('2011-07-07');
 	public static Integer latestYear = 2024;
@@ -11,6 +11,8 @@ public class Udhay {
     public static void deleteProperty(String strPropId) {
         delete [SELECT Id FROM CaseOwnershipRelation__c WHERE Case__c IN (SELECT Id FROM Case WHERE Property__c = :strPropId)];
         delete [SELECT Id FROM Case WHERE Property__c = :strPropId];
+        delete [SELECT Id FROM ParcelGenealogy__c WHERE ChildParcel__c = :strPropId];
+        delete [SELECT Id FROM ParcelGenealogy__c WHERE ParentParcel__c = :strPropId];
 		delete [SELECT id from DocumentGenerationRequest__c where Property__c = :strPropId];
         delete [SELECT Id FROM PropertyTransaction__c WHERE Property__c = :strPropId];
         delete [SELECT Id FROM PropertyEvent__c WHERE Property__c = :strPropId];
