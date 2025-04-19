@@ -4,9 +4,9 @@
 public class Udhay {
     public static Date eventDate = Date.valueOf('2011-07-07');
 	public static Integer latestYear = 2024;
-    public static Decimal landValue = 75000.0;
-    public static Decimal improvementValue = 75000.0;
-    public static Decimal totalValue = 150000.0;
+    public static Decimal landValue = 750000.0;
+    public static Decimal improvementValue = 750000.0;
+    public static Decimal totalValue = 1500000.0;
 
     public static void deleteProperty(String strPropId) {
         delete [SELECT Id FROM CaseOwnershipRelation__c WHERE Case__c IN (SELECT Id FROM Case WHERE Property__c = :strPropId)];
