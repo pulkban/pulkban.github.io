@@ -1,6 +1,11 @@
-//Udhay.createProperty1('5783 103', 'Normal', '0000 000');
+//Udhay.createProperty1('5798 101', 'Normal', '0000 000');
 //Udhay.createProperty1('5778 001', 'Timeshare', '0000 000');
-//Udhay.deleteProperty('a1Jcp000003I80gEAC'); 
+//Udhay.deleteProperty('a1Jcp000004Gg4HEAS'); 
+//Udhay.deleteCases('03012598,03012597,03012596,03012595,03012594');
+//Udhay.updateCaseAndDeleteChild('03007001');
+//SELECT Id, CreatedDate, CaseNumber, Property__c, AssessmentYear__c, SequenceNumber__c, TotalAssessedValueRP__c, RPAmountExempt__c, TotalAmountExempt__c FROM case 
+//where Property__c  = 'a1Jcp000003zJQfEAM' order by AssessmentYear__c desc, SequenceNumber__c desc
+//
 public class Udhay {
     public static Date eventDate = Date.valueOf('2011-07-07');
 	public static Integer latestYear = 2024;
@@ -21,6 +26,22 @@ public class Udhay {
         delete [SELECT Id FROM Property__c WHERE Id = :strPropId];
     }
 
+    public static void deleteCases(String commaSeparatedCaseNumbers) {
+        List<Case> casesToDelete = [SELECT Id FROM Case WHERE CaseNumber IN :new List<String>(commaSeparatedCaseNumbers.split(','))];
+        if (!casesToDelete.isEmpty()) {
+            delete [SELECT Id FROM CaseOwnershipRelation__c WHERE Case__c IN :casesToDelete];
+            delete casesToDelete;
+        }
+    }
+     public static void updateCaseAndDeleteChild(String caseNumber) {
+        List<Case> casesToUpdate = [SELECT Id, RPAmountExempt__c FROM Case WHERE CaseNumber = :caseNumber];
+        if (!casesToUpdate.isEmpty()) {
+            delete [SELECT Id FROM AssessmentPropertyEvent__c WHERE Assessment__c IN :casesToUpdate];
+            for (Case c : casesToUpdate) c.RPAmountExempt__c = null;
+            update casesToUpdate;
+        }
+    }
+    
     /*public static void logMessage(String message) {
         insert new UdhayLog__c(LogText__c = message);
     }*/
