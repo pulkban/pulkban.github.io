@@ -1,8 +1,9 @@
-//Udhay.createProperty1('5798 101', 'Normal', '0000 000');
+//Udhay.createProperty1('5798 104', 'Normal', '0000 000');
 //Udhay.createProperty1('5778 001', 'Timeshare', '0000 000');
 //Udhay.deleteProperty('a1Jcp000004Gg4HEAS'); 
-//Udhay.deleteCases('03012598,03012597,03012596,03012595,03012594');
-//Udhay.updateCaseAndDeleteChild('03007001');
+//Udhay.deleteCases('34711186,34711184,34711185');
+//Udhay.updateCaseAndDeleteChild('34424033');
+//Udhay.enrolledCases('03012950,03012949,03012948,03012947,03012946')
 //SELECT Id, CreatedDate, CaseNumber, Property__c, AssessmentYear__c, SequenceNumber__c, TotalAssessedValueRP__c, RPAmountExempt__c, TotalAmountExempt__c FROM case 
 //where Property__c  = 'a1Jcp000003zJQfEAM' order by AssessmentYear__c desc, SequenceNumber__c desc
 //
@@ -41,6 +42,19 @@ public class Udhay {
             update casesToUpdate;
         }
     }
+    
+    public static void enrolledCases(String caseNumbersCsv) {
+        List<String> caseNumbers = caseNumbersCsv.split(',');
+        List<Case> casesToUpdate = [SELECT Id FROM Case WHERE CaseNumber IN :caseNumbers];
+        if (!casesToUpdate.isEmpty()) {
+            for (Case c : casesToUpdate) {
+                c.SubStatus__c = 'Completed';
+                c.IntegrationStatus__c = 'Sent to TTX';
+            }
+            update casesToUpdate;
+        }
+    }
+
     
     /*public static void logMessage(String message) {
         insert new UdhayLog__c(LogText__c = message);
