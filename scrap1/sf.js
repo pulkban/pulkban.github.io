@@ -33,13 +33,27 @@ function stopTimer() {
     clearInterval(timerInterval);
 }
 
+function processQuestionTextForImages(text) {
+    // Regular expression to find <<filename.ext>> where ext can be jpg, jpeg, png, gif
+    // The `gi` flags make it global (find all matches) and case-insensitive
+    const imagePattern = /{{([^>]+\.(?:jpg|jpeg|png|gif))}}/gi;
+
+    // Replace each found pattern with an <img> tag
+    return text.replace(imagePattern, (match, filename) => {
+        // You can customize the img tag with alt text, width, height, or classes
+        return `<img src="${filename}" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;">`;
+    });
+}
+
 function loadQuestion() {
     if (currentQuestionIndex >= questions.length) {
         return showFinalResults();
     }
 
     let questionData = questions[currentQuestionIndex];
-    document.getElementById("question").textContent = questionData.question;
+    //document.getElementById("question").textContent = questionData.question;
+	let formattedQuestion = processQuestionTextForImages(questionData.question);
+    document.getElementById("question").innerHTML = formattedQuestion; // Changed to innerHTML
     
     let optionsTable = document.getElementById("options");
     optionsTable.innerHTML = "";
