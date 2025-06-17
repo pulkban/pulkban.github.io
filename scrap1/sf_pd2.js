@@ -94,7 +94,7 @@ window.getQuestions = function() {
     "C": "Have the ERP system push the data into Salesforce using the SOAP API.",
     "D": "Use Salesforce Connect to view real-time Order data in the ERP system."
   },
-  "answer": ["A", "B", "C"]
+  "answer": ["C", "D"]
 },
 
 {
@@ -106,7 +106,7 @@ window.getQuestions = function() {
     "C": "Use a SOSL query to return ALL Opportunities that have a value of NULL in any field.",
     "D": "Use the OR operator to combine WHERE clauses to strictly search for each value within the picklist, including Type__c = NULL."
   },
-  "answer": "B"
+  "answer": "A"
 },
 
 
@@ -119,7 +119,7 @@ window.getQuestions = function() {
     "C": "Use the window.alert() method to display the error messages.",
     "D": "Use public properties on each component to display the error messages."
   },
-  "answer": ["A", "D"]
+  "answer": ["A", "B"]
 },
 
 
@@ -132,7 +132,7 @@ window.getQuestions = function() {
     "C": "Use the setHeader() method to specify Basic Authentication.",
     "D": "Change the access modifier for ERPCatelog from public to global."
   },
-  "answer": "D"
+  "answer": "A"
 },
 
 
@@ -162,7 +162,7 @@ window.getQuestions = function() {
 
 {
   "question": "The Account object has a field, Audit_Code__c, that specifies the type of auditing needed, and a Lookup to User, Auditor__c, for the assigned auditor. Each User has a unique text field, Rudi, used to automatically assign the correct User to the Account's Auditor__c field when the Account is created.<br><br>What should be changed to most optimize the code’s efficiency? {{pd2_5.jpg}}Choose 2 answers.",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "Build a Map<String, List<Account>> of audit code to accounts.",
     "B": "Add an initial SOQL query to get all distinct audit codes.",
@@ -194,7 +194,7 @@ window.getQuestions = function() {
     "C": "The executeBatch must fall within Test.startTest() and Test.stopTest().",
     "D": "The batch needs more than one account record created."
   },
-  "answer": "C"
+  "answer": "A"
 },
 
 {
@@ -222,7 +222,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Which two best practices should the developer implement to optimize this code?",
+  "question": "Which two best practices should the developer implement to optimize this code? Choose 2 answers",
   "type": "multiple",
   "options": {
     "A": "Use a collection for the DML statement.",
@@ -230,7 +230,7 @@ window.getQuestions = function() {
     "C": "Change the trigger context to after update, after insert.",
     "D": "Remove the DML statement."
   },
-  "answer": ["A", "B", "D"],
+  "answer": ["B", "D"],
 },
 
 {
@@ -242,7 +242,7 @@ window.getQuestions = function() {
     "C": "Create a Workflow Rule with an Outbound Message and select Send Session ID so that the Heroku app can use it to send the resized images back to Salesforce.",
     "D": "Create a Workflow Rule with an Outbound Message allowing the Heroku app to automatically store the resized images in Salesforce."
   },
-  "answer": ["A", "C", "D"],
+  "answer": ["A", "C"],
 },
 
 {
@@ -258,7 +258,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{pd21.jpg}}",
+  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{pd21_a.jpg}}{{pd21_b.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -294,7 +294,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Universal Containers (UC) calculates commissions on their Opportunities in different ways based on complex rules that vary depending on the line of business of the Opportunity.<br><br>Whenever a new line of business is added to Salesforce at UC, it is likely that a different calculation will need to be added too. When an Opportunity’s stage is changed to Closed/Won, its commission should be calculated in real time.<br><br>What should a developer use so that different implementations of the commission calculation can be invoked on the stage change?  <br>Udhay:Is this enum?",
+  "question": "Universal Containers (UC) calculates commissions on their Opportunities in different ways based on complex rules that vary depending on the line of business of the Opportunity.<br><br>Whenever a new line of business is added to Salesforce at UC, it is likely that a different calculation will need to be added too. When an Opportunity’s stage is changed to Closed/Won, its commission should be calculated in real time.<br><br>What should a developer use so that different implementations of the commission calculation can be invoked on the stage change? ",
   "type": "single",
   "options": {
     "A": "A final class with multiple methods",
@@ -326,7 +326,7 @@ window.getQuestions = function() {
     "C": "Import the list of all custom objects from @salesforce/schema.",
     "D": "Check the getObjectType() value for 'Custom' or 'Standard' on the sObject describe result."
   },
-  "answer": "A",
+  "answer": "B",
 },
 
 {
@@ -393,7 +393,7 @@ window.getQuestions = function() {
 
 
 {
-  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>```html\n<template>\n  <lightning-record-edit-form object-api-name=\"Contact\">\n    <lightning-input-field field-name=\"FirstName\"></lightning-input-field>\n    <lightning-input-field field-name=\"LastName\"></lightning-input-field>\n    <lightning-input-field field-name=\"Email\"></lightning-input-field>\n    <lightning-button type=\"submit\" name=\"submit\" label=\"Create Contact\"></lightning-button>\n  </lightning-record-edit-form>\n</template>\n```<br><br>Which component should the developer add to the form to display error messages?",
+  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>{{pd2_10.jpg}}Which component should the developer add to the form to display error messages?",
   "type": "single",
   "options": {
     "A": "apex:messages",
@@ -417,7 +417,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer wrote the following method to find all the test accounts in the org:<br><br>```apex\npublic static Account[] searchTestAccounts() {\n  List<List<SObject>> searchList = [FIND 'test' IN ALL FIELDS RETURNING Account(Name)];\n  return (Account[]) searchList[0];\n}\n```\nHowever, the test method below fails:<br><br>```apex\n@isTest\npublic static void testSearchTestAccounts() {\n  Account a = new Account(Name='test');\n  insert a;\n  Account[] accounts = TestAccountFinder.searchTestAccounts();\n  System.assert(accounts.size() == 1);\n}\n```<br><br>What should be used to fix this failing test?",
+  "question": "A developer wrote the following method to find all the test accounts in the org:{{pd2_11.jpg}}What should be used to fix this failing test?",
   "type": "single",
   "options": {
     "A": "Test.loaddata to set up expected data",
@@ -425,12 +425,12 @@ window.getQuestions = function() {
     "C": "@isTest(SeeAllData=true) to access org data for the test",
     "D": "@testSetup method to set up expected data"
   },
-  "answer": "C",
+  "answer": "B",
 },
 
 
 {
-  "question": "A developer created a Lightning web component for the Account record page that displays the five most recently contacted Contacts for an Account. The Apex method, getRecentContacts, returns a list of Contacts and will be wired to a property in the component.<br><br>```apex\npublic class ContactFetcher {\n  public static List<Contact> getRecentContacts(Id accountId) {\n    List<Contact> contacts = getFiveMostRecent(accountId);\n    return contacts;\n  }\n\n  private static List<Contact> getFiveMostRecent(Id accountId) {\n    // implementation...\n  }\n}\n```<br><br>Which two lines must change in the above code to make the Apex method able to be wired? Choose 2 answers",
+  "question": "A developer created a Lightning web component for the Account record page that displays the five most recently contacted Contacts for an Account. The Apex method, getRecentContacts, returns a list of Contacts and will be wired to a property in the component.{{pd2_12.jpg}}Which two lines must change in the above code to make the Apex method able to be wired? Choose 2 answers",
 "type": "multiple",
   "options": {
     "A": "Add @AuraEnabled(cacheable=true) to line 08",
@@ -456,13 +456,13 @@ window.getQuestions = function() {
 
 	
 {
-  "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?",
+  "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?{{pd2_13.jpg}}",
   "type": "single",
   "options": {
     "A": "AccountControllerExt extension = new AccountControllerExt(acct);",
     "B": "AccountControllerExt extension = new AccountControllerExt(acct.Id);",
-    "C": "ApexPages.StandardController sc = new ApexPages.StandardController(acct.Id);\nAccountControllerExt extension = new AccountControllerExt(sc);",
-    "D": "ApexPages.StandardController sc = new ApexPages.StandardController(acct);\nAccountControllerExt extension = new AccountControllerExt(sc);"
+    "C": "ApexPages.StandardController sc = new ApexPages.StandardController(acct.Id);<br>AccountControllerExt extension = new AccountControllerExt(sc);",
+    "D": "ApexPages.StandardController sc = new ApexPages.StandardController(acct);<br>AccountControllerExt extension = new AccountControllerExt(sc);"
   },
   "answer": "D",
 },
@@ -494,7 +494,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "As part of an integration development effort, a developer is tasked to create an Apex method that solely relies on the use of foreign identifiers in order to relate new Contact records to existing Accounts in Salesforce. The Account object contains a field marked as an external ID, the API Name of this field is Legacy_Id__c.<br><br>What is the most efficient way to instantiate the parentAccount variable on line 02 to ensure the newly created Contact is properly related to the Account?",
+  "question": "As part of an integration development effort, a developer is tasked to create an Apex method that solely relies on the use of foreign identifiers in order to relate new Contact records to existing Accounts in Salesforce. The Account object contains a field marked as an external ID, the API Name of this field is Legacy_Id__c.<br><br>{{pd2_14.jpg}}What is the most efficient way to instantiate the parentAccount variable on line 02 to ensure the newly created Contact is properly related to the Account?",
   "type": "single",
   "options": {
     "A": "Account parentAccount = [SELECT Id FROM Account WHERE Legacy_Id__c = :externalIdentifier].Id;",
@@ -538,7 +538,7 @@ window.getQuestions = function() {
     "C": "SObject Tree API",
     "D": "Event Monitoring API"
   },
-  "answer": "C",
+  "answer": "A",
 },
 
 {
@@ -705,7 +705,7 @@ window.getQuestions = function() {
 },
 
 {
-    "question": "A developer created a Lightning web component that allows users to input a text value that is used to search for Accounts by calling an Apex method. The Apex method returns a list of AccountWrappers and is called imperatively from a JavaScript event handler.<br><br>Given the code:<br><pre><code>public class AccountSearcher {<br><br>    public static List&lt;AccountWrapper&gt; search(String term) {<br>        List&lt;AccountWrapper&gt; wrappers = getMatchingAccountWrappers(term);<br>        return wrappers;<br>    }<br><br>    public class AccountWrapper {<br>        public Account account { get; set; }<br>        public Decimal matchProbability { get; set; }<br>    }<br>    // ...other methods, including getMatchingAccountWrappers implementation...<br>}</code></pre><br>Which two changes should the developer make so the Apex method functions correctly? Choose 2 answers.",
+    "question": "A developer created a Lightning web component that allows users to input a text value that is used to search for Accounts by calling an Apex method. The Apex method returns a list of AccountWrappers and is called imperatively from a JavaScript event handler.{{pd2_15.jpg}}Which two changes should the developer make so the Apex method functions correctly? Choose 2 answers.",
     "type": "multiple",
     "options": {
         "A": "Add @AuraEnabled to line 03.",
