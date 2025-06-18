@@ -1,6 +1,430 @@
 window.getQuestions = function() {
     return [
 {
+  "question": "A developer wrote a class named accountRegistryManager that relies on field history tracking. The class has a static method called getAccountHistory that takes in an Account as a parameter and returns a list of associated AccountHistory object records. The following test fails: What should be done to make this test pass?{{pd2_27.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Use Test.isRunningTest() in getAccountHistory() to conditionally return fake AccountHistory records.",
+    "B": "The test method should be deleted since this code cannot be tested.",
+    "C": "Create AccountHistory records manually in the test setup and write a query to get them.",
+    "D": "Use @isTest(SeeAllData=true) to see historical data from the org and query for AccountHistory records."
+  },
+  "answer": "D",
+},
+{
+  "question": "A company wants to run different logic based on an Opportunity's record type. Which code segment handles this request and follows best practices?{{pd2_26a.jpg}}<br>{{pd2_26b.jpg}}<br>{{pd2_26c.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B",
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer is asked to find a way to store secret data with an ability to specify which profiles and users can access which secrets. What should be used to store this data?",
+  "type": "single",
+  "options": {
+    "A": "Custom metadata",
+    "B": "system.Cookie class",
+    "C": "Custom settings",
+    "D": "Static resources"
+  },
+  "answer": "C",
+},
+
+{
+  "question": "What is a benefit of JavaScript remoting over Visualforce Remote Objects?",
+  "type": "single",
+  "options": {
+    "A": "Supports complex server-side application logic",
+    "B": "Allows for specified re-render targets",
+    "C": "Does not require any Apex code",
+    "D": "Does not require any JavaScript code"
+  },
+  "answer": "A",
+},
+
+{
+  "question": "Universal Containers wants to notify an external system in the event that an unhandled exception occurs when their nightly Apex batch job runs. What is the appropriate publish/subscribe logic to meet this requirement?",
+  "type": "single",
+  "options": {
+    "A": "Have the external system subscribe to a custom Platform Event that gets fired with EventBus.publish().",
+    "B": "Have the external system subscribe to a standard Platform Event that gets fired with EventBus.publish().",
+    "C": "Have the external system subscribe to a standard Platform Event that gets fired.",
+    "D": "Have the external system subscribe to a custom Platform Event that gets fired with addError()."
+  },
+  "answer": "A",
+  "explanation": "The correct approach is to use a **custom Platform Event** published via `EventBus.publish()` when an unhandled exception occurs in the batch job. This allows the external system to subscribe to the event and react in real-time. Standard Platform Events (B, C) are not suitable for custom error notifications. Option D (`addError()`) is incorrect because it is used for validation errors, not for publishing events."
+},
+{
+  "question": "A developer created 2 class that implements the Queueable Interface. As part of the deployment process, the developer is asked to create a corresponding test class. Which two actions should the developer take to successfully execute the test class? {{pd2_25.jpg}}",
+  "type": "multiple",
+  "options": {
+    "A": "Implement seeAllData=True to ensure the Queueable job is able to run in bulk mode.",
+    "B": "Enclose System.enqueueJob(new OrderQueueableJob()) within Test.startTest() and Test.stopTest().",
+    "C": "Ensure the running user of the test class has, at minimum, the View All permission on the Order object.",
+    "D": "Implement Test.isRunningTest() to prevent chaining jobs during test execution."
+  },
+  "answer": ["B", "D"]
+},
+{
+  "question": "An Apex class does not achieve expected code coverage. The testSetup method explicitly calls a method in the Apex class. How can the developer generate the code coverage?",
+  "type": "single",
+  "options": {
+    "A": "Call the Apex class method from a test method instead of the testSetup method.",
+    "B": "Add @testvisible to the method in the class the developer is testing.",
+    "C": "Use System.assert() in testSetup to verify the values are being returned.",
+    "D": "Verify the user has permissions passing a user into System.runAs()."
+  },
+  "answer": "A",
+},
+{
+  "question": "How can a developer efficiently incorporate multiple JavaScript libraries in an Aura component?",
+  "type": "single",
+  "options": {
+    "A": "Join multiple assets from a static resource.",
+    "B": "Use JavaScript remoting and script tags.",
+    "C": "Use CDNs with script attributes.",
+    "D": "Implement the libraries in separate helper files."
+  },
+  "answer": "A",
+},
+
+{
+  "question": "A company has an Apex process that makes multiple extensive database operations and web service callouts. The database processes and web services can take a long time to run and must be run sequentially. How should the developer write this Apex code without running into governor limits and system limitations?",
+  "type": "single",
+  "options": {
+    "A": "Use Apex Scheduler to schedule each process.",
+    "B": "Use Queueable Apex to chain the jobs to run sequentially.",
+    "C": "Use multiple future methods for each process and callout.",
+    "D": "Use Limits class to stop entire process once governor limits are reached."
+  },
+  "answer": "B",
+},
+
+{
+  "question": "An org records customer order information in a custom object, Order__c, that has fields for the shipping address. A developer is tasked with adding code to calculate shipping charges on an order, based on a flat percentage rate associated with the region of the shipping address. What should the developer use to store the rates by region, so that when the changes are deployed to production no additional steps are needed for the calculation to work?",
+  "type": "single",
+  "options": {
+    "A": "Custom object",
+    "B": "Custom metadata type", 
+    "C": "Custom hierarchy setting",
+    "D": "Custom list setting"
+  },
+  "answer": "B",
+},
+
+{
+  "question": "A developer has a Visualforce page that automatically assigns ownership of an Account to a queue upon save. The page appears to correctly assign ownership, but an assertion validating the correct ownership fails. What can cause this problem?",
+  "type": "single",
+  "options": {
+    "A": "The test class does not implement the Queueable interface.",
+    "B": "The test class does not use the seeAllData=true annotation.",
+    "C": "The test class does not retrieve the updated value from the database.",
+    "D": "The test class does not use the Bulk API for loading test data."
+  },
+  "answer": "C",
+},
+
+{
+  "question": "Universal Containers develops a Visualforce page that requires the inclusion of external JavaScript and CSS files. They want to ensure efficient loading and caching of the page. Which feature should be utilized to achieve this goal?",
+  "type": "single",
+  "options": {
+    "A": "ActionFunction",
+    "B": "RemoteAction",
+    "C": "Static resources",
+    "D": "PageBlockTable"
+  },
+  "answer": "C",
+},
+
+{
+  "question": "An Apex trigger creates a Contract record every time an Opportunity record is marked as Closed and Won. This trigger is working great, except (due to a recent acquisition) historical Opportunity records need to be loaded into the Salesforce instance. When a test batch of records are loaded, the Apex trigger creates Contract records. A developer is tasked with preventing Contract records from being created when mass loading the Opportunities, but the daily users still need to have the Contract records created. What is the most extendable way to update the Apex trigger to accomplish this?",
+  "type": "single",
+  "options": {
+    "A": "Use a hierarchy custom setting to skip executing the logic inside the trigger for the user who loads the data.",
+    "B": "Add a validation rule to the Contract to prevent Contract creation by the user who loads the data.",
+    "C": "Use a list custom setting to disable the trigger for the user who loads the data.",
+    "D": "Add the Profile ID of the user who loads the data to the trigger, so the trigger will not fire for this user."
+  },
+  "answer": "A",
+},
+
+{
+  "question": "A developer is creating a Lightning web component that displays a list of records in a lightning-datatable. After saving a new record to the database, the list is not updating. What should the developer change in the code above for this to happen?{{pd2_24.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Call refreshApex() on this.data.",
+    "B": "Add the @track decorator to the data variable.",
+    "C": "Create a new variable to store the result and annotate it with @track.",
+    "D": "Create a variable to store the result and call refreshApex()."
+  },
+  "answer": "D",
+},
+
+{
+  "question": "A Visualforce page needs to make a callout to get billing information and tax information from two different REST endpoints. The information needs to be displayed to the user at the same time and the return value of the billing information contains the input for the tax callout. Each endpoint might take up to two minutes to process. How should a developer implement the callouts?",
+  "type": "single",
+  "options": {
+    "A": "An HTTP REST callout for the billing callout and a Continuation for the tax callout",
+    "B": "A Continuation for both the billing callout and the tax callout",
+    "C": "An HTTP REST callout for both the billing callout and the tax callout",
+    "D": "A Continuation for the billing callout and an HTTP REST callout for the tax callout"
+  },
+  "answer": "B",
+},
+
+{
+  "question": "Universal Containers uses Big Objects to store almost a billion customer transactions called Customer_Transaction__b. These are the fields on Customer_Transaction__b: The following fields have been identified as Index Fields for the Customer_Transaction__b object: Account__c, Program__c, and Transaction_Date__c. Which SOQL query is valid on the Customer_Transaction__b Big Object? {{pd2_23b.jpg}}<br>{{pd2_23.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B"
+  },
+  "answer": "A",
+},
+
+{
+  "question": "Refer to the test method below: The test method calls an @future method that increments the Number_of_Times_Viewed__c value. The assertion is failing because the Number_of_Times_Viewed__c equals 0. What is the optimal way to fix this? {{pd2_22.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Add Test.startTest() before and Test.stopTest() after insert acct.",
+    "B": "Add Test.startTest() before and Test.stopTest() after AuditUtil.incrementViewed.",
+    "C": "Change the initialization to acct.Number_Of_Times_Viewed__c = 1.",
+    "D": "Change the assertion to System.assertEquals(0, acctAfter.Number_Of_Times_Viewed__c)."
+  },
+  "answer": "B",
+},
+
+{
+  "question": "A developer is developing a reusable Aura component that will reside on an sObject Lightning page. How can the component's controller get the context of the Lightning page that the sObject is on without requiring additional test coverage? {{pd2_21.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Use the getSubjectType method in an Apex class.",
+    "B": "Create a design attribute and configure via App Builder.",
+    "C": "Set the sObject type as a component attribute.",
+    "D": "Add force:hasSobjectName to the implements attribute."
+  },
+  "answer": "D"
+},
+
+{
+  "question": "A developer needs to store variables to control the style and behavior of a Lightning Web Component. Which feature can be used to ensure that the variables are testable in both Production and all Sandboxes?",
+  "type": "single",
+  "options": {
+    "A": "Custom object",
+    "B": "Custom setting",
+    "C": "Custom variable",
+    "D": "Custom metadata"
+  },
+  "answer": "D"
+},
+
+{
+  "question": "A developer is asked to replace the standard Case creation screen with a custom screen that takes users through a wizard before creating the Case. The org only has users running Lightning Experience. What should the developer override the Case New Action with to satisfy the requirements?",
+  "type": "single",
+  "options": {
+    "A": "Lightning Component",
+    "B": "Lightning Record Page", 
+    "C": "Lightning Page",
+    "D": "Lightning Flow"
+  },
+  "answer": "A"
+},
+
+{
+  "question": "Business rules require a Contact to always be created when a new Account is created. What can be used when developing a custom screen to ensure an Account is not created if the creation of the Contact fails?",
+  "type": "single",
+  "options": {
+    "A": "Use setSavepoint() and rollback() with a try-catch block.",
+    "B": "Disable validation rules on Contacts and set default values with a trigger.",
+    "C": "Use the Database.insert method with allOrNone set to false.",
+    "D": "Use the Database.delete method if the Contact insertion fails."
+  },
+  "answer": "A"
+},
+
+{
+  "question": "A developer is building a Lightning web component that searches for Contacts. The component must communicate the search results to other unrelated Lightning web components, that are in different DOM trees, when the search completes. What should the developer do to implement the communication?",
+  "type": "single",
+  "options": {
+    "A": "Fire an application event.",
+    "B": "Publish an event on an event channel.",
+    "C": "Publish a message on a message channel.",
+    "D": "Fire a custom component event."
+  },
+  "answer": "C"
+},
+
+{
+  "question": "Given the following code: Assuming there were 10 Contacts and five Accounts created today, what is the expected result? {{pd2_20.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "System.QueryException: List has more than one row for Assignment on Account",
+    "B": "System.QueryException: Too many DML Statement errors on Contact",
+    "C": "System.LimitException: Too many SOQL Queries on Contact",
+    "D": "System.LimitException: Too many SOQL Queries on Account"
+  },
+  "answer": "A"
+},
+{
+  "question": "A developer has a requirement to query three fields (Id, Name, Type) from an Account; and first and last names for all Contacts associated with the Account. Which option is the preferred, optimized method to achieve this for the Account named 'Ozone Electronics'? {{pd2_19.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B",
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "C"
+},
+{
+  "question": "Universal Charities (UC) uses Salesforce to collect electronic donations in the form of credit card deductions from individuals and corporations. When a customer service agent enters the credit card information, it must be sent to a 3rd-party payment processor for the donation to be processed. UC uses one payment processor for individuals and a different one for corporations. What should a developer use to store the payment processor settings for the different payment processors, so that their system administrator can modify the settings once they are deployed, if needed?",
+  "type": "single",
+  "options": {
+    "A": "List custom setting",
+    "B": "Custom metadata",
+    "C": "Custom object",
+    "D": "Hierarchy custom setting"
+  },
+  "answer": "B"
+},
+
+{
+  "question": "Assuming the CreateOneAccount class creates one account and implements the Queueable interface, which syntax properly tests the Apex code?{{pd2_18.jpg}}<br>{{pd2_18b.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B", 
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "C"
+},
+
+{
+  "question": "Universal Containers (UC) has enabled the translation workbench and has translated picklist values. UC has a custom multi-select picklist field, Product__c, on the Account object that allows sales reps to specify which of UC's products an Account already has. A developer is tasked with writing an Apex method that retrieves Account records, including the Product__c field. What should the developer do to ensure the value of Product__c is in the current user's language?",
+  "type": "single",
+  "options": {
+    "A": "Use TOLABEL(Product__c) in the fields list of the SOQL query.",
+    "B": "Use the Locale clause in the SOQL query.",
+    "C": "Call the translate method on each record in the SOQL result list.",
+    "D": "Set the locale on each record in the SOQL result list."
+  },
+  "answer": "A"
+},
+
+{
+  "question": "A company has reference data stored in multiple custom metadata records that represent default information and delete behavior for certain geographic regions. When a contact is inserted, the default information should be set on the contact from the custom metadata records based on the contact's address information. Additionally, if a user attempts to delete a contact that belongs to a flagged region, the user must get an error message. Depending on company personnel resources, what are two ways to automate this?",
+  "type": "multiple",
+  "options": {
+    "A": "Apex trigger",
+    "B": "Apex invocable method",
+    "C": "Flow Builder",
+    "D": "Remote action"
+  },
+  "answer": ["A", "C"]
+},
+
+{
+  "question": "Users of this Visualforce page complain that the page does a full refresh every time the Search button is pressed. What should the developer do to ensure that a partial refresh is made so that only the section identified with opportunityList is re-drawn on the screen?{{pd2_17.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Implement the <apex:actionFunction> tag with immediate=true.",
+    "B": "Implement the render attribute on the <apex:commandButton> tag.",
+    "C": "Ensure the action method search returns null.",
+    "D": "Enclose the data table within the <apex:actionRegion> tag."
+  },
+  "answer": "B"
+},
+
+{
+  "question": "Which scenario requires a developer to use an Apex callout instead of Outbound Messaging?",
+  "type": "single",
+  "options": {
+    "A": "The callout needs to be asynchronous.",
+    "B": "The target system uses a REST API.",
+    "C": "The callout needs to be invoked from a flow.", 
+    "D": "The target system uses a SOAP API."
+  },
+  "answer": "B"
+},
+
+{
+  "question": "Instead of waiting to send emails to support personnel directly from the finish method of a batch Apex process, Universal Containers wants to notify an external system in the event that an unhandled exception occurs. What is the appropriate publish/subscribe logic to meet this requirement?",
+  "type": "single",
+  "options": {
+    "A": "Publish the error event using the addError method.",
+    "B": "Publish the error event with a Flow.",
+    "C": "Publish the error event using the EventBus.publish() method.",
+    "D": "No publishing is necessary. Have the external system subscribe to the BatchApexErrorEvent."
+  },
+  "answer": "D"
+},
+
+{
+  "question": "A Salesforce Platform Developer is leading a team that is deploying a new application to production using source-driven development. What tool or mechanism should be used to verify that the deployment is successful?",
+  "type": "single", 
+  "options": {
+    "A": "Salesforce Inspector",
+    "B": "Apex Test Execution",
+    "C": "Force.com Migration Tool",
+    "D": "Salesforce DX CLI"
+  },
+  "answer": "D"
+},
+
+{
+  "question": "A developer has a test class that creates test data before making a mock callout but now receives a 'You have uncommitted work pending. Please commit or rollback before calling out' error. Which step should be taken to resolve the error?",
+  "type": "single",
+  "options": {
+    "A": "Ensure the records are inserted before the Test.startTest() statement and the mock callout occurs after the Test.startTest().",
+    "B": "Ensure both the insertion and mock callout occur after the Test.startTest().",
+    "C": "Ensure the records are inserted before the Test.startTest() statement and the mock callout occurs within a method annotated with @testSetup.",
+    "D": "Ensure both the insertion and mock callout occur after the Test.stopTest()."
+  },
+  "answer": "A"
+},
+
+{
+  "question": "A developer created an Opportunity trigger that updates the account rating when an associated opportunity is considered high value. Current criteria for an opportunity to be considered high value is an amount greater than or equal to $1,000,000. However, this criteria value can change over time. There is a new requirement to also display high value opportunities in a Lightning web component. Which two actions should the developer take to meet these business requirements, and also prevent the business logic that obtains the high value opportunities from being repeated in more than one place?",
+  "type": "multiple",
+  "options": {
+    "A": "Call the trigger from the Lightning web component.",
+    "B": "Leave the business logic code inside the trigger for efficiency.",
+    "C": "Create a helper class that fetches the high value opportunities.",
+    "D": "Use custom metadata to hold the high value amount."
+  },
+  "answer": ["C", "D"]
+},
+
+{
+  "question": "How should a developer verify that a specific Account record is being tested in a test class for a Visualforce controller?",
+  "type": "single",
+  "options": {
+    "A": "Insert the Account into Salesforce, Instantiate the page reference in the test class, then use `System.setParentRecordId().get()` to set the Account ID.",
+    "B": "Insert the Account in the test class, Instantiate the page reference in the test class, then use `System.currentPageReference().getParameters().put()` to set the Account ID.",
+    "C": "Instantiate the page reference in the test class, Insert the Account in the test class, then use `System.setParentRecordId().get()` to set the Account ID.",
+    "D": "Instantiate the page reference in the test class, Insert the Account in the test class, then use `scAllData=true` to view the Account."
+  },
+  "answer": "B",
+  "explanation": "Option B is correct because: 1) You must first insert the Account to get a valid ID, 2) You need to instantiate the page reference, and 3) The standard way to pass parameters to a Visualforce controller in tests is through getParameters().put(). Options A and C reference non-existent System.setParentRecordId(), while D's scAllData is unrelated to testing specific records."
+},
+
+{
+  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system’s REST endpoint with the updated records.{{pd2_16.jpg}}What should be done to address the problem?",
+  "type": "single",
+  "options": {
+    "A": "Move the CalloutUtil.makeRestCallout method call below the catch block.",
+    "B": "Remove the Database.setSavepoint and Database.rollback.",
+    "C": "Change the CalloutUtil.makeRestCallout to an @InvocableMethod method.",
+    "D": "Change the CalloutUtil.makeRestCallout to an @future method."
+  },
+  "answer": "D"
+},
+{
   "question": "A business requires that every parent record must have a child record. A developer writes an Apex method with two DML statements to insert a parent record and a child record.\n\nA validation rule blocks child records from being created. The method uses a try/catch block to handle the DML exception.\n\nWhat should the developer do to ensure the parent always has a child record?",
   "type": "single",
   "options": {
@@ -197,17 +621,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 
-{
-  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system’s REST endpoint with the updated records.<br>{{pd2_3.jpg}}<br>What should be done to address the problem?",
-  "type": "single",
-  "options": {
-    "A": "Move the CalloutUtil.makeRestCallout method call below the catch block.",
-    "B": "Remove the Database.setSavepoint and Database.rollback.",
-    "C": "Change the CalloutUtil.makeRestCallout to an @InvocableMethod method.",
-    "D": "Change the CalloutUtil.makeRestCallout to an @future method."
-  },
-  "answer": "D"
-},
+
 
 {
   "question": "The test method above tests an Apex trigger that the developer knows will make a lot of queries when a lot of Accounts are simultaneously updated to be customers.<br><br>The test method fails at Line 20 because of too many SOQL queries.<br>{{pd2_2.jpg}}<br><br>What is the correct way to fix this?",
@@ -258,7 +672,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{pd21_a.jpg}}{{pd21_b.jpg}}",
+  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{pd21_a.jpg}}<br>{{pd21_b.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
