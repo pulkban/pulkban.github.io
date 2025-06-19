@@ -1,5 +1,325 @@
 window.getQuestions = function() {
     return [
+
+{
+  "question": "Based on the code snippets, what change should be made to display the contacts' mailing addresses in the Lightning web component?{{pd2_37.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Extend the lightning-datatable component in the Lightning web component to include a column for the MailingAddress field.",
+    "B": "Add a new method in the Apex controller class to retrieve the mailing addresses separately and modify the Lightning web component to invoke this method.",
+    "C": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field.",
+    "D": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field and update the columns attribute in javascript file to add Mailing address fields."
+  },
+  "answer": "D"
+},
+{
+  "question": "Consider the following code snippet: The Apex method is executed in an environment with a large data volume count for Accounts, and the query is performing poorly. Which technique should the developer implement to ensure the query performs optimally, while preserving the entire result set?{{pd2_36.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Break down the query into two individual queries and join the two result sets",
+    "B": "Annotate the method with the @Future annotation",
+    "C": "Use the Database.queryLocator method to retrieve the accounts",
+    "D": "Create a formula field to combine the createdDate and RecordType value, then filter based on the formula"
+  },
+  "answer": "C"
+},
+{
+  "question": "Which statement is true regarding savepoints?",
+  "type": "single",
+  "options": {
+    "A": "Static variables are not reverted during a rollback",
+    "B": "Reference to savepoints can cross trigger invocations",
+    "C": "Savepoints are not limited by DML statement governor limits",
+    "D": "You can roll back to any savepoint variable created in any order"
+  },
+  "answer": "A"
+},
+{
+  "question": "A developer is asked to build a solution that will automatically send an email to the customer when an Opportunity stage changes. The solution must scale to allow for 10,000 emails per day. The criteria to send the email should be evaluated after certain conditions are met. What is the optimal way to accomplish this?",
+  "type": "single",
+  "options": {
+    "A": "Use SingleEmailMessage() with an Apex trigger",
+    "B": "Use an Email Alert with Flow Builder",
+    "C": "Use MassEmailMessage() with an Apex trigger",
+    "D": "Use a Workflow Email Alert"
+  },
+  "answer": "B"
+},
+{
+  "question": "Refer to the component code and requirements below:{{pd2_35a.jpg}}<br>{{pd2_35b.jpg}}<br>{{pd2_35c.jpg}}<br>{{pd2_35d.jpg}}<br>{{pd2_35e.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B",
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "B"
+},
+{
+  "question": "A company has a native iOS order placement app that needs to connect to Salesforce to retrieve consolidated information from many different objects in a JSON format. Which is the optimal method to implement this in Salesforce?",
+  "type": "single",
+  "options": {
+    "A": "Apex REST callout",
+    "B": "Apex REST web service",
+    "C": "Apex SOAP callout",
+    "D": "Apex SOAP web service"
+  },
+  "answer": "B"
+},
+{
+  "question": "A developer is working with existing functionality that tracks how many times a stage has changed for an Opportunity. When the Opportunity's stage is changed, a workflow rule is fired to increase the value of a field by one. The developer wrote an after trigger to create a child record when the field changes from 4 to 5. A user changes the stage of an Opportunity and manually sets the count field to 4. The count field updates to 5, but the child record is not created. What is the reason this is happening?",
+  "type": "single",
+  "options": {
+    "A": "After triggers are not fired after field updates",
+    "B": "Trigger.old does not contain the updated value of the count field",
+    "C": "After triggers fire before workflow rules",
+    "D": "Trigger.new does not change after a field update"
+  },
+  "answer": "B"
+},
+{
+  "question": "A business currently has a process to manually upload orders from its external Order Management System (OMS) into Salesforce. This is a labor intensive process since accounts must be exported out of Salesforce to get the IDs. The upload file must be updated with the correct account IDs to relate the orders to the corresponding accounts. Which two recommendations should make this process more efficient?",
+  "type": "multi",
+  "options": {
+    "A": "Identify unique fields on Order and Account and set them as External IDs",
+    "B": "Use the upsert wizard in the Data Loader to import the data",
+    "C": "Ensure the data in the file is sorted by the order ID",
+    "D": "Use the insert wizard in the Data Loader to import the data"
+  },
+  "answer": ["A", "B"]
+},
+{
+  "question": "Which tag should a developer use to display different text while an <apex:commandButton> is processing an action?",
+  "type": "single",
+  "options": {
+    "A": "<apex:actionSupport>",
+    "B": "<apex:pageMessages>",
+    "C": "<apex:actionPoller>",
+    "D": "<apex:actionStatus>"
+  },
+  "answer": "D"
+},
+{
+  "question": "Given a list of Opportunity records named opportunityList, which code snippet is best for querying all Contacts of the Opportunity's Account?{{pd2_34.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B",
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "C"
+},
+{
+  "question": "A company uses Salesforce to sell products to customers. They also have an external product information management (PIM) system that is the system of record for products. A developer received these requirements: * Whenever a product is created or updated in the PIM, a product must be created or updated as a Product2 record in Salesforce and a PricebookEntry record must be created or updated automatically by Salesforce. * The PricebookEntry should be created in a Pricebook2 that is specified in a custom setting. What should the developer use to satisfy these requirements?",
+  "type": "single",
+  "options": {
+    "A": "Custom Apex REST",
+    "B": "SObject Tree REST",
+    "C": "Invocable Action",
+    "D": "Event Monitoring"
+  },
+  "answer": "A"
+},
+{
+  "question": "A developer is responsible for formulating the deployment process for a Salesforce project. The project follows a source-driven development approach, and the developer wants to ensure efficient deployment and version control of the metadata changes. Which tool or mechanism should be utilized for managing the source-driven deployment process?",
+  "type": "single",
+  "options": {
+    "A": "Metadata API",
+    "B": "Force.com IDE",
+    "C": "Salesforce CLI with Salesforce DX",
+    "D": "Change Sets"
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer is creating a page in App Builder that will be used in the Salesforce mobile app. Which two practices should the developer follow to ensure the page operates with optimal performance?",
+  "type": "multiple",
+  "options": {
+    "A": "Limit to 25 fields on the record detail page",
+    "B": "Limit the number of Tabs and Accordion components",
+    "C": "Limit to five visible components on the page",
+    "D": "Analyze the page with Performance Analysis for App Builder"
+  },
+  "answer": ["A", "D"],
+  "explanation": "For optimal mobile performance: 1) Limiting fields (A) reduces data transfer and rendering load, and 2) Using Performance Analysis (D) identifies specific bottlenecks. While limiting components (B,C) may help, these are arbitrary limits not officially recommended by Salesforce for performance tuning."
+},
+{
+  "question": "A Lightning web component displays the Account name and two custom fields out of 275 that exist on the object. The custom fields are correctly declared and populated. However, the developer receives complaints that the component performs slowly. What can the developer do to improve the performance?{{pd2_33.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Replace layout-type='Full' with fields=[fields]",
+    "B": "Replace layout-type='Full' with layout-type='Partial'",
+    "C": "Add cache='true' to the component",
+    "D": "Add density='compat' to the component"
+  },
+  "answer": "A",
+  "explanation": "Using explicit field lists (Option A) rather than layout types significantly improves performance when only a few fields are needed from an object with many fields. This prevents loading metadata for all 275 fields when only 2 are needed."
+},
+{
+  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system's REST endpoint with the updated records. The calloutUtil.makeRestCallout fails with a 'You have uncommitted work pending. Please commit or rollback before calling out' error. What should be done to address the problem?{{pd2_32.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Change the calloutUtil.makeRestCallout to an @InvocableMethod method",
+    "B": "Remove the Database.setSavepoint and Database.rollback",
+    "C": "Change the calloutUtil.makeRestCallout to an @future method",
+    "D": "Move the callout before any DML operations"
+  },
+  "answer": "C"
+},
+{
+  "question": "An environment has two Apex triggers: an after-update trigger on Account and an after-update trigger on Contact. The Account after-update trigger fires whenever an Account's address is updated, and it updates every associated Contact with that address. The Contact after-update trigger fires on every edit, and it updates every Campaign Member record related to the Contact with the Contact's state. Consider the following: A mass update of 200 Account records' addresses, where each Account has 50 Contacts. Each Contact has one Campaign Member. This means there are 10,000 Contact records across the Accounts and 10,000 Campaign Member records across the contacts. What will happen when the mass update occurs?",
+  "type": "single",
+  "options": {
+    "A": "The mass update will fail, since the two triggers fire in the same context, thus exceeding the number of records processed by DML statements.",
+    "B": "There will be no error and all updates will succeed, since the limit on the number of records processed by DML statements was not exceeded.",
+    "C": "There will be no error, since each trigger fires within its own context and each trigger does not exceed the limit of the number of records processed by DML statements.",
+    "D": "The mass update of Account address will succeed, but the Contact address updates will fail due to exceeding number of records processed by DML statements."
+  },
+  "answer": "A",
+  "explanation": "The mass update will fail because all DML operations occur in a single execution context. Updating 200 Accounts triggers updates to 10,000 Contacts (200 × 50), which in turn triggers updates to 10,000 Campaign Members. This exceeds Salesforce governor limits for DML operations in a single transaction (10,000 records limit)."
+},
+{
+  "question": "A developer created the following test method:\n\nThe developer org has five accounts where the name starts with 'Test'. The developer executes this test in the Developer Console. After the test code runs, which statement is true?{{pd2_31.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "There will be six accounts where the name starts with 'Test'",
+    "B": "There will be no accounts where the name starts with 'Test'",
+    "C": "The test will fail",
+    "D": "There will be five accounts where the name starts with 'Test'"
+  },
+  "answer": "D",
+  "explanation": "Test methods automatically roll back database changes after execution, so the original five test accounts will remain unchanged."
+},
+{
+  "question": "Which three approaches should a developer implement to obtain the best performance for data retrieval when building a Lightning web component? Choose 3 answers",
+  "type": "multi",
+  "options": {
+    "A": "Use layoutTypes: ['Full'] to display a set of fields",
+    "B": "Use the Lightning Data Service",
+    "C": "Use lazy load for occasionally accessed data",
+    "D": "Use @wire(adapter, {cacheable: true}) whenever possible",
+    "E": "Use getRecordUi to obtain metadata"
+  },
+  "answer": ["B", "C", "D"],
+},
+{
+  "question": "A business requires that every parent record must have a child record. A developer writes an Apex method with two DML statements to insert a parent record and a child record. A validation rule blocks child records from being created. The method uses a try/catch block to handle the DML exception. What should the developer do to ensure the parent always has a child record?",
+  "type": "single",
+  "options": {
+    "A": "Use Database.insert() and set the allOrNone parameter to true",
+    "B": "Delete the parent record in the catch statement when an error occurs on the child record DML operation",
+    "C": "Use addError() on the parent record if an error occurs on the child record",
+    "D": "Set a database savepoint to rollback if there are errors"
+  },
+  "answer": "D",
+  "explanation": "Using a savepoint allows rolling back both parent and child records if the child record creation fails, maintaining data consistency. This ensures the parent record only exists when it has a valid child record."
+},
+{
+  "question": "A Salesforce developer is hired by a multi-national company to build a custom Lightning application that shows employees their employment benefits and earned commissions over time. The application must acknowledge and respect the user's locale context for dates, times, numbers, currency, and currency symbols. When using Aura components, which approach should the developer implement to ensure the Lightning application complies with the user's locale?",
+  "type": "single",
+  "options": {
+    "A": "Use the $Label global value provider",
+    "B": "Use the $User global variable to retrieve the user preferences",
+    "C": "Use the $Locale value provider to retrieve the user preferences",
+    "D": "Create a Hierarchical custom setting to store user preferences"
+  },
+  "answer": "C",
+},
+{
+  "question": "A developer created and tested a Visualforce page in their developer sandbox, but now receives reports that users encounter view state errors when using it in production. What should the developer ensure to correct these errors?",
+  "type": "single",
+  "options": {
+    "A": "Ensure variables are marked as transient",
+    "B": "Ensure profiles have access to the Visualforce page",
+    "C": "Ensure queries do not exceed governor limits",
+    "D": "Ensure properties are marked as private"
+  },
+  "answer": "A",
+},
+{
+  "question": "Universal Containers (UC) has an ERP system that stores customer Information. When an Account is created in Salesforce, the ERP system's REST endpoint for creating new customers must automatically be called with the Account information. If the call to the ERP system fails, the Account should still be created. Accounts in the UC org are only created, one at a time, by users in the UC customer on-boarding department. What should a developer implement to make the call to the ERP system's REST endpoint?",
+  "type": "single",
+  "options": {
+    "A": "Call a Queueable from a Trigger",
+    "B": "Headless Quick Action",
+    "C": "Apex Continuation",
+    "D": "REST call from JavaScript"
+  },
+  "answer": "A",
+},
+
+{
+  "question": "Universal Containers uses a custom Lightning page to provide a mechanism to perform a step-by-step wizard search for Accounts. One of the steps in the wizard is to allow the user to input text into a text field, ERP_Number__c, that is then used in a query to find matching Accounts. Which step should be taken to optimize the search performance? {{pd2_29.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Move the SOQL query to within an asynchronous process",
+    "B": "Perform the SOQL query as part of a for loop",
+    "C": "Mark the ERP_Number__c field as required",
+    "D": "Mark the ERP_Number__c field as an external ID"
+  },
+  "answer": "D",
+},
+{
+  "question": "A developer created an Opportunity trigger that updates the account rating when an associated opportunity is considered high value. Current criteria for an opportunity to be considered high value is an amount greater than or equal to $1,000,000. However, this criteria value can change over time. There is a new requirement to also display high value opportunities in a Lightning web component. Which two actions should the developer take to meet these business requirements, and also prevent the business logic that obtains the high value opportunities from being repeated in more than one place?",
+  "type": "multi",
+  "options": {
+    "A": "Call the trigger from the Lightning web component",
+    "B": "Use custom metadata to hold the high value amount",
+    "C": "Create a helper class that fetches the high value opportunities",
+    "D": "Leave the business logic code inside the trigger for efficiency"
+  },
+  "answer": ["B", "C"],
+},
+
+{
+  "question": "An Apex trigger and Apex class increment a counter, Edit __C, any time the Case is changed.{{pd2_28a.jpg}}<br>{{pd2_28b.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+    "B": "Option B",
+    "C": "Option C",
+    "D": "Option D"
+  },
+  "answer": "B"
+},
+{
+  "question": "Consider the queries in the options below and the following Information: * For these queries, assume that there are more than 200,000 Account records. * These records Include soft-deleted records; that is, deleted records that are still in the Recycle Bin. * There are two fields that are marked as External Id on the Account. These fields are customer_Number_c and ERR_Key_s. Which two queries are optimized for large data volumes?",
+  "type": "multi",
+  "options": {
+    "A": "SELECT Id FROM Account WHERE Name != NULL",
+    "B": "SELECT ID FROM Account WHERE id IN :aListVariable",
+    "C": "SELECT Id FROM Account WHERE Name != '' AND Customer_Number_c = 'ValueA'",
+    "D": "SELECT Id FROM Account WHERE Name != '' AND IsDeleted = false"
+  },
+  "answer": ["B", "C"],
+},
+
+{
+  "question": "When developing a Lightning web component, which setting displays lightning-layout-items in one column on small devices, such as mobile phones, and in two columns on tablet-size and desktop-size screens?",
+  "type": "single",
+  "options": {
+    "A": "Set size='6' mobile-device-size='12'",
+    "B": "Set size='12' medium-device-size='6'",
+    "C": "Set size='12' tablet-device-size='6'",
+    "D": "Set size='6' small-device-size='12'"
+  },
+  "answer": "D",
+},
+
+{
+  "question": "Instead of waiting to send emails to support personnel directly from the finish method of a batch Apex process, Universal Containers wants to notify an external system in the event that an unhandled exception occurs. What is the appropriate publish/subscribe logic to meet this requirement?",
+  "type": "single",
+  "options": {
+    "A": "Publish the error event using the addError method",
+    "B": "Publish the error event with a Flow",
+    "C": "Publish the error event using the Eventbus.publish() method",
+    "D": "No publishing is necessary. Have the external system subscribe to the BatchapexErrorEvent"
+  },
+  "answer": "D",
+},
+
 {
   "question": "A developer wrote a class named accountRegistryManager that relies on field history tracking. The class has a static method called getAccountHistory that takes in an Account as a parameter and returns a list of associated AccountHistory object records. The following test fails: What should be done to make this test pass?{{pd2_27.jpg}}",
   "type": "single",
@@ -740,7 +1060,7 @@ window.getQuestions = function() {
     "C": "Import the list of all custom objects from @salesforce/schema.",
     "D": "Check the getObjectType() value for 'Custom' or 'Standard' on the sObject describe result."
   },
-  "answer": "B",
+  "answer": "A",
 },
 
 {
