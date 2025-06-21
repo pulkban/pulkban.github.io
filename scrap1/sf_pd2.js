@@ -1,16 +1,329 @@
 window.getQuestions = function() {
     return [
 
+
+
 {
-  "question": "Based on the code snippets, what change should be made to display the contacts' mailing addresses in the Lightning web component?{{pd2_37.jpg}}",
+  "question": "Universal Containers has an Apex trigger on Account that creates an Account Plan record when an Account is marked as a Customer. Recently a record-triggered flow was added so that whenever an Account is marked as a Customer, a 'Customer Since' date field is updated with today's date. Since the addition of the flow, two Account Plan records are created whenever the Account is marked as a Customer. What might cause this to happen?{{pd2_50.jpg}}",
   "type": "single",
   "options": {
-    "A": "Extend the lightning-datatable component in the Lightning web component to include a column for the MailingAddress field.",
-    "B": "Add a new method in the Apex controller class to retrieve the mailing addresses separately and modify the Lightning web component to invoke this method.",
-    "C": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field.",
-    "D": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field and update the columns attribute in javascript file to add Mailing address fields."
+    "A": "The flow is configured to evaluate when a record is created and every time it is edited.",
+    "B": "The Apex trigger is not bulk safe and calls insert inside of a for loop.",
+    "C": "The Apex trigger does not use a static variable to ensure it only fires once.",
+    "D": "The flow is configured to use an 'Update Records' element."
+  },
+  "answer": "C"
+},
+{
+  "question": "An Aura component has a section that displays some information about an Account and it works well on the desktop, but users have to scroll horizontally to see the description field output on their mobile devices and tablets.<br>{{pd2_48.jpg}}How should a developer change the component to be responsive for mobile and tablet devices?<br>{{pd2_49a.jpg}}<br>{{pd2_49b.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+	"B": "Option B",
+	"C": "Option C",
+	"D": "Option D"
+  },
+  "answer": "B"
+},
+{
+  "question": "{{pd2_47.jpg}}Consider the above trigger intended to assign the Account to the manager of the Account's region. Which two changes should a developer make in this trigger to adhere to best practices?",
+  "type": "multiple",
+  "options": {
+    "A": "Use a Map accountMap instead of List accountList.",
+    "B": "Use a Map to cache the results of the Region__c query by Id.",
+    "C": "Move the Region__c query to outside the loop.",
+    "D": "Remove the last line updating accountList as it is not needed."
+  },
+  "answer": ["C", "D"]
+},
+{
+    "question": "A developer is experiencing issues with a Lightning web component. The component must surface information about Opportunities owned by the currently logged-in user.<br><br>When the component is rendered, the following message is displayed: <b>\"Error retrieving data\"</b>.<br><br>Given the code:<br><br>Which modification should be implemented to the Apex class to overcome the issue?{{pd2_46.jpg}}",
+    "type": "single",
+    "options": {
+        "A": "Ensure the OWD for the Opportunity object is Public.",
+        "B": "Use the Cacheable=true attribute in the Apex method.",
+        "C": "Edit the code to use the without sharing keyword in the Apex class.",
+        "D": "Use the continuation=true attribute in the Apex method."
+    },
+    "answer": ["B"]
+},
+{
+  "question": "A company uses Opportunities to track sales to their customers and their org has millions of Opportunities. They want to begin to track revenue over time through a related Revenue object. As part of their initial implementation, they want to perform a one-time seeding of their data by automatically creating and populating Revenue records for Opportunities, based on complex logic. They estimate that roughly 100,000 Opportunities will have Revenue records created and populated. What is the optimal way to automate this?",
+  "type": "single",
+  "options": {
+    "A": "Use System.enqueueJob() to invoke a Queueable class.",
+    "B": "Use Database.executeBatch() to invoke a Database.Batchable class.",
+    "C": "Use Database.executeBatch() to invoke a Queueable class.",
+    "D": "Use System.scheduleJob() to schedule a Database.Scheduleable class."
+  },
+  "answer": "B"
+},
+{
+  "question": "{{pd2_45.jpg}}<br>{{pd2_44.jpg}}<br>{{pd2_45b.jpg}}When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?",
+  "type": "single",
+  "options": {
+    "A": "Add System.runAs(User) to line 14 and enclose line 15 within Test.startTest() and Test.stopTest().",
+    "B": "Add @IsTest(seeAllData=true) to line 12 and enclose lines 15 and 16 within Test.startTest() and Test.stopTest().",
+    "C": "Query the Standard User into memory and enclose lines 15 and 16 within the System.runAs(user) method.",
+    "D": "Query the Administrator user into memory and enclose lines 15 and 16 within the System.runAs(user) method."
+  },
+  "answer": "A"
+},
+{
+  "question": "{{pd2_43.jpg}}A developer created a JavaScript function as part of a Lightning web component (LWC) that surfaces information about Leads by wire calling getFetchLeadList when certain criteria are met. Which three changes should the developer implement in the Apex class above to ensure the LWC can display data efficiently while preserving security?",
+  "type": "multi",
+  "options": {
+    "A": "Annotate the Apex method with @AuraEnabled(Cacheable=true).",
+    "B": "Use the WITH SECURITY_ENFORCED clause within the SOQL query.",
+    "C": "Annotate the Apex method with @AuraEnabled.",
+    "D": "Implement the with sharing keyword in the class declaration.",
+    "E": "Implement the without sharing keyword in the class declaration."
+  },
+  "answer": ["A", "B", "D"]
+},
+{
+  "question": "A developer is creating a Lightning web component to display a calendar. The component will be used in multiple countries. In some locales, the first day of the week is a Monday, or a Saturday, or a Sunday. What should the developer do to ensure the calendar displays accurately for users in every locale?",
+  "type": "single",
+  "options": {
+    "A": "Use UserInfo.getLocale() in the component.",
+    "B": "Import the @salesforce/il8n module and use the firstDayOfWeek internationalization property.",
+    "C": "Query the FirstDayOfWeek field from the Locale for the current user.",
+    "D": "Use a custom metadata type to store key/value pairs."
+  },
+  "answer": "A",
+},
+{
+  "question": "Universal Containers decided to use Salesforce to manage a new hire interview process. A custom object called Candidate was created with organization-wide defaults set to Private. A lookup on the Candidate object sets an employee as an Interviewer. What should be used to automatically give Read access to the record when the lookup field is set to the Interviewer user?",
+  "type": "single",
+  "options": {
+    "A": "The record can be shared using a sharing rule.",
+    "B": "The record can be shared using a permission set.",
+    "C": "The record cannot be shared with the current setup.",
+    "D": "The record can be shared using an Apex class."
   },
   "answer": "D"
+},
+{
+  "question": "A developer is building a Lightning web component that retrieves data from Salesforce and assigns it to the record property.{{pd2_42.jpg}} What must be done in the component to get the data from Salesforce?",
+  "type": "single",
+  "options": {
+    "A": "Add the following code above record; @api(getRecord, { recordId: '$recordId' }) Get the fields in renderedCallback() and assign them to record.",
+    "B": "Add the following code above record; @wire(getRecord, { recordId: '$recordId' }) Get the fields in renderedCallback() and assign them to record.",
+    "C": "Add the following code above record; @api(getRecord, { recordId: '$recordId', fields: '$fields' })",
+    "D": "Add the following code above record; @wire(getRecord, { recordId: '$recordId', fields: '$fields' })"
+  },
+  "answer": "D"
+},
+{
+  "question": "A company notices that their unit tests in a test class with many methods to create many records for prerequisite reference data are slow. What can a developer do to address the issue?",
+  "type": "single",
+  "options": {
+    "A": "Move the prerequisite reference data setup to a @testSetup method in the test class.",
+    "B": "Move the prerequisite reference data setup to the constructor for the test class.",
+    "C": "Turn off triggers, flows, and validations when running tests.",
+    "D": "Move the prerequisite reference data setup to a TestDataFactory and call that from each test method."
+  },
+  "answer": "A"
+},
+{
+  "question": "A company wants to incorporate a third-party web service to set the Address fields when an Account is inserted, if they have not already been set. What is the optimal way to achieve this?",
+  "type": "single",
+  "options": {
+    "A": "Create an Apex class, execute a Batch Apex job from it, and make a callout from the Batch Apex job.",
+    "B": "Create an Apex trigger, execute a Queueable job from it, and make a callout from the Queueable job.",
+    "C": "Create an Apex class, execute a Future method from it, and make a callout from the Future method.",
+    "D": "Create a Before Save Flow, execute a Queueable job from it, and make a callout from the Queueable job."
+  },
+  "answer": "B"
+},
+{
+  "question": "A company recently deployed a Visualforce page with a custom controller that has a data grid of information about Opportunities in the org. Users report that they receive a 'Maximum view state size limit' error message under certain conditions. According to Visualforce best practice, which three actions should the developer take to reduce the view state?",
+  "type": "multiple",
+  "options": {
+    "A": "Use the final keyword in the controller for variables that will not change.",
+    "B": "Use the private keyword in the controller for variables.",
+    "C": "Use filters and pagination to reduce the amount of data.",
+    "D": "Refine any SOQL queries to return only data relevant to the page.",
+    "E": "Use the transient keyword in the Apex controller for variables that do not maintain state."
+  },
+  "answer": ["C", "D", "E"]
+},
+{
+  "question": "A custom object called Credit_Memo__c exists in a Salesforce environment. As part of a new feature development that retrieves and manipulates this type of record, the developer needs to ensure race conditions are prevented when a set of records are modified within an Apex transaction. In the preceding Apex code, how can the developer alter the query statement to use SOQL features to prevent race conditions within a transaction?{{pd2_41.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "[Select Id, Name, Amount__c FROM Credit_Memo__c WHERE Customer_Id__c = :customerId LIMIT 50 FOR VIEW]",
+    "B": "[Select Id, Name, Amount__c FROM Credit_Memo__c WHERE Customer_Id__c = :customerId LIMIT 50 FOR UPDATE]",
+    "C": "[Select Id, Name, Amount__c FROM Credit_Memo__c WHERE Customer_Id__c = :customerId USING SCOPE LIMIT 50]",
+    "D": "[Select Id, Name, Amount__c FROM Credit_Memo__c WHERE Customer_Id__c = :customerId LIMIT 50 FOR REFERENCE]"
+  },
+  "answer": "B"
+},
+{
+  "question": "Universal Containers is using a custom Salesforce application to manage customer support cases. The support team needs to collaborate with external partners to resolve certain cases. However, they want to control the visibility and access to the cases shared with the external partners. Which Salesforce feature can help achieve this requirement?",
+  "type": "single",
+  "options": {
+    "A": "Criteria-based sharing rules",
+    "B": "Sharing sets",
+    "C": "Role hierarchy",
+    "D": "Apex managed sharing"
+  },
+  "answer": "B"
+},
+{
+  "question": "Which use case is an appropriate fit for the @future asynchronous Apex method? (Choose two.)",
+  "type": "multiple",
+  "options": {
+    "A": "A developer has jobs that need larger query results than regular transactions allow",
+    "B": "A developer needs to segregate DML operations and bypass the mixed save DML error",
+    "C": "A developer has long-running methods and needs to prevent delaying an Apex transaction",
+    "D": "A developer has long-running jobs with large data volumes that need to be performed in batches"
+  },
+  "answer": ["B", "C"]
+},
+{
+  "question": "The head of recruiting at Universal Containers (UC) wants to provide all internal users the ability to search for open positions by role, department, and location via a new recruiting app. In addition to search, users of the app should be able to refer a friend, apply for a position, and review the status of their current submissions. The app will be surfaced to UC’s existing iOS and Android users via the standard mobile app that Salesforce provides. It has a custom user interface design and offline access is not required. Given these requirements, what is the recommended approach to develop the app?",
+  "type": "single",
+  "options": {
+    "A": "Salesforce SDK",
+    "B": "Lightning Web Components",
+    "C": "Visualforce",
+    "D": "Lightning Experience Builder"
+  },
+  "answer": "B"
+},
+{
+  "question": "Universal Containers develops a Salesforce application that requires frequent interaction with an external REST API. To avoid duplicating code and improve maintainability, how should they implement the API integration for code reuse?",
+  "type": "single",
+  "options": {
+    "A": "Store the API integration code as a static resource and reference it in each Apex class.",
+    "B": "Include the API integration code directly in each Apex class that requires it.",
+    "C": "Use a separate Apex class for each API endpoint to encapsulate the integration logic.",
+    "D": "Create a reusable Apex class for the API integration and invoke it from the relevant Apex classes."
+  },
+  "answer": "D"
+},
+{
+  "question": "As part of the deployment cycle, a developer creates a test class for a code snippet. When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?{{pd2_40.png}}",
+  "type": "single",
+  "options": {
+    "A": "Query the Standard User into memory and enclose lines 14 and 15 within the System.runAs(user) method.",
+    "B": "Add System.runAs(User) to line 14 and enclose line 14 within Test.startTest() and Test.stopTest().",
+    "C": "Query the Administrator user into memory and enclose lines 14 and 15 within the System.runAs(user) method.",
+    "D": "Add @IsTest(seeAllData=True) to line 12 and enclose lines 14 and 15 within Test.startTest() and Test.stopTest()."
+  },
+  "answer": "B"
+},
+{
+  "question": "Universal Containers uses Salesforce to track orders in an Order__c object. The object has private OWDs. The Order__c object has a custom field, Quality_Controller__c, that is a Lookup to User and used to indicate the specified user performing quality control. What should be used to automatically give read-only access to the User set in the Quality_Controller__c field?",
+  "type": "single",
+  "options": {
+    "A": "Record ownership",
+    "B": "User managed sharing",
+    "C": "Apex managed sharing",
+    "D": "Criteria-based sharing"
+  },
+  "answer": "C"
+},
+{
+  "question": "Universal Containers (UC) processes orders in Salesforce in a custom object, Order__c. They also allow sales reps to upload CSV files with thousands of orders at a time. A developer is tasked with integrating orders placed in Salesforce with UC’s enterprise resource planning (ERP) system. After the status for an Order__c is first set to ‘Placed’, the order information must be sent to a REST endpoint in the ERP system that can process one order at a time. What should the developer implement to accomplish this?",
+  "type": "single",
+  "options": {
+    "A": "Callout from a Queueable class called from a trigger",
+    "B": "Callout from a Batchable class called from a scheduled job",
+    "C": "Callout from an @future method called from a trigger",
+    "D": "Flow with a callout from an invocable method"
+  },
+  "answer": "A"
+},
+{
+  "question": "A company accepts orders for customers in their enterprise resource planning (ERP) system that must be integrated into Salesforce as Order__c records with a lookup field to Account. The Account object has an external ID field, ERP_Customer_ID__c. What should the integration use to create new Order__c records that will automatically be related to the correct Account?",
+  "type": "single",
+  "options": {
+    "A": "Insert on the Order__c object followed by an update on the Order__c object.",
+    "B": "Merge on the Order__c object and specify the ERP_Customer_ID__c for the Account relationship.",
+    "C": "Upsert on the Order__c object and specify the ERP_Customer_ID__c for the Account relationship.",
+    "D": "Upsert on the Account and specify the ERP_Customer_ID__c for the relationship."
+  },
+  "answer": "C"
+},
+{
+  "question": "Which three Visualforce components can be used to initiate Ajax behavior to perform partial page updates?",
+  "type": "multiple",
+  "options": {
+    "A": "<apex:actionSupport>",
+    "B": "<apex:commandLink>",
+    "C": "<apex:actionStatus>",
+    "D": "<apex:commandButton>",
+    "E": "<apex:form>"
+  },
+  "answer": ["A", "B", "D"]
+},
+{
+  "question": "An org has a requirement that addresses on Contacts and Accounts should be normalized to a company standard by Apex code any time that they are saved. What is the optimal way to implement this?",
+  "type": "single",
+  "options": {
+    "A": "Apex trigger on Account that normalizes the address",
+    "B": "Apex trigger on Account and Contact that call a helper class to normalize the address",
+    "C": "Apex trigger on Account that calls the Contact trigger to normalize the address",
+    "D": "Apex trigger on Contact that calls the Account trigger to normalize the address"
+  },
+  "answer": "B"
+},
+{
+  "question": "Which Salesforce feature allows a developer to see when a user last logged in to Salesforce if real-time notification is not required?",
+  "type": "single",
+  "options": {
+    "A": "Event Monitoring Log",
+    "B": "Calendar Events",
+    "C": "Developer Log",
+    "D": "Asynchronous Data Capture Events"
+  },
+  "answer": "A"
+},
+{
+  "question": "Universal Containers implements a private sharing model for the Convention_Attendee__c custom object. As part of a new quality assurance effort, the company created an Event_Reviewer__c user lookup field on the object. Management wants the event reviewer to automatically gain Read/Write access to every record they are assigned to. What is the best approach to ensure the assigned reviewer obtains Read/Write access to the record?",
+  "type": "single",
+  "options": {
+    "A": "Create a criteria-based sharing rule on the Convention Attendee custom object to share the records to a group of Event Reviewers.",
+    "B": "Create an After Insert trigger on the Convention Attendee custom object, and use Apex Sharing Reasons and Apex Managed Sharing.",
+    "C": "Create criteria-based sharing rules on the Convention Attendee custom object to share the records with the Event Reviewers.",
+    "D": "Create a Before Insert trigger on the Convention Attendee custom object, and use Apex Sharing Reasons and Apex Managed Sharing."
+  },
+  "answer": "B"
+},
+{
+  "question": "In an organization that has multi-currency enabled, a developer is tasked with building a Lightning Component that displays the top ten Opportunities most recently accessed by the logged-in user. The developer must ensure the Amount and LastModifiedDate field values are displayed according to the user's locale. What is the most effective approach to ensure values displayed respect the user's locale settings?",
+  "type": "single",
+  "options": {
+    "A": "Use a wrapper class to format the values retrieved via SOQL.",
+    "B": "Use the FOR VIEW clause in the SOQL Query.",
+    "C": "Use the FORMAT() function in the SOQL query.",
+    "D": "Use REGEX expressions to format the values retrieved via SOQL."
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer is asked to modify a Lightning web component so that it displays in one column on phones and in two columns on tablets, desktops, and larger devices. Which should the developer add to the code to meet the requirements?{{pd2_39.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Add a small-device-size=“12” to the [lightning-layout-item] elements",
+    "B": "Add size=“6” and small-device-size=“12” to the [lightning-layout-item] elements",
+    "C": "Add size=“12” and small-device-size=“6” to the [lightning-layout-item] elements",
+    "D": "Add a medium-device-size=“6” to the [lightning-layout-item] elements"
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer is asked to look into an issue where a scheduled Apex is running into DML limits. Upon investigation, the developer finds that the number of records processed by the scheduled Apex has recently increased to more than 10,000. What should the developer do to eliminate the limit exception error?",
+  "type": "single",
+  "options": {
+    "A": "Use the @future annotation.",
+    "B": "Implement the Batchable interface.",
+    "C": "Use platform events.",
+    "D": "Implement the Queueable interface."
+  },
+  "answer": "B"
 },
 {
   "question": "Consider the following code snippet: The Apex method is executed in an environment with a large data volume count for Accounts, and the query is performing poorly. Which technique should the developer implement to ensure the query performs optimally, while preserving the entire result set?{{pd2_36.jpg}}",
@@ -21,7 +334,140 @@ window.getQuestions = function() {
     "C": "Use the Database.queryLocator method to retrieve the accounts",
     "D": "Create a formula field to combine the createdDate and RecordType value, then filter based on the formula"
   },
+  "answer": "A"
+},
+{
+  "question": "There is an Apex controller and a Visualforce page in an org that displays records with a custom filter consisting of a combination of picklist values selected by the user. The page takes too long to display results for some of the input combinations, while for other input choices it throws the exception, *Maximum view state size limit exceeded.* What step should the developer take to resolve this issue?",
+  "type": "single",
+  "options": {
+    "A": "Split the layout to filter records in one Visualforce page and display the list of records in a second page using the same Apex Controller.",
+    "B": "Adjust any code that filters by picklist values since they are not indexed.",
+    "C": "Use a StandardSetController or SOQL LIMIT in the Apex controller to limit the number of records displayed at a time.",
+    "D": "Remove instances of the transient keyword from the Apex controller to avoid the view state error."
+  },
   "answer": "C"
+},
+{
+  "question": "A developer is debugging an Apex-based order creation process that has a requirement to have three savepoints, SP1, SP2, and SP3 (created in order), before the final execution of the process. During the final execution process, the developer has a routine to roll back to SP1 for a given condition. Once the condition is fixed, the code then calls to roll back to SP3 to continue with final execution. However, when the roll back to SP3 is called, a runtime error occurs. Why does the developer receive a runtime error?",
+  "type": "single",
+  "options": {
+    "A": "SP3 became invalid when SP1 was rolled back.",
+    "B": "The developer has too many DML statements between the savepoints.",
+    "C": "The developer used too many savepoints in one trigger session.",
+    "D": "The developer should have called SP2 before calling SP3."
+  },
+  "answer": "A"
+},
+{
+  "question": "Which interface needs to be implemented by a Lightning Component so that it may be displayed in modal dialog by clicking a button on a Lightning Record page?",
+  "type": "single",
+  "options": {
+    "A": "force:lightningQuickAction",
+    "B": "lightning:quickAction",
+    "C": "lightning:editAction",
+    "D": "force:lightningEditAction"
+  },
+  "answer": "A"
+},
+{
+  "question": "Which two queries are selective SOQL queries and can be used for a large data set of 200,000 Account records?",
+  "type": "multiple",
+  "options": {
+    "A": "SELECT id FROM ACCOUNT WHERE id IN (list of Account Ids)",
+    "B": "SELECT id FROM ACCOUNT WHERE Name = Null",
+    "C": "SELECT id FROM ACCOUNT WHERE Name = Null AND Customer_Number__c = 'ValueA'",
+    "D": "SELECT id FROM ACCOUNT WHERE Name != ' '"
+  },
+  "answer": ["A", "D"]
+},
+{
+  "question": "Consider the following code snippet: A developer created the following test class to provide the proper code coverage for the snippet above. However, when the test runs, no data is returned and the assertion fails. Which edit should the developer make to ensure the test class runs successfully?",
+  "type": "single",
+  "options": {
+    "A": "Implement the setFixedSearchResults method in the test class.",
+    "B": "Enclose the method call within Test.startTest() and Test.stopTest()",
+    "C": "Implement the without sharing keyword in the searchfeature Apex class.",
+    "D": "Implement the seeAllData=true attribute in the @isTest annotation."
+  },
+  "answer": "A"
+},
+{
+  "question": "A developer needs to implement a system audit feature that allows users, assigned to a custom profile named “Auditors”, to perform searches against the historical records in the Account object. The developer must ensure the search is able to return history records that are between 12 and 24 months old. Given the code below, which select statement should be inserted below as a valid way to retrieve the Account History records ranging from 12 to 24 month old?{{pd2_38.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+	"B": "Option B",
+	"C": "Option C",
+	"D": "Option D"
+  },
+  "answer": "C"
+},
+{
+  "question": "A company uses an external system to manage its custom account territory assignments. Every quarter, millions of Accounts may be updated in Salesforce with new Owners when the territory assignments are completed in the external system. What is the optimal way to update the Accounts from the external system?",
+  "type": "single",
+  "options": {
+    "A": "Bulk API",
+    "B": "SOAP API",
+    "C": "Apex REST Web Service",
+    "D": "Composite REST API"
+  },
+  "answer": "A"
+},
+{
+  "question": "What is the best practice to initialize a Visualforce page in a test class?",
+  "type": "single",
+  "options": {
+    "A": "Use Test.currentpage, getParameter, put (MyTestPage);",
+    "B": "Use Test.setCurrentPage(Page.MyTestPage);",
+    "C": "Use controller.currentPage, setPage (MyTestPage);",
+    "D": "Use Test.setCurrentpage,MyTestPage;"
+  },
+  "answer": "B"
+},
+{
+  "question": "A developer created a Lightning web component that uses a lightning-record-edit-form to collect information about Leads. Users complain that they only see one error message at a time about their input when trying to save a Lead record. What is the recommended approach to perform validations on more than one field, and display multiple error messages simultaneously with minimal JavaScript intervention?",
+  "type": "single",
+  "options": {
+    "A": "External JavaScript library",
+    "B": "Apex trigger",
+    "C": "Validation rules",
+    "D": "Try/catch/finally block"
+  },
+  "answer": "C"
+},
+{
+  "question": "Which method should be used to convert a Date to a String in the current user's locale?",
+  "type": "single",
+  "options": {
+    "A": "Date.format",
+    "B": "String.format",
+    "C": "String.valueOf",
+    "D": "Date.parse"
+  },
+  "answer": "A"
+},
+
+{
+  "question": "A developer is inserting, updating, and deleting multiple lists of records in a single transaction and wants to ensure that any error prevents all execution. How should the developer implement error exception handling in their code to handle this?",
+  "type": "single",
+  "options": {
+    "A": "Use Database.setSavepoint() and Database.rollBack() with a Try/Catch statement",
+    "B": "Use a Try/Catch and use sObject.addError() on any failures",
+    "C": "Use Database methods to obtain lists of Database.SaveResults",
+    "D": "Use a Try/Catch statement and handle DML cleanup in the catch statement"
+  },
+  "answer": "A"
+},
+{
+  "question": "Based on the code snippets, what change should be made to display the contacts' mailing addresses in the Lightning web component?{{pd2_37.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Extend the lightning-datatable component in the Lightning web component to include a column for the MailingAddress field.",
+    "B": "Add a new method in the Apex controller class to retrieve the mailing addresses separately and modify the Lightning web component to invoke this method.",
+    "C": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field.",
+    "D": "Modify the SOQL query in the getAccountContacts method to include the MailingAddress field and update the columns attribute in javascript file to add Mailing address fields."
+  },
+  "answer": "D"
 },
 {
   "question": "Which statement is true regarding savepoints?",
@@ -80,7 +526,7 @@ window.getQuestions = function() {
 },
 {
   "question": "A business currently has a process to manually upload orders from its external Order Management System (OMS) into Salesforce. This is a labor intensive process since accounts must be exported out of Salesforce to get the IDs. The upload file must be updated with the correct account IDs to relate the orders to the corresponding accounts. Which two recommendations should make this process more efficient?",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "Identify unique fields on Order and Account and set them as External IDs",
     "B": "Use the upsert wizard in the Data Loader to import the data",
@@ -194,7 +640,7 @@ window.getQuestions = function() {
 },
 {
   "question": "Which three approaches should a developer implement to obtain the best performance for data retrieval when building a Lightning web component? Choose 3 answers",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "Use layoutTypes: ['Full'] to display a set of fields",
     "B": "Use the Lightning Data Service",
@@ -263,7 +709,7 @@ window.getQuestions = function() {
 },
 {
   "question": "A developer created an Opportunity trigger that updates the account rating when an associated opportunity is considered high value. Current criteria for an opportunity to be considered high value is an amount greater than or equal to $1,000,000. However, this criteria value can change over time. There is a new requirement to also display high value opportunities in a Lightning web component. Which two actions should the developer take to meet these business requirements, and also prevent the business logic that obtains the high value opportunities from being repeated in more than one place?",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "Call the trigger from the Lightning web component",
     "B": "Use custom metadata to hold the high value amount",
@@ -286,7 +732,7 @@ window.getQuestions = function() {
 },
 {
   "question": "Consider the queries in the options below and the following Information: * For these queries, assume that there are more than 200,000 Account records. * These records Include soft-deleted records; that is, deleted records that are still in the Recycle Bin. * There are two fields that are marked as External Id on the Account. These fields are customer_Number_c and ERR_Key_s. Which two queries are optimized for large data volumes?",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "SELECT Id FROM Account WHERE Name != NULL",
     "B": "SELECT ID FROM Account WHERE id IN :aListVariable",
@@ -305,7 +751,7 @@ window.getQuestions = function() {
     "C": "Set size='12' tablet-device-size='6'",
     "D": "Set size='6' small-device-size='12'"
   },
-  "answer": "D",
+  "answer": "B",
 },
 
 {
@@ -826,7 +1272,7 @@ window.getQuestions = function() {
     "C": "Validation rules",
     "D": "External JavaScript library"
   },
-  "answer": "D"
+  "answer": "C"
 },
 
 {
@@ -1411,21 +1857,6 @@ window.getQuestions = function() {
     },
     "answer": ["C"]
 },
-
-
-{
-    "question": "A developer is experiencing issues with a Lightning web component. The component must surface information about Opportunities owned by the currently logged-in user.<br><br>When the component is rendered, the following message is displayed: <b>\"Error retrieving data\"</b>.<br><br>Given the code:<br><br><b>MyOpportunities.js</b><br><pre><code>import LightningElement, api, wire from 'lwc';<br>import getOpportunities from '@salesforce/apex/OpportunityController.findMyOpportunities';<br><br>export default class MyOpportunities extends LightningElement {<br>    @api userId;<br><br>    @wire(getOpportunities, { oppOwner: '$userId' })<br>    opportunities;<br>}</code></pre><br><b>OpportunityController.cls</b><br><pre><code>public with sharing class OpportunityController {<br>    @AuraEnabled<br>    public static List&lt;Opportunity&gt; findMyOpportunities(Id oppOwner) {<br>        return [<br>            SELECT Id, Name, Amount<br>            FROM Opportunity<br>            WHERE OwnerId = :oppOwner<br>            WITH SECURITY_ENFORCED<br>            LIMIT 10<br>        ];<br>    }<br>}</code></pre><br>Which modification should be implemented to the Apex class to overcome the issue?",
-    "type": "single",
-    "options": {
-        "A": "Ensure the OWD for the Opportunity object is Public.",
-        "B": "Use the Cacheable=true attribute in the Apex method.",
-        "C": "Edit the code to use the without sharing keyword in the Apex class.",
-        "D": "Use the continuation=true attribute in the Apex method."
-    },
-    "answer": ["B"]
-},
-
-
 {
     "question": "2. A developer created a JavaScript library that simplifies the development of repetitive tasks and features and uploaded the library as a static resource called <b>jsutils</b> in Salesforce. Another developer is coding a new Lightning web component (LWC) and wants to leverage the library.<br><br>Which statement properly loads the static resource within the LWC?",
     "type": "single",
@@ -1499,17 +1930,7 @@ window.getQuestions = function() {
     "answer": ["D"]
 },
 
-{
-    "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system's REST endpoint with the updated records. The CalloutUtil.makeRestCallout fails with a 'You have uncommitted work pending. Please commit or rollback before calling out' error. What should be done to address the problem?",
-    "type": "single",
-    "options": {
-        "A": "Remove the Database.setSavepoint and Database.rollback.",
-        "B": "Change the CalloutUtil.makeRestCallout to an @InvocableMethod method.",
-        "C": "Change the CalloutUtil.makeRestCallout to an @future method.",
-        "D": "Move the CalloutUtil.makeRestCallout method call below the catch block."
-    },
-    "answer": ["C"]
-},
+
 
 {
     "question": "A Visualforce page contains an industry select list and displays a table of Accounts that have a matching value in their Industry field.\n<apex:selectList value=\"{!selectedIndustry}\">\n<apex:selectOptions values=\"{!industries}\"/>\n</apex:selectList>\nWhen a user changes the value in the industry select list, the table of Accounts should be automatically updated to show the Accounts associated with the selected industry. What is the optimal way to implement this?",
