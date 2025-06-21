@@ -4,6 +4,374 @@ window.getQuestions = function() {
 
 
 {
+  "question": "A developer is tasked with creating a Lightning web component that allows users to create a Case for a selected product, directly from a custom Lightning page. The input fields in the component are displayed in a non-linear fashion on top of an image of the product to help the user better understand the meaning of the fields. Which two components should a developer use to implement the creation of the Case from the Lightning web component?",
+  "type": "multiple",
+  "options": {
+    "A": "lightning-input-field",
+    "B": "lightning-record-edit-form",
+    "C": "lightning-record-form",
+    "D": "lightning-input"
+  },
+  "answer": ["C", "B"]
+},
+{
+  "question": "Universal Containers needs to integrate with their own, existing, internal custom web application. The web application accepts JSON payloads, resizes product images, and sends the resized images back to Salesforce. What should the developer use to implement this integration?",
+  "type": "single",
+  "options": {
+    "A": "A flow that calls an @future method that allows callouts",
+    "B": "A flow with an outbound message that contains a session ID",
+    "C": "An Apex trigger that calls an @future method that allows callouts",
+    "D": "A platform event that makes a callout to the web application"
+  },
+  "answer": "D"
+},
+{
+  "question": "A developer needs to add code to a Lightning web component's configuration file so the component only renders for a desktop size form factor when on a record page. What should the developer add to the component's record page target configuration to meet this requirement?",
+  "type": "single",
+  "options": {
+    "A": "<property name=\"formFactor\" value=\"Large\"></property>",
+    "B": "<supportedFormFactors><supportedFormFactor type=\"Large\"/></supportedFormFactors>",
+    "C": "<lightningLayout formFactor=\"Large\"></lightningLayout>",
+    "D": "<design><designAttribute name=\"formFactor\" value=\"Large\"/></design>"
+  },
+  "answer": "A"
+},
+{
+  "question": "Salesforce users consistently receive a 'Maximum trigger depth exceeded' error when saving an Account. How can a developer fix this error?",
+  "type": "single",
+  "options": {
+    "A": "Convert the trigger to use the @future annotation, and chain any subsequent trigger invocations to the Account object.",
+    "B": "Use a helper class to set a Boolean to TRUE the first time a trigger is fired, and then modify the trigger to only fire when the Boolean is FALSE.",
+    "C": "Modify the trigger to use the isMultiThread=true annotation.",
+    "D": "Split the trigger logic into two separate triggers."
+  },
+  "answer": "B"
+},
+{
+  "question": "Universal Containers wants to notify an external system, in the event that an unhandled exception occurs, by publishing a custom event using Apex. What is the appropriate publish/subscribe logic to meet this requirement?",
+  "type": "single",
+  "options": {
+    "A": "Publish the error event using the `EventBus.publish()` method and have the external system subscribe to the event using CometD.",
+    "B": "Publish the error event using the `addError()` method and write a trigger to subscribe to the event and notify the external system.",
+    "C": "Have the external system subscribe to the event channel. No publishing is necessary.",
+    "D": "Publish the error event using the `addError()` method and have the external system subscribe to the event using CometD."
+  },
+  "answer": "A"
+},
+{
+  "question": "Which statement is considered a best practice for writing bulk safe Apex triggers?",
+  "type": "single",
+  "options": {
+    "A": "Use the `Database` methods with `allOrNone` set to `false` instead of DML statements.",
+    "B": "Add `LIMIT 50000` to every SOQL statement.",
+    "C": "Perform all DML operations from within a future method.",
+    "D": "Add records to collections and perform DML operations against these collections."
+  },
+  "answer": "D"
+},
+{
+  "question": "A Lightning web component exists in the system and displays information about the record in context as a modal. Salesforce administrators need to use this component within the Lightning App Builder. Which two settings should the developer configure within the xml resource file?",
+  "type": "multiple",
+  "options": {
+    "A": "specify the target to be lightning__AppPage.",
+    "B": "specify the target to be lightning__RecordPage.",
+    "C": "Set the isvisible attribute to true.",
+    "D": "Set the IsExposed attribute to true."
+  },
+  "answer": ["B", "D"]
+},
+{
+  "question": "Given the following containment hierarchy,{{pd2_59.jpg}} what is the correct way to communicate the new value of a property named 'passthrough' to my-parent-component if the property is defined within my-child-component?",
+  "type": "single",
+  "options": {
+    "A": "let cEvent = new CustomEvent($passthrough); this.dispatchEvent(cEvent);",
+    "B": "let cEvent = new CustomEvent('passthrough', { detail: this.passthrough }); this.dispatchEvent(cEvent);",
+    "C": "let cEvent = new CustomEvent('passthrough'); this.dispatchEvent(cEvent);",
+    "D": "let cEvent = new customEvent('passthrough', { detail: 'this.passthrough' }); this.dispatchEvent(cEvent);"
+  },
+  "answer": "B"
+},
+{
+  "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?",
+  "type": "single",
+  "options": {
+    "A": "ApexPages.StandardController sc = new ApexPages.StandardController(acctId); AccountControllerExt extension = new AccountControllerExt(sc);",
+    "B": "AccountControllerExt extension = new AccountControllerExt(acct);",
+    "C": "AccountControllerExt extension = new AccountControllerExt(acct);",
+    "D": "ApexPages.StandardController sc = new ApexPages.StandardController(acct); AccountControllerExt extension = new AccountControllerExt(sc);"
+  },
+  "answer": "D"
+},
+{
+  "question": "An org has a requirement that an Account must always have one and only one Contact listed as Primary. So selecting one Contact will de-select any others. The client wants a checkbox on the Contact called 'Is Primary' to control this feature. The client also wants to ensure that the last name of every Contact is stored entirely in uppercase characters. What is the optimal way to implement these requirements?",
+  "type": "single",
+  "options": {
+    "A": "Write an after update trigger on Account for the Is Primary logic and a before update trigger on Contact for the last name logic.",
+    "B": "Write a Validation Rule on the Contact for the Is Primary logic and a before update trigger on Contact for the last name logic.",
+    "C": "Write a single trigger on Contact for both after update and before update and callout to helper classes to handle each set of logic.",
+    "D": "Write an after update trigger on Contact for the Is Primary logic and a separate before update trigger on Contact for the last name logic."
+  },
+  "answer": "D"
+},
+{
+  "question": "A developer needs to send Account records to an external system for backup purposes. The process must take a snapshot of Accounts as they are saved and then make a callout to a RESTful web service. The web service can only receive, at most, one record per call. What should a developer do to implement these requirements?",
+  "type": "single",
+  "options": {
+    "A": "Expose an Apex class as a web service.",
+    "B": "Implement platform events.",
+    "C": "Implement the Queueable interface.",
+    "D": "Create a future method."
+  },
+  "answer": "C",
+  "explanation": "The correct answer is C because Queueable Apex is the only option that allows: (1) Making callouts after DML operations (unlike future methods which can't chain), (2) Processing records one-by-one as required by the external API, and (3) Handling retry logic if callouts fail. Queueable also works seamlessly with triggers to capture record snapshots."
+},
+{
+  "question": "A company needs to automatically delete sensitive information after seven years. This could delete almost a million records every day. How can this be achieved?",
+  "type": "single",
+  "options": {
+    "A": "Schedule a batch Apex process to run every day that queries and deletes records older than seven years.",
+    "B": "Schedule an @future process to query records older than seven years, and then recursively invoke itself in 1,000 record batches to delete them.",
+    "C": "Perform a SOSL statement to find records older than 7 years, and then delete the entire result set.",
+    "D": "Use aggregate functions to query for records older than seven years, and then delete the AggregateResult objects."
+  },
+  "answer": "A"
+},
+{
+  "question": "Consider the Apex controller below, that is called from an Aura component. {{pd2_57.jpg}} What is wrong with this code?",
+  "type": "single",
+  "options": {
+    "A": "Line 1: class must be global",
+    "B": "Lines 1 and 6: class and method must be global",
+    "C": "Line 6: method must be static",
+    "D": "Line 8: method must first serialize the list to JSON before returning"
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer is writing a Visualforce page that queries accounts in the system and presents a data table with the results. The users want to be able to filter the results based on up to five fields. However, the users want to pick the five fields to use as filter fields when they run the page. Which Apex code feature is required to facilitate this solution?",
+  "type": "single",
+  "options": {
+    "A": "Dynamic SOQL",
+    "B": "Metadata API",
+    "C": "Variable binding",
+    "D": "Streaming API"
+  },
+  "answer": "A"
+},
+{
+  "question": "A software company uses a custom object, `Defect__c`, to track defects in their software. `Defect__c` has organization-wide defaults set to private. Each `Defect__c` has a related list of `Reviewer__c` records, each with a lookup field to User that is used to indicate that the User will review the `Defect__c`. What should be used to give the User on the `Reviewer__c` record read only access to the `Defect__c` record on the `Reviewer__c` record?",
+  "type": "single",
+  "options": {
+    "A": "Apex managed sharing",
+    "B": "Criteria-based sharing",
+    "C": "View All on `Defect__c`",
+    "D": "Lightning web component"
+  },
+  "answer": "A"
+},
+{
+  "question": "What are three key use cases for Jest tests in Lightning Web Components? (Choose three.)",
+  "type": "multiple",
+  "options": {
+    "A": "To test a component's non-public properties",
+    "B": "To test basic user interaction",
+    "C": "To verify that events fire when expected",
+    "D": "To verify the DOM output of a component",
+    "E": "To test how multiple components work together"
+  },
+  "answer": ["B", "C", "D"]
+},
+{
+  "question": "Consider the following code snippet. {{pd2_56.jpg}}A developer created the following test class to provide the proper code coverage for the snippet above. A developer receives complaints that the component loads slowly. Which change can the developer implement to make the component perform faster?",
+  "type": "single",
+  "options": {
+    "A": "Change the type of contactInfo to 'Map'.",
+    "B": "Move the contents of <cicontactInfo> into the component.",
+    "C": "Change the default for showContactInfo to 'false'.",
+    "D": "Add a change event handler for showContactInfo."
+  },
+  "answer": "C"
+},
+{
+  "question": "{{pd2_45.jpg}}<br>{{pd2_44.jpg}}<br>{{pd2_45b.jpg}}When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?",
+  "type": "single",
+  "options": {
+    "A": "Add System.runAs(User) to line 14 and enclose line 15 within Test.startTest() and Test.stopTest().",
+    "B": "Add @IsTest(seeAllData=true) to line 12 and enclose lines 15 and 16 within Test.startTest() and Test.stopTest().",
+    "C": "Query the Standard User into memory and enclose lines 15 and 16 within the System.runAs(user) method.",
+    "D": "Query the Administrator user into memory and enclose lines 15 and 16 within the System.runAs(user) method."
+  },
+  "answer": "A"
+},
+{
+  "question": "{{pd2_55.jpg}}Consider the following code snippet. How should the <c-order> component communicate to the <c-selected-order> component that an order has been selected by the user?",
+  "type": "single",
+  "options": {
+    "A": "Create and dispatch a custom event.",
+    "B": "Create and fire a component event.",
+    "C": "Create and fire a standard DOM event.",
+    "D": "Create and fire an application event."
+  },
+  "answer": "A"
+},
+{
+  "question": "{{pd2_54.jpg}}A company has the Lightning Component above that allows users to click a button to save their changes and redirects them to a different page. Currently, when the user hits the Save button the records are getting saved, but they are not redirected. Which three techniques can a developer use to debug the JavaScript? (Choose three.)",
+  "type": "multiple",
+  "options": {
+    "A": "Enable Debug Mode for Lightning components for the user.",
+    "B": "Use console.log() messages in the JavaScript.",
+    "C": "Use Developer Console to view debug log.",
+    "D": "Use the browser’s dev tools to debug the JavaScript.",
+    "E": "Use Developer Console to view checkpoints."
+  },
+  "answer": ["B", "D", "A"]
+},
+{
+  "question": "A developer notices the execution of all the test methods in a class takes a long time to run, due to the initial setup of all the test data that is needed to perform the tests. What should the developer do to speed up test execution?",
+  "type": "single",
+  "options": {
+    "A": "Define a method that creates test data and annotate with @createData.",
+    "B": "Define a method that creates test data and annotate with @testSetup.",
+    "C": "Ensure proper usage of test data factory in all test methods.",
+    "D": "Reduce the amount of test methods in the class."
+  },
+  "answer": "B"
+},
+{
+  "question": "After a platform event is defined in a Salesforce org, events can be published via which mechanism?",
+  "type": "multiple",
+  "options": {
+    "A": "External Apps use an API to publish event messages.",
+    "B": "Internal Apps can use entitlement processes.",
+    "C": "External Apps require the standard Streaming API.",
+    "D": "Internal Apps can use outbound messages."
+  },
+  "answer": ["A", "B"]
+},
+{
+  "question": "Given the code above, which two changes need to be made in the Apex Controller for the code to work?{{pd2_53.jpg}}",
+  "type": "multiple",
+  "options": {
+    "A": "Remove line 06 from the Apex Controller and instead use firstName in the return on line 07.",
+    "B": "Change the argument in the Apex Controller line 05 from subject to String.",
+    "C": "Change the method signature to be global static, not public static.",
+    "D": "Annotate the entire class as @AuraEnabled instead of just the single method."
+  },
+  "answer": ["A", "B"]
+},
+{
+  "question": "An Apex trigger creates an Order__c record every time an Opportunity is won by a Sales Rep. Recently the trigger is creating two orders. What is the optimal technique for a developer to troubleshoot this?",
+  "type": "single",
+  "options": {
+    "A": "Disable all flows, and then re-enable them one at a time to see which one causes the error.",
+    "B": "Set up debug logging for every Sales Rep, then monitor the logs for errors and exceptions.",
+    "C": "Add system.debug() statements to the code and use the Developer Console logs to trace the code.",
+    "D": "Run the Apex Test Classes for the Apex trigger to ensure the code still has sufficient code coverage."
+  },
+  "answer": "C"
+},
+{
+  "question": "A developer implemented a custom data table in a Lightning web component with filter functionality. However, users are submitting support tickets about long load times when the filters are changed. The component uses an Apex method that is called to query for records based on the selected filters. What should the developer do to improve performance of the component?",
+  "type": "single",
+  "options": {
+    "A": "Use `setStorable()` in the Apex method to store the response in the client-side cache.",
+    "B": "Use SOSL to query the records on filter change.",
+    "C": "Return all records into a list when the component is created and filter the array in JavaScript.",
+    "D": "Use a selective SOQL query with a custom index."
+  },
+  "answer": "D"
+},
+{
+  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>{{pd2_10.jpg}}Which component should the developer add to the form to display error messages?",
+  "type": "single",
+  "options": {
+    "A": "apex:messages",
+    "B": "aura:messages",
+    "C": "lightning-messages",
+    "D": "lightning-error"
+  },
+  "answer": "C",
+},
+{
+  "question": "A developer built an Aura component for guests to self-register upon arrival at a front desk kiosk. Now the developer needs to create a component for the utility tray to alert users whenever a guest arrives at the front desk. What should be used?",
+  "type": "single",
+  "options": {
+    "A": "Application Event",
+    "B": "DML Operation",
+    "C": "ChangeLog",
+    "D": "Component Event"
+  },
+  "answer": "A"
+},
+{
+  "question": "A developer sees test failures in the sandbox but not in production. No code or metadata changes have been actively made to either environment since the sandbox was created. Which consideration should be checked to resolve the issue?",
+  "type": "single",
+  "options": {
+    "A": "Ensure that Disable Parallel Apex Testing is unchecked.",
+    "B": "Ensure test classes are using SeeAllData = true.",
+    "C": "Ensure the sandbox is on the same release as production.",
+    "D": "Ensure the Apex classes are on the same API version."
+  },
+  "answer": "C"
+},
+{
+  "question": "Which three actions must be completed in a Lightning web component for a JavaScript file in a static resource to be loaded?",
+  "type": "multiple",
+  "options": {
+    "A": "Append the static resource to the DOM.",
+    "B": "Import a method from the `platformResourceLoader`.",
+    "C": "Import the static resource.",
+    "D": "Reference the static resource in a `<script>` tag.",
+    "E": "Call `loadScript`."
+  },
+  "answer": ["B", "C", "E"]
+},
+{
+  "question": "Consider the following code snippet. Which two steps should the developer take to add flexibility to change the endpoint and credentials without needing to modify code?{{pd2_52.jpg}}",
+  "type": "multiple",
+  "options": {
+    "A": "Store the URL of the endpoint in a custom Label named endPointURL.",
+    "B": "Use req.setEndpoint(Label.endPointURL);",
+    "C": "Create a Named Credential, endPoint_NC, to store the endpoint and credentials.",
+    "D": "Use req.setEndpoint('callout:endPoint_NC'); within the callout request."
+  },
+  "answer": ["C", "D"]
+},
+{
+  "question": "A developer is building a complex commission calculation engine in Apex that is called from an Opportunity trigger. During QA it was reported that the calculations are incorrect. The developer has representative test data and passing test methods in their developer sandbox. Which three tools or techniques could the developer use to execute the code and pause it at key lines to visually inspect values of various Apex variables?",
+  "type": "multiple",
+  "options": {
+    "A": "Breakpoints",
+    "B": "Apex Interactive Debugger",
+    "C": "Workbench",
+    "D": "Developer Console",
+    "E": "Apex Replay Debugger"
+  },
+  "answer": ["D", "B", "E"]
+},
+{
+  "question": "Which code snippet processes records in the most memory efficient manner, avoiding governor limits such as 'Apex heap size too large'? {{pd2_51.jpg}}",
+  "type": "single",
+  "options": {
+    "A": "Option A",
+	"B": "Option B",
+	"C": "Option C",
+	"D": "Option D"
+  },
+  "answer": "D"
+},
+{
+  "question": "A developer is tasked with creating a Lightning web component that is responsive on various devices. Which two components should help accomplish this goal?",
+  "type": "multiple",
+  "options": {
+    "A": "lightning-layout",
+    "B": "lightning-layout-item",
+    "C": "lightning-navigation",
+    "D": "lightning-input-location"
+  },
+  "answer": ["A", "B"]
+},
+{
   "question": "Universal Containers has an Apex trigger on Account that creates an Account Plan record when an Account is marked as a Customer. Recently a record-triggered flow was added so that whenever an Account is marked as a Customer, a 'Customer Since' date field is updated with today's date. Since the addition of the flow, two Account Plan records are created whenever the Account is marked as a Customer. What might cause this to happen?{{pd2_50.jpg}}",
   "type": "single",
   "options": {
@@ -59,19 +427,8 @@ window.getQuestions = function() {
   "answer": "B"
 },
 {
-  "question": "{{pd2_45.jpg}}<br>{{pd2_44.jpg}}<br>{{pd2_45b.jpg}}When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?",
-  "type": "single",
-  "options": {
-    "A": "Add System.runAs(User) to line 14 and enclose line 15 within Test.startTest() and Test.stopTest().",
-    "B": "Add @IsTest(seeAllData=true) to line 12 and enclose lines 15 and 16 within Test.startTest() and Test.stopTest().",
-    "C": "Query the Standard User into memory and enclose lines 15 and 16 within the System.runAs(user) method.",
-    "D": "Query the Administrator user into memory and enclose lines 15 and 16 within the System.runAs(user) method."
-  },
-  "answer": "A"
-},
-{
   "question": "{{pd2_43.jpg}}A developer created a JavaScript function as part of a Lightning web component (LWC) that surfaces information about Leads by wire calling getFetchLeadList when certain criteria are met. Which three changes should the developer implement in the Apex class above to ensure the LWC can display data efficiently while preserving security?",
-  "type": "multi",
+  "type": "multiple",
   "options": {
     "A": "Annotate the Apex method with @AuraEnabled(Cacheable=true).",
     "B": "Use the WITH SECURITY_ENFORCED clause within the SOQL query.",
@@ -1171,7 +1528,7 @@ window.getQuestions = function() {
   "type": "single",
   "options": {
     "A": "Insert the Account into Salesforce, Instantiate the page reference in the test class, then use `System.setParentRecordId().get()` to set the Account ID.",
-    "B": "Insert the Account in the test class, Instantiate the page reference in the test class, then use `System.currentPageReference().getParameters().put()` to set the Account ID.",
+    "B": "Insert the Account in the test class, Instantiate the page reference in the test class, then use `4.getParameters().put()` to set the Account ID.",
     "C": "Instantiate the page reference in the test class, Insert the Account in the test class, then use `System.setParentRecordId().get()` to set the Account ID.",
     "D": "Instantiate the page reference in the test class, Insert the Account in the test class, then use `scAllData=true` to view the Account."
   },
@@ -1571,19 +1928,6 @@ window.getQuestions = function() {
   "answer": ["A", "C", "D"],
 },
 
-
-{
-  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>{{pd2_10.jpg}}Which component should the developer add to the form to display error messages?",
-  "type": "single",
-  "options": {
-    "A": "apex:messages",
-    "B": "aura:messages",
-    "C": "lightning-messages",
-    "D": "lightning-error"
-  },
-  "answer": "C",
-},
-
 {
   "question": "Just prior to a new deployment, the Salesforce Administrator who configured a new order fulfillment process in a developer sandbox suddenly left the company. The users had fully tested all of the changes in the sandbox and signed off on them.<br><br>Unfortunately, although a Change Set was started, it was not complete. A developer is brought in to help finish the deployment.<br><br>What should the developer do to identify the configuration changes that need to be moved into production?",
   "type": "single",
@@ -1778,7 +2122,7 @@ window.getQuestions = function() {
         "C": "Create a new describe block for each test",
         "D": "Create a new jsdom instance for each test"
     },
-    "answer": ["C"]
+    "answer": ["A"]
 },
 
 
