@@ -95,14 +95,20 @@
 
             <div id="quizContainer" class="mt-3">
                 <h4 id="question"></h4>
+                <!--Udhay for Marking-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="markQuestion">
+                    <label class="form-check-label" for="markQuestion">Mark for Review</label>
+                </div>
                 <table class="quiz-table">
                     <tbody id="options"></tbody>
                 </table>
-
-                <div class="d-flex justify-content-end gap-2 mt-4">
-                    <button class="btn btn-primary" onclick="validateAnswer()">Next</button>
-                    <button class="btn btn-warning" onclick="showAnswer()">Show Answer</button>
-                </div>
+				<div class="d-flex justify-content-between mt-4">
+					<button class="btn btn-danger" onclick="finishQuiz()">Finish</button>
+					<div class="d-flex gap-2"> <button class="btn btn-primary" onclick="validateAnswer()">Next</button>
+						<button class="btn btn-warning" onclick="showAnswer()">Show Answer</button>
+					</div>
+				</div>
             </div>
 
             <div id="resultContainer" class="mt-4" style="display:none;">
@@ -112,6 +118,10 @@
                 <p>Total Time Taken: <span id="finalTime"></span></p>
                 <h3>Incorrect Questions:</h3>
                 <ul id="incorrectQuestions"></ul>
+				<div id="markedQuestionsSection" style="display:none;">
+					<h3>Questions Marked for Review:</h3>
+					<ul id="markedQuestionsList"></ul>
+				</div>
                 <button class="btn btn-success" onclick="restartQuiz()">Restart Quiz</button>
             </div>
         </div>

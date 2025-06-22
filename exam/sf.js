@@ -6,6 +6,7 @@ let incorrectAnswers = [];
 let correctCount = 0;
 let incorrectCount = 0;
 let questions; // No need to redeclare, it's set dynamically
+let markedQuestions = []; // NEW: Array to store marked question indices or questions themselves
 
 function startQuiz() {
     if (!questions || questions.length === 0) {
@@ -86,9 +87,21 @@ function loadQuestion() {
             }
         });
     });
+
+    // NEW: Handle the "Mark for Review" checkbox
+    const markCheckbox = document.getElementById("markQuestion");
+    markCheckbox.checked = markedQuestions.includes(currentQuestionIndex); // Set its state based on whether the current question is marked
 }
 
 function validateAnswer() {
+    // NEW: Check if the current question was marked before moving to the next
+    const markCheckbox = document.getElementById("markQuestion");
+    if (markCheckbox.checked && !markedQuestions.includes(currentQuestionIndex)) {
+        markedQuestions.push(currentQuestionIndex); // Add to marked questions if checked and not already added
+    } else if (!markCheckbox.checked && markedQuestions.includes(currentQuestionIndex)) {
+        markedQuestions = markedQuestions.filter(index => index !== currentQuestionIndex); // Remove if unchecked
+    }
+	
     let questionData = questions[currentQuestionIndex];
     let selectedOptions = Array.from(document.querySelectorAll('input[name="answer"]:checked')).map(input => input.value);
     let correctAnswers = questionData.answer;
@@ -146,6 +159,11 @@ function showAnswer() {
     }
 }
 
+function finishQuiz() {
+    // This function will directly jump to the final results screen.
+    showFinalResults();
+}
+
 function showFinalResults() {
     stopTimer();
     document.getElementById("quizContainer").style.display = "none";
@@ -160,11 +178,42 @@ function showFinalResults() {
 
     let incorrectList = document.getElementById("incorrectQuestions");
     incorrectList.innerHTML = "";
-    incorrectAnswers.forEach(q => {
-        let li = document.createElement("li");
-        li.textContent = q;
-        incorrectList.appendChild(li);
+    incorrectAnswers.forEach(qText => { // qText is the question string itself
+        // Find the index of this question in the original 'questions' array
+        const originalIndex = questions.findIndex(q => q.question === qText);
+        if (originalIndex !== -1) {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.href = `review_question.html?index=${originalIndex}`;
+            a.textContent = qText;
+            a.target = "_blank"; // Opens in a new tab
+            li.appendChild(a);
+            incorrectList.appendChild(li);
+        } else {
+            // Fallback if question text can't be matched (e.g., if question texts aren't unique)
+            let li = document.createElement("li");
+            li.textContent = qText + " (Original not found)";
+            incorrectList.appendChild(li);
+        }
     });
+	
+    // NEW: Display Marked Questions
+    let markedList = document.getElementById("markedQuestionsList");
+    markedList.innerHTML = "";
+    if (markedQuestions.length > 0) {
+        document.getElementById("markedQuestionsSection").style.display = "block";
+        markedQuestions.forEach(index => {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.href = `review_question.html?index=${index}`;
+            a.textContent = questions[index].question; // Display the question text
+            a.target = "_blank"; // Opens in a new tab
+            li.appendChild(a);
+            markedList.appendChild(li);
+        });
+    } else {
+        document.getElementById("markedQuestionsSection").style.display = "none";
+    }
 }
 
 function restartQuiz() {
@@ -174,6 +223,7 @@ function restartQuiz() {
     incorrectAnswers = [];
     correctCount = 0;
     incorrectCount = 0;
+    markedQuestions = []; // NEW: Reset marked questions on restart
 
     document.getElementById("score").textContent = "Score: 0";
     document.getElementById("correctCounter").textContent = "Correct: 0";
@@ -194,4 +244,23 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Question bank not loaded yet!");
     }
+	
+    // NEW: Add the Hotkey Listener here
+    document.addEventListener('keydown', (event) => {
+        const quizContainer = document.getElementById('quizContainer');
+        const resultContainer = document.getElementById('resultContainer');
+
+        if (quizContainer && quizContainer.style.display !== 'none' &&
+            resultContainer && resultContainer.style.display === 'none') {
+            const key = event.key.toLowerCase();
+
+            if (key === 'n') {
+                validateAnswer();
+            } else if (key === 's') {
+                showAnswer();
+            } else if (key === 'f') {
+                finishQuiz();
+            }
+        }
+    });
 });

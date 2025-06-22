@@ -4,6 +4,17 @@ window.getQuestions = function() {
 
 
 {
+  "question": "Given the following containment hierarchy,{{images_pd2/pd2_59.jpg}} what is the correct way to communicate the new value of a property named 'passthrough' to my-parent-component if the property is defined within my-child-component?",
+  "type": "single",
+  "options": {
+    "A": "let cEvent = new CustomEvent($passthrough); this.dispatchEvent(cEvent);",
+    "B": "let cEvent = new CustomEvent('passthrough', { detail: this.passthrough }); this.dispatchEvent(cEvent);",
+    "C": "let cEvent = new CustomEvent('passthrough'); this.dispatchEvent(cEvent);",
+    "D": "let cEvent = new customEvent('passthrough', { detail: 'this.passthrough' }); this.dispatchEvent(cEvent);"
+  },
+  "answer": "B"
+},
+{
   "question": "A developer is tasked with creating a Lightning web component that allows users to create a Case for a selected product, directly from a custom Lightning page. The input fields in the component are displayed in a non-linear fashion on top of an image of the product to help the user better understand the meaning of the fields. Which two components should a developer use to implement the creation of the Case from the Lightning web component?",
   "type": "multiple",
   "options": {
@@ -81,17 +92,6 @@ window.getQuestions = function() {
   "answer": ["B", "D"]
 },
 {
-  "question": "Given the following containment hierarchy,{{pd2_59.jpg}} what is the correct way to communicate the new value of a property named 'passthrough' to my-parent-component if the property is defined within my-child-component?",
-  "type": "single",
-  "options": {
-    "A": "let cEvent = new CustomEvent($passthrough); this.dispatchEvent(cEvent);",
-    "B": "let cEvent = new CustomEvent('passthrough', { detail: this.passthrough }); this.dispatchEvent(cEvent);",
-    "C": "let cEvent = new CustomEvent('passthrough'); this.dispatchEvent(cEvent);",
-    "D": "let cEvent = new customEvent('passthrough', { detail: 'this.passthrough' }); this.dispatchEvent(cEvent);"
-  },
-  "answer": "B"
-},
-{
   "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?",
   "type": "single",
   "options": {
@@ -137,7 +137,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "Consider the Apex controller below, that is called from an Aura component. {{pd2_57.jpg}} What is wrong with this code?",
+  "question": "Consider the Apex controller below, that is called from an Aura component. {{images_pd2/pd2_57.jpg}} What is wrong with this code?",
   "type": "single",
   "options": {
     "A": "Line 1: class must be global",
@@ -182,7 +182,7 @@ window.getQuestions = function() {
   "answer": ["B", "C", "D"]
 },
 {
-  "question": "Consider the following code snippet. {{pd2_56.jpg}}A developer created the following test class to provide the proper code coverage for the snippet above. A developer receives complaints that the component loads slowly. Which change can the developer implement to make the component perform faster?",
+  "question": "Refer to the Aura component below: {{images_pd2/pd2_56.jpg}}A developer created the following test class to provide the proper code coverage for the snippet above. A developer receives complaints that the component loads slowly. Which change can the developer implement to make the component perform faster?",
   "type": "single",
   "options": {
     "A": "Change the type of contactInfo to 'Map'.",
@@ -193,7 +193,7 @@ window.getQuestions = function() {
   "answer": "C"
 },
 {
-  "question": "{{pd2_45.jpg}}<br>{{pd2_44.jpg}}<br>{{pd2_45b.jpg}}When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?",
+  "question": "{{images_pd2/pd2_45.jpg}}<br>{{images_pd2/pd2_44.jpg}}<br>{{images_pd2/pd2_45b.jpg}}When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?",
   "type": "single",
   "options": {
     "A": "Add System.runAs(User) to line 14 and enclose line 15 within Test.startTest() and Test.stopTest().",
@@ -204,7 +204,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "{{pd2_55.jpg}}Consider the following code snippet. How should the <c-order> component communicate to the <c-selected-order> component that an order has been selected by the user?",
+  "question": "{{images_pd2/pd2_55.jpg}}Consider the following code snippet. How should the <c-order> component communicate to the <c-selected-order> component that an order has been selected by the user?",
   "type": "single",
   "options": {
     "A": "Create and dispatch a custom event.",
@@ -215,7 +215,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "{{pd2_54.jpg}}A company has the Lightning Component above that allows users to click a button to save their changes and redirects them to a different page. Currently, when the user hits the Save button the records are getting saved, but they are not redirected. Which three techniques can a developer use to debug the JavaScript? (Choose three.)",
+  "question": "{{images_pd2/pd2_54.jpg}}A company has the Lightning Component above that allows users to click a button to save their changes and redirects them to a different page. Currently, when the user hits the Save button the records are getting saved, but they are not redirected. Which three techniques can a developer use to debug the JavaScript? (Choose three.)",
   "type": "multiple",
   "options": {
     "A": "Enable Debug Mode for Lightning components for the user.",
@@ -249,7 +249,7 @@ window.getQuestions = function() {
   "answer": ["A", "B"]
 },
 {
-  "question": "Given the code above, which two changes need to be made in the Apex Controller for the code to work?{{pd2_53.jpg}}",
+  "question": "Given the code above, which two changes need to be made in the Apex Controller for the code to work?{{images_pd2/pd2_53.jpg}}",
   "type": "multiple",
   "options": {
     "A": "Remove line 06 from the Apex Controller and instead use firstName in the return on line 07.",
@@ -282,7 +282,7 @@ window.getQuestions = function() {
   "answer": "D"
 },
 {
-  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>{{pd2_10.jpg}}Which component should the developer add to the form to display error messages?",
+  "question": "A developer creates a Lightning web component to allow a Contact to be quickly entered. However, error messages are not displayed.<br><br>{{images_pd2/pd2_10.jpg}}Which component should the developer add to the form to display error messages?",
   "type": "single",
   "options": {
     "A": "apex:messages",
@@ -327,7 +327,7 @@ window.getQuestions = function() {
   "answer": ["B", "C", "E"]
 },
 {
-  "question": "Consider the following code snippet. Which two steps should the developer take to add flexibility to change the endpoint and credentials without needing to modify code?{{pd2_52.jpg}}",
+  "question": "Consider the following code snippet. Which two steps should the developer take to add flexibility to change the endpoint and credentials without needing to modify code?{{images_pd2/pd2_52.jpg}}",
   "type": "multiple",
   "options": {
     "A": "Store the URL of the endpoint in a custom Label named endPointURL.",
@@ -350,7 +350,7 @@ window.getQuestions = function() {
   "answer": ["D", "B", "E"]
 },
 {
-  "question": "Which code snippet processes records in the most memory efficient manner, avoiding governor limits such as 'Apex heap size too large'? {{pd2_51.jpg}}",
+  "question": "Which code snippet processes records in the most memory efficient manner, avoiding governor limits such as 'Apex heap size too large'? {{images_pd2/pd2_51.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -372,7 +372,7 @@ window.getQuestions = function() {
   "answer": ["A", "B"]
 },
 {
-  "question": "Universal Containers has an Apex trigger on Account that creates an Account Plan record when an Account is marked as a Customer. Recently a record-triggered flow was added so that whenever an Account is marked as a Customer, a 'Customer Since' date field is updated with today's date. Since the addition of the flow, two Account Plan records are created whenever the Account is marked as a Customer. What might cause this to happen?{{pd2_50.jpg}}",
+  "question": "Universal Containers has an Apex trigger on Account that creates an Account Plan record when an Account is marked as a Customer. Recently a record-triggered flow was added so that whenever an Account is marked as a Customer, a 'Customer Since' date field is updated with today's date. Since the addition of the flow, two Account Plan records are created whenever the Account is marked as a Customer. What might cause this to happen?{{images_pd2/pd2_50.jpg}}",
   "type": "single",
   "options": {
     "A": "The flow is configured to evaluate when a record is created and every time it is edited.",
@@ -383,7 +383,7 @@ window.getQuestions = function() {
   "answer": "C"
 },
 {
-  "question": "An Aura component has a section that displays some information about an Account and it works well on the desktop, but users have to scroll horizontally to see the description field output on their mobile devices and tablets.<br>{{pd2_48.jpg}}How should a developer change the component to be responsive for mobile and tablet devices?<br>{{pd2_49a.jpg}}<br>{{pd2_49b.jpg}}",
+  "question": "An Aura component has a section that displays some information about an Account and it works well on the desktop, but users have to scroll horizontally to see the description field output on their mobile devices and tablets.<br>{{images_pd2/pd2_48.jpg}}How should a developer change the component to be responsive for mobile and tablet devices?<br>{{images_pd2/pd2_49a.jpg}}<br>{{images_pd2/pd2_49b.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -394,7 +394,7 @@ window.getQuestions = function() {
   "answer": "B"
 },
 {
-  "question": "{{pd2_47.jpg}}Consider the above trigger intended to assign the Account to the manager of the Account's region. Which two changes should a developer make in this trigger to adhere to best practices?",
+  "question": "{{images_pd2/pd2_47.jpg}}Consider the above trigger intended to assign the Account to the manager of the Account's region. Which two changes should a developer make in this trigger to adhere to best practices?",
   "type": "multiple",
   "options": {
     "A": "Use a Map accountMap instead of List accountList.",
@@ -405,7 +405,7 @@ window.getQuestions = function() {
   "answer": ["C", "D"]
 },
 {
-    "question": "A developer is experiencing issues with a Lightning web component. The component must surface information about Opportunities owned by the currently logged-in user.<br><br>When the component is rendered, the following message is displayed: <b>\"Error retrieving data\"</b>.<br><br>Given the code:<br><br>Which modification should be implemented to the Apex class to overcome the issue?{{pd2_46.jpg}}",
+    "question": "A developer is experiencing issues with a Lightning web component. The component must surface information about Opportunities owned by the currently logged-in user.<br><br>When the component is rendered, the following message is displayed: <b>\"Error retrieving data\"</b>.<br><br>Given the code:<br><br>Which modification should be implemented to the Apex class to overcome the issue?{{images_pd2/pd2_46.jpg}}",
     "type": "single",
     "options": {
         "A": "Ensure the OWD for the Opportunity object is Public.",
@@ -427,7 +427,7 @@ window.getQuestions = function() {
   "answer": "B"
 },
 {
-  "question": "{{pd2_43.jpg}}A developer created a JavaScript function as part of a Lightning web component (LWC) that surfaces information about Leads by wire calling getFetchLeadList when certain criteria are met. Which three changes should the developer implement in the Apex class above to ensure the LWC can display data efficiently while preserving security?",
+  "question": "{{images_pd2/pd2_43.jpg}}A developer created a JavaScript function as part of a Lightning web component (LWC) that surfaces information about Leads by wire calling getFetchLeadList when certain criteria are met. Which three changes should the developer implement in the Apex class above to ensure the LWC can display data efficiently while preserving security?",
   "type": "multiple",
   "options": {
     "A": "Annotate the Apex method with @AuraEnabled(Cacheable=true).",
@@ -461,7 +461,7 @@ window.getQuestions = function() {
   "answer": "D"
 },
 {
-  "question": "A developer is building a Lightning web component that retrieves data from Salesforce and assigns it to the record property.{{pd2_42.jpg}} What must be done in the component to get the data from Salesforce?",
+  "question": "A developer is building a Lightning web component that retrieves data from Salesforce and assigns it to the record property.{{images_pd2/pd2_42.jpg}} What must be done in the component to get the data from Salesforce?",
   "type": "single",
   "options": {
     "A": "Add the following code above record; @api(getRecord, { recordId: '$recordId' }) Get the fields in renderedCallback() and assign them to record.",
@@ -506,7 +506,7 @@ window.getQuestions = function() {
   "answer": ["C", "D", "E"]
 },
 {
-  "question": "A custom object called Credit_Memo__c exists in a Salesforce environment. As part of a new feature development that retrieves and manipulates this type of record, the developer needs to ensure race conditions are prevented when a set of records are modified within an Apex transaction. In the preceding Apex code, how can the developer alter the query statement to use SOQL features to prevent race conditions within a transaction?{{pd2_41.jpg}}",
+  "question": "A custom object called Credit_Memo__c exists in a Salesforce environment. As part of a new feature development that retrieves and manipulates this type of record, the developer needs to ensure race conditions are prevented when a set of records are modified within an Apex transaction. In the preceding Apex code, how can the developer alter the query statement to use SOQL features to prevent race conditions within a transaction?{{images_pd2/pd2_41.jpg}}",
   "type": "single",
   "options": {
     "A": "[Select Id, Name, Amount__c FROM Credit_Memo__c WHERE Customer_Id__c = :customerId LIMIT 50 FOR VIEW]",
@@ -561,7 +561,7 @@ window.getQuestions = function() {
   "answer": "D"
 },
 {
-  "question": "As part of the deployment cycle, a developer creates a test class for a code snippet. When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?{{pd2_40.png}}",
+  "question": "As part of the deployment cycle, a developer creates a test class for a code snippet. When the test class runs, the assertion fails. Which change should the developer implement in the Apex test method to ensure the test method executes successfully?{{images_pd2/pd2_40.png}}",
   "type": "single",
   "options": {
     "A": "Query the Standard User into memory and enclose lines 14 and 15 within the System.runAs(user) method.",
@@ -661,7 +661,7 @@ window.getQuestions = function() {
   "answer": "C"
 },
 {
-  "question": "A developer is asked to modify a Lightning web component so that it displays in one column on phones and in two columns on tablets, desktops, and larger devices. Which should the developer add to the code to meet the requirements?{{pd2_39.jpg}}",
+  "question": "A developer is asked to modify a Lightning web component so that it displays in one column on phones and in two columns on tablets, desktops, and larger devices. Which should the developer add to the code to meet the requirements?{{images_pd2/pd2_39.jpg}}",
   "type": "single",
   "options": {
     "A": "Add a small-device-size=“12” to the [lightning-layout-item] elements",
@@ -683,7 +683,7 @@ window.getQuestions = function() {
   "answer": "B"
 },
 {
-  "question": "Consider the following code snippet: The Apex method is executed in an environment with a large data volume count for Accounts, and the query is performing poorly. Which technique should the developer implement to ensure the query performs optimally, while preserving the entire result set?{{pd2_36.jpg}}",
+  "question": "Consider the following code snippet: The Apex method is executed in an environment with a large data volume count for Accounts, and the query is performing poorly. Which technique should the developer implement to ensure the query performs optimally, while preserving the entire result set?{{images_pd2/pd2_36.jpg}}<br>answer{{images_pd2/pd2_36b.jpg}}",
   "type": "single",
   "options": {
     "A": "Break down the query into two individual queries and join the two result sets",
@@ -749,7 +749,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "A developer needs to implement a system audit feature that allows users, assigned to a custom profile named “Auditors”, to perform searches against the historical records in the Account object. The developer must ensure the search is able to return history records that are between 12 and 24 months old. Given the code below, which select statement should be inserted below as a valid way to retrieve the Account History records ranging from 12 to 24 month old?{{pd2_38.jpg}}",
+  "question": "A developer needs to implement a system audit feature that allows users, assigned to a custom profile named “Auditors”, to perform searches against the historical records in the Account object. The developer must ensure the search is able to return history records that are between 12 and 24 months old. Given the code below, which select statement should be inserted below as a valid way to retrieve the Account History records ranging from 12 to 24 month old?{{images_pd2/pd2_38.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -816,7 +816,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "Based on the code snippets, what change should be made to display the contacts' mailing addresses in the Lightning web component?{{pd2_37.jpg}}",
+  "question": "Based on the code snippets, what change should be made to display the contacts' mailing addresses in the Lightning web component?{{images_pd2/pd2_37.jpg}}",
   "type": "single",
   "options": {
     "A": "Extend the lightning-datatable component in the Lightning web component to include a column for the MailingAddress field.",
@@ -845,17 +845,6 @@ window.getQuestions = function() {
     "B": "Use an Email Alert with Flow Builder",
     "C": "Use MassEmailMessage() with an Apex trigger",
     "D": "Use a Workflow Email Alert"
-  },
-  "answer": "B"
-},
-{
-  "question": "Refer to the component code and requirements below:{{pd2_35a.jpg}}<br>{{pd2_35b.jpg}}<br>{{pd2_35c.jpg}}<br>{{pd2_35d.jpg}}<br>{{pd2_35e.jpg}}",
-  "type": "single",
-  "options": {
-    "A": "Option A",
-    "B": "Option B",
-    "C": "Option C",
-    "D": "Option D"
   },
   "answer": "B"
 },
@@ -904,7 +893,7 @@ window.getQuestions = function() {
   "answer": "D"
 },
 {
-  "question": "Given a list of Opportunity records named opportunityList, which code snippet is best for querying all Contacts of the Opportunity's Account?{{pd2_34.jpg}}",
+  "question": "Given a list of Opportunity records named opportunityList, which code snippet is best for querying all Contacts of the Opportunity's Account?{{images_pd2/pd2_34.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -949,7 +938,7 @@ window.getQuestions = function() {
   "explanation": "For optimal mobile performance: 1) Limiting fields (A) reduces data transfer and rendering load, and 2) Using Performance Analysis (D) identifies specific bottlenecks. While limiting components (B,C) may help, these are arbitrary limits not officially recommended by Salesforce for performance tuning."
 },
 {
-  "question": "A Lightning web component displays the Account name and two custom fields out of 275 that exist on the object. The custom fields are correctly declared and populated. However, the developer receives complaints that the component performs slowly. What can the developer do to improve the performance?{{pd2_33.jpg}}",
+  "question": "A Lightning web component displays the Account name and two custom fields out of 275 that exist on the object. The custom fields are correctly declared and populated. However, the developer receives complaints that the component performs slowly. What can the developer do to improve the performance?{{images_pd2/pd2_33.jpg}}",
   "type": "single",
   "options": {
     "A": "Replace layout-type='Full' with fields=[fields]",
@@ -961,7 +950,7 @@ window.getQuestions = function() {
   "explanation": "Using explicit field lists (Option A) rather than layout types significantly improves performance when only a few fields are needed from an object with many fields. This prevents loading metadata for all 275 fields when only 2 are needed."
 },
 {
-  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system's REST endpoint with the updated records. The calloutUtil.makeRestCallout fails with a 'You have uncommitted work pending. Please commit or rollback before calling out' error. What should be done to address the problem?{{pd2_32.jpg}}",
+  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system's REST endpoint with the updated records. The calloutUtil.makeRestCallout fails with a 'You have uncommitted work pending. Please commit or rollback before calling out' error. What should be done to address the problem?{{images_pd2/pd2_32.jpg}}",
   "type": "single",
   "options": {
     "A": "Change the calloutUtil.makeRestCallout to an @InvocableMethod method",
@@ -984,7 +973,7 @@ window.getQuestions = function() {
   "explanation": "The mass update will fail because all DML operations occur in a single execution context. Updating 200 Accounts triggers updates to 10,000 Contacts (200 × 50), which in turn triggers updates to 10,000 Campaign Members. This exceeds Salesforce governor limits for DML operations in a single transaction (10,000 records limit)."
 },
 {
-  "question": "A developer created the following test method:\n\nThe developer org has five accounts where the name starts with 'Test'. The developer executes this test in the Developer Console. After the test code runs, which statement is true?{{pd2_31.jpg}}",
+  "question": "A developer created the following test method:\n\nThe developer org has five accounts where the name starts with 'Test'. The developer executes this test in the Developer Console. After the test code runs, which statement is true?{{images_pd2/pd2_31.jpg}}",
   "type": "single",
   "options": {
     "A": "There will be six accounts where the name starts with 'Test'",
@@ -1054,7 +1043,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Universal Containers uses a custom Lightning page to provide a mechanism to perform a step-by-step wizard search for Accounts. One of the steps in the wizard is to allow the user to input text into a text field, ERP_Number__c, that is then used in a query to find matching Accounts. Which step should be taken to optimize the search performance? {{pd2_29.jpg}}",
+  "question": "Universal Containers uses a custom Lightning page to provide a mechanism to perform a step-by-step wizard search for Accounts. One of the steps in the wizard is to allow the user to input text into a text field, ERP_Number__c, that is then used in a query to find matching Accounts. Which step should be taken to optimize the search performance? {{images_pd2/pd2_29.jpg}}",
   "type": "single",
   "options": {
     "A": "Move the SOQL query to within an asynchronous process",
@@ -1077,7 +1066,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "An Apex trigger and Apex class increment a counter, Edit __C, any time the Case is changed.{{pd2_28a.jpg}}<br>{{pd2_28b.jpg}}",
+  "question": "An Apex trigger and Apex class increment a counter, Edit __C, any time the Case is changed.{{images_pd2/pd2_28a.jpg}} A new process on the Case object was just created in production for when a Case is created or updated. Since the process was added, there are reports that the Edit_Count_c is being incremented by more than one on Case edits.Which change in the Apex code will fix the problem? <br>{{images_pd2/pd2_28b.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -1124,7 +1113,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer wrote a class named accountRegistryManager that relies on field history tracking. The class has a static method called getAccountHistory that takes in an Account as a parameter and returns a list of associated AccountHistory object records. The following test fails: What should be done to make this test pass?{{pd2_27.jpg}}",
+  "question": "A developer wrote a class named accountRegistryManager that relies on field history tracking. The class has a static method called getAccountHistory that takes in an Account as a parameter and returns a list of associated AccountHistory object records. The following test fails: What should be done to make this test pass?{{images_pd2/pd2_27.jpg}}",
   "type": "single",
   "options": {
     "A": "Use Test.isRunningTest() in getAccountHistory() to conditionally return fake AccountHistory records.",
@@ -1135,7 +1124,7 @@ window.getQuestions = function() {
   "answer": "D",
 },
 {
-  "question": "A company wants to run different logic based on an Opportunity's record type. Which code segment handles this request and follows best practices?{{pd2_26a.jpg}}<br>{{pd2_26b.jpg}}<br>{{pd2_26c.jpg}}",
+  "question": "A company wants to run different logic based on an Opportunity's record type. Which code segment handles this request and follows best practices?{{images_pd2/pd2_26.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -1182,7 +1171,7 @@ window.getQuestions = function() {
   "explanation": "The correct approach is to use a **custom Platform Event** published via `EventBus.publish()` when an unhandled exception occurs in the batch job. This allows the external system to subscribe to the event and react in real-time. Standard Platform Events (B, C) are not suitable for custom error notifications. Option D (`addError()`) is incorrect because it is used for validation errors, not for publishing events."
 },
 {
-  "question": "A developer created 2 class that implements the Queueable Interface. As part of the deployment process, the developer is asked to create a corresponding test class. Which two actions should the developer take to successfully execute the test class? {{pd2_25.jpg}}",
+  "question": "A developer created 2 class that implements the Queueable Interface. As part of the deployment process, the developer is asked to create a corresponding test class. Which two actions should the developer take to successfully execute the test class? {{images_pd2/pd2_25.jpg}}",
   "type": "multiple",
   "options": {
     "A": "Implement seeAllData=True to ensure the Queueable job is able to run in bulk mode.",
@@ -1276,7 +1265,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer is creating a Lightning web component that displays a list of records in a lightning-datatable. After saving a new record to the database, the list is not updating. What should the developer change in the code above for this to happen?{{pd2_24.jpg}}",
+  "question": "A developer is creating a Lightning web component that displays a list of records in a lightning-datatable. After saving a new record to the database, the list is not updating. What should the developer change in the code above for this to happen?{{images_pd2/pd2_24.jpg}}",
   "type": "single",
   "options": {
     "A": "Call refreshApex() on this.data.",
@@ -1300,17 +1289,20 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Universal Containers uses Big Objects to store almost a billion customer transactions called Customer_Transaction__b. These are the fields on Customer_Transaction__b: The following fields have been identified as Index Fields for the Customer_Transaction__b object: Account__c, Program__c, and Transaction_Date__c. Which SOQL query is valid on the Customer_Transaction__b Big Object? {{pd2_23b.jpg}}<br>{{pd2_23.jpg}}",
+  "question": "Universal Containers uses Big Objects to store almost a billion customer transactions called Customer_Transaction_b. These are the fields on Customer_Transaction_b: Account_c, Program_c, Points_Earned_c, Location_c, Transaction.Date_c. The following fields have been identified as Index Fields for the Customer_Transaction_b object: Account_c, Program_c, and Transaction.Date_c. Which SOQL query is valid on the Customer_Transaction_b Big Object?",
   "type": "single",
   "options": {
-    "A": "Option A",
-    "B": "Option B"
+    "A": "SELECT Account_c, Program_c, Transaction.Date_c FROM Customer_Transaction_b WHERE Account_c = '001R000000302D3' AND Program_c = 'Shoppers' AND Transaction.Date_c=2019-05-31T00:00Z",
+    "B": "SELECT Account_c, Program_c, Transaction.Date_c FROM Customer_Transaction_b WHERE Account_c = '001R000000302D3' AND Program_c LIKE 'Shop%' AND Transaction.Date_c=2019-05-31T00:00Z",
+    "C": "SELECT Account_c, Program_c, Transaction.Date_c FROM Customer_Transaction_b WHERE Account_c = '001R000000302D3' AND Program_c INCLUDES ('Shoppers', 'Momens') AND Transaction.Date_c=2019-05-31T00:00Z",
+    "D": "SELECT Account_c, Program_c, Transaction.Date_c FROM Customer_Transaction_b WHERE Account_c = '001R000000302D3' AND Program_c EXCLUDES ('Shoppers', 'Momens') AND Transaction.Date_c=2019-05-31T00:00Z"
   },
   "answer": "A",
+  "note": "For Big Objects, SOQL queries must filter on all indexed fields (Account_c, Program_c, and Transaction.Date_c in this case) and only support the '=' operator (no LIKE, INCLUDES, or EXCLUDES). Therefore, option A is the only valid query."
 },
 
 {
-  "question": "Refer to the test method below: The test method calls an @future method that increments the Number_of_Times_Viewed__c value. The assertion is failing because the Number_of_Times_Viewed__c equals 0. What is the optimal way to fix this? {{pd2_22.jpg}}",
+  "question": "Refer to the test method below: The test method calls an @future method that increments the Number_of_Times_Viewed__c value. The assertion is failing because the Number_of_Times_Viewed__c equals 0. What is the optimal way to fix this? {{images_pd2/pd2_22.jpg}}",
   "type": "single",
   "options": {
     "A": "Add Test.startTest() before and Test.stopTest() after insert acct.",
@@ -1322,7 +1314,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer is developing a reusable Aura component that will reside on an sObject Lightning page. How can the component's controller get the context of the Lightning page that the sObject is on without requiring additional test coverage? {{pd2_21.jpg}}",
+  "question": "A developer is developing a reusable Aura component that will reside on an sObject Lightning page. How can the component's controller get the context of the Lightning page that the sObject is on without requiring additional test coverage? {{images_pd2/pd2_21.jpg}}",
   "type": "single",
   "options": {
     "A": "Use the getSubjectType method in an Apex class.",
@@ -1382,7 +1374,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Given the following code: Assuming there were 10 Contacts and five Accounts created today, what is the expected result? {{pd2_20.jpg}}",
+  "question": "Given the following code: Assuming there were 10 Contacts and five Accounts created today, what is the expected result? {{images_pd2/pd2_20.jpg}}",
   "type": "single",
   "options": {
     "A": "System.QueryException: List has more than one row for Assignment on Account",
@@ -1393,7 +1385,7 @@ window.getQuestions = function() {
   "answer": "A"
 },
 {
-  "question": "A developer has a requirement to query three fields (Id, Name, Type) from an Account; and first and last names for all Contacts associated with the Account. Which option is the preferred, optimized method to achieve this for the Account named 'Ozone Electronics'? {{pd2_19.jpg}}",
+  "question": "A developer has a requirement to query three fields (Id, Name, Type) from an Account; and first and last names for all Contacts associated with the Account. Which option is the preferred, optimized method to achieve this for the Account named 'Ozone Electronics'? {{images_pd2/pd2_19.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -1416,7 +1408,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Assuming the CreateOneAccount class creates one account and implements the Queueable interface, which syntax properly tests the Apex code?{{pd2_18.jpg}}<br>{{pd2_18b.jpg}}",
+  "question": "Assuming the CreateOneAccount class creates one account and implements the Queueable interface, which syntax properly tests the Apex code?{{images_pd2/pd2_18.jpg}}<br>{{images_pd2/pd2_18b.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
@@ -1452,7 +1444,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Users of this Visualforce page complain that the page does a full refresh every time the Search button is pressed. What should the developer do to ensure that a partial refresh is made so that only the section identified with opportunityList is re-drawn on the screen?{{pd2_17.jpg}}",
+  "question": "Users of this Visualforce page complain that the page does a full refresh every time the Search button is pressed. What should the developer do to ensure that a partial refresh is made so that only the section identified with opportunityList is re-drawn on the screen?{{images_pd2/pd2_17.jpg}}",
   "type": "single",
   "options": {
     "A": "Implement the <apex:actionFunction> tag with immediate=true.",
@@ -1537,7 +1529,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system’s REST endpoint with the updated records.{{pd2_16.jpg}}What should be done to address the problem?",
+  "question": "A company has code to update a Request and Request Lines and make a callout to their external ERP system’s REST endpoint with the updated records.{{images_pd2/pd2_16.jpg}}What should be done to address the problem?",
   "type": "single",
   "options": {
     "A": "Move the CalloutUtil.makeRestCallout method call below the catch block.",
@@ -1597,7 +1589,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer is creating a Lightning web component that contains a child component. The property stage is being passed from the parent to the child. The public property is changing, but the setOppList function is not being invoked.\n\nWhat should the developer change to allow this?{{pd2_8.jpg}}",
+  "question": "A developer is creating a Lightning web component that contains a child component. The property stage is being passed from the parent to the child. The public property is changing, but the setOppList function is not being invoked.\n\nWhat should the developer change to allow this?{{images_pd2/pd2_8.jpg}}",
   "type": "single",
   "options": {
     "A": "Move the logic from connectedCalIback() to constructor(),",
@@ -1671,7 +1663,7 @@ window.getQuestions = function() {
 
 
 {
-  "question": "A developer created the code to perform an HTTP GET request to an external system.\n\n{{pd2_6.jpg}}When the code is executed, the callout is unsuccessful and the following error appears within the Developer Console: System.CalloutException: Unauthorized endpoint\n\nWhich recommended approach should the developer implement to fix the callout exception?",
+  "question": "A developer created the code to perform an HTTP GET request to an external system.\n\n{{images_pd2/pd2_6.jpg}}When the code is executed, the callout is unsuccessful and the following error appears within the Developer Console: System.CalloutException: Unauthorized endpoint\n\nWhich recommended approach should the developer implement to fix the callout exception?",
   "type": "single",
   "options": {
     "A": "Create a Remote Site Setting configuration that includes the endpoint.",
@@ -1708,7 +1700,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "The Account object has a field, Audit_Code__c, that specifies the type of auditing needed, and a Lookup to User, Auditor__c, for the assigned auditor. Each User has a unique text field, Rudi, used to automatically assign the correct User to the Account's Auditor__c field when the Account is created.<br><br>What should be changed to most optimize the code’s efficiency? {{pd2_5.jpg}}Choose 2 answers.",
+  "question": "The Account object has a field, Audit_Code__c, that specifies the type of auditing needed, and a Lookup to User, Auditor__c, for the assigned auditor. Each User has a unique text field, Rudi, used to automatically assign the correct User to the Account's Auditor__c field when the Account is created.<br><br>What should be changed to most optimize the code’s efficiency? {{images_pd2/pd2_5.jpg}}Choose 2 answers.",
   "type": "multiple",
   "options": {
     "A": "Build a Map<String, List<Account>> of audit code to accounts.",
@@ -1733,7 +1725,7 @@ window.getQuestions = function() {
 
 
 {
-  "question": "A developer has a Batch Apex process, Batch_Account_Sales, that updates the sales amount for 10,000 Accounts on a nightly basis. The Batch Apex works as designed in the sandbox. However, the developer cannot get code coverage on the Batch Apex class.<br><br>What is causing the code coverage problem?<br>{{pd2_4.jpg}}",
+  "question": "A developer has a Batch Apex process, Batch_Account_Sales, that updates the sales amount for 10,000 Accounts on a nightly basis. The Batch Apex works as designed in the sandbox. However, the developer cannot get code coverage on the Batch Apex class.<br><br>What is causing the code coverage problem?<br>{{images_pd2/pd2_4.jpg}}",
   "type": "single",
   "options": {
     "A": "The batch process will not recognize new accounts created in the same session.",
@@ -1747,7 +1739,7 @@ window.getQuestions = function() {
 
 
 {
-  "question": "The test method above tests an Apex trigger that the developer knows will make a lot of queries when a lot of Accounts are simultaneously updated to be customers.<br><br>The test method fails at Line 20 because of too many SOQL queries.<br>{{pd2_2.jpg}}<br><br>What is the correct way to fix this?",
+  "question": "The test method above tests an Apex trigger that the developer knows will make a lot of queries when a lot of Accounts are simultaneously updated to be customers.<br><br>The test method fails at Line 20 because of too many SOQL queries.<br>{{images_pd2/pd2_2.jpg}}<br><br>What is the correct way to fix this?",
   "type": "single",
   "options": {
     "A": "Add Test.startTest() before and Test.stopTest() after both Line 7 of the code and Line 20 of the code.",
@@ -1759,7 +1751,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "Which two best practices should the developer implement to optimize this code? Choose 2 answers",
+  "question": "Which two best practices should the developer implement to optimize this code? {{images_pd2/pd2_60.jpg}}Choose 2 answers",
   "type": "multiple",
   "options": {
     "A": "Use a collection for the DML statement.",
@@ -1795,12 +1787,13 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{pd21_a.jpg}}<br>{{pd21_b.jpg}}",
+  "question": "The Salesforce admin at Cloud Kicks created a custom object called Region__c to store all postal zip codes in the United States and the Cloud Kicks sales region the zip code belongs to.<br><br>Cloud Kicks wants a trigger on the Lead to populate the Region based on the Lead's zip code.<br><br>Which code segment is the most efficient way to fulfill this request?{{images_pd2/pd2_61.jpg}}",
   "type": "single",
   "options": {
     "A": "Option A",
     "B": "Option B",
-    "C": "Option C"
+    "C": "Option C",
+	"D": "Option D"
   },
   "answer": "C",
 },
@@ -1941,7 +1934,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "A developer wrote the following method to find all the test accounts in the org:{{pd2_11.jpg}}What should be used to fix this failing test?",
+  "question": "A developer wrote the following method to find all the test accounts in the org:{{images_pd2/pd2_11.jpg}}What should be used to fix this failing test?",
   "type": "single",
   "options": {
     "A": "Test.loaddata to set up expected data",
@@ -1954,7 +1947,7 @@ window.getQuestions = function() {
 
 
 {
-  "question": "A developer created a Lightning web component for the Account record page that displays the five most recently contacted Contacts for an Account. The Apex method, getRecentContacts, returns a list of Contacts and will be wired to a property in the component.{{pd2_12.jpg}}Which two lines must change in the above code to make the Apex method able to be wired? Choose 2 answers",
+  "question": "A developer created a Lightning web component for the Account record page that displays the five most recently contacted Contacts for an Account. The Apex method, getRecentContacts, returns a list of Contacts and will be wired to a property in the component.{{images_pd2/pd2_12.jpg}}Which two lines must change in the above code to make the Apex method able to be wired? Choose 2 answers",
 "type": "multiple",
   "options": {
     "A": "Add @AuraEnabled(cacheable=true) to line 08",
@@ -1980,7 +1973,7 @@ window.getQuestions = function() {
 
 	
 {
-  "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?{{pd2_13.jpg}}",
+  "question": "What should be added to the setup, in the location indicated, for the unit test above to create the controller extension for the test?{{images_pd2/pd2_13.jpg}}",
   "type": "single",
   "options": {
     "A": "AccountControllerExt extension = new AccountControllerExt(acct);",
@@ -2018,7 +2011,7 @@ window.getQuestions = function() {
 },
 
 {
-  "question": "As part of an integration development effort, a developer is tasked to create an Apex method that solely relies on the use of foreign identifiers in order to relate new Contact records to existing Accounts in Salesforce. The Account object contains a field marked as an external ID, the API Name of this field is Legacy_Id__c.<br><br>{{pd2_14.jpg}}What is the most efficient way to instantiate the parentAccount variable on line 02 to ensure the newly created Contact is properly related to the Account?",
+  "question": "As part of an integration development effort, a developer is tasked to create an Apex method that solely relies on the use of foreign identifiers in order to relate new Contact records to existing Accounts in Salesforce. The Account object contains a field marked as an external ID, the API Name of this field is Legacy_Id__c.<br><br>{{images_pd2/pd2_14.jpg}}What is the most efficient way to instantiate the parentAccount variable on line 02 to ensure the newly created Contact is properly related to the Account?",
   "type": "single",
   "options": {
     "A": "Account parentAccount = [SELECT Id FROM Account WHERE Legacy_Id__c = :externalIdentifier].Id;",
@@ -2114,7 +2107,7 @@ window.getQuestions = function() {
 },
 
 {
-    "question": "A developer is writing a Jest test for a Lightning web component that conditionally displays child components based on a user’s checkbox selections. What should the developer do to properly test that the correct components display and hide for each scenario?",
+    "question": "A developer is writing a Jest test for a Lightning web component that conditionally displays child components based on a user’s checkbox selections. What should the developer do to properly test that the correct components display and hide for each scenario?{{images_pd2/pd2_62.jpg}}",
     "type": "single",
     "options": {
         "A": "Reset the DOM after each test with the afterEach method.",
@@ -2214,7 +2207,7 @@ window.getQuestions = function() {
 },
 
 {
-    "question": "A developer created a Lightning web component that allows users to input a text value that is used to search for Accounts by calling an Apex method. The Apex method returns a list of AccountWrappers and is called imperatively from a JavaScript event handler.{{pd2_15.jpg}}Which two changes should the developer make so the Apex method functions correctly? Choose 2 answers.",
+    "question": "A developer created a Lightning web component that allows users to input a text value that is used to search for Accounts by calling an Apex method. The Apex method returns a list of AccountWrappers and is called imperatively from a JavaScript event handler.{{images_pd2/pd2_15.jpg}}Which two changes should the developer make so the Apex method functions correctly? Choose 2 answers.",
     "type": "multiple",
     "options": {
         "A": "Add @AuraEnabled to line 03.",
