@@ -47,6 +47,8 @@ function processQuestionTextForImages(text) {
 }
 
 function loadQuestion() {
+    document.getElementById("explanationText").style.display = "none";
+    document.getElementById("explanationText").textContent = "";
     if (currentQuestionIndex >= questions.length) {
         return showFinalResults();
     }
@@ -86,8 +88,18 @@ function loadQuestion() {
                 inputElement.checked = !inputElement.checked;
             }
         });
-    });
+    });	
 
+	//Explanation
+    const explanationDiv = document.getElementById("explanationText");
+    if (questionData.explanation) {
+        explanationDiv.textContent = questionData.explanation;
+        explanationDiv.style.display = "block"; // Ensure it's visible if there's content
+    } else {
+        explanationDiv.textContent = ""; // Clear if no explanation
+        explanationDiv.style.display = "none"; // Hide if no explanation
+    }
+	
     // NEW: Handle the "Mark for Review" checkbox
     const markCheckbox = document.getElementById("markQuestion");
     markCheckbox.checked = markedQuestions.includes(currentQuestionIndex); // Set its state based on whether the current question is marked
@@ -176,6 +188,9 @@ function showFinalResults() {
     let seconds = (totalSeconds % 60).toString().padStart(2, '0');
     document.getElementById("finalTime").textContent = `${minutes}:${seconds}`;
 
+	const sfScriptTag = document.querySelector('script[src="sf.js"]');
+	const currentQuestionBank = sfScriptTag ? sfScriptTag.dataset.questionBank : 'sf_pd2.js'; // Default if not found or for testing
+
     let incorrectList = document.getElementById("incorrectQuestions");
     incorrectList.innerHTML = "";
     incorrectAnswers.forEach(qText => { // qText is the question string itself
@@ -184,7 +199,7 @@ function showFinalResults() {
         if (originalIndex !== -1) {
             let li = document.createElement("li");
             let a = document.createElement("a");
-            a.href = `review_question.html?index=${originalIndex}`;
+            a.href = `review_question.html?index=${originalIndex}&bank=${currentQuestionBank}`;
             a.textContent = qText;
             a.target = "_blank"; // Opens in a new tab
             li.appendChild(a);
@@ -205,7 +220,7 @@ function showFinalResults() {
         markedQuestions.forEach(index => {
             let li = document.createElement("li");
             let a = document.createElement("a");
-            a.href = `review_question.html?index=${index}`;
+            a.href = `review_question.html?index=${index}&bank=${currentQuestionBank}`;
             a.textContent = questions[index].question; // Display the question text
             a.target = "_blank"; // Opens in a new tab
             li.appendChild(a);

@@ -49,6 +49,20 @@
             </div>
         </div>
     </div>
-    <script src="sf_pd2.js"></script> <script src="review.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const questionBank = urlParams.get('bank') || 'sf_pd2.js'; // Default to sf_pd2.js if not specified
+        const script = document.createElement('script');
+        script.src = questionBank;
+        
+        // This is the crucial change: Load review.js ONLY after the question bank script has loaded
+        script.onload = () => {
+            const reviewScript = document.createElement('script');
+            reviewScript.src = 'review.js';
+            document.head.appendChild(reviewScript);
+        };
+        
+        document.head.appendChild(script);
+    </script>
 </body>
 </html>
