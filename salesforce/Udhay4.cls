@@ -30,7 +30,7 @@ public class Udhay {
         delete [SELECT Id FROM Case WHERE Property__c = :strPropId];
         delete [SELECT Id FROM ParcelGenealogy__c WHERE ChildParcel__c = :strPropId];
         delete [SELECT Id FROM ParcelGenealogy__c WHERE ParentParcel__c = :strPropId];
-		delete [SELECT id from DocumentGenerationRequest__c where Property__c = :strPropId];
+		delete [SELECT id FROM DocumentGenerationRequest__c where Property__c = :strPropId];
         delete [SELECT Id FROM PropertyTransaction__c WHERE Property__c = :strPropId];
         delete [SELECT Id FROM PropertyEvent__c WHERE Property__c = :strPropId];
         delete [SELECT Id FROM Ownership__c WHERE Property__c = :strPropId];
