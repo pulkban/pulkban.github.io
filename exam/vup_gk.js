@@ -5,6 +5,129 @@ window.getQuestions = function() {
 
 
   {
+    "question": "1. The First World War was continued for 4 years. Which one of the following represents the actual duration of First World War?",
+    "type": "single",
+    "options": {
+      "A": "1914-1918",
+      "B": "1915-1919",
+      "C": "1913-1917",
+      "D": "1916-1920"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "2. What is the full form of NDMA?",
+    "type": "single",
+    "options": {
+      "A": "National Disaster Managing Authority",
+      "B": "National Destruction Management Authority",
+      "C": "National Disaster Management Authority",
+      "D": "National Disaster Management Association"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "3. Bombay high is a place of great economic importance for India. For what reason, this place has great importance in Indian economy?",
+    "type": "single",
+    "options": {
+      "A": "Because it is near Mumbai",
+      "B": "Because it is an offshore oil field of India",
+      "C": "Because it is a big port of India",
+      "D": "All of these"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "4. The Lahore session of Congress has great importance in the history of Indian freedom struggle. What significant resolution did the Congress take in this session?",
+    "type": "single",
+    "options": {
+      "A": "The resolution of complete independence",
+      "B": "The resolution of boycott movement",
+      "C": "The resolution of unification of Congress",
+      "D": "The resolution of unification with Muslim League"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "5. Who forms the government in India?",
+    "type": "single",
+    "options": {
+      "A": "Largest party",
+      "B": "Largest alliance",
+      "C": "Party or parties having majority in the Parliament",
+      "D": "Party or parties having minority in the Parliament"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "6. Archery is the national sport of which country?",
+    "type": "single",
+    "options": {
+      "A": "Bhutan",
+      "B": "Japan",
+      "C": "Italy",
+      "D": "Sri Lanka"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "6. Hockey is the national sport of which country?",
+    "type": "single",
+    "options": {
+      "A": "Bhutan",
+      "B": "Japan",
+      "C": "India",
+      "D": "Sri Lanka"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "7. Who founded the Ramakrishna Mission in 1896 to carry on humanitarian relief and social work?{{images_vup_gk/vup_gk1.jpg}}",
+    "type": "single",
+    "options": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "8. Given below are the facts about the Constitution of India.<br>1. Constitutions can be amended.<br>2. Constitutions can not be amended.<br>3. During emergency Fundamental Rights can be withdrawn.<br>4. Fundamental Rights can never be withdrawn.<br>Which one of the following is correct?",
+    "type": "single",
+    "options": {
+      "A": "1, 2",
+      "B": "2, 3",
+      "C": "3, 4",
+      "D": "1, 3"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "9. He was a Scottish inventor and engineer who was a pioneer in the development of mechanical television. In 1924, he televised objects in outline. In 1925, he televised human faces. In 1926, he was the first person to televise pictures of objects in motion. Who was he?",
+    "type": "single",
+    "options": {
+      "A": "John Logie Baird",
+      "B": "Tim Berners-Lee",
+      "C": "Alexander Graham Bell",
+      "D": "Chester Floyd Carlson"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "10. Which one of the following countries will host the men's FIFA Football World Cup 2018?",
+    "type": "single",4
+    "options": {
+      "A": "Russia",
+      "B": "Spain",
+      "C": "France",
+      "D": "Brazil"
+    },
+    "answer": "A"
+  },
+
+
+  {
     "question": "Which of these famous ancient wonders was located in Alexandria, Egypt, and served as a lighthouse?",
     "type": "single",
     "options": {
