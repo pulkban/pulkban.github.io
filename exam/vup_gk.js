@@ -116,7 +116,7 @@ window.getQuestions = function() {
   },
   {
     "question": "10. Which one of the following countries will host the men's FIFA Football World Cup 2018?",
-    "type": "single",4
+    "type": "single",
     "options": {
       "A": "Russia",
       "B": "Spain",
