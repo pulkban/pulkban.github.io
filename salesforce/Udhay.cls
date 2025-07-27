@@ -11,15 +11,22 @@
 
 public class Udhay {
     public static Date eventDate = Date.valueOf('2011-07-07');
-	public static Integer latestYear = 2024;
+	public static Integer latestYear = 2025;
     public static Decimal landValue = 250000.0;
     public static Decimal improvementValue = 250000.0;
     public static Decimal totalValue = 500000.0;
 
     public static void deleteProperty(String strPropId) {
+		Id currentUserId = UserInfo.getUserId();
+		disableAllValidationAndTrigger(currentUserId);
+
         //Flush PI stuff if any.
         List<Property__c> piProps = [SELECT Id FROM Property__c WHERE RecordType.Name = 'Possessory Interest Property' AND ParentProperty__c = :strPropId];
+		List<Property__c> bppProps = [SELECT Id FROM Property__c WHERE ParentProperty__c = :strPropId AND RecordType.Name = 'Business Personal Property'];
+
 		Set<Id> piPropIds = new Set<Id>(); for (Property__c p : piProps) piPropIds.add(p.Id);
+		Set<Id> bppPropIds = new Set<Id>();  for (Property__c p : bppProps) bppPropIds.add(p.Id);
+
         if (!piPropIds.isEmpty()) {
 			delete [SELECT Id FROM CaseOwnershipRelation__c WHERE Case__c IN (SELECT Id FROM Case WHERE Property__c IN :piPropIds)];
             delete [SELECT Id FROM Case WHERE Property__c IN :piPropIds];
@@ -27,6 +34,11 @@ public class Udhay {
             delete [SELECT Id FROM Ownership__c WHERE Property__c IN :piPropIds];
             delete [SELECT Id FROM Property__c WHERE Id IN :piPropIds];
         }
+		if (!bppPropIds.isEmpty()) {
+			delete [SELECT Id FROM AssessmentLineItem__c WHERE Case__c IN (SELECT Id FROM Case WHERE Property__c IN :bppPropIds)];
+			delete [SELECT Id FROM Case WHERE Property__c IN :bppPropIds];
+			delete [SELECT Id FROM Property__c WHERE Id IN :bppPropIds];
+		}
         delete [SELECT Id FROM CaseOwnershipRelation__c WHERE Case__c IN (SELECT Id FROM Case WHERE Property__c = :strPropId)];
         delete [SELECT Id FROM Case WHERE Property__c = :strPropId];
         delete [SELECT Id FROM ParcelGenealogy__c WHERE ChildParcel__c = :strPropId];
@@ -37,6 +49,8 @@ public class Udhay {
         delete [SELECT Id FROM Ownership__c WHERE Property__c = :strPropId];
         delete [SELECT Id FROM Statement__c WHERE Property__c = :strPropId];
         delete [SELECT Id FROM Property__c WHERE Id = :strPropId];
+
+		reEnableAllValidationAndTrigger(currentUserId);
     }
 
 	//Delete Case and CORs
@@ -86,7 +100,8 @@ public class Udhay {
 		rtInfos = Schema.SObjectType.Ownership__c.getRecordTypeInfosByName(); rtMap.put('Ownership__c:Real Property Ownership', rtInfos.get('Real Property Ownership').getRecordTypeId());
 		rtInfos = Schema.SObjectType.PropertyEvent__c.getRecordTypeInfosByName(); rtMap.put('PropertyEvent__c:Change in Ownership', rtInfos.get('Change in Ownership').getRecordTypeId()); rtMap.put('PropertyEvent__c:PI Leasing', rtInfos.get('PI Leasing').getRecordTypeId());
 		rtInfos = Schema.SObjectType.Valuation__c.getRecordTypeInfosByName(); rtMap.put('Valuation__c:Change In Ownership Valuation', rtInfos.get('Change In Ownership Valuation').getRecordTypeId()); rtMap.put('Valuation__c:Lease Valuation', rtInfos.get('Lease Valuation').getRecordTypeId());
-		rtInfos = Schema.SObjectType.Case.getRecordTypeInfosByName(); rtMap.put('Case:Legacy Real Property Assessment', rtInfos.get('Legacy Real Property Assessment').getRecordTypeId()); rtMap.put('Case:Real Property Assessment', rtInfos.get('Real Property Assessment').getRecordTypeId());
+		rtInfos = Schema.SObjectType.Case.getRecordTypeInfosByName(); rtMap.put('Case:Legacy Real Property Assessment', rtInfos.get('Legacy Real Property Assessment').getRecordTypeId()); rtMap.put('Case:Real Property Assessment', rtInfos.get('Real Property Assessment').getRecordTypeId()); rtMap.put('Case:Legacy BPP Assessment', rtInfos.get('Legacy BPP Assessment').getRecordTypeId()); rtMap.put('Case:BPP Assessment', rtInfos.get('BPP Assessment').getRecordTypeId());
+		rtInfos = Schema.SObjectType.RollYear__c.getRecordTypeInfosByName(); rtMap.put('RollYear__c:BPP Roll Year', rtInfos.get('BPP Roll Year').getRecordTypeId());
 
 		Id realPropertyRecordTypeId = rtMap.get('Property__c:Real Property');
 		Id piRecordTypeId = rtMap.get('Property__c:Possessory Interest Property');
@@ -100,6 +115,9 @@ public class Udhay {
 		Id LeaseValuationRecordTypeId = rtMap.get('Valuation__c:Lease Valuation');
 		Id caseLegacyRPRecordTypeId = rtMap.get('Case:Legacy Real Property Assessment');
 		Id caseRPRecordTypeId = rtMap.get('Case:Real Property Assessment');
+		Id caseLegacyBPPRecordTypeId = rtMap.get('Case:Legacy BPP Assessment');
+		Id caseBPPRecordTypeId = rtMap.get('Case:BPP Assessment');
+		Id bppRollYearRecordTypeId = rtMap.get('RollYear__c:BPP Roll Year');
 
         //============================Get all Record Types once [End]
 
@@ -108,7 +126,7 @@ public class Udhay {
             LocationCountry__c = 'US', IsVariousLocations__c = false, LocationStreetNumber__c = '12', LocationStreetFraction__c = 'A', 
             LocationStreetPreDirection__c = 'N', LocationStreetName__c = 'Bush', LocationStreetType__c = ' ALY', TRACode__c = '001-000-000', RollCode__c = 'Secured', 
 			TaxableStatus__c = 'Taxable', Neighborhood__c = '08-D', Geolocation__Latitude__s = 37.80338618, Geolocation__Longitude__s = -122.4117585);
-        if (strpropType.equals('Normal') || strpropType.equals('PI')) {
+        if (strpropType.equals('Normal') || strpropType.equals('PI') || strpropType.equals('BPPRP')|| strpropType.equals('BPPRP')) {
             objProp.RealPropertyUse__c = 'Residential';
             objProp.RealPropertyType__c = 'Single Family Residence';
             objProp.RealPropertySubtype__c = 'Single Family Residence';
@@ -125,7 +143,7 @@ public class Udhay {
         }
         insert objProp;
         System.debug('Created Property==>' + objProp.id + '--' + objProp.AssessorsParcelNumber__c);
-		
+				
 		//if TIC - create 2 units==================
 		List<PropertyUnits__c> units = new List<PropertyUnits__c>();
 		if (strpropType == 'TIC') {
@@ -153,7 +171,7 @@ public class Udhay {
 			update units;
             System.debug('Created Units==>' + units.size());
 		}
-		//TIC Units [End]
+		//TIC Units [End]========================================================================
 		
 		//===================================================PI Prop [Start]
 		Property__c objPIProp;
@@ -178,7 +196,7 @@ public class Udhay {
 		
 		//4. propertyValue//======================================================================
 		List<PropertyValue__c> propValues = new List<PropertyValue__c>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			propValues.add(new PropertyValue__c(Property__c = objProp.Id, ValueDate__c = eventDate, StartDate__c = eventDate, BaseYear__c = String.valueOf(eventDate.year()),
 				FMVLand__c = landValue, FMVImprovements__c = improvementValue, FMValue__c = landValue + improvementValue, EventType__c = 'Change in Ownership'));
 		} else if (strpropType == 'TIC') {
@@ -199,7 +217,7 @@ public class Udhay {
 		
 		//5. account ===================================
 		List<Account> accts = new List<Account>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			accts.add(new Account(FirstName=firstNames[randomIndex], LastName=lastNames[randomIndex], RecordTypeId=personAccountRecordTypeId, MailingUnitNumber__c='92'));
 		}else if (strpropType == 'TIC') {
 			accts.add(new Account(FirstName=firstNames[randomIndex], LastName=lastNames[randomIndex], RecordTypeId=personAccountRecordTypeId, MailingUnitNumber__c='92'));
@@ -223,7 +241,7 @@ public class Udhay {
 				Property__c = objProp.Id, Account__c = accts[1].Id, OwnershipPercent__c = 35,
 				OwnershipName__c = accts[1].FirstName + ' ' + accts[1].LastName, RecordTypeId = realPropOwnershipRecordTypeId,
 				StartDate__c = eventDate, ValueDate__c = eventDate, IsPrimary__c = false));
-		} else if (strpropType == 'Normal') {
+		} else if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			owners.add(new Ownership__c(
 				Property__c = objProp.Id, Account__c = accts[0].Id, OwnershipPercent__c = 100,
 				OwnershipName__c = accts[0].FirstName + ' ' + accts[0].LastName, RecordTypeId = realPropOwnershipRecordTypeId,
@@ -271,9 +289,86 @@ public class Udhay {
             System.debug('puows==>' + puows.size());
 		}
 		//=================================== PUOR - only for TIC
+		
+		//[BPPRP-Start]=========================================================================================================
+		List<Case> bppCaseList = new List<Case>();
+		if (strpropType == 'BPPRP') {
+            String timeStamp4Digit = Datetime.now().format('HHmm');
+			Account acc = new Account(
+				Name = 'SALARPURIA REAL ESTATE '+timeStamp4Digit, BusinessStatus__c = 'Active',
+				BusinessAccountNumber__c = '9241191', EntityId__c = '999'+timeStamp4Digit,
+				AccessPIN__c = '105899', NoticeType__c = 'Direct Bill', RequiredToFile__c = 'Optional', FederalId__c = '55-6288620',
+
+				MailingStreetNumber__c = '1850', MailingStreetName__c = 'BRYANT', MailingStreetType__c = 'ST', 
+				MailingCity__c = 'SAN FRANCISCO', MailingState__c = 'US-CA', MailingPostalCode__c = '94110',
+				MailingPostalCodeExtension__c = '1407', MailingCountry__c = 'US'
+			);
+			insert acc;
+			System.debug('acc==>' + accts.size());
+			
+			Property__c objBPPprop = new Property__c(
+				RecordTypeId = bppRecordTypeId, Account__c = acc.id, ParentProperty__c = objProp.id,
+				DoingBusinessAs__c = acc.Name, 
+				//Volume__c = 44, TRACode__c = '001-000',
+				AccountingAddress__c = '73 MAJESTIC AVE', AssessorsParcelNumber__c = objProp.AssessorsParcelNumber__c, 
+				RollCode__c = 'Secured', Status__c = 'Active', Type__c = 'ApartmentUnit', ApartmentBusinessAccountNumber__c = '0489267',
+				BusinessClassificationCode__c = '6513', NoticeType__c = 'Direct Bill', RequiredToFile__c = 'Optional', PrimaryFormType__c = '571-R', 
+				LastFileDate__c = Date.newInstance(2024, 5, 6), LastFilingMethod__c = 'eFile', 
+				InitialAssessmentYear__c = '2021', MostRecentAssessmentYear__c = '2025',
+				AccountingContactName__c = 'Sharon Lui', AccountingContactNumber__c='4154349700', 
+				LocationStreetNumber__c = '1920', LocationStreetName__c = 'REDWICH', LocationStreetType__c = 'ST', LocationCity__c='SAN FRANCISCO', 
+				LocationState__c = 'US-CA', LocationCountry__c='US'
+			);
+            insert objBPPprop;     
+			System.debug('BPPRP_property==>' + objBPPprop);
+
+			//Disable Trigger / VR before Case and ALIs
+            Id currentUserId = UserInfo.getUserId();       
+            disableAllValidationAndTrigger(currentUserId);
+
+			//Cases for BPP
+			Integer bppsevenDigitRandomNumber = (Integer)(Math.random() * 9000000) + 1000000;
+			Map<String, Id> rollYearMap = new Map<String, Id>();
+			for (RollYear__c ry : [SELECT Id, Year__c FROM RollYear__c WHERE RecordType.DeveloperName = 'BPPRollYear']) {
+				rollYearMap.put(String.valueOf(ry.Year__c), ry.Id);
+			}
+			//Insert BPP Case
+			for (String y : new List<String>{'2022', '2023', '2024', '2025'}) {
+				bppCaseList.add(new Case(
+					RecordTypeId=caseBPPRecordTypeId, 
+					Property__c = objBPPprop.Id, AccountId = acc.Id, AssessmentYear__c = y, AssessmentNumber__c = y + String.valueOf(bppsevenDigitRandomNumber), 
+					IsCorrectedOrCancelled__c = true, EventDate__c = Date.newInstance(Integer.valueOf(y), 1, 1),
+					DoingBusinessAs__c = acc.Name, TRACode__c = '001-000', Volume__c = '01', AssessorsParcelNumber__c = objBPPprop.AssessorsParcelNumber__c, 
+					RollCode__c = 'Secured',
+					AccountName__c = acc.Name, TotalValueofProperties__c = 0, FederalId__c = '55-6288620', RequiredToFile__c = 'Optional', 
+					TotalPersonalPropertyValueOverride__c = 60000, TotalFixturesValueOverride__c = 8000, 
+					MailingStreetNumber__c = acc.MailingStreetNumber__c, MailingStreetName__c = acc.MailingStreetName__c, 
+					MailingCity__c = acc.MailingCity__c, MailingState__c = acc.MailingState__c, MailingPostalCode__c = acc.MailingPostalCode__c, MailingPostalCodeExtension__c = acc.MailingPostalCodeExtension__c,
+					LocationStreetNumber__c = objBPPprop.LocationStreetNumber__c, LocationStreetName__c = objBPPprop.LocationStreetName__c, LocationCity__c = objBPPprop.LocationCity__c, LocationCountry__c = objBPPprop.LocationCountry__c, 
+					Type = 'Regular', AdjustmentType__c = 'New', SubType__c='None', Priority = 'Medium', SequenceNumber__c = 1, 
+					Status = 'Closed', SubStatus__c = 'Completed', IntegrationStatus__c='Sent to RP', Billable__c='Yes', SubmittedForApproval__c = false,
+					Roll__c = rollYearMap.get(y)
+				));
+			}
+			insert bppCaseList;
+			//Insert BPP ALI
+			List<AssessmentLineItem__c> aliList = new List<AssessmentLineItem__c>();
+			for (Case c : bppCaseList) {
+				aliList.add(new AssessmentLineItem__c(
+					Case__c = c.Id, 
+					Category__c = 'Furniture and Appliances', Subcategory__c = 'Furniture and Appliances', AssetSubclassification__c = 'General', 
+					AcquisitionYear__c = '2005', Cost__c=879,  FixturesAllocationPercent__c = 0
+				));
+			}
+			insert aliList;
+
+			//ReEnable Trigger
+            reEnableAllValidationAndTrigger(currentUserId);
+		}
+		//[BPP-End]=========================================================================================================
 
 		
-		//===================================
+		//=========================================================================================================
 		//(tic)2 PVs, 2 owners - 1 each 1:1
 		//(pi)2 PVs (zero, x$), 2 owners (ccsf, x), 1 each 1:1
 		List<OwnershipBaseYear__c> obyList = new List<OwnershipBaseYear__c>();
@@ -288,7 +383,7 @@ public class Udhay {
         }
 		insert obyList;
         System.debug('obyList==>' + obyList.size());
-		//===================================
+		//=========================================================================================================
 		
 		//8. PE
         PropertyEvent__c objPE = new PropertyEvent__c(Assessability__c = 'Assessable', DocumentOrigin__c = 'Unrecorded', Unrecorded_Reason__c = 'Other', 
@@ -342,15 +437,15 @@ public class Udhay {
         system.debug('factorMap2>>>>' + factorMap2);
 		
         //For All Old Cases
-        for (Integer year = eventDate.year(); year <= 2023; year++) {
+        for (Integer year = eventDate.year(); year <= latestYear - 1; year++) {
             Integer sevenDigitRandomNumber = (Integer)(Math.random() * 9000000) + 1000000;
 			String factorKey = baseYear + '-' + year;
             //system.debug('factorKey>>>' + factorKey);
 			
-            casesToInsert.add(new Case(RecordTypeId = caseLegacyRPRecordTypeId, EventDate__c = Date.valueOf(year + '-01-01'), Property__c = objProp.Id, 
+            casesToInsert.add(new Case(RecordTypeId = caseRPRecordTypeId, EventDate__c = Date.valueOf(year + '-01-01'), Property__c = objProp.Id, 
                 Type = 'Escape', AdjustmentType__c = 'New', RollYear__c = String.valueOf(year), AssessmentYear__c = String.valueOf(year), RollCode__c = 'Secured', 
                 Status = 'New', Billable__c = 'Yes', LandValueRP__c = landValue * factorMap.get(factorKey), ImprovementsValueRP__c = improvementValue * factorMap.get(factorKey), PrimaryAssessee__c = owners[0].Id, 
-                TRACode__c = '001-000-000', IsLegacy__c = true, AssessorsParcelNumber__c = strAPN, MailingUnitNumber__c = '92', 
+                TRACode__c = '001-000-000', IsLegacy__c = false, AssessorsParcelNumber__c = strAPN, MailingUnitNumber__c = '92', 
                 AssessmentNumber__c = year + String.valueOf(sevenDigitRandomNumber), AccountId = accts[0].Id, TemporaryLandValue__c = 0.0, 
                 TemporaryImprovementValue__c = 0.0, TotalTemporaryValue__c = 0.0, TotalAdjustmentValue__c = 0.0, RPAmountExempt__c = 0.0, 
                 LegacyExemptionPenaltyAmount__c = 0.0, Legacy480Penalty__c = 0.0, TotalFactoredBaseValue__c = totalValue * factorMap.get(factorKey), 
@@ -376,7 +471,7 @@ public class Udhay {
 
 		//==================================================CORs
 		List<CaseOwnershipRelation__c> corToInsert = new List<CaseOwnershipRelation__c>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			for (Case c : casesToInsert) {
 				String strYear = String.valueOf(eventDate.year()) + '-' + String.valueOf(c.AssessmentYear__c);
 				Decimal factor = Decimal.valueOf(c.DoingBusinessAs__c);
@@ -415,15 +510,115 @@ public class Udhay {
         insert objCase;
         system.debug('objCase>>' + objCase);
 
+		//====Update BPP case to link with Parent Case [START]
+		Id currentUserId = UserInfo.getUserId();
+		disableAllValidationAndTrigger(currentUserId);
+
+		if (strpropType.equals('BPPRP')) {
+			Map<String, Case> rpCaseMap = new Map<String, Case>();
+			casesToInsert.add(objCase);
+			for (Case c : casesToInsert) {
+				rpCaseMap.put(c.AssessmentYear__c, c);
+			}
+
+			List<RPBPPRelatedAssessment__c> junctionRecords = new List<RPBPPRelatedAssessment__c>();
+			// Update BPP cases with parent case (RP case)
+			for (Case bpp : bppCaseList) {
+				Case parent = rpCaseMap.get(bpp.AssessmentYear__c);
+				if (parent != null) {
+					//bpp.ParentId = parent.Id;
+					parent.TotalPersonalPropertyValueRP__c = bpp.TotalPersonalPropertyValueOverride__c;
+					parent.TotalFixturesValueRP__c = bpp.TotalFixturesValueOverride__c;
+
+					RPBPPRelatedAssessment__c junction = new RPBPPRelatedAssessment__c();
+					junction.RPAssessment__c = parent.Id;
+					junction.BPPAssessment__c = bpp.Id;
+					junctionRecords.add(junction);
+				}
+			}
+			update bppCaseList;
+			update casesToInsert;
+			insert junctionRecords;
+		}
+
+		reEnableAllValidationAndTrigger(currentUserId);
+		//====Update BPP case [END]
+
 		//==========COR for Latest
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			insert new CaseOwnershipRelation__c(CPIFactor__c = factorMap.get(latestFactorKey), PropertyValueEventType__c = 'Change in Ownership', FactoredBaseYearValue__c = totalValue * factorMap.get(latestFactorKey), FactoredBaseYearValueImprovements__c = improvementValue * factorMap.get(latestFactorKey), FactoredBaseYearValueLand__c = landValue * factorMap.get(latestFactorKey), Ownership__c = owners[0].Id, OwnershipBaseYear__c = obyList[0].Id, Case__c = objCase.Id, AccountName__c = accts[0].Id, Factor__c = factorMap2.get(latestFactorKey));
 		} else if (strpropType == 'TIC') {
 			insert new List<CaseOwnershipRelation__c>{
 				new CaseOwnershipRelation__c(CPIFactor__c = factorMap.get(latestFactorKey), PropertyValueEventType__c = 'Change in Ownership', FactoredBaseYearValue__c = totalValue * 0.65 * factorMap.get(latestFactorKey), FactoredBaseYearValueImprovements__c = improvementValue * 0.65 * factorMap.get(latestFactorKey), FactoredBaseYearValueLand__c = landValue * 0.65 * factorMap.get(latestFactorKey), Ownership__c = owners[0].Id, OwnershipBaseYear__c = obyList[0].Id, Case__c = objCase.Id, AccountName__c = accts[0].Id, Factor__c = factorMap2.get(latestFactorKey)),
 				new CaseOwnershipRelation__c(CPIFactor__c = factorMap.get(latestFactorKey), PropertyValueEventType__c = 'Change in Ownership', FactoredBaseYearValue__c = totalValue * 0.35 * factorMap.get(latestFactorKey), FactoredBaseYearValueImprovements__c = improvementValue * 0.35 * factorMap.get(latestFactorKey), FactoredBaseYearValueLand__c = landValue * 0.35 * factorMap.get(latestFactorKey), Ownership__c = owners[1].Id, OwnershipBaseYear__c = obyList[1].Id, Case__c = objCase.Id, AccountName__c = accts[1].Id, Factor__c = factorMap2.get(latestFactorKey))
 			};
-		}
-		//==========COR for Latest
+		}		
+    }
+
+
+
+
+    //==========Disabling VR and Trigger Code
+    public static void disableAllValidationAndTrigger(String currentUserId){
+        // Disable All Validation Rules
+        ValidationRuleSettings__c setting1 = ValidationRuleSettings__c.getInstance(currentUserId);
+        if (setting1 == null) {
+            setting1 = new ValidationRuleSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting1.DisableValidationRules__c = true;
+        upsert setting1;
+        // Disable All Trigger Execution
+        TriggerHandlerSettings__c setting2 = TriggerHandlerSettings__c.getInstance(currentUserId);
+        if (setting2 == null) {
+            setting2 = new TriggerHandlerSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting2.DisableAllTriggers__c = true;
+        setting2.IsDataMigrationRun__c = true;
+        setting2.DisableDLRSCalculationTriggers__c = true;
+        upsert setting2;
+        // Disable All Process Builder
+        ProcessBuilderSettings__c setting3 = ProcessBuilderSettings__c.getInstance(currentUserId);
+        if (setting3 == null) {
+            setting3 = new ProcessBuilderSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting3.DisableAllProcesses__c = true;
+        upsert setting3;
+    }
+    public static void reEnableAllValidationAndTrigger(String currentUserId){
+        // Enable All Validation Rules
+        ValidationRuleSettings__c setting1 = ValidationRuleSettings__c.getInstance(currentUserId);
+        if (setting1 == null) {
+            setting1 = new ValidationRuleSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting1.DisableValidationRules__c = false;
+        upsert setting1;
+        // Enable All Trigger Execution
+        TriggerHandlerSettings__c setting2 = TriggerHandlerSettings__c.getInstance(currentUserId);
+        if (setting2 == null) {
+            setting2 = new TriggerHandlerSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting2.DisableAllTriggers__c = false;
+        setting2.IsDataMigrationRun__c = false;
+        setting2.DisableDLRSCalculationTriggers__c = false;
+        upsert setting2;
+        // Enable All Process Builder
+        ProcessBuilderSettings__c setting3 = ProcessBuilderSettings__c.getInstance(currentUserId);
+        if (setting3 == null) {
+            setting3 = new ProcessBuilderSettings__c(
+                SetupOwnerId = currentUserId
+            );
+        }
+        setting3.DisableAllProcesses__c = false;
+        upsert setting3;
     }
 }

@@ -108,7 +108,7 @@ public class Udhay {
             LocationCountry__c = 'US', IsVariousLocations__c = false, LocationStreetNumber__c = '12', LocationStreetFraction__c = 'A', 
             LocationStreetPreDirection__c = 'N', LocationStreetName__c = 'Bush', LocationStreetType__c = ' ALY', TRACode__c = '001-000-000', RollCode__c = 'Secured', 
 			TaxableStatus__c = 'Taxable', Neighborhood__c = '08-D', Geolocation__Latitude__s = 37.80338618, Geolocation__Longitude__s = -122.4117585);
-        if (strpropType.equals('Normal') || strpropType.equals('PI')) {
+        if (strpropType.equals('Normal') || strpropType.equals('PI') || strpropType.equals('BPPRP')|| strpropType.equals('BPPRP')) {
             objProp.RealPropertyUse__c = 'Residential';
             objProp.RealPropertyType__c = 'Single Family Residence';
             objProp.RealPropertySubtype__c = 'Single Family Residence';
@@ -125,7 +125,7 @@ public class Udhay {
         }
         insert objProp;
         System.debug('Created Property==>' + objProp.id + '--' + objProp.AssessorsParcelNumber__c);
-		
+				
 		//if TIC - create 2 units==================
 		List<PropertyUnits__c> units = new List<PropertyUnits__c>();
 		if (strpropType == 'TIC') {
@@ -178,7 +178,7 @@ public class Udhay {
 		
 		//4. propertyValue//======================================================================
 		List<PropertyValue__c> propValues = new List<PropertyValue__c>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			propValues.add(new PropertyValue__c(Property__c = objProp.Id, ValueDate__c = eventDate, StartDate__c = eventDate, BaseYear__c = String.valueOf(eventDate.year()),
 				FMVLand__c = landValue, FMVImprovements__c = improvementValue, FMValue__c = landValue + improvementValue, EventType__c = 'Change in Ownership'));
 		} else if (strpropType == 'TIC') {
@@ -199,7 +199,7 @@ public class Udhay {
 		
 		//5. account ===================================
 		List<Account> accts = new List<Account>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			accts.add(new Account(FirstName=firstNames[randomIndex], LastName=lastNames[randomIndex], RecordTypeId=personAccountRecordTypeId, MailingUnitNumber__c='92'));
 		}else if (strpropType == 'TIC') {
 			accts.add(new Account(FirstName=firstNames[randomIndex], LastName=lastNames[randomIndex], RecordTypeId=personAccountRecordTypeId, MailingUnitNumber__c='92'));
@@ -223,7 +223,7 @@ public class Udhay {
 				Property__c = objProp.Id, Account__c = accts[1].Id, OwnershipPercent__c = 35,
 				OwnershipName__c = accts[1].FirstName + ' ' + accts[1].LastName, RecordTypeId = realPropOwnershipRecordTypeId,
 				StartDate__c = eventDate, ValueDate__c = eventDate, IsPrimary__c = false));
-		} else if (strpropType == 'Normal') {
+		} else if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			owners.add(new Ownership__c(
 				Property__c = objProp.Id, Account__c = accts[0].Id, OwnershipPercent__c = 100,
 				OwnershipName__c = accts[0].FirstName + ' ' + accts[0].LastName, RecordTypeId = realPropOwnershipRecordTypeId,
@@ -271,9 +271,41 @@ public class Udhay {
             System.debug('puows==>' + puows.size());
 		}
 		//=================================== PUOR - only for TIC
+		
+		//[BPPRP-Start]=========================================================================================================
+		if (strpropType == 'BPPRP') {
+			Account acc = new Account(
+				Name = 'AAEKZYYGHN', BusinessStatus__c = 'Active',
+				BusinessAccountNumber__c = '9241191',
+				AccessPIN__c = '105896', NoticeType__c = 'Notice to File', RequiredToFile__c = 'Yes',
+				MailingCity__c = 'SAN FRANCISCO', MailingState__c = 'California', MailingStreetName__c = 'BRYANT',
+				MailingStreetType__c = 'Street', MailingStreetNumber__c = '1850', MailingPostalCode__c = '94110',
+				MailingPostalCodeExtension__c = '1407', MailingCountry__c = 'United States of America'
+			);
+			insert acc;
+			System.debug('acc==>' + accts.size());
+			
+			Property__c objBPPprop = new Property__c(
+				RecordTypeId = bppRecordTypeId, Account__c = acc.id, ParentProperty__c = objProp.id,
+				DoingBusinessAs__c = acc.Name, LocationAddress__c = '655 BROTHERHOOD WAY 0000 SAN FRANCISCO, CA',
+				Volume__c = '44', TRACode__c = '001-000',
+				//AssessorsParcelNumber__c = '7380 038', 
+				RollCode__c = 'Secured', Status__c = 'Active', 
+				Type__c = 'Business', BusinessType__c = 'Construction', BusinessSubtype__c = 'General', NAICSCode__c = '2362',
+				BusinessClassificationCode__c = '5251', SubmittedBiotechCertification__c = 'No',
+				NoticeType__c = 'Notice to File', RequiredToFile__c = 'Yes', PrimaryFormType__c = 'BOE-571-L - Business Property Statement', 
+				LastFileDate__c = 3/22/2023, LastFilingMethod__c = 'eFile', InitialAssessmentYear__c = '2021', 
+				AccountingContactName__c = 'Steve Musk', AccountingContactNumber__c = '4158647500', 
+				LastAuditDate__c = 6/30/2005, LegacyCompanyId__c = '000109001'
+			);
+			insert objBPPprop;
+			System.debug('BPPRP_property==>' + objBPPprop);
+		}
+
+		//[BPP-End]=========================================================================================================
 
 		
-		//===================================
+		//=========================================================================================================
 		//(tic)2 PVs, 2 owners - 1 each 1:1
 		//(pi)2 PVs (zero, x$), 2 owners (ccsf, x), 1 each 1:1
 		List<OwnershipBaseYear__c> obyList = new List<OwnershipBaseYear__c>();
@@ -288,7 +320,7 @@ public class Udhay {
         }
 		insert obyList;
         System.debug('obyList==>' + obyList.size());
-		//===================================
+		//=========================================================================================================
 		
 		//8. PE
         PropertyEvent__c objPE = new PropertyEvent__c(Assessability__c = 'Assessable', DocumentOrigin__c = 'Unrecorded', Unrecorded_Reason__c = 'Other', 
@@ -376,7 +408,7 @@ public class Udhay {
 
 		//==================================================CORs
 		List<CaseOwnershipRelation__c> corToInsert = new List<CaseOwnershipRelation__c>();
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			for (Case c : casesToInsert) {
 				String strYear = String.valueOf(eventDate.year()) + '-' + String.valueOf(c.AssessmentYear__c);
 				Decimal factor = Decimal.valueOf(c.DoingBusinessAs__c);
@@ -416,7 +448,7 @@ public class Udhay {
         system.debug('objCase>>' + objCase);
 
 		//==========COR for Latest
-		if (strpropType == 'Normal') {
+		if (strpropType == 'Normal' || strpropType.equals('BPPRP')) {
 			insert new CaseOwnershipRelation__c(CPIFactor__c = factorMap.get(latestFactorKey), PropertyValueEventType__c = 'Change in Ownership', FactoredBaseYearValue__c = totalValue * factorMap.get(latestFactorKey), FactoredBaseYearValueImprovements__c = improvementValue * factorMap.get(latestFactorKey), FactoredBaseYearValueLand__c = landValue * factorMap.get(latestFactorKey), Ownership__c = owners[0].Id, OwnershipBaseYear__c = obyList[0].Id, Case__c = objCase.Id, AccountName__c = accts[0].Id, Factor__c = factorMap2.get(latestFactorKey));
 		} else if (strpropType == 'TIC') {
 			insert new List<CaseOwnershipRelation__c>{
