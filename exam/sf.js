@@ -52,6 +52,12 @@ function loadQuestion() {
     if (currentQuestionIndex >= questions.length) {
         return showFinalResults();
     }
+	
+    // Check if the element exists before trying to update its content
+    const questionTotalElement = document.getElementById("questionTotal");
+    const questionPendingElement = document.getElementById("questionPending");
+    if (questionTotalElement) { questionTotalElement.textContent = `Total Questions: ${questions.length}`; }
+    if (questionPendingElement) { questionPendingElement.textContent = `Pending: ${questions.length - currentQuestionIndex}`; }
 
     let questionData = questions[currentQuestionIndex];
     //document.getElementById("question").textContent = questionData.question;
