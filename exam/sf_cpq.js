@@ -9,25 +9,25 @@ window.getQuestions = function() {
 
     {
       "question": "At Universal Containers, each storage container is configured as a bundle. An important property of the bundle is cubic volume. The volume selected at the bundle level must match the volume of every Product Option. Which two actions must the admin take to allow a sales rep to choose a volume that will apply to all Product Options?",
-      "type": "multi-select",
+      "type": "multiple",
       "options": {
         "A": "Create a Feature level Configuration Attribute.",
         "B": "Set up a Lookup Price Rule referencing a custom object.",
         "C": "Create a bundle level Configuration Attribute.",
         "D": "Set the Configuration Attribute with Apply to Product Options to True."
       },
-      "answer": ["B", "C"]
+      "answer": ["C", "D"]
     },
     {
       "question": "Universal Containers has a customer account for which the sales rep has negotiated a lower price for a product. The new price for the product should stay in effect for new quotes, renewal and amendment quotes. Which two individual actions could the admin take to set up a Contracted Price for this customer?",
-      "type": "multi-select",
+      "type": "multiple",
       "options": {
         "A": "Generate a Contracted Price via the Contracted checkbox on the Quote record.",
         "B": "Use a Price Action to inject the discounted price into the SBQQ_CustomerPrice__c field.",
         "C": "Populate the Generate Contracted Price field on a Quote record.",
         "D": "Create a Contracted Price record related to the desired Account."
       },
-      "answer": ["A", "C"]
+      "answer": ["A", "D"]
     },
     {
       "question": "Universal Containers wants to have quantity requirements for certain Product Options in a bundle. The Product Option's quantity must be multiplied by the quantity of the bundle product. How should the admin set this up in the bundle to meet the requirement?",
@@ -53,14 +53,14 @@ window.getQuestions = function() {
     },
     {
       "question": "The admin at Universal Containers receives a report from a user that checking the Contracted box on an Opportunity with a single Product fails to generate a Contract. What are two possible reasons a Contract fails to generate?",
-      "type": "multi-select",
+      "type": "multiple",
       "options": {
         "A": "The Opportunity must have a Primary Quote associated to it.",
         "B": "The Subscription Pricing field on the Product is One-time.",
         "C": "The Subscription Pricing field on the Product is blank.",
         "D": "The Subscription Conversion Behavior field on the Product is set to None."
       },
-      "answer": ["A", "D"]
+      "answer": ["A", "C"]
     },
     {
       "question": "Universal Containers requires a specific level of approval for an enterprise-level customer if a single line's Net Price is above a certain threshold. The admin has set up a Price Rule with a reference to a custom formula field on the Price Condition to update a field used to flag this Quote Line for approval. On the initial calculation, the field is not updated. When the user clicks Calculate for a second time, the field value is correctly updated from the price rule. What is the most likely cause of the issue?",
@@ -71,7 +71,7 @@ window.getQuestions = function() {
         "C": "The use of formula fields in Price Conditions is unsupported, so the Price Rule fires and returns an error the first time.",
         "D": "The Evaluation Scope of the Price Rule is set incorrectly to fire on the Configurator, so the Price Rule fires on the Configure Products page."
       },
-      "answer": "A"
+      "answer": "B"
     },
     {
       "question": "Universal Containers has a bundle with many Features. In Feature A, all Product Options share the same Discount Schedule. How should the admin set up a Discount Schedule so the quantities of all Product Options in Feature A are aggregated when determining the Discount Tier?",
@@ -82,7 +82,7 @@ window.getQuestions = function() {
         "C": "Set the Discount Schedule on Product Feature A and mark the Cross Products checkbox as True on the Discount Schedule.",
         "D": "Set the Discount Schedule on the Product Option records and mark the Cross Products checkbox as False on the Discount Schedule."
       },
-      "answer": "B"
+      "answer": "C"
     },
 	
   {
@@ -91,9 +91,10 @@ window.getQuestions = function() {
       "options": {
         "A": "Product A Prorate Multiplier = 1\nProduct A Net Total = $27,000\nProduct B Prorate Multiplier = 1\nProduct B Net Total = $36,000",
         "B": "Product A Prorate Multiplier = 0.5\nProduct A Net Total = $270,000\nProduct B Prorate Multiplier = 18\nProduct B Net Total = $360,000",
-        "C": "Product A Prorate Multiplier = 0.5\nProduct A Net Total = $270,000\nProduct B Prorate Multiplier = 18"
+        "C": "Product A Prorate Multiplier = 0.5\nProduct A Net Total = $270,000\nProduct B Prorate Multiplier = 18",
+		"D": "Product A Prorate Multiplier = 0.5\nProduct A Net Total = $270,000\nProduct B Prorate Multiplier = 18\nProduct B Net Total = $540,000"
       },
-      "answer": "A"
+      "answer": "D"
     },
     {
       "question": "Universal Containers (UC) has asked their admin to add a new product selection rule to their flagship bundle. In their flagship bundle, there is a nested bundle \"Warranty\" that contains three warranty options: Gold, Platinum, and Diamond. By default, there is no warranty option selected. If a user has not set a warranty option and selects the product option \"Premium Container\" in the flagship bundle, the Diamond warranty option should automatically be selected in the child bundle. How should the UC admin set the configuration rule?",
@@ -116,7 +117,7 @@ window.getQuestions = function() {
     "C": "Create a price rule to insert 800 into the SBQQ_ListPrice__c field on the quote line when the SBQQ_RequiredBy__c field is blank.",
     "D": "Enter 20 into the SBQQ_Discount__c field on the product option to reduce the price from $1,000 to $800."
   },
-  "answer": "B"
+  "answer": "D"
 },
     {
       "question": "A renewal quote has been generated through automation 45 days before the contract ends on December 31. The customer wants to increase the quantity of their monthly service subscription. The customer is unprepared to renew at the moment, but needs to arrange the quantity Increase for the last month of the contract immediately. Upon finalizing the amendment Quote and contracting the amendment Opportunity, the sales ops team has discovered that the renewal Opportunity is out of sync with the latest change. How can the sales ops team ensure the renewal Quote reflects the increased quantity?",
@@ -127,7 +128,7 @@ window.getQuestions = function() {
         "C": "Terminate the Contract with an and Date of November 30, and set the renewal Quote Stast Date to December 1 of this year.",
         "D": "Create an Order from the amendment Opportunity, then contract the amendment Order and refresh the renewal Quote."
       },
-      "answer": "B"
+      "answer": "A"
     },
     {
       "question": "Sales reps at Universal Containers want to be able to filter products based on their Release Date. For example, a sales rep would like to see products with a Release Date between their input values of 11/23/04 and 01/16/07 when adding products. What should the admin create for this use case?",
@@ -245,7 +246,7 @@ window.getQuestions = function() {
       "C": "Rule B with Evaluation Order of 20, and Calculator Evaluation Event of On Initialization",
       "D": "Rule A with Evaluation Order of 10, and Calculator Evaluation Event of Before Calculate"
     },
-    "answer": "B"
+    "answer": "C"
   },
   {
     "question": "An admin is creating a Product Rule with an Advanced Condition. How should the admin reference a specific Error Condition record in the text of the Advanced Condition field?",
@@ -355,7 +356,7 @@ window.getQuestions = function() {
     "C": "Products, Product Options, Configuration Attributes, Product Rules, Configuration Rules",
     "D": "Configuration Attributes, Products, Product Options, Product Rules, Configuration Rules"
   },
-  "answer": "A"
+  "answer": "C"
 },
 {
   "question": "The Require Approved Quote package-level setting prevents CPQ from generating records for which object?",
@@ -870,7 +871,7 @@ window.getQuestions = function() {
     "C": "Tiered",
     "D": "Segmented"
   },
-  "answer": "C"
+  "answer": "B"
 },
 {
   "question": "When amending a contract, users have reported that the net pricing of some products is incorrect. The admin has done a preliminary investigation and found that the issue only happens on existing products when the quantity is adjusted. What is the likely cause?",
