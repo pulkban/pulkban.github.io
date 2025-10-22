@@ -11,7 +11,9 @@ journalDetails = {
 	'sf_cpq': 'sf_cpq.html',
 	
 	//--Frequent
-	'sep88':'Frequent',
+	'sep88':'Pranev',
+	'vup_gk': 'vup_gk.html',
+	'vup_maths': 'vup_maths.html'
 
 };
 
@@ -73,5 +75,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first shloka by default
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['DhyanaShloka']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['sf_pd2']}" style="width: 100%; height: 100vh;"></iframe>`;
 
