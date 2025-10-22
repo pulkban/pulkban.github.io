@@ -1,5 +1,8 @@
 journalDetails = {
 
+
+	//--Udhay
+	'sep02':'Udhay',
 	'sf_pd2': 'sf_pd2.html',
 	'sf_sales': 'sf_sales.html',
 	'sf_service': 'sf_service.html',
@@ -10,10 +13,7 @@ journalDetails = {
 	'sf_xp': 'sf_xp.html',
 	'sf_cpq': 'sf_cpq.html',
 	
-	//--Frequent
-	'sep88':'Pranev',
-	'vup_gk': 'vup_gk.html',
-	'vup_maths': 'vup_maths.html'
+
 
 };
 
@@ -75,5 +75,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first shloka by default
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['sf_pd2']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['vup_gk']}" style="width: 100%; height: 100vh;"></iframe>`;
 
