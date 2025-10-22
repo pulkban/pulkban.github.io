@@ -1,31 +1,17 @@
 journalDetails = {
 
-	'BG_Dyaanam': 'BG_Prayer.html',
-
-	'BG_01_Chapter': 'BG_01_Chapter.html',
-	'BG_02_Chapter': 'BG_02_Chapter.html',
-	'BG_03_Chapter': 'BG_03_Chapter.html',
-	'BG_04_Chapter': 'BG_04_Chapter.html',
-	'BG_05_Chapter': 'BG_05_Chapter.html',
-	'BG_06_Chapter': 'BG_06_Chapter.html',
-	'BG_07_Chapter': 'BG_07_Chapter.html',
-	'BG_08_Chapter': 'BG_08_Chapter.html',
-	'BG_09_Chapter': 'BG_09_Chapter.html',
-	'BG_10_Chapter': 'BG_10_Chapter.html',
-	'BG_11_Chapter': 'BG_11_Chapter.html',
-	'BG_12_Chapter': 'BG_12_Chapter.html',
-	'BG_13_Chapter': 'BG_13_Chapter.html',
-	'BG_14_Chapter': 'BG_14_Chapter.html',
-	'BG_15_Chapter': 'BG_15_Chapter.html',
-	'BG_16_Chapter': 'BG_16_Chapter.html',
-	'BG_17_Chapter': 'BG_17_Chapter.html',
-	'BG_18_Chapter': 'BG_18_Chapter.html',
-	'BGEndingPrayer': 'BGEndingPrayer.html',
-	'BGAarti': 'BGAarti.html',
-	'BG_SapthaShloki': 'BG_SapthaShloki.html',
-	'BG_Mahatmyam': 'BG_Mahatmyam.html',
+	'sf_pd2': 'sf_pd2.html',
+	'sf_sales': 'sf_sales.html',
+	'sf_service': 'sf_service.html',
+	'sf_integ': 'sf_integ.html',
+	'sf_sharing': 'sf_sharing.html',
+	'sf_data': 'sf_data.html',
+	'sf_b2b': 'sf_b2b.html',
+	'sf_xp': 'sf_xp.html',
+	'sf_cpq': 'sf_cpq.html',
 	
-	'BGQuiz': 'BGQuiz.html',
+	//--Frequent
+	'sep88':'Frequent',
 
 };
 
@@ -42,7 +28,13 @@ function populateNavbar()
     {
         // add a button for each person
         // make it call main on click with event
-        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+		if(person.startsWith("sep")) {
+			console.log('you saw sep');
+			myNavbar.innerHTML += `<hr><b>${journalDetails[person]}</b><hr>`;
+			
+		} else {
+			myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`;
+		}
     }
 }
 
@@ -80,6 +72,6 @@ function showIframe(currentEvent)
 // populate navbar on pageload
 populateNavbar()
 
-// show first person's journal automatically
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['BG_Dyaanam']}" style="width: 100%; height: 100vh;"></iframe>`;
+// show first shloka by default
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['DhyanaShloka']}" style="width: 100%; height: 100vh;"></iframe>`;
 
