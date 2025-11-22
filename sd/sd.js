@@ -5,8 +5,12 @@ journalDetails = {
 	'DhyanaShloka': 'DhyanaShloka.html',
 	'NithyaParayanaShloka': 'NithyaParayanaShloka.html',
 	
+	
 	//--Frequent
 	'sep88':'Frequent',
+	'AdityaHrudayam': 'AdityaHrudayam.html',
+	'GaneshaPanchaRatnam': 'GaneshaPanchaRatnam.html',
+	'GovindaAshtakam': 'GovindaAshtakam.html',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
 	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'Lingashtakam': 'Lingashtakam.html',
