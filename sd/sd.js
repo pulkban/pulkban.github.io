@@ -49,6 +49,7 @@ journalDetails = {
 	'NavagrahaStothram': 'NavagrahaSthothra.html',
 	'DeviKhadgamalaStothram': 'DeviKhadgamalaStothram.html',
 	'DurgaPancharatnam': 'DurgaPancharatnam.html',
+	'TantroktamDeviSuktam': 'TantroktamDeviSuktam.html',
 	'DurgaSahasranamaStothram': 'DurgaSahasranamaStothram.html',
 	'IndrakshiStothram': 'IndrakshiStothram.html',
 	'MahalakshmiSthuthi': 'MahalakshmiSthuthi.html',
@@ -80,6 +81,7 @@ journalDetails = {
 	'OmSakthiPotri': 'OmSakthiPotri.html',
 	'DeviKeshadiPadaVarnanam': 'DeviKeshadiPadaVarnanam.html',
 	'AnandaSagaraStavam': 'AnandaSagaraStavam.html',
+	
 
 	//--Andal
 	'sep4':'Andaal',	
