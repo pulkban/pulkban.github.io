@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<style>
+		body, html {
+			margin: 0;
+			padding: 0;
+			background-color: #f5f7fb;
+		}
+
+		/* Full width feel */
+		.cheatsheet .container {
+			max-width: 1000px;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		/* Cozy card styling */
+		.cheatsheet .card {
+			border-radius: 0.65rem;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+			margin-bottom: 10px;
+		}
+
+		.cheatsheet .card-body {
+			padding: 10px 14px;
+		}
+
+		.cheatsheet .card-title {
+			font-size: 1rem;
+			margin-bottom: 4px;
+			font-weight: 600;
+		}
+
+		.cheatsheet small {
+			font-size: 0.85rem;
+			line-height: 1.3;
+		}
+
+		.cheatsheet li {
+			margin-left: 14px;
+			margin-bottom: 2px;
+		}
+	</style>
+</head>
+
+<body>
+
+<section class="cheatsheet bg-light py-2">
+  <div class="container-fluid px-2">   <!-- full width, tiny side padding -->
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+              <small>
+                <li>
+			</small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+              <small>
+                <li>
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF Admin</h3>
+            <p class="card-text">
+              <small>
+                <li>owd? (ans: private, public read-only, public read write, parent control)
+				<li>owd=public read, but no access to object (ans: user cant see data
+				<li>view all recs, view all data (ans: recs for a given object, view data - across all objects)
+				<li>master detail, lookup (ans: child cant exist without parent, cascade delete, lookup-child does not need parent; account contact - spl relation)
+				<li>i try to delete parent - but if child is there dont delete parent (ans: a-Trigger based, b-flow: customerror, c-field level config is also present)
+				<li>based on profile - display fields, today 5 tomorrow 10 (ans: get record method, but how will u know based on profile? - use metadata to store fields per profile, use graph ql then display using LDS
+				<li>named creds (ans: store creds safely - even admin cant see it)
+				<li>admin click button named creds works bring response, but for user 1, no (ans: named creds 'for user' - user should have access to object 'External Credential object - stored in encrypted format; 2nd permission - external principle)
+				<li>suppose production has issue - user does not want to reproduce - (ans: store in custom exception log- for post mortem - whatever comes in try catch block)
+				<li>is 'finally' present in apex/lwc (ans: finally always executes in apex; in lwc - js also, it is there)
+			</small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+              <small>
+                <li>
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+
+
+    <div class="row g-2">              <!-- small gap between cards -->
+      <!-- CARD 1 -->
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+              <small>
+                <li>LWC hooks (ans: instance of component - constructor (initialize var) - component inserted to DOM - connectedCallback(once) - if child is there, follow same - child's connected, child's rendered - load scripts in rendered callback - parent's rendered - (mounting phase during insert) - unmounting - remove element from DOM - disconnectedCB() - unsubscribe message channel, remove event listener from window object, - error call back (trace error logs from children) - 
+				<li>when error callback? (ans: when child compo throws error, chrome console is tedious, both error and 'stack' will be received to debug - )
+				<li>setInterval, setTimeout when to use (ans: window function it is, exec pause for some time - wait to get data?, setInterval at regular times)
+                <li>decorators? (ans: @api @track @wire, @api-expose prop or even function of child to parent comp, - @wire: apex data, if param in wire gets changed in lwc, @wire is reactive and gets executed again; @track: by default primitives are reactive, but for array or json object - if any field changes inside, use @track for complex variable)
+				<li>@wire (key things when u call apex) (ans: u dont have control on it, lwc automatically calls - use @auraEnabled, @cache - wire results cannot be mutable - data, error comes from it)
+                <li>can u call apex class from lwc constructor (ans: we can do, wire or constructor first to call apex - its constructor)
+				<li>@api - parent sets data - if u change data, it gives some proxy error - to do that u may have to do shallow copy etc.
+				<li>single component @api - any use? (ans: intent is to expose, u can use in aura/flow if lwc is used internally, in community - custom metadata based variables setting - all these even if no child)
+				<li>lwc compoment only in account - not contact page - how to achieve in metaXML file (ans: 
+				<li>in lwc - how to know which object detail page (ans: @api recordId (or) first 3 digits (or)  @wire getObjectInfo with @salesforce/schema)
+				<li>lwc already in page, now u deploy with isExposed=false (ans: it wont even deploy - error will come) 
+                <li>parent to child and vice versa (ans: child to parent - custom Event fire, parent to child - @api)
+				<li>bubble and composed 2 attributes significance (ans: bubbles = true, composed = false Event will bubble up through parent elements inside the same shadow DOM, but cannot escape to the light DOM or parent components.<br>
+				bubbles = true, composed = true: Event bubbles up AND crosses the shadow DOM boundary.: This means the event can reach: Parent LWC, Aura component, Even the page-level DOM<br>
+				bubbles = false, composed = true: Event does not bubble, but can still escape the shadow DOM to the host element.
+				<li>unrelated components how communicate (ans: (1) pub sub (2) subscribing to LMS channel and listen
+				<li>lightning data table inline editing - picklist and lookup field (ans: Extend the base datatable - add a picklist type that renders a lightning-combobox. When the value changes, emit the standard inline-edit payload so you can save with Apex.<br>export default class CustomDatatable extends LightningDatatable {<br> lightning-record-picker for lookup
+				u can extend lightning data table
+				<li>1000s of records data table (ans: client side and server side pagination mix; Initial load: First page from server, Navigate within loaded chunk: Client-side, Need new chunk: Server-side fetch.<br>
+				OFFSET - limitation: 2000 recs<br>
+				SELECT Id, Name, Industry FROM Account ORDER BY Name LIMIT :pageSize OFFSET :offsetSize<br>/services/data/v61.0/query/?q=SELECT+Id,+Name,+Industry+FROM+Account+ORDER+BY+Name<br>				
+				{<br>
+				  "done": false,<br>
+				  "nextRecordsUrl": <br>"/services/data/v61.0/query/01gXXXXXXXXXXXXXXX-2000"<br>
+				}<br>
+				graphQL<br>
+					query {<br>
+					  account(id: "001xx000003DGbYAAW") {<br>
+						Id<br>
+						Name<br>
+						Industry<br>
+						Contacts {<br>
+						  Id<br>
+						  Name<br>
+						  Email<br>
+						}<br>
+					  }<br>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- CARD 2 -->
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="card-title">SF Apex</h3>
+            <p class="card-text">
+              <small>
+                <li>class can extend multiple classes? (ans: no - interfaces can be multiple e.g. Database.Batchable, Database.Stateful etc. For class: A and then class B and then class C derive)
+				<li>overloading, overriding (ans: constructor overloading; overriding - only if parent class/method are virtual or abstract (doesnt contain definition)<br>				
+				public virtual class Parent {<br>
+					public virtual void showMessage() {<br>
+						System.debug('Parent message');<br>
+					}<br>
+				}<br>
+
+				public class Child extends Parent {<br>
+					public override void showMessage() {<br>
+						System.debug('Child message');<br>
+					}<br>
+				}<br>
+				public abstract class Parent {<br>
+					public abstract void process();<br>
+				}<br>
+				<li>abstract vs interface (ans: A class that can have both implemented and unimplemented (abstract) methods; A pure contract with only method signatures, no implementation.
+				<li>batch methods (ans: start exec finish)
+				<li>batch suppose no records in soql (ans: zero records, no exec, only start and finish)
+				<li>batch size (ans: default=200, max=2000, if 3000, no error but assumes 2000, if 0=error - because it divides total recs/batch size)
+				<li>Database.BatchableContext - what does it have? (ans: gets JobID, for execute method - gives id of overall batch apex and current job id 
+				<li>Stateful integration? (ans: total records across batches - system remembers previous requests and responses - Data like authentication tokens, transaction IDs, or workflow progress
+				<li>batch chaining how? and business changes sequences time and again (ans: keep it in metadata and query what next for batchA, batchB etc<br>
+				Type.forName(classNameInMetaData);<br>
+				Object obj = t.newInstance();<br>
+				Database.executeBatch((Database.Batchable<SObject>)obj, 200);
+				<li>future method limitations? (ans: God knows when will it execute, u cant pass non-primitive - seriealize, send, in target method - deserialize<br>
+				50 classes per transaction)
+				<li>queuable vs future (ans: future cant pass primitive; queuable can have 100 jobs up to; 
+				<li>why future we cant pass non-primitive datatype (ans: it may run immly or not - by then object might change)
+				<li>mixed dml operation error (ans: setup and non-setup e.g. profile/user and account updates in single txn; call future methods / queuable methods to handle this)
+				<li>error: maximum depth reach? (ans: recursive - account reporting to parent count - max count=15, 16th fails<br>
+				how to prevent - use static variable - first true, then false<br>
+				but in case of 210 records, 200 will run, next 10 wont run - assume i push from data loader - handle using record Ids at that point in time - check if 2nd batch 10 recds come - if that id is present)
+				<li>trigger how many chunk of records (ans: 200, if more, 2nd time it will execute - e.g. thro data loader)
+				<li>
+				<li>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+              <small>
+                <li>
+			</small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">Mocks</h3>
+            <p class="card-text">
+              <small>
+                <li><a href="https://www.youtube.com/watch?v=_sE-iI6it8Y">https://www.youtube.com/watch?v=_sE-iI6it8Y</a>
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>
