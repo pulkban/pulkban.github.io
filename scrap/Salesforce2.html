@@ -45,6 +45,10 @@
 			margin-left: 14px;
 			margin-bottom: 2px;
 		}
+		pre {
+		  background: #e6f3ff; /* light blue */
+		  padding: 10px;
+		}
 	</style>
 </head>
 
@@ -84,29 +88,32 @@
         <div class="card h-100"><div class="card-body">
           <h3 class="card-title">SF Admin</h3>
             <p class="card-text">
-              <small>
                 <li>owd? (ans: private, public read-only, public read write, parent control)
 				<li>owd=public read, but no access to object (ans: user cant see data
 				<li>view all recs, view all data (ans: recs for a given object, view data - across all objects)
 				<li>master detail, lookup (ans: child cant exist without parent, cascade delete, lookup-child does not need parent; account contact - spl relation)
+				<li>how many lookup fields (ans: total 40 = 2 master detail allowed in it otherwise all 40 lookup OK)
+				<li>default fields (ans: id, name createddate|by|, recordTypeId|IsDeleted, Name|Owner, WhoID - Every object comes with Id + Owner + Timestamps + Delete flag + (Name if needed))
+				<li>static vs dynamic dashboard (ans: Always shows data from a single, fixed user; data based on the logged-in user)
 				<li>i try to delete parent - but if child is there dont delete parent (ans: a-Trigger based, b-flow: customerror, c-field level config is also present)
 				<li>based on profile - display fields, today 5 tomorrow 10 (ans: get record method, but how will u know based on profile? - use metadata to store fields per profile, use graph ql then display using LDS
+				<li>use of mutable permission set (ans: exclude or mute specific permissions from the combined PSG)
 				<li>named creds (ans: store creds safely - even admin cant see it)
 				<li>admin click button named creds works bring response, but for user 1, no (ans: named creds 'for user' - user should have access to object 'External Credential object - stored in encrypted format; 2nd permission - external principle)
 				<li>suppose production has issue - user does not want to reproduce - (ans: store in custom exception log- for post mortem - whatever comes in try catch block)
 				<li>is 'finally' present in apex/lwc (ans: finally always executes in apex; in lwc - js also, it is there)
-			</small>
 			</p>
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-          <h3 class="card-title">SF LWC</h3>
+          <h3 class="card-title">SF Flows</h3>
             <p class="card-text">
-              <small>
-                <li>
-			</small>
+                <li>apex vs flows (ans: Flow’s transaction handling is more implicit; Apex gives you explicit control; instrument with performance telemetry and optimize hot paths; For large teams, Apex’s code ownership, branching strategies, and modular architecture scale better<br>
+				<b>Declarative sprawl</b> (many record‑triggered Flows per object) increases cognitive load;)
+				<li>api thro flows? (ans: yes)
+				<li>
 			</p>
         </div></div>
       </div>
@@ -121,13 +128,12 @@
           <div class="card-body">
             <h3 class="card-title">SF LWC</h3>
             <p class="card-text">
-              <small>
                 <li>LWC hooks (ans: instance of component - constructor (initialize var) - component inserted to DOM - connectedCallback(once) - if child is there, follow same - child's connected, child's rendered - load scripts in rendered callback - parent's rendered - (mounting phase during insert) - unmounting - remove element from DOM - disconnectedCB() - unsubscribe message channel, remove event listener from window object, - error call back (trace error logs from children) - 
-				<li>when error callback? (ans: when child compo throws error, chrome console is tedious, both error and 'stack' will be received to debug - )
+				<li>when error callback? (ans: runs when child component throws error – receives error and stack for debugging – useful for handling errors without relying only on console – implement in parent to catch child errors)
 				<li>setInterval, setTimeout when to use (ans: window function it is, exec pause for some time - wait to get data?, setInterval at regular times)
                 <li>decorators? (ans: @api @track @wire, @api-expose prop or even function of child to parent comp, - @wire: apex data, if param in wire gets changed in lwc, @wire is reactive and gets executed again; @track: by default primitives are reactive, but for array or json object - if any field changes inside, use @track for complex variable)
-				<li>@wire (key things when u call apex) (ans: u dont have control on it, lwc automatically calls - use @auraEnabled, @cache - wire results cannot be mutable - data, error comes from it)
-                <li>can u call apex class from lwc constructor (ans: we can do, wire or constructor first to call apex - its constructor)
+				<li>@wire (key things when u call apex) (ans: Apex method must be @AuraEnabled(cacheable=true) – reactive (runs when params change) – use @cache for performance – result is immutable (don’t modify directly) – returns {data, error} – handle both – best for read-only reactive data.)
+                <li>can u call apex class from lwc constructor (ans: possible but ❌ bad practice (runs before DOM/reactive props) – use connectedCallback() for imperative Apex ✅ – use @wire for reactive data ✅ – prefer @wire or connectedCallback() – constructor only if absolutely needed (not recommended).)
 				<li>@api - parent sets data - if u change data, it gives some proxy error - to do that u may have to do shallow copy etc.
 				<li>single component @api - any use? (ans: intent is to expose, u can use in aura/flow if lwc is used internally, in community - custom metadata based variables setting - all these even if no child)
 				<li>lwc compoment only in account - not contact page - how to achieve in metaXML file (ans: 
@@ -143,23 +149,75 @@
 				<li>1000s of records data table (ans: client side and server side pagination mix; Initial load: First page from server, Navigate within loaded chunk: Client-side, Need new chunk: Server-side fetch.<br>
 				OFFSET - limitation: 2000 recs<br>
 				SELECT Id, Name, Industry FROM Account ORDER BY Name LIMIT :pageSize OFFSET :offsetSize<br>/services/data/v61.0/query/?q=SELECT+Id,+Name,+Industry+FROM+Account+ORDER+BY+Name<br>				
-				{<br>
-				  "done": false,<br>
-				  "nextRecordsUrl": <br>"/services/data/v61.0/query/01gXXXXXXXXXXXXXXX-2000"<br>
-				}<br>
-				graphQL<br>
-					query {<br>
-					  account(id: "001xx000003DGbYAAW") {<br>
-						Id<br>
-						Name<br>
-						Industry<br>
-						Contacts {<br>
-						  Id<br>
-						  Name<br>
-						  Email<br>
-						}<br>
-					  }<br>
-              </small>
+				<pre><code>{
+  "done": false,
+  "nextRecordsUrl": "/services/data/v61.0/query/01gXXXXXXXXXXXXXXX-2000"
+}
+graphQL
+	query {
+	  account(id: "001xx000003DGbYAAW") {
+		Id
+		Name
+		Industry
+		Contacts {
+		  Id
+		  Name
+		  Email
+		}
+	  }</code></pre>
+				<li>Aura vs LWC (ans: LWC → Modern Web Standards ES6 HTML CSS; Aura → Legacy Proprietary Framework; LWC → Fast Native Rendering; Aura → Slower Extra Layer; LWC → Easy Standard JS Skills; Aura → Hard Custom Syntax; LWC → Lightweight Shadow DOM; Aura → Heavy Custom Engine; LWC → Reactive @track @wire; Aura → Manual Controller Helper; LWC → Jest Standard Testing; Aura → Custom Hard Setup; LWC → Salesforce Preferred Future; Aura → Deprecated Maintain Only; LWC inside Aura → Yes; Aura inside LWC → No; LWC → Scoped CSS Shadow DOM; Aura → Global CSS Leakage Risk; LWC → Modern Tooling VS Code CLI; Aura → Older Limited Tooling;)
+				<li>lwc 2 approaches to get data (ans: Imperative → manual call in function; use .then() .catch(); good for conditional fetch; Wire → auto reactive; decorator @wire; no explicit call; good for UI binding.
+				<pre><code>========================Imperative
+import { LightningElement } from 'lwc';				
+import getAccounts from '@salesforce/apex/AccountController.getAccounts';
+export default class ImperativeExample extends LightningElement {
+    accounts;
+
+    handleClick() {
+        getAccounts()
+            .then(result => {
+                this.accounts = result;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+}
+========================WIRE
+import { LightningElement, wire } from 'lwc';
+import getAccounts from '@salesforce/apex/AccountController.getAccounts';
+
+export default class WireExample extends LightningElement {
+    @wire(getAccounts) accounts;
+}
+========================LDS
+import { LightningElement, wire } from 'lwc';
+import { getRecord } from 'lightning/uiRecordApi';
+
+const FIELDS = ['Account.Name', 'Account.Phone'];
+
+export default class LdsGetRecord extends LightningElement {
+    recordId = '001XXXXXXXXXXXXXXX';
+    @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
+    account;
+}
+<template>
+    <lightning-card title="Account">
+        <p>{account.data.fields.Name.value}</p>
+        <p>{account.data.fields.Phone.value}</p>
+    </lightning-card>
+</template></code></pre>
+					<li>wire methods u want to call B then A and C (ans: LWC wire adapters, the execution order is not guaranteed) - if u want, use imperative Apex calls or chain inside connectedCallback()
+					<pre><code>
+import getA from '@salesforce/apex/MyClass.getA';
+import getB from '@salesforce/apex/MyClass.getB';
+import getC from '@salesforce/apex/MyClass.getC';
+
+async connectedCallback() {
+    const bResult = await getB();
+    const aResult = await getA({ bParam: bResult });
+    const cResult = await getC({ aParam: aResult });
+}					</code></pre>
             </p>
           </div>
         </div>
@@ -170,24 +228,24 @@
           <div class="card-body">
             <h3 class="card-title">SF Apex</h3>
             <p class="card-text">
-              <small>
                 <li>class can extend multiple classes? (ans: no - interfaces can be multiple e.g. Database.Batchable, Database.Stateful etc. For class: A and then class B and then class C derive)
 				<li>overloading, overriding (ans: constructor overloading; overriding - only if parent class/method are virtual or abstract (doesnt contain definition)<br>				
-				public virtual class Parent {<br>
-					public virtual void showMessage() {<br>
-						System.debug('Parent message');<br>
-					}<br>
-				}<br>
+					<pre><code>public virtual class Parent {
+    public virtual void showMessage() {
+        System.debug('Parent message');
+    }
+}
 
-				public class Child extends Parent {<br>
-					public override void showMessage() {<br>
-						System.debug('Child message');<br>
-					}<br>
-				}<br>
-				public abstract class Parent {<br>
-					public abstract void process();<br>
-				}<br>
-				<li>abstract vs interface (ans: A class that can have both implemented and unimplemented (abstract) methods; A pure contract with only method signatures, no implementation.
+public class Child extends Parent {
+    public override void showMessage() {
+        System.debug('Child message');
+    }
+}
+//abstract
+public abstract class Parent {
+    public abstract void process();
+}</code></pre>
+				<li>abstract vs interface (ans: Abstract = partial body; Interface = only commitments/contracts, no forced code; <br>Class = 1 parent; Interface = many )
 				<li>batch methods (ans: start exec finish)
 				<li>batch suppose no records in soql (ans: zero records, no exec, only start and finish)
 				<li>batch size (ans: default=200, max=2000, if 3000, no error but assumes 2000, if 0=error - because it divides total recs/batch size)
@@ -197,18 +255,100 @@
 				Type.forName(classNameInMetaData);<br>
 				Object obj = t.newInstance();<br>
 				Database.executeBatch((Database.Batchable<SObject>)obj, 200);
+				<li>queueable vs batch (ans: Queueable = “execute → 1 next job”; Batch = “finish → 1 next batch”)
+				<pre><code>public class SampleQueueable implements Queueable {
+    private String recordId;
+    public SampleQueueable(String recId){ this.recordId = recId; }
+    public void execute(QueueableContext context){
+        Account acc = [SELECT Id, Name FROM Account WHERE Id = :recordId LIMIT 1];
+        acc.Name = acc.Name + ' - Processed';
+        update acc;
+        System.enqueueJob(new SampleQueueable(recordId)); // chain another Queueable
+    }
+}
+global class SampleBatch implements Database.Batchable<SObject> {
+    global Database.QueryLocator start(Database.BatchableContext BC){
+        return Database.getQueryLocator([SELECT Id, Name FROM Account]);
+    }
+    global void execute(Database.BatchableContext BC, List<SObject> scope){
+        List<Account> accs = (List<Account>)scope;
+        for(Account a : accs){ a.Name = a.Name + ' - Processed'; }
+        update accs;
+    }
+    global void finish(Database.BatchableContext BC){
+        Database.executeBatch(new SampleBatch()); // chain another Batch
+    }
+}</code></pre>
+				<li>call batch from batch? future from future? queue from queue? (ans: <br>
+				Batch from Batch → allowed in execute() or finish() using Database.executeBatch()<br>Future from Future → not allowed<br>Queueable from Queueable → allowed one-level chaining via System.enqueueJob()
+				<li>call future from batch? (ans: Batch → execute/finish → future allowed; start → no.)<br>
+				@future method from a Queueable job? (ans: no; Salesforce doesn’t allow asynchronous calls from another asynchronous context; Queueable = single async transaction → can chain Queueable, cannot call future.)
+				<li>Database.QueryLocator vs Iterator (ans: QueryLocator = huge sets, async batches; Iterator = small sets, in-memory loop)
 				<li>future method limitations? (ans: God knows when will it execute, u cant pass non-primitive - seriealize, send, in target method - deserialize<br>
 				50 classes per transaction)
 				<li>queuable vs future (ans: future cant pass primitive; queuable can have 100 jobs up to; 
 				<li>why future we cant pass non-primitive datatype (ans: it may run immly or not - by then object might change)
+				<li>future return datatype (ans: void becuse its on its own - caller wont wait)
+				<li>on save of oppor, trigger updates field f1 and then flow also updates field f1 of the record - both in future method - what happens (ans: both future method exec async and will be in queue - no guarantee who wins first - not recommended)
 				<li>mixed dml operation error (ans: setup and non-setup e.g. profile/user and account updates in single txn; call future methods / queuable methods to handle this)
 				<li>error: maximum depth reach? (ans: recursive - account reporting to parent count - max count=15, 16th fails<br>
 				how to prevent - use static variable - first true, then false<br>
 				but in case of 210 records, 200 will run, next 10 wont run - assume i push from data loader - handle using record Ids at that point in time - check if 2nd batch 10 recds come - if that id is present)
+				<pre><code>trigger AccountTrigger on Account (before update) {
+    if(Trigger.isBefore && Trigger.isUpdate){
+        if(!AccountTriggerHandler.isRunning){
+            AccountTriggerHandler.isRunning = true;
+            for(Account a : Trigger.new){
+                a.Name = a.Name + ' - Updated';
+            }
+            AccountTriggerHandler.isRunning = false;
+        }
+    }
+}
+public class AccountTriggerHandler {
+    public static Boolean isRunning = false;
+}</code></pre>
 				<li>trigger how many chunk of records (ans: 200, if more, 2nd time it will execute - e.g. thro data loader)
-				<li>
-				<li>
-              </small>
+				<li>how many triggers (7 before/after insert, delete, update and 'after undelete')
+				<li>uncommon trigger context variables (ans: Trigger.size, Trigger.isExecuting-, Trigger.operationType)
+				<li>Trigger.isExecuting means? (ans: execute that utility method only when called from trigger - not through batch not through UI controller like @AuraEnabled)
+					<pre><code>// TRIGGER
+trigger AccountTrig on Account (after update) {
+    AccountHelper.proc(Trigger.new, Trigger.oldMap);
+}
+// HELPER
+public class AccountHelper {
+    public static void proc(List<Account> nl, Map<Id,Account> om) {
+        if (Trigger.isExecuting && Trigger.isUpdate) {
+            // trigger-only heavy logic
+            for (Account a : nl) a.Audit__c = 'Trig';
+            update nl;
+        } else {
+            // UI/other Apex: light/preview logic
+            // no DML
+        }
+    }
+}
+// UI CONTROLLER (Aura/LWC)
+public with sharing class AccountCtrl {
+    @AuraEnabled
+    public static void preview(Id accId){
+        Account a = [SELECT Id, Name FROM Account WHERE Id=:accId];
+        AccountHelper.proc(new List<Account>{a}, new Map<Id,Account>());
+    }
+    @AuraEnabled
+    public static void saveAndProcess(Id accId, String newName){
+        update new Account(Id=accId, Name=newName); // fires trigger -> helper runs with Trigger.isExecuting=true
+    }
+					</code></pre>
+				<li>example for inbound and outbound apis (ans: inbound=quickBook, outbound=stripe)
+				<li><b>governor limits</b><br>101? (ans: 100 times SOQL query in single txn)<br>
+				201 error (ans: you exceeded the limit of 150 DML operations (insert, update, delete, undelete)<br>
+				10-sec cpu limit sync includes? (ans: measures application server processing, apex exec, soql processing dml processing not database time, not network latency<br>
+				heap 6mb and 12 mb (sync and async) (ans: 6mb for one txn - doesnt matter on user, login or window - same window - each button click is one txn and each txn 6mb)<br>
+				5000 recs - how many times trigger will exec (ans: 200 each, so 25 times)<br>
+				<li>test class minimum (ans: 75%)
+				<li>invocable methods meaning (ans: to call from flow, only one per class, Must be public or global static)
             </p>
           </div>
         </div>
@@ -219,26 +359,113 @@
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-          <h3 class="card-title">SF LWC</h3>
+          <h3 class="card-title">SF Integration / Security</h3>
             <p class="card-text">
-              <small>
-                <li>
-			</small>
+				<li>why not custom setting and why named creds (ans: Security, Encryption, OAuth, Auto-Auth, Rotation, Shielded Access → use Named Creds; Custom Settings = plain config only; Auto-token refresh = Salesforce renews expired API tokens automatically without you writing code or updating anything manually)
+                <li>oauth1 vs oauth2 (ans: <br>{oauth1: Consumer Key & Consumer Secret: Identify the app; Token & Token Secret: Identify the user and sign requests; Every API call is signed with these secrets → cryptographic signatures}<br>{oauth2: Client ID & Client Secret: Identify the app (used during token exchange; Access Token: Short-lived token used to call APIs; No per-request signatures → relies on HTTPS}<br>OAuth 2.0 mostly avoids user passwords<br>
+				OAuth 1.0 = “Sign every request with multiple secrets; OAuth 2.0 = “Exchange credentials once, get a token, then use that token
+				<li>explain integration (ans: connected app, @restResource - explain all)
+				<li>test class for callout class (ans:
+					<pre><code>public class MyMock implements HttpCalloutMock {
+	public HttpResponse respond(HttpRequest req) {
+		HttpResponse res = new HttpResponse();
+		res.setStatusCode(200);
+		res.setBody('{"status":"ok"}');
+		return res;
+	}
+}
+Test.setMock(HttpCalloutMock.class, new MyMock());
+public class MyService {
+	public static String callExternal() {
+		HttpRequest req = new HttpRequest();
+		req.setEndpoint('https://example.com');
+		req.setMethod('GET');
+		HttpResponse res = new Http().send(req);
+		return res.getBody();
+	}
+}
+@IsTest
+static void testCallout() {
+	Test.setMock(HttpCalloutMock.class, new MyMock());
+	Test.startTest();
+		MyService.callExternal();
+	Test.stopTest();
+	System.assertEquals('{"status":"ok"}', MyService.callExternal());
+}</code></pre>
+			<li>
+			<li> 
 			</p>
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-          <h3 class="card-title">Mocks</h3>
+          <h3 class="card-title">SOQL</h3>
             <p class="card-text">
-              <small>
-                <li><a href="https://www.youtube.com/watch?v=_sE-iI6it8Y">https://www.youtube.com/watch?v=_sE-iI6it8Y</a>
-			</small>
+                <li>soql for get accounts that has at least 2 contacts (ans: SELECT Id, Name FROM Account WHERE Id IN ( SELECT AccountId FROM Contact GROUP BY AccountId HAVING COUNT(Id) >= 2)
+				<li>acc = (select name from account) - what error? (ans: System.QueryException - can return multiple recs)
 			</p>
+          <h3>Deployment</h3>
+                <li>package deployment
+				<li>change set
+				<li>git add .; git commit -m,; git push
+		<h3>Error</h3>
+                <li>in prod u get 101 error - (ans: put more data in sandbox and try replicating)
+				<li>change set
+				<li>git add .; git commit -m,; git push
+		<h3>Practical</h3>
+                <li><b>apex</b> insert update delete contact - at account level increase count
+				<pre><code>trigger ContactTrigger on Contact (after insert, after update, after delete) {
+    Set<Id> accIds = new Set<Id>();
+    if(Trigger.isInsert || Trigger.isUpdate) for(Contact c: Trigger.new) accIds.add(c.AccountId);
+    if(Trigger.isDelete) for(Contact c: Trigger.old) accIds.add(c.AccountId);
+    List<Account> accs = [SELECT Id, Number_of_Contacts__c FROM Account WHERE Id IN :accIds];
+    for(Account a: accs) a.Number_of_Contacts__c = [SELECT count() FROM Contact WHERE AccountId=:a.Id];
+    update accs;
+}</code></pre>
+				<li><b>lwc</b> code to track history of words in textbox
+				<pre><code>&lt;template&gt;
+    &lt;lightning-input label="Type something" value={text} onblur={handleBlur} onchange={handleChange}&gt;&lt;/lightning-input&gt;
+&lt;/template&gt;
+import { LightningElement, track } from 'lwc';
+export default class WordTracker extends LightningElement {
+    @track text = '';
+    oldValue = '';
+    handleChange(event){ this.text = event.target.value; }
+    handleBlur(){
+        if(this.oldValue !== this.text){
+            console.log(`old name: ${this.oldValue}, new name: ${this.text}`);
+            this.oldValue = this.text;
+        }
+    }
+}</code></pre>
         </div></div>
       </div>
     </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">Mocks</h3>
+            <p class="card-text">
+                <li><a href="https://www.youtube.com/watch?v=_sE-iI6it8Y">https://www.youtube.com/watch?v=_sE-iI6it8Y</a>
+				<li><a href="https://www.youtube.com/watch?v=11yYFqvLWPo">https://www.youtube.com/watch?v=11yYFqvLWPo</a>
+				<li><a href="https://www.youtube.com/watch?v=nfN2Ew8xgyQ">https://www.youtube.com/watch?v=nfN2Ew8xgyQ</a>
+				
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">SF LWC</h3>
+            <p class="card-text">
+                <li>
+			</p>
+        </div></div>
+      </div>
+    </div>	
 
   </div>
 </section>
