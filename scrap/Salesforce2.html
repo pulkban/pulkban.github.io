@@ -97,6 +97,9 @@
 				<li>static vs dynamic dashboard (ans: Always shows data from a single, fixed user; data based on the logged-in user)
 				<li>i try to delete parent - but if child is there dont delete parent (ans: a-Trigger based, b-flow: customerror, c-field level config is also present)
 				<li>based on profile - display fields, today 5 tomorrow 10 (ans: get record method, but how will u know based on profile? - use metadata to store fields per profile, use graph ql then display using LDS
+				<li>if we call Class A inside B where sharing settings should follow Class B?(ans: Declare Class A with inherited sharing so it respects the caller’s sharing context)
+				<li>
+				<li>user1 and user2 has same role - user1 can see user2's rec but not vice versa (ans: possibly manual / apex sharing - more on record level)
 				<li>use of mutable permission set (ans: exclude or mute specific permissions from the combined PSG)
 				<li>named creds (ans: store creds safely - even admin cant see it)
 				<li>admin click button named creds works bring response, but for user 1, no (ans: named creds 'for user' - user should have access to object 'External Credential object - stored in encrypted format; 2nd permission - external principle)
@@ -113,8 +116,11 @@
                 <li>apex vs flows (ans: Flow’s transaction handling is more implicit; Apex gives you explicit control; instrument with performance telemetry and optimize hot paths; For large teams, Apex’s code ownership, branching strategies, and modular architecture scale better<br>
 				<b>Declarative sprawl</b> (many record‑triggered Flows per object) increases cognitive load;)
 				<li>api thro flows? (ans: yes)
-				<li>
+				
 			</p>
+			<h3 class="card-title">SF Forms</h3>
+				<li>dynamic forms / page visibility? (ans: based on field val, recTypes, display section)
+				<li>
         </div></div>
       </div>
     </div>
@@ -290,6 +296,7 @@ global class SampleBatch implements Database.Batchable<SObject> {
 				<li>why future we cant pass non-primitive datatype (ans: it may run immly or not - by then object might change)
 				<li>future return datatype (ans: void becuse its on its own - caller wont wait)
 				<li>on save of oppor, trigger updates field f1 and then flow also updates field f1 of the record - both in future method - what happens (ans: both future method exec async and will be in queue - no guarantee who wins first - not recommended)
+				<li>class private - how to test (ans: Expose private members to test → use @TestVisible private static Integer count)
 				<li>mixed dml operation error (ans: setup and non-setup e.g. profile/user and account updates in single txn; call future methods / queuable methods to handle this)
 				<li>error: maximum depth reach? (ans: recursive - account reporting to parent count - max count=15, 16th fails<br>
 				how to prevent - use static variable - first true, then false<br>
@@ -403,7 +410,7 @@ static void testCallout() {
           <h3 class="card-title">SOQL</h3>
             <p class="card-text">
                 <li>soql for get accounts that has at least 2 contacts (ans: SELECT Id, Name FROM Account WHERE Id IN ( SELECT AccountId FROM Contact GROUP BY AccountId HAVING COUNT(Id) >= 2)
-				<li>acc = (select name from account) - what error? (ans: System.QueryException - can return multiple recs)
+				<li>acc = (select name from account) - what error? (ans: System.QueryException: List has more than 1 row for assignment to SObject)
 			</p>
           <h3>Deployment</h3>
                 <li>package deployment
@@ -452,7 +459,8 @@ export default class WordTracker extends LightningElement {
                 <li><a href="https://www.youtube.com/watch?v=_sE-iI6it8Y">https://www.youtube.com/watch?v=_sE-iI6it8Y</a>
 				<li><a href="https://www.youtube.com/watch?v=11yYFqvLWPo">https://www.youtube.com/watch?v=11yYFqvLWPo</a>
 				<li><a href="https://www.youtube.com/watch?v=nfN2Ew8xgyQ">https://www.youtube.com/watch?v=nfN2Ew8xgyQ</a>
-				
+				<li><a href="https://www.youtube.com/watch?v=SVG1I11WQDM">https://www.youtube.com/watch?v=SVG1I11WQDM</a>
+				<li><a href="https://www.youtube.com/watch?v=vquSdwnmxE8">https://www.youtube.com/watch?v=vquSdwnmxE8</a>
 			</p>
         </div></div>
       </div>
