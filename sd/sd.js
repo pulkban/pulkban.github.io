@@ -10,7 +10,6 @@ journalDetails = {
 	'sep88':'Frequent',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'GaneshaPanchaRatnam': 'GaneshaPanchaRatnam.html',
-	'GovindaAshtakam': 'GovindaAshtakam.html',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
 	'LalithaSahasranamam': 'LalithaSahasranamam.html',
 	'Lingashtakam': 'Lingashtakam.html',
@@ -87,6 +86,8 @@ journalDetails = {
 	'sep4':'Andaal',	
 	'Thiruppavai': 'Thiruppavai.html',
 	'VaaranamAayiram': 'VaaranamAayiram.html',
+	'Tiruvempaavai': 'Tiruvempaavai.html',
+	
 	
 	//--Lalitha
 	'sep5':'Lalitha',
@@ -152,6 +153,7 @@ journalDetails = {
 
 	//--Rama Krishna Vishnu
 	'sep3':'Rama Krishna Vishnu',	
+	'GovindaAshtakam': 'GovindaAshtakam.html',
 	'SriVenkateshwaraSuprabhatam': 'SriVenkateshwaraSuprabhatam.html',
 	'GuruvathaPureeshaPancharatnam': 'GuruvathaPureeshaPancharatnam.html',
 	'ShriRamarStothram': 'ShriRamarStothram.html',
