@@ -87,7 +87,7 @@ journalDetails = {
 	'Thiruppavai': 'Thiruppavai.html',
 	'VaaranamAayiram': 'VaaranamAayiram.html',
 	'Tiruvempaavai': 'Tiruvempaavai.html',
-	
+	'TiruppalliEzhuchi': 'TiruppalliEzhuchi.html',
 	
 	//--Lalitha
 	'sep5':'Lalitha',
