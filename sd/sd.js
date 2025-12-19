@@ -2,9 +2,8 @@ journalDetails = {
 
 	'ShuklamBaradaram': 'ShuklamBaradaram.html',
 	'ShantiMantra': 'ShantiMantra.html',
-	'DhyanaShloka': 'DhyanaShloka.html',
 	'NithyaParayanaShloka': 'NithyaParayanaShloka.html',
-	
+	'DhyanaShloka': 'DhyanaShloka.html',
 	
 	//--Frequent
 	'sep88':'Frequent',
