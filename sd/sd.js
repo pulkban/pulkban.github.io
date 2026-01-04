@@ -1,10 +1,9 @@
 journalDetails = {
 
 	'ShuklamBaradaram': 'ShuklamBaradaram.html',
-	'ShantiMantra': 'ShantiMantra.html',
 	'NithyaParayanaShloka': 'NithyaParayanaShloka.html',
-	'DhyanaShloka': 'DhyanaShloka.html',
-	
+	'ShantiMantra': 'ShantiMantra.html',
+
 	//--Frequent
 	'sep88':'Frequent',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
@@ -22,7 +21,8 @@ journalDetails = {
 	'KanakadharaStothram': 'KanakadharaStothram.html',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'SwayamvaraParvatiMantramaala': 'SwayamvaraParvatiMantramaala.html',
-
+	'YogaMantram': 'YogaMantram.html',
+	
 	//--Hanuman
 	'sep14':'Hanuman',
 	'HanumanChalisa': 'HanumanChalisa.html',
@@ -251,5 +251,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first shloka by default
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['DhyanaShloka']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['ShuklamBaradaram']}" style="width: 100%; height: 100vh;"></iframe>`;
 
