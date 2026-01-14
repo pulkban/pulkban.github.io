@@ -140,16 +140,120 @@
                 <li>decorators? (ans: @api @track @wire, @api-expose prop or even function of child to parent comp, - @wire: apex data, if param in wire gets changed in lwc, @wire is reactive and gets executed again; @track: by default primitives are reactive, but for array or json object - if any field changes inside, use @track for complex variable)
 				<li>@wire (key things when u call apex) (ans: Apex method must be @AuraEnabled(cacheable=true) – reactive (runs when params change) – use @cache for performance – result is immutable (don’t modify directly) – returns {data, error} – handle both – best for read-only reactive data.)
                 <li>can u call apex class from lwc constructor (ans: possible but ❌ bad practice (runs before DOM/reactive props) – use connectedCallback() for imperative Apex ✅ – use @wire for reactive data ✅ – prefer @wire or connectedCallback() – constructor only if absolutely needed (not recommended).)
-				<li>@api - parent sets data - if u change data, it gives some proxy error - to do that u may have to do shallow copy etc.
+				<li>@api - parent sets data - if child changes data, it gives some proxy error - to do that u may have to do shallow copy etc.
+					<pre><code>
+&lt;!-- parent.html --&gt;
+&lt;c-child details={accountDetails}&gt;&lt;/c-child&gt;
+
+import { LightningElement } from 'lwc';
+export default class Parent extends LightningElement {
+  accountDetails = { name: 'Acme', rating: 'Hot', contacts: [{ name: 'John' }] };
+}
+===child:
+
+// child.js (❌ bad)
+import { LightningElement, api } from 'lwc';
+export default class Child extends LightningElement {
+  @api details; // proxy!
+  connectedCallback() {
+    // Mutating the @api prop directly
+    this.details.rating = 'Warm';   // ❌ can throw / violates one-way data flow
+  }
+}
+--do this:
+export default class Child extends LightningElement {
+  _details; // local editable copy
+  @api
+  set details(value) {
+    // SHALLOW COPY for performance if you don’t need to mutate nested objects
+    this._details = { ...value };
+    // If you need to edit nested levels (e.g., contacts array), prefer DEEP COPY:
+    // this._details = JSON.parse(JSON.stringify(value));
+  }
+  get details() {
+    return this._details;
+  }
+  connectedCallback() {
+    // Safe to mutate local copy
+    this._details.rating = 'Warm'; // ✅ ok
+  }
+}				</code></pre>
 				<li>single component @api - any use? (ans: intent is to expose, u can use in aura/flow if lwc is used internally, in community - custom metadata based variables setting - all these even if no child)
 				<li>lwc compoment only in account - not contact page - how to achieve in metaXML file (ans: 
-				<li>in lwc - how to know which object detail page (ans: @api recordId (or) first 3 digits (or)  @wire getObjectInfo with @salesforce/schema)
+				<pre><code>&lt;targets&gt;
+    &lt;target&gt;lightning__RecordPage&lt;/target&gt;
+&lt;/targets&gt;
+
+&lt;targetConfigs&gt;
+    &lt;targetConfig targets="lightning__RecordPage"&gt;
+        &lt;!-- Allow ONLY Account object --&gt;
+        &lt;objects&gt;
+            &lt;object&gt;Account&lt;/object&gt;
+        &lt;/objects&gt;
+    &lt;/targetConfig&gt;
+&lt;/targetConfigs&gt;</code></pre>
+				<li>in lwc - how to know which object detail page (ans: @api recordId 001Account 003Contact 500Case 006Opportunity  (or)  @wire(getObjectInfo, { recordId: '$recordId' }))
 				<li>lwc already in page, now u deploy with isExposed=false (ans: it wont even deploy - error will come) 
                 <li>parent to child and vice versa (ans: child to parent - custom Event fire, parent to child - @api)
 				<li>bubble and composed 2 attributes significance (ans: bubbles = true, composed = false Event will bubble up through parent elements inside the same shadow DOM, but cannot escape to the light DOM or parent components.<br>
 				bubbles = true, composed = true: Event bubbles up AND crosses the shadow DOM boundary.: This means the event can reach: Parent LWC, Aura component, Even the page-level DOM<br>
 				bubbles = false, composed = true: Event does not bubble, but can still escape the shadow DOM to the host element.
 				<li>unrelated components how communicate (ans: (1) pub sub (2) subscribing to LMS channel and listen
+				<pre><code>
+&lt;!-- create msg channel --&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;MessageChannel xmlns="http://soap.sforce.com/2006/04/metadata"&gt;
+    &lt;masterLabel&gt;MyChannel&lt;/masterLabel&gt;
+    &lt;isExposed&gt;true&lt;/isExposed&gt;
+    &lt;description&gt;Demo channel for unrelated components&lt;/description&gt;
+&lt;/MessageChannel&gt;
+
+&lt;!-- publisher.html --&gt;
+&lt;template&gt;
+  &lt;lightning-button label="Publish" onclick={handleSend}&gt;&lt;/lightning-button&gt;
+&lt;/template&gt;
+
+&lt;!-- publisher.js --&gt;
+import { LightningElement } from 'lwc';
+import { publish, MessageContext } from 'lightning/messageService';
+import MY_CHANNEL from '@salesforce/messageChannel/MyChannel__c';
+
+export default class Publisher extends LightningElement {
+  staticValue = 'Hello from Publisher';
+
+  // wire the message context
+  static delegatesFocus = true;
+  connectedCallback() {}
+
+  // Simple click handler to publish
+  handleSend() {
+    const payload = { text: this.staticValue, time: Date.now() };
+    publish(this.template, MY_CHANNEL, payload);
+  }
+}
+&lt;!-- subscriber.html --&gt;
+&lt;template&gt;
+  &lt;lightning-card title="Subscriber"&gt;
+    &lt;div&gt;Message: {received}&lt;/div&gt;
+  &lt;/lightning-card&gt;
+&lt;/template&gt;
+
+&lt;!-- subscriber.js --&gt;
+import { LightningElement } from 'lwc';
+import { subscribe, APPLICATION_SCOPE, MessageContext } from 'lightning/messageService';
+import MY_CHANNEL from '@salesforce/messageChannel/MyChannel__c';
+
+export default class Subscriber extends LightningElement {
+  received;
+
+  connectedCallback() {
+    // subscribe at application scope so unrelated components receive messages
+    subscribe(this.template, MY_CHANNEL, (message) =&gt; {
+      this.received = JSON.stringify(message);
+    }, { scope: APPLICATION_SCOPE });
+  }
+}
+				</code></pre>
 				<li>lightning data table inline editing - picklist and lookup field (ans: Extend the base datatable - add a picklist type that renders a lightning-combobox. When the value changes, emit the standard inline-edit payload so you can save with Apex.<br>export default class CustomDatatable extends LightningDatatable {<br> lightning-record-picker for lookup
 				u can extend lightning data table
 				<li>1000s of records data table (ans: client side and server side pagination mix; Initial load: First page from server, Navigate within loaded chunk: Client-side, Need new chunk: Server-side fetch.<br>
