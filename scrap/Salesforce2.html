@@ -97,7 +97,7 @@
 				<li>static vs dynamic dashboard (ans: Always shows data from a single, fixed user; data based on the logged-in user)
 				<li>i try to delete parent - but if child is there dont delete parent (ans: a-Trigger based, b-flow: customerror, c-field level config is also present)
 				<li>based on profile - display fields, today 5 tomorrow 10 (ans: get record method, but how will u know based on profile? - use metadata to store fields per profile, use graph ql then display using LDS
-				<li>if we call Class A inside B where sharing settings should follow Class B?(ans: Declare Class A with inherited sharing so it respects the caller’s sharing context)
+				<li>classB calls classA - will sharing settings flow from Class B?(ans: Declare Class A with inherited sharing so it respects the caller’s sharing context)
 				<li>
 				<li>user1 and user2 has same role - user1 can see user2's rec but not vice versa (ans: possibly manual / apex sharing - more on record level)
 				<li>use of mutable permission set (ans: exclude or mute specific permissions from the combined PSG)
@@ -456,7 +456,7 @@ public with sharing class AccountCtrl {
 				<li><b>governor limits</b><br>101? (ans: 100 times SOQL query in single txn)<br>
 				201 error (ans: you exceeded the limit of 150 DML operations (insert, update, delete, undelete)<br>
 				10-sec cpu limit sync includes? (ans: measures application server processing, apex exec, soql processing dml processing not database time, not network latency<br>
-				heap 6mb and 12 mb (sync and async) (ans: 6mb for one txn - doesnt matter on user, login or window - same window - each button click is one txn and each txn 6mb)<br>
+				heap 6mb and 12 mb (sync and async) (ans: 6mb for one txn - doesnt matter on user, login or window - 2 tabs same user still 2 * 6mb - each button click is one txn and each txn 6mb)<br>
 				5000 recs - how many times trigger will exec (ans: 200 each, so 25 times)<br>
 				<li>test class minimum (ans: 75%)
 				<li>invocable methods meaning (ans: to call from flow, only one per class, Must be public or global static)
