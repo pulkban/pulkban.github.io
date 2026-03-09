@@ -2,6 +2,8 @@ journalDetails = {
 
 	'Salesforce2': 'Salesforce2.html',
 	'Salesforce': 'Salesforce.html',
+	'qa_python': 'qa_python.html',
+	'table': 'table.html',
 	'Notes': 'Notes.html',
 	'WordQuiz': 'WordQuiz.html',
 	'C1 Exam': 'c1.html',
