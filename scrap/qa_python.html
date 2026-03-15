@@ -218,6 +218,68 @@ def test_login(driver):
     </div>
 
 
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+			<h4>Find Errors 2</h4>
+              <small>
+				<code><pre>
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def driver():
+    driver = webdriver.Chrome()
+    driver.get("https://shop.example.com")
+    return driver
+    driver.quit()
+
+def test_order_flow(driver):
+
+    search = driver.find_element(By.ID,"searchBox")
+    search.send_keys("Laptop")
+    driver.find_element(By.ID,"searchBtn").click
+
+    product = driver.find_element(By.XPATH,"//div[@class='product'][1]")
+    product.click()
+
+    driver.find_element(By.ID,"addCart").click()
+
+    driver.find_element(By.ID,"cart").click()
+    driver.find_element(By.ID,"checkoutBtn").click()
+
+    card = driver.find_element(By.ID,"cardNumber")
+    card.send_keys(1234567890123456)
+
+    driver.find_element(By.ID,"payBtn").click()
+
+    order = driver.find_element(By.ID,"orderNo")
+
+    assert order = "Order Confirmed"
+
+    logout = driver.find_element(By.ID,"logout")
+    logout.click()
+				</pre></code>
+				<img src="img/qa_python7.jpg" width="75%"/>
+			  </small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <!--Your content here-->
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
 
   </div>
 </section>
