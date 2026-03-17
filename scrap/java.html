@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<style>
+		body, html {
+			margin: 0;
+			padding: 0;
+			background-color: #f5f7fb;
+		}
+
+		/* Full width feel */
+		.cheatsheet .container {
+			max-width: 1000px;
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		/* Cozy card styling */
+		.cheatsheet .card {
+			border-radius: 0.65rem;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+			margin-bottom: 10px;
+		}
+
+		.cheatsheet .card-body {
+			padding: 10px 14px;
+		}
+
+		.cheatsheet .card-title {
+			font-size: 1rem;
+			margin-bottom: 4px;
+			font-weight: 600;
+		}
+
+		.cheatsheet small {
+			font-size: 0.85rem;
+			line-height: 1.3;
+		}
+
+		.cheatsheet li {
+			margin-left: 14px;
+			margin-bottom: 2px;
+		}
+		pre {
+		  background: #e6f3ff; /* light blue */
+		  padding: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+<section class="cheatsheet bg-light py-2">
+  <div class="container-fluid px-2">   <!-- full width, tiny side padding -->
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+				<!--Your content here-->
+			  </small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <!--Your content here-->
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+				<pre><code>
+public class Test {
+  public static void main(String[] args) {
+    String a = "hello";
+    String b = "hello";
+    String c = new String("hello");
+
+    System.out.println(a == b);
+    System.out.println(a == c);
+    System.out.println(a.equals(c));
+  }
+}
+<img src="img/java_1.jpg" width="50%"/>
+				</code></pre>
+			  </small>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <code><pre>
+public class Test {
+  public static void main(String[] args) {
+    try {
+      int x = 10 / 0;
+      System.out.println("Try");
+    } catch (ArithmeticException e) {
+      System.out.println("Catch");
+    } finally {
+      System.out.println("Finally");
+    }
+  }
+}
+<img src="img/java_2.jpg" width="50%"/>
+				</pre></code>
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<pre><code>
+class A {
+  void show(int x) {
+    System.out.println("A");
+  }
+}
+
+class B extends A {
+  void show(Integer x) {
+    System.out.println("B");
+  }
+}
+
+public class Test {
+  public static void main(String[] args) {
+    A obj = new B();
+    obj.show(10);
+  }
+}
+
+Answer: A
+				</code></pre>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <!--Your content here-->
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+			<img src="img/java_3.jpg" width="50%"/>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<img src="img/java_4.jpg" width="50%"/>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<pre><code>
+@Entity
+class Employee {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String name;
+}
+@Repository
+interface EmployeeRepo extends JpaRepository<Employee, Long> {
+}
+@Service
+class EmployeeService {
+    @Autowired
+    private EmployeeRepo repo;
+
+    public Employee save(Employee e) {
+        return repo.save(e);
+    }
+
+    public List<Employee> getAll() {
+        return repo.findAll();
+    }
+}
+@RestController
+@RequestMapping("/emp")
+class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    @PostMapping
+    public Employee save(@RequestBody Employee e) {
+        return service.save(e);
+    }
+
+    @GetMapping
+    public List<Employee> getAll() {
+        return service.getAll();
+    }
+}
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex) {
+        return "Error: " + ex.getMessage();
+    }
+}
+				</code></pre>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <!--Your content here-->
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<code><pre>
+@Service
+public class EmployeeService {
+
+    @Autowired
+    private EmployeeRepository repo
+
+    public Employee saveEmployee(Employee emp) {
+        if(emp.getName().isEmpty()) {
+            throw new RuntimeException("Name required");
+        }
+        return repo.save(emp);
+    }
+
+    public List<Employee> getAllEmployees() {
+        return repo.findAll();
+    }
+
+    public Employee getEmployeeById(Long id) {
+        return repo.findById(id).get();
+    }
+
+    public void deleteEmployee(Long id) {
+        repo.deleteById(id);
+        System.out.println(10/0);
+    }
+}
+				</pre></code>
+<img src="img/java_8.jpg" width="75%"/>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+              <small>
+                <!--Your content here-->
+			</small>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+</body>
+</html>
