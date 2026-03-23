@@ -6,49 +6,14 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-			background-color: #f5f7fb;
-		}
-
-		/* Full width feel */
-		.cheatsheet .container {
-			max-width: 1000px;
-			padding-left: 8px;
-			padding-right: 8px;
-		}
-
-		/* Cozy card styling */
-		.cheatsheet .card {
-			border-radius: 0.65rem;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-			margin-bottom: 10px;
-		}
-
-		.cheatsheet .card-body {
-			padding: 10px 14px;
-		}
-
-		.cheatsheet .card-title {
-			font-size: 1rem;
-			margin-bottom: 4px;
-			font-weight: 600;
-		}
-
-		.cheatsheet small {
-			font-size: 0.85rem;
-			line-height: 1.3;
-		}
-
-		.cheatsheet li {
-			margin-left: 14px;
-			margin-bottom: 2px;
-		}
-		pre {
-		  background: #e6f3ff; /* light blue */
-		  padding: 10px;
-		}
+		body, html { margin: 0; padding: 0; background-color: #f5f7fb; }
+		.cheatsheet .container { max-width: 1000px; padding-left: 8px; padding-right: 8px; }
+		.cheatsheet .card { border-radius: 0.65rem; box-shadow: 0 2px 4px rgba(0,0,0,0.08); margin-bottom: 10px; }
+		.cheatsheet .card-body { padding: 10px 14px; }
+		.cheatsheet .card-title { font-size: 1rem; margin-bottom: 4px; font-weight: 600; }
+		.cheatsheet small { font-size: 0.85rem; line-height: 1.3; }
+		.cheatsheet li { margin-left: 14px; margin-bottom: 2px; }
+		pre { background: #e6f3ff; padding: 10px; }
 	</style>
 </head>
 
@@ -62,9 +27,7 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-              <small>
 				<!--Your content here-->
-			  </small>
 			</p>
         </div></div>
       </div>
@@ -72,9 +35,7 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-              <small>
                 <!--Your content here-->
-			</small>
 			</p>
         </div></div>
       </div>
@@ -85,10 +46,10 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-				Database:<br>
+				Database: Total amount of orders, country-wise<br>
 				<a href="https://www.programiz.com/sql/online-compiler">https://www.programiz.com/sql/online-compiler</a>
 				<br>
-				Total amount of orders, country-wise
+				python code: https://www.programiz.com/python-programming/online-compiler/<br>
 			</p>
         </div></div>
       </div>
@@ -104,13 +65,71 @@
       </div>
     </div>
 	
+
     <!-- ROW 1 -->
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-          <h3 class="card-title">Python Code</h3>
+		Sum of even numbers in an array
             <p class="card-text">
-				<img src="img/qa_python1.jpg" width="50%"/>
+<pre><code>
+def sum_even(numbers: list[int]) -> int:
+    """Return the sum of even numbers in the list."""
+    return sum(n for n in numbers if n % 2 == 0)
+
+# Hardcoded array
+arr = [1, 2, 3, 4, 5, 6]
+
+# Calculate and print sum of even numbers
+print("Sum of even numbers:", sum_even(arr))
+</code></pre>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Count words longer than 5 characters:
+            <p class="card-text">
+               <pre><code>
+def count_long_words(words: list[str], length: int = 5) -> int:
+    """Return the number of words longer than the given length."""
+    count = 0
+    for word in words:
+        if len(word) > length:
+            count += 1
+    return count
+
+# Hardcoded list of words
+words_list = ["hello", "world", "Python", "programming", "AI", "assistant"]
+
+# Count and print
+print("Words longer than 5 characters:", count_long_words(words_list))
+			   </code></pre>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="card-title">Remove dup from number list</h3>
+            <p class="card-text">
+				<pre><code>
+def remove_duplicates(nums):
+    unique = []
+    for n in nums:
+        if n not in unique:
+            unique.append(n)
+    return unique
+
+nums = [1, 2, 2, 3, 4, 4, 5]
+result = remove_duplicates(nums)
+print(result)
+				</code></pre>
 			</p>
         </div></div>
       </div>
