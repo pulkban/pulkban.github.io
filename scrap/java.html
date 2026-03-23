@@ -6,49 +6,14 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-			background-color: #f5f7fb;
-		}
-
-		/* Full width feel */
-		.cheatsheet .container {
-			max-width: 1000px;
-			padding-left: 8px;
-			padding-right: 8px;
-		}
-
-		/* Cozy card styling */
-		.cheatsheet .card {
-			border-radius: 0.65rem;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-			margin-bottom: 10px;
-		}
-
-		.cheatsheet .card-body {
-			padding: 10px 14px;
-		}
-
-		.cheatsheet .card-title {
-			font-size: 1rem;
-			margin-bottom: 4px;
-			font-weight: 600;
-		}
-
-		.cheatsheet small {
-			font-size: 0.85rem;
-			line-height: 1.3;
-		}
-
-		.cheatsheet li {
-			margin-left: 14px;
-			margin-bottom: 2px;
-		}
-		pre {
-		  background: #e6f3ff; /* light blue */
-		  padding: 10px;
-		}
+		body, html { margin: 0; padding: 0; background-color: #f5f7fb; }
+		.cheatsheet .container { max-width: 1000px; padding-left: 8px; padding-right: 8px; }
+		.cheatsheet .card { border-radius: 0.65rem; box-shadow: 0 2px 4px rgba(0,0,0,0.08); margin-bottom: 10px; }
+		.cheatsheet .card-body { padding: 10px 14px; }
+		.cheatsheet .card-title { font-size: 1rem; margin-bottom: 4px; font-weight: 600; }
+		.cheatsheet small { font-size: 0.85rem; line-height: 1.3; }
+		.cheatsheet li { margin-left: 14px; margin-bottom: 2px; }
+		pre { background: #e6f3ff; padding: 10px; }
 	</style>
 </head>
 
@@ -62,9 +27,7 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-              <small>
 				<!--Your content here-->
-			  </small>
 			</p>
         </div></div>
       </div>
@@ -72,20 +35,124 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-              <small>
                 <!--Your content here-->
-			</small>
 			</p>
         </div></div>
       </div>
     </div>
-	
 	
     <!-- ROW 1 -->
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
+				<img src="img/java_11.jpg" width="90%"/>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+                <!--Your content here-->
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+In main(), create two threads to safely increment a counter and also update a ConcurrentHashMap atomically. Print the counter and map.
+<pre><code>
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        final Object lock = new Object();
+        int[] counter = {0}; // use array for effectively final in lambda
+
+        Runnable task = () -> {
+            synchronized (lock) { counter[0]++; }
+        };
+
+        Thread t1 = new Thread(task);
+        Thread t2 = new Thread(task);
+        t1.start(); t2.start();
+        t1.join(); t2.join();
+
+        System.out.println("Counter: " + counter[0]);
+
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put("A", 1);
+        map.merge("A", 1, Integer::sum); // atomic update
+        System.out.println("Map: " + map);
+    }
+}
+</code></pre>
+			</p>
+Counter: 2<br>
+Map: {A=2}<br>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+sending email notifications asynchronously<br>
+<pre><code>
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("Main app starts");
+        Runnable emailTask = () -> {
+            try {
+                Thread.sleep(2000); // simulate delay
+                System.out.println("Email sent to user!");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+        new Thread(emailTask).start();
+        System.out.println("Main app continues without waiting for email");
+    }
+}
+</code></pre>
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+		https://onecompiler.com/java/3xwdkvpcc<br>
+		https://www.jdoodle.com/spring<br>
+			<img src="img/java_3.jpg" width="50%"/>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<img src="img/java_4.jpg" width="50%"/>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+
+            <p class="card-text">
+			Output when spring boot starts
               <small>
 				<pre><code>
 public class Test {
@@ -108,20 +175,44 @@ public class Test {
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
+		Output when spring boot starts
             <p class="card-text">
               <small>
                 <code><pre>
-public class Test {
-  public static void main(String[] args) {
-    try {
-      int x = 10 / 0;
-      System.out.println("Try");
-    } catch (ArithmeticException e) {
-      System.out.println("Catch");
-    } finally {
-      System.out.println("Finally");
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import jakarta.annotation.PostConstruct;
+
+@Service
+class A {
+
+    @Autowired
+    private B b;
+
+    public void methodA() {
+        System.out.println("A.methodA start");
+        b.methodB();
+        System.out.println("A.methodA end");
     }
-  }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("A.init");
+        methodA();
+    }
+}
+
+@Service
+class B {
+
+    public void methodB() {
+        System.out.println("B.methodB");
+        methodC();
+    }
+
+    public void methodC() {
+        System.out.println("B.methodC");
+    }
 }
 <img src="img/java_2.jpg" width="50%"/>
 				</pre></code>
@@ -137,6 +228,7 @@ public class Test {
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
+			Get the output:
 				<pre><code>
 class A {
   void show(int x) {
@@ -156,23 +248,22 @@ public class Test {
     obj.show(10);
   }
 }
-
-Answer: A
 				</code></pre>
 			</p>
+			Answer: A
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
+			Rapid Fire:
             <p class="card-text">
-              <small>
-                <!--Your content here-->
-			</small>
+				<img src="img/java_9.jpg" width="75%"/>
 			</p>
         </div></div>
       </div>
     </div>
+
 
 
     <!-- ROW 1 -->
@@ -180,25 +271,7 @@ Answer: A
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-			<img src="img/java_3.jpg" width="50%"/>
-			</p>
-        </div></div>
-      </div>
-
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-				<img src="img/java_4.jpg" width="50%"/>
-			</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- ROW 1 -->
-    <div class="row g-2">
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
+			Write Springboot code for Employee
 				<pre><code>
 @Entity
 class Employee {
@@ -255,10 +328,108 @@ public class GlobalExceptionHandler {
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
+		Write API to fetch employees by multiple optional filters (name, dept, salary range)
             <p class="card-text">
-              <small>
-                <!--Your content here-->
-			</small>
+<pre><code>
+=================ENTITY
+@Entity
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String department;
+    private Double salary;
+
+    // getters & setters
+}
+=================REPOSITORY
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface EmployeeRepository 
+    extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {
+}
+=================SPECIFICATION (Dynamic Filter)
+import org.springframework.data.jpa.domain.Specification;
+
+public class EmployeeSpecification {
+
+    public static Specification<Employee> filter(
+            String name, String dept, Double minSalary, Double maxSalary) {
+
+        return (root, query, cb) -> {
+            var predicates = cb.conjunction();
+
+            if (name != null && !name.isEmpty()) {
+                predicates = cb.and(predicates,
+                        cb.like(root.get("name"), "%" + name + "%"));
+            }
+
+            if (dept != null && !dept.isEmpty()) {
+                predicates = cb.and(predicates,
+                        cb.equal(root.get("department"), dept));
+            }
+
+            if (minSalary != null) {
+                predicates = cb.and(predicates,
+                        cb.greaterThanOrEqualTo(root.get("salary"), minSalary));
+            }
+
+            if (maxSalary != null) {
+                predicates = cb.and(predicates,
+                        cb.lessThanOrEqualTo(root.get("salary"), maxSalary));
+            }
+
+            return predicates;
+        };
+    }
+}
+========================SERVICE
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class EmployeeService {
+
+    @Autowired
+    private EmployeeRepository repo;
+
+    public List<Employee> getEmployees(
+            String name, String dept, Double minSalary, Double maxSalary) {
+
+        return repo.findAll(
+            EmployeeSpecification.filter(name, dept, minSalary, maxSalary)
+        );
+    }
+}
+===========================CONTROLLER
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/employees")
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    @GetMapping
+    public List<Employee> getEmployees(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String dept,
+            @RequestParam(required = false) Double minSalary,
+            @RequestParam(required = false) Double maxSalary) {
+
+        return service.getEmployees(name, dept, minSalary, maxSalary);
+    }
+}
+</code></pre>
+<img src="img/java_10.jpg" width="75%"/>
 			</p>
         </div></div>
       </div>
@@ -269,6 +440,7 @@ public class GlobalExceptionHandler {
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
+			Identify mistakes in Springboot code below:
 				<code><pre>
 @Service
 public class EmployeeService {

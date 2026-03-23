@@ -61,21 +61,13 @@
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-              <small>
 				<!--Your content here-->
-			  </small>
-			</p>
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-              <small>
                 <!--Your content here-->
-			</small>
-			</p>
         </div></div>
       </div>
     </div>
@@ -95,16 +87,259 @@
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
+		Build a form with validation (name required, email format, min length)
             <p class="card-text">
-              <small>
-                <!--Your content here-->
-			</small>
+			<pre><code>
+===================component.ts
+export class UserFormComponent {
+
+  constructor(private fb: FormBuilder) {}
+
+  form = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]]
+  });
+
+  submit() {
+    if (this.form.valid) {
+      console.log(this.form.value);
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
+}
+======================component.html
+&lt;form [formGroup]="form" (ngSubmit)="submit()"&gt;
+
+  &lt;input type="text" formControlName="name" placeholder="Name"&gt;
+  &lt;div *ngIf="form.controls.name.touched && form.controls.name.invalid"&gt;
+    &lt;small *ngIf="form.controls.name.errors?.['required']"&gt;Name required&lt;/small&gt;
+    &lt;small *ngIf="form.controls.name.errors?.['minlength']"&gt;Min 3 chars&lt;/small&gt;
+  &lt;/div&gt;
+
+  &lt;input type="email" formControlName="email" placeholder="Email"&gt;
+  &lt;div *ngIf="form.controls.email.touched && form.controls.email.invalid"&gt;
+    &lt;small *ngIf="form.controls.email.errors?.['required']"&gt;Email required&lt;/small&gt;
+    &lt;small *ngIf="form.controls.email.errors?.['email']"&gt;Invalid email&lt;/small&gt;
+  &lt;/div&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+			</code></pre>
 			</p>
         </div></div>
       </div>
     </div>
 	
 	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Issues in the code:
+            <p class="card-text">
+				<pre><code>
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  template: `
+    &lt;div&gt;
+      &lt;h2&gt;{{title}}&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li *ngFor="let user in users"&gt;
+          {{user.name}} - {{user.age}}
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;button (click)="addUser()"&gt;Add User&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  styleUrl: './user.component.css'
+})
+export class UserComponent implements OnInit {
+
+  title = 'User List';
+
+  users: any;
+
+  constructor() {}
+
+  ngOnInit() {
+    this.users = [
+      { name: 'John', age: 25 },
+      { name: 'Jane', age: 28 }
+    ]
+  }
+
+  addUser() {
+    this.users.push({ name: 'New User', age: 30 })
+  }
+
+  getTotalUsers() {
+    return this.users.length;
+  }
+
+}
+				</code></pre>
+				<img src="img/angular_2.jpg" width="75%"/>
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Rapid Fire Questions:
+            <p class="card-text">
+<img src="img/angular_4.jpg" width="75%"/>
+			</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Parent → Child communication (pass data + emit event back) - write code
+<pre><code>
+=======================child.component.html
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+	&lt;p&gt;Received: {{ name }}&lt;/p&gt;
+	&lt;button (click)="sendBack()"&gt;Send to Parent&lt;/button&gt;
+  `
+})
+export class ChildComponent {
+  @Input() name!: string;
+  @Output() notify = new EventEmitter<string>();
+
+  sendBack() {
+    this.notify.emit('Hello Parent!');
+  }
+}
+=======================parent.component.html (escaped)
+&lt;app-child 
+  [name]="parentName" 
+  (notify)="handleEvent($event)"&gt;
+&lt;/app-child&gt;
+=======================parent.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './parent.component.html'
+})
+export class ParentComponent {
+  parentName = 'Angular';
+
+  handleEvent(msg: string) {
+    console.log(msg);
+  }
+}
+</code></pre>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Reactive Extensions for JavaScript: - Read the code (let him tell callback hell) - ask him to rewrite with Rx.
+<pre><code>
+===========Callback Hell (without rxJS)
+getUser(id, (user) => {
+  getOrders(user.id, (orders) => {
+    getItems(orders[0].id, (items) => {
+      console.log(items);
+    });
+  });
+});
+===========Clean with RxJS
+import { switchMap } from 'rxjs/operators';
+
+getUser(id).pipe(
+  switchMap(user => getOrders(user.id)),
+  switchMap(orders => getItems(orders[0].id))
+).subscribe(items => console.log(items));
+</code></pre>
+RxJS flattens async chains using operators → no deep nesting
+RxJS helps Angular manage async operations using Observables and operators.
+        </div></div>
+      </div>
+    </div>
+
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		Dynamic Reactive Form (Add/Remove Fields):
+<pre><code>
+=======app.component.ts
+import { Component } from '@angular/core';
+import { FormBuilder, FormArray, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+export class AppComponent {
+  constructor(private fb: FormBuilder) {}
+
+  form = this.fb.group({
+    skills: this.fb.array([this.fb.control('', Validators.required)]),
+  });
+
+  get skills(): FormArray {
+    return this.form.get('skills') as FormArray;
+  }
+
+  addSkill() {
+    this.skills.push(this.fb.control('', Validators.required));
+  }
+
+  submit() {
+    console.log(this.form.value);
+  }
+}
+==========app.component.html
+&lt;form [formGroup]="form" (ngSubmit)="submit()"&gt;
+
+  &lt;div formArrayName="skills"&gt;
+    &lt;div *ngFor="let skill of skills.controls; let i = index"&gt;
+      &lt;input [formControlName]="i" placeholder="Skill"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;button type="button" (click)="addSkill()"&gt;Add Skill&lt;/button&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+&lt;/form&gt;
+=================app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, ReactiveFormsModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+</code></pre>
+<img src="img/angular_3.jpg" width="25%"/>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+                <!--Your content here-->
+        </div></div>
+      </div>
+    </div>
 
 
 
