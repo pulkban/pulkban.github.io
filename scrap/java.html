@@ -23,7 +23,26 @@
   <div class="container-fluid px-2">   <!-- full width, tiny side padding -->
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+				<!--Your content here-->
+			</p>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+            <p class="card-text">
+                <!--Your content here-->
+			</p>
+        </div></div>
+      </div>
+    </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -43,7 +62,7 @@
 	
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 		https://onecompiler.com/java/3xwdkvpcc<br>
@@ -101,7 +120,7 @@ public class Main {
     </div>
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 		Bring 3rd largest num in array - using streams
@@ -114,16 +133,15 @@ public class Main {
     public static void main(String[] args) {
         int[] arr = {5, 1, 9, 3, 7, 9};
 
-        // Find 3rd largest using streams
-        int thirdLargest = Arrays.stream(arr)
-                                 .boxed()                      // convert int to Integer for sorting
-                                 .sorted(Comparator.reverseOrder()) // descending order
-                                 .distinct()                    // remove duplicates
-                                 .skip(2)                       // skip first 2 largest
-                                 .findFirst()                   // get 3rd largest
-                                 .orElseThrow(() -> new RuntimeException("Less than 3 unique elements"));
+        int someNumber = Arrays.stream(arr)
+                               .boxed()
+                               .sorted(Comparator.reverseOrder())
+                               .distinct()
+                               .skip(2)
+                               .findFirst()
+                               .orElseThrow(() -> new RuntimeException("message"));
 
-        System.out.println("3rd largest: " + thirdLargest);
+        System.out.println("someNum: " + someNumber);
     }
 }
 </code></pre>
@@ -169,7 +187,7 @@ public class Main {
     </div>
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 		Rapid Fire:
@@ -191,7 +209,7 @@ public class Main {
     </div>
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 			Rapid Fire:
@@ -211,7 +229,7 @@ public class Main {
     </div>
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -276,7 +294,7 @@ public class Main {
 	
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -349,7 +367,7 @@ public class UserController {
     </div>
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -424,7 +442,7 @@ public class JobService {
     </div>
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -477,7 +495,7 @@ User internal = UserTranslator.fromExternal(ext);
 
 	
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 
@@ -554,7 +572,7 @@ class B {
 
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -614,7 +632,7 @@ public class Main {
 
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
@@ -783,7 +801,7 @@ public class EmployeeController {
     </div>
 
     <!-- ROW 1 -->
-    <div class="row g-2">
+    <div class="row g-2 mb-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
