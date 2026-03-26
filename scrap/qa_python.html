@@ -57,8 +57,20 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
+			Remove Duplicates:
               <small>
-                <img src="img/qa_python6.jpg" width="35%"/>
+<pre><code>
+def remove_duplicates(nums):
+    unique = []
+    for n in nums:
+        if n not in unique:
+            unique.append(n)
+    return unique
+
+nums = [1, 2, 2, 3, 4, 4, 5]
+result = remove_duplicates(nums)
+print(result)
+</code></pre>
 			</small>
 			</p>
         </div></div>
@@ -116,19 +128,35 @@ print("Words longer than 5 characters:", count_long_words(words_list))
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-          <h3 class="card-title">Remove dup from number list</h3>
+          <h3 class="card-title">Xpath for Lastname textbox</h3>
             <p class="card-text">
 				<pre><code>
-def remove_duplicates(nums):
-    unique = []
-    for n in nums:
-        if n not in unique:
-            unique.append(n)
-    return unique
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Person Fast Entry&lt;/title&gt;&lt;/head&gt;
+&lt;body style="background-color:seashell;font-family:Arial;font-size:8pt"&gt;
 
-nums = [1, 2, 2, 3, 4, 4, 5]
-result = remove_duplicates(nums)
-print(result)
+&lt;h3&gt;Person Fast Entry&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Name (First / Middle / Last):&lt;/td&gt;&lt;td&gt;&lt;input type="text" style="padding:6px"&gt; &lt;input type="text" style="padding:6px"&gt; &lt;input type="text" style="padding:6px"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Age:&lt;/td&gt;&lt;td&gt;&lt;input type="text" style="padding:6px"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Location:&lt;/td&gt;&lt;td&gt;&lt;input type="text" style="padding:6px"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Place:&lt;/td&gt;&lt;td&gt;&lt;input type="text" style="padding:6px"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Gender:&lt;/td&gt;&lt;td&gt;
+&lt;select style="padding:4px"&gt;
+&lt;option&gt;Male&lt;/option&gt;
+&lt;option&gt;Female&lt;/option&gt;
+&lt;option&gt;Unknown&lt;/option&gt;
+&lt;/select&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Hobbies:&lt;/td&gt;&lt;td&gt;&lt;input type="checkbox"&gt; Carrom &lt;input type="checkbox"&gt; Chess &lt;input type="checkbox"&gt; Music &lt;input type="checkbox"&gt; Cricket &lt;input type="checkbox"&gt; Soccer &lt;input type="checkbox"&gt; Others&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Area:&lt;/td&gt;&lt;td&gt;&lt;input type="radio" name="area"&gt; Rural &lt;input type="radio" name="area"&gt; Urban&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Comments:&lt;/td&gt;&lt;td&gt;&lt;textarea rows="3" style="padding:6px"&gt;&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
 				</code></pre>
 			</p>
         </div></div>
@@ -146,13 +174,33 @@ print(result)
 				<br>
 <pre><code>
 &lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;Students&lt;/title&gt;
-&lt;style&gt;table{border-collapse:collapse;width:100%}th,td{border:1px solid #000;padding:5px;text-align:center}th{background:#eee}&lt;/style&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Student Marks&lt;/title&gt;
+&lt;style&gt;
+body{background:lightblue;font-family:Arial;font-size:9pt}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #000;padding:8px 6px}
+th{background:#d9edf7;font-weight:bold}
+tr:hover{background:#fff3b0}
+caption{font-weight:bold;font-size:12pt;margin:6px}
+&lt;/style&gt;
 &lt;/head&gt;&lt;body&gt;
+
 &lt;table&gt;
+&lt;caption&gt;Student Marks&lt;/caption&gt;
 &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;th&gt;Gender&lt;/th&gt;&lt;th&gt;Maths&lt;/th&gt;&lt;th&gt;English&lt;/th&gt;&lt;th&gt;Science&lt;/th&gt;&lt;th&gt;Social&lt;/th&gt;&lt;th&gt;Place&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;James&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;78&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;London&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Emily&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;92&lt;/td&gt;&lt;td&gt;84&lt;/td&gt;&lt;td&gt;79&lt;/td&gt;&lt;td&gt;Manchester&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Oliver&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;65&lt;/td&gt;&lt;td&gt;72&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;Birmingham&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Charlotte&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;td&gt;89&lt;/td&gt;&lt;td&gt;93&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;Liverpool&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;George&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;60&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;Leeds&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Amelia&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;82&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;Bristol&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Harry&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;77&lt;/td&gt;&lt;td&gt;73&lt;/td&gt;&lt;td&gt;79&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;td&gt;Sheffield&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Isla&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;91&lt;/td&gt;&lt;td&gt;94&lt;/td&gt;&lt;td&gt;89&lt;/td&gt;&lt;td&gt;87&lt;/td&gt;&lt;td&gt;Nottingham&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Jack&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;72&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;Leicester&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Ava&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;84&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;86&lt;/td&gt;&lt;td&gt;83&lt;/td&gt;&lt;td&gt;Oxford&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Noah&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;74&lt;/td&gt;&lt;td&gt;69&lt;/td&gt;&lt;td&gt;71&lt;/td&gt;&lt;td&gt;73&lt;/td&gt;&lt;td&gt;Cambridge&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;James&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;78&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;London&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Emily&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;92&lt;/td&gt;&lt;td&gt;84&lt;/td&gt;&lt;td&gt;79&lt;/td&gt;&lt;td&gt;Manchester&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Oliver&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;65&lt;/td&gt;&lt;td&gt;72&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;Birmingham&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Charlotte&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;td&gt;89&lt;/td&gt;&lt;td&gt;93&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;&lt;td&gt;Liverpool&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;George&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;60&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;Leeds&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Amelia&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;82&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;td&gt;80&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;Bristol&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Harry&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;77&lt;/td&gt;&lt;td&gt;73&lt;/td&gt;&lt;td&gt;79&lt;/td&gt;&lt;td&gt;75&lt;/td&gt;&lt;td&gt;Sheffield&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Isla&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;91&lt;/td&gt;&lt;td&gt;94&lt;/td&gt;&lt;td&gt;89&lt;/td&gt;&lt;td&gt;87&lt;/td&gt;&lt;td&gt;Nottingham&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Jack&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;68&lt;/td&gt;&lt;td&gt;72&lt;/td&gt;&lt;td&gt;70&lt;/td&gt;&lt;td&gt;66&lt;/td&gt;&lt;td&gt;Leicester&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Ava&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;84&lt;/td&gt;&lt;td&gt;88&lt;/td&gt;&lt;td&gt;86&lt;/td&gt;&lt;td&gt;83&lt;/td&gt;&lt;td&gt;Oxford&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Noah&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;74&lt;/td&gt;&lt;td&gt;69&lt;/td&gt;&lt;td&gt;71&lt;/td&gt;&lt;td&gt;73&lt;/td&gt;&lt;td&gt;Cambridge&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
+
 &lt;/body&gt;&lt;/html&gt;
 </code></pre>
 			</p>
@@ -167,8 +215,41 @@ print(result)
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100">
           <div class="card-body">
+		  Login Script - ask them to write and then parameterize
             <p class="card-text">
-				<img src="img/qa_python2.jpg" width="75%"/>
+				<pre><code>
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+@pytest.fixture
+def driver():
+    driver = webdriver.Chrome()
+    driver.get("https://example.com/login")
+    yield driver
+    driver.quit()
+
+
+@pytest.mark.parametrize("username_val,password_val", [
+    ("testuser1", "testpwd1"),
+    ("testuser2", "testpwd2"),
+    ("testuser3", "testpwd3")
+])
+def test_login(driver, username_val, password_val):
+
+    username = driver.find_element(By.ID, "username")
+    password = driver.find_element(By.ID, "password")
+    loginBtn = driver.find_element(By.ID, "loginBtn")
+
+    username.send_keys(username_val)
+    password.send_keys(password_val)
+    loginBtn.click()
+
+    welcome_text = driver.find_element(By.ID, "welcomeMsg").text
+
+    assert welcome_text == "Welcome User"
+				</code></pre>
             </p>
           </div>
         </div>
@@ -178,7 +259,39 @@ print(result)
         <div class="card h-100">
           <div class="card-body">
             <p class="card-text">
-                <img src="img/qa_python3.jpg" width="50%"/>
+			Search code parameterization:
+                <pre><code>
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+
+@pytest.fixture
+def driver():
+    driver = webdriver.Chrome()
+    driver.get("https://example.com")
+    yield driver
+    driver.quit()
+
+
+@pytest.mark.parametrize("product", [
+    "mobiles",
+    "television",
+    "washing machine"
+])
+def test_search_product_results(driver, product):
+
+    search_box = driver.find_element(By.ID, "searchBox")
+    search_box.clear()
+    search_box.send_keys(product)
+    search_box.send_keys(Keys.RETURN)
+
+    results_text = driver.find_element(By.ID, "resultCount").text
+    print(f"{product} -> {results_text}")
+
+    assert "results" in results_text
+				</code></pre>
             </p>
           </div>
         </div>
