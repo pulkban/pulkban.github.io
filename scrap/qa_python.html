@@ -404,9 +404,48 @@ def test_order_flow(driver):
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-              <small>
-                <!--Your content here-->
-			</small>
+			<pre><code>
+public class GmailLoginTest{
+    @Test(dataProvider="loginData")
+    public void loginTest(String user,String pwd)throws Exception{
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://mail.google.com");
+        driver.findElement(By.id("identifierId")).sendKeys("rohit");
+        driver.findElement(By.name("Passwd")).sendKeys("pass");
+        Thread.sleep(4000);
+        String welcomeText=driver.findElement(By.tagName("body")).getText();
+        Assert.assertTrue(welcomeText.contains("Welcome Rohit"));
+        driver.quit();
+    }
+
+	@DataProvider(name="loginDataHardcoded")
+	public Object[][] getHardcodedData(){
+		return new Object[][]{
+			{"user1@gmail.com","pwd1"},
+			{"user2@gmail.com","pwd2"},
+			{"user3@gmail.com","pwd3"}
+		};
+	}
+    @DataProvider(name="loginData")
+    public Object[][] getData()throws Exception{
+        BufferedReader br=new BufferedReader(new FileReader("loginData.csv"));
+        List&lt;Object[]&gt; list=new ArrayList&lt;&gt;();
+        String line;
+        boolean skip=true;
+
+        while((line=br.readLine())!=null){
+            if(skip){
+                skip=false;
+                continue;
+            }
+            String[] data=line.split(",");
+            list.add(data);
+        }
+        br.close();
+        return list.toArray(new Object[0][]);
+    }
+}
+			</code></pre>
 			</p>
         </div></div>
       </div>
