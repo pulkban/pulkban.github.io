@@ -2,15 +2,16 @@ journalDetails = {
 
 	'Salesforce2': 'Salesforce2.html',
 	'Salesforce': 'Salesforce.html',
-	
 	'qa_python': 'qa_python.html',
 	'java': 'java.html',
 	'react': 'react.html',
 	'angular': 'angular.html',
-
+	
+	'lingo': 'lingo.html',
 	'scrap2': 'scrap2.html',
 	'table': 'table.html',
 	'Notes': 'Notes.html',
+	
 	'WordQuiz': 'WordQuiz.html',
 	'C1 Exam': 'c1.html',
 	'Salesforce Developer': 'sf.html',
