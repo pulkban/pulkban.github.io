@@ -86,8 +86,31 @@
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
             <p class="card-text">
-				Call API https://jsonplaceholder.typicode.com/users and print user name using REACT
-				<img src="img/react_1.jpg" width="75%"/>
+				Call API https://jsonplaceholder.typicode.com/users and print user name using REACT<br>
+				https://onecompiler.com/react/44jtpcd4a - online compiler
+				<pre><code>
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() =&gt; {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res =&gt; res.json())
+      .then(data =&gt; setUsers(data));
+  }, []);
+
+  return (
+    &lt;div&gt;
+      {users.map(user =&gt; (
+        &lt;p key={user.id}&gt;{user.name}&lt;/p&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+
+export default App;
+				</code></pre>
 			</p>
         </div></div>
       </div>
