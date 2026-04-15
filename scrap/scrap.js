@@ -6,6 +6,7 @@ journalDetails = {
 	'java': 'java.html',
 	'react': 'react.html',
 	'angular': 'angular.html',
+	'sql': 'sql.html',
 	
 	'lingo': 'lingo.html',
 	'scrap2': 'scrap2.html',

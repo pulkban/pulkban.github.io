@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Browser SQL Runner</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+
+<style>
+textarea.form-control{font-family:Consolas,monospace;font-size:10px;line-height:1.2;padding:6px}
+table{font-size:16px}
+th,td{padding:8px 14px}
+td{font-family:"Courier New",monospace}
+</style>
+
+</head>
+<body class="container-fluid p-4">
+
+<!--Setup block-->
+<div class="row">
+<div class="col-md-4">
+<h4 class="text-secondary fw-semibold">Setup Scripts</h4>
+<textarea id="setup" rows="10" class="form-control">
+CREATE TABLE Customers(customer_id INTEGER,first_name TEXT,last_name TEXT,age INTEGER,country TEXT);
+INSERT INTO Customers VALUES
+(1,'John','Doe',31,'USA'),(2,'Robert','Luna',22,'USA'),(3,'David','Robinson',22,'UK'),(4,'John','Reinhardt',25,'UK'),(5,'Betty','Doe',28,'UAE');
+CREATE TABLE Orders(order_id INTEGER,item TEXT,amount INTEGER,customer_id INTEGER);
+INSERT INTO Orders VALUES
+(1,'Keyboard',400,4),(2,'Mouse',300,4),(3,'Monitor',12000,3),(4,'Keyboard',400,1),(5,'Mousepad',250,2);
+</textarea>
+<button id="setupBtn" class="btn btn-primary mt-2" onclick="runSetup()">Run Setup</button>
+</div>
+<div class="col-md-4">
+<h4>Customers</h4>
+<div id="customersTable"></div>
+</div>
+<div class="col-md-4">
+<h4>Orders</h4>
+<div id="ordersTable"></div>
+</div>
+</div>
+
+<hr>
+
+<!--Execute block-->
+<div class="row">
+<div class="col-md-4">
+<h4 class="text-secondary fw-semibold">Execute SQL</h4>
+<textarea id="query" rows="6" class="form-control">SELECT * FROM Customers;</textarea>
+<button class="btn btn-success mt-2" onclick="runQuery()">Run Query</button>
+</div>
+<div class="col-md-8">
+<h4>Output</h4>
+<div id="output"></div>
+</div>
+</div>
+
+
+
+
+<script>
+
+let db;
+
+initSqlJs({
+locateFile:file=>"https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/"+file
+}).then(SQL=>{db=new SQL.Database()});
+
+function renderTable(results){
+	let html='<table class="table table-bordered table-sm"><thead class="table-light"><tr>';
+	results[0].columns.forEach(col=>{html+='<th>'+col+'</th>'});
+	html+='</tr></thead ><tbody>';
+	results[0].values.forEach(row=>{
+	html+='<tr>';
+	row.forEach(val=>{html+='<td>'+val+'</td>'});
+	html+='</tr>';
+	});
+	html+='</tbody></table>';
+	return html;
+}
+
+function runSetup(){
+try{
+db.exec(document.getElementById("setup").value);
+document.getElementById("customersTable").innerHTML=renderTable(db.exec("SELECT * FROM Customers"));
+document.getElementById("ordersTable").innerHTML=renderTable(db.exec("SELECT * FROM Orders"));
+document.getElementById("setupBtn").disabled=true;
+}catch(e){
+output.innerHTML="Setup error ❌ "+e.message;
+}
+}
+
+function runQuery(){
+try{
+let results=db.exec(document.getElementById("query").value);
+if(results.length===0){output.innerHTML="Query executed successfully ✅";return}
+output.innerHTML=renderTable(results);
+}catch(e){
+output.innerHTML="Query error ❌ "+e.message;
+}
+}
+
+</script>
+
+</body>
+</html>

@@ -91,39 +91,31 @@
             <p class="card-text">
 			<pre><code>
 ===================component.ts
-export class UserFormComponent {
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  form = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email]]
+  myForm = this.fb.group({
+    name: ['', Validators.minLength(3)]
   });
 
-  submit() {
-    if (this.form.valid) {
-      console.log(this.form.value);
-    } else {
-      this.form.markAllAsTouched();
-    }
-  }
 }
 ======================component.html
-&lt;form [formGroup]="form" (ngSubmit)="submit()"&gt;
+&lt;form [formGroup]="myForm"&gt;
 
-  &lt;input type="text" formControlName="name" placeholder="Name"&gt;
-  &lt;div *ngIf="form.controls.name.touched && form.controls.name.invalid"&gt;
-    &lt;small *ngIf="form.controls.name.errors?.['required']"&gt;Name required&lt;/small&gt;
-    &lt;small *ngIf="form.controls.name.errors?.['minlength']"&gt;Min 3 chars&lt;/small&gt;
+  &lt;input type="text" formControlName="name"&gt;
+
+  &lt;div *ngIf="myForm.controls.name.errors?.minlength"&gt;
+    Minimum 3 characters required
   &lt;/div&gt;
 
-  &lt;input type="email" formControlName="email" placeholder="Email"&gt;
-  &lt;div *ngIf="form.controls.email.touched && form.controls.email.invalid"&gt;
-    &lt;small *ngIf="form.controls.email.errors?.['required']"&gt;Email required&lt;/small&gt;
-    &lt;small *ngIf="form.controls.email.errors?.['email']"&gt;Invalid email&lt;/small&gt;
-  &lt;/div&gt;
-
-  &lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 			</code></pre>
 			</p>
