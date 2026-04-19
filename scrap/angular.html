@@ -92,31 +92,41 @@
 			<pre><code>
 ===================component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
+  name = '';
+  numbersOnly = '';
+  email = '';
 
-  constructor(private fb: FormBuilder) {}
+  isInvalid(): boolean {
+    return this.name && this.name.length &lt; 3;
+  }
 
-  myForm = this.fb.group({
-    name: ['', Validators.minLength(3)]
-  });
+  hasText(): boolean {
+    return this.numbersOnly && !/^\d+$/.test(this.numbersOnly);
+  }
 
+  invalidEmail(): boolean {
+    return (
+      this.email && !(this.email.includes('@') && this.email.includes('.'))
+    );
+  }
 }
+
 ======================component.html
-&lt;form [formGroup]="myForm"&gt;
+Name: &lt;input type="text" [(ngModel)]="name" /&gt;
+&lt;div *ngIf="isInvalid()"&gt;Minimum 3 characters required&lt;/div&gt;&lt;br /&gt;&lt;br /&gt;
 
-  &lt;input type="text" formControlName="name"&gt;
+Age: &lt;input type="text" [(ngModel)]="numbersOnly" /&gt;
+&lt;div *ngIf="hasText()"&gt;Only numbers allowed&lt;/div&gt;&lt;br /&gt;&lt;br /&gt;
 
-  &lt;div *ngIf="myForm.controls.name.errors?.minlength"&gt;
-    Minimum 3 characters required
-  &lt;/div&gt;
+Email: &lt;input type="text" [(ngModel)]="email" /&gt;
+&lt;div *ngIf="invalidEmail()"&gt;Email must contain @ and .&lt;/div&gt;&lt;br /&gt;
 
-&lt;/form&gt;
 			</code></pre>
 			</p>
         </div></div>
