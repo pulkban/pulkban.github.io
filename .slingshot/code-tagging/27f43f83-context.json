@@ -1,0 +1,67 @@
+{
+  "filename": "python.html",
+  "path": "scrap\\python.html",
+  "version": "1.1",
+  "files": {
+    "26a634b5": {
+      "value": [
+        {
+          "programming_language": "HTML",
+          "fileName": "python.html",
+          "relativeFilePath": "scrap/python.html",
+          "startLine": [
+            1
+          ],
+          "endLine": [
+            270
+          ]
+        }
+      ]
+    },
+    "c4e45084": {
+      "value": [
+        {
+          "programming_language": "HTML",
+          "fileName": "python.html",
+          "relativeFilePath": "scrap/python.html",
+          "startLine": [
+            1
+          ],
+          "endLine": [
+            668
+          ]
+        }
+      ]
+    },
+    "a8b81a08": {
+      "value": [
+        {
+          "programming_language": "HTML",
+          "fileName": "python.html",
+          "relativeFilePath": "scrap/python.html",
+          "startLine": [
+            1
+          ],
+          "endLine": [
+            77
+          ]
+        }
+      ]
+    }
+  },
+  "promptMessage": {
+    "2cb9acaa": {
+      "value": "beautify this file using bootstrap\ndont keep on asking permission for edit and find files\npython.html"
+    },
+    "17d9fea1": {
+      "value": "firstly this is cheat sheet - so, avoid all paddings and margins.\nand keep the css - 1 line per class - cant deal with some 700 lines of code\ndont need subheadings\nno warnings\nno footers"
+    },
+    "14b1c2cc": {
+      "value": "too dark background - light blue pls"
+    }
+  },
+  "localPrompts": {},
+  "remotePrompts": {},
+  "figma": {},
+  "jira": {}
+}

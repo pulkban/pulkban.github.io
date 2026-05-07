@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+	<style>
+body,html{margin:0;padding:0;background:#f5f7fb;font-family:monospace;}
+.container-fluid{max-width:100%;}
+.card{border:1px solid #ddd;margin:2px;}
+.card-body{padding:8px;}
+pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;overflow-x:auto;}
+code{color:inherit;background:transparent;}
+.row{margin:0;}
+.col-12,.col-md-6,.col-xl-6{padding:2px;}
+	</style>
+</head>
+
+<body>
+
+<section class="cheatsheet bg-light py-2">
+  <div class="container-fluid px-2">   <!-- full width, tiny side padding -->
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+				<!--Your content here-->		
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+                <!--Your content here-->
+        </code></pre></div></div>
+      </div>
+    </div>
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+platform indep? yes
+why interpreter? line by line - unlike full java Compile-time
+whats pip? installer pkg
+what are pandas? python lib for data analysis (pip = python package installer)
+why api? bcoz i dont need to know whether python based or java based
+concatenate 2 dictionaries? yes. d3 = d1 | d2
+how to iterate dictionaries? for key, value in d.items(): print(key, value)
+ORM = Object Relational Mapping: Python object  <-->  Database table || employees = db.query(Employee).all() || ORM converts Python → SQL automatically
+---
+class Employee(Base):
+    __tablename__ = "employees"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+	Table created
+	
+emp = Employee(name="Ram")
+db.add(emp)
+db.commit()
+
+popular python ORM: SQLAlchemy, Django ORM
+---
+jango how to generate model from database? ans: python manage.py inspectdb > models.py
+---
+Jinja template code? e.g.
+&lt;h1&gt;{{ name }}&lt;/h1&gt;
+{% if age &gt;= 18 %}
+  &lt;p&gt;Adult&lt;/p&gt;
+{% else %}
+  &lt;p&gt;Minor&lt;/p&gt;
+{% endif %}
+----
+whats mvt? arch on jango works, model-db struc, view-business logic (get, add, del), template-html code
+class Employee(models.Model):
+    name = models.CharField(max_length=100)
+def home(request):
+    data = Employee.objects.all()
+    return render(request, "home.html", {"emps": data})
+{% for e in emps %}
+   &lt;p&gt;{{ e.name }}&lt;/p&gt;
+{% endfor %}
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+                <!--Your content here-->
+        </code></pre></div></div>
+      </div>
+    </div>
+	
+	
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+				<pre><code>
+---shallow copy
+import copy
+a = [[1, 2], [3, 4]]
+b = copy.copy(a)
+b[0][0] = 100
+print(a)
+print(b)			
+---deep
+import copy
+a = [[1, 2], [3, 4]]
+b = copy.deepcopy(a)
+b[0][0] = 100
+print(a)
+print(b)
+---output
+[[1, 2], [3, 4]]
+[[100, 2], [3, 4]]
+				</code></pre>
+        </div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body">
+		<pre><code>
+List comprehension sample:---(short way of writing list)
+output = [x**2 if x % 2 == 0 else x**3 for x in range(1, 11)]
+print(output)
+
+--convert to list comprehensionoutput = []
+for x in range(1, 6):
+	output.append(x * 2)
+print(output)
+			</code></pre>
+        </div></div>
+      </div>
+    </div>
+	
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+4 data types: list tuple set dictionary
+Fast way to retrieve data: tuple(bcoz unmutable)/set
+
+List	Editable array
+Tuple	Read-only list
+Set	Unique items
+Dict	JSON / map
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+Using dictionary, tell each char, how many times?
+
+s = "abcabc"
+count = {}
+for ch in s:
+    count[ch] = count.get(ch, 0) + 1
+print(count)
+        </code></pre></div></div>
+      </div>
+    </div>
+	
+	    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+Use of closure? - for storing secret:
+def outer():
+    secret = "admin password"
+    def inner():
+        print(secret)
+    return inner
+x = outer()
+x()
+output---
+admin password
+
+Because secret is not directly accessible outside.
+print(secret) --- this fails
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+Chain of Decorators?
+using chain of decor, write code for login start, user auth, money transf, log ended?
+
+def logging(func):
+    def wrapper():
+        print("logging started")
+        func()
+        print("logging ended")
+    return wrapper
+
+def authentication(func):
+    def wrapper():
+        print("user authenticated")
+        func()
+    return wrapper
+
+@logging
+@authentication
+def transfer_money():
+    print("money transferred")
+
+transfer_money()
+
+output---
+logging started
+user authenticated
+money transferred
+logging ended
+
+--meaning: transfer_money = logging(authentication(transfer_money))
+
+        </code></pre></div></div>
+      </div>
+    </div>
+
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+Method Overloading = Compile-time Polymorphism
+Method Overriding = Runtime Polymorphism
+
+Override e.g.:
+class Animal:
+    def sound(self):
+        print("animal sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("bark")
+
+a = Dog()
+a.sound()
+output---- bark
+[same method -> different forms]
+
+Overloading e.g.:
+class Calc:
+    def add(self, a, b, c=0):
+        return a + b + c
+x = Calc()
+print(x.add(1, 2))
+print(x.add(1, 2, 3))
+output---- 3   6
+[same method -> different behavior based on arguments]
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+                <!--Your content here-->
+        </code></pre></div></div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+</body>
+</html>

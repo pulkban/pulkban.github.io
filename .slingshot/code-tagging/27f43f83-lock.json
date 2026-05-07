@@ -1,0 +1,445 @@
+{
+  "scrap\\python.html": {
+    "filename": "python.html",
+    "path": "scrap\\python.html",
+    "version": "1.2",
+    "contextFile": null,
+    "chunks": {
+      "4015bb": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "5266faac",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "b7bbcb": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "59cb6ce3",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "0cd550": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "5a85fb3c",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "1958f9": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "f04f5838",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "6879cf": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "f521f30f",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "2ee677": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "757623da",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "b4769d": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "26beb3f1",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "e03a00": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "24a6fa55",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "5b321f": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "dd96e1e8",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      },
+      "aae7ea": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "5a3dd200",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "a5bd5d": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "b52c8b5e",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      },
+      "23e419": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778156694,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "2cb9acaa",
+          "files": "26a634b5"
+        },
+        "hash": "992c1be2",
+        "messageId": "system_bccb3e70-4a0e-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      },
+      "b58837": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778157005,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "17d9fea1",
+          "files": "c4e45084"
+        },
+        "hash": "fe0b8f2e",
+        "messageId": "system_01f26130-4a10-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      },
+      "e01644": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778157005,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "17d9fea1",
+          "files": "c4e45084"
+        },
+        "hash": "0fb49e13",
+        "messageId": "system_01f26130-4a10-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "239acb": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778157005,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "17d9fea1",
+          "files": "c4e45084"
+        },
+        "hash": "d4162eea",
+        "messageId": "system_01f26130-4a10-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      },
+      "170e81": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778157005,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "17d9fea1",
+          "files": "c4e45084"
+        },
+        "hash": "8e0408ff",
+        "messageId": "system_01f26130-4a10-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": false
+      },
+      "64b800": {
+        "user": "Udhay Kumar VR",
+        "model": "claude-sonnet-4@20250514",
+        "timestamp": 1778157385,
+        "platform": "VisualStudioCode",
+        "product": "AIPP",
+        "productVersion": "2.4.1",
+        "source": "agent",
+        "type": "agentEditTool",
+        "extraContext": {
+          "promptMessage": "14b1c2cc",
+          "files": "a8b81a08"
+        },
+        "hash": "79bd5753",
+        "messageId": "system_22bf0700-4a11-11f1-aa9c-6ff73830a1fe",
+        "codeBlockId": null,
+        "isActive": true
+      }
+    },
+    "lines": {
+      "0": {
+        "chunkId": "23e419",
+        "hash": "e7340e15",
+        "encoded": "%3C!DOCTYPE%20html%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "2": {
+        "chunkId": "23e419",
+        "hash": "8bf19007",
+        "encoded": "%3Chead%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "3": {
+        "chunkId": "23e419",
+        "hash": "cb816a22",
+        "encoded": "%3Cmeta%20name=%22viewport%22%20content=%22width=device-width,%20initial-scale=1%22%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "4": {
+        "chunkId": "23e419",
+        "hash": "6b1857bf",
+        "encoded": "%3Clink%20rel=%22stylesheet%22%20href=%22https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css%22%20/%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "5": {
+        "chunkId": "23e419",
+        "hash": "d52c32af",
+        "encoded": "%3Cstyle%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "10": {
+        "chunkId": "64b800",
+        "hash": "fa9c2b03",
+        "encoded": "pre%7Bbackground:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;overflow-x:auto;%7D",
+        "prevChunkIds": []
+      },
+      "14": {
+        "chunkId": "23e419",
+        "hash": "8d822f93",
+        "encoded": "%3C/style%3E",
+        "prevChunkIds": [
+          "23e419"
+        ]
+      },
+      "15": {
+        "chunkId": "239acb",
+        "hash": "6b8c46b5",
+        "encoded": "%3C/head%3E",
+        "prevChunkIds": [
+          "239acb",
+          "23e419"
+        ]
+      },
+      "16": {
+        "chunkId": "239acb",
+        "hash": "87e48b9e",
+        "encoded": "%3Cbody%3E",
+        "prevChunkIds": [
+          "239acb"
+        ]
+      },
+      "17": {
+        "chunkId": "239acb",
+        "hash": "84dc053c",
+        "encoded": "%3Cdiv%20class=%22container-fluid%22%3E",
+        "prevChunkIds": [
+          "239acb",
+          "a5bd5d"
+        ]
+      },
+      "64": {
+        "chunkId": "a5bd5d",
+        "hash": "2c7f6be1",
+        "encoded": "%3C/div%3E",
+        "prevChunkIds": [
+          "a5bd5d"
+        ]
+      },
+      "70": {
+        "chunkId": "a5bd5d",
+        "hash": "d333aa3e",
+        "encoded": "%3C/div%3E",
+        "prevChunkIds": [
+          "a5bd5d"
+        ]
+      },
+      "71": {
+        "chunkId": "5b321f",
+        "hash": "5a943922",
+        "encoded": "%3C/div%3E",
+        "prevChunkIds": []
+      },
+      "72": {
+        "chunkId": "5b321f",
+        "hash": "32af5855",
+        "encoded": "%3C/div%3E",
+        "prevChunkIds": [
+          "e01644"
+        ]
+      },
+      "74": {
+        "chunkId": "b58837",
+        "hash": "d4d4e9b2",
+        "encoded": "%3C/body%3E",
+        "prevChunkIds": [
+          "e01644",
+          "b58837"
+        ]
+      },
+      "75": {
+        "chunkId": "b58837",
+        "hash": "773a5064",
+        "encoded": "%3C/html%3E",
+        "prevChunkIds": [
+          "b58837"
+        ]
+      }
+    }
+  }
+}
