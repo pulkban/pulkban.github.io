@@ -47,8 +47,10 @@ what are pandas? python lib for data analysis (pip = python package installer)
 why api? bcoz i dont need to know whether python based or java based
 concatenate 2 dictionaries? yes. d3 = d1 | d2
 how to iterate dictionaries? for key, value in d.items(): print(key, value)
-ORM = Object Relational Mapping: Python object  <-->  Database table || employees = db.query(Employee).all() || ORM converts Python → SQL automatically
----
+
+ORM = Object Relational Mapping: 
+Python object  <-->  Database table || employees = db.query(Employee).all() || ORM converts Python → SQL automatically
+---------------------
 class Employee(Base):
     __tablename__ = "employees"
     id = Column(Integer, primary_key=True)
@@ -60,9 +62,9 @@ db.add(emp)
 db.commit()
 
 popular python ORM: SQLAlchemy, Django ORM
----
+---------------------
 jango how to generate model from database? ans: python manage.py inspectdb > models.py
----
+---------------------
 Jinja template code? e.g.
 &lt;h1&gt;{{ name }}&lt;/h1&gt;
 {% if age &gt;= 18 %}
@@ -70,8 +72,8 @@ Jinja template code? e.g.
 {% else %}
   &lt;p&gt;Minor&lt;/p&gt;
 {% endif %}
-----
-whats mvt? arch on jango works, model-db struc, view-business logic (get, add, del), template-html code
+---------------------
+whats MVT? arch on jango works, model-db struc, view-business logic (get, add, del), template-html code
 class Employee(models.Model):
     name = models.CharField(max_length=100)
 def home(request):
@@ -96,6 +98,8 @@ def home(request):
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 				<pre><code>
+shallow copy vs deep copy
+				
 ---shallow copy
 import copy
 a = [[1, 2], [3, 4]]
@@ -121,6 +125,7 @@ print(b)
         <div class="card h-100"><div class="card-body">
 		<pre><code>
 List comprehension sample:---(short way of writing list)
+
 output = [x**2 if x % 2 == 0 else x**3 for x in range(1, 11)]
 print(output)
 
@@ -254,7 +259,55 @@ output---- 3   6
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-                <!--Your content here-->
+<strong>====DJango====</strong>: Student Mgt System
+
+==folder structure:
+student_project/
+    myapp/
+    payments/
+    attendance/
+    exams/
+
+==pip install django
+==django-admin startproject student_project
+==python manage.py startapp myapp
+==python manage.py runserver
+
+==models.py
+from django.db import models
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+
+==createTable: createTable: python manage.py makemigrations
+
+==views.py
+from django.shortcuts import render
+from .models import Student
+
+def home(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        city = request.POST.get("city")
+        Student.objects.create(
+            name=name,
+            city=city
+        )
+    students = Student.objects.all()
+    return render(request, "home.html", {
+        "students": students
+    })
+===home.html
+&lt;form method="POST"&gt;
+{% csrf_token %}
+&lt;input type="text" name="name" placeholder="Name"&gt;
+&lt;input type="text" name="city" placeholder="City"&gt;
+&lt;button type="submit"&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+&lt;hr&gt;
+{% for s in students %}
+&lt;p&gt;{{ s.name }} - {{ s.city }}&lt;/p&gt;
+{% endfor %}
         </code></pre></div></div>
       </div>
     </div>
