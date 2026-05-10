@@ -246,26 +246,23 @@ public class Main {
 In main(), create two threads to safely increment a counter and also update a ConcurrentHashMap atomically. Print the counter and map.
 <pre><code>
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
+
     public static void main(String[] args) throws InterruptedException {
-        final Object lock = new Object();
-        int[] counter = {0}; // use array for effectively final in lambda
 
-        Runnable task = () -> {
-            synchronized (lock) { counter[0]++; }
-        };
-
+        AtomicInteger counter = new AtomicInteger(0);
+        Runnable task = () -> counter.incrementAndGet();
         Thread t1 = new Thread(task);
         Thread t2 = new Thread(task);
         t1.start(); t2.start();
         t1.join(); t2.join();
+        System.out.println("Counter: " + counter.get());
 
-        System.out.println("Counter: " + counter[0]);
-
-        ConcurrentHashMap&lt;String, Integer&gt; map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
         map.put("A", 1);
-        map.merge("A", 1, Integer::sum); // atomic update
+        map.merge("A", 1, Integer::sum);
         System.out.println("Map: " + map);
     }
 }

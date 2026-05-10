@@ -1,404 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+journalDetails = {
 
-<section class="bg-light py-4 my-5">
-    <div class="container">
+	'Salesforce2': 'Salesforce2.html',
+	'Salesforce': 'Salesforce.html',
+	'qa_python': 'qa_python.html',
+	'java': 'java.html',
+	'python': 'python.html',
+	'react': 'react.html',
+	'angular': 'angular.html',
+	'sql': 'sql.html',
+
 	
-        <div class="row">
-			<!--Heading-->
-            <div class="col-12">
-                <h2 class="mb-3 text-primary">Scrapper</h2>
-            </div>
-			
-			
-            <div class="col-md-6 col-lg-8">
-                <div class="card my-3">
-                    <img src="img/acquisitions.jpeg" class="card-image-top" alt="acquisitions">
-                    <div class="card-body">
-                        <h3 class="card-title">10 great acquisitions</h3>
-                        <p class="card-text">10 great acquisitions.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">Watt hour and Lead</h3>
-                        <p class="card-text">
-							<small>
-							<li>1 watt for 1 hour = 3600 joules = called as watt-hour
-							<li>1000 watt hour = 1 unit = 5.5 Rs.
-							<li>LeadAcid = 30-50 Watthours/KG, NickelCadmium=70 watthours/kg, NickelMetalHydride=100 WH/Kg, Lithium = 250 WH/Kg
-							</small>
-						</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<!--Row-->
-		<div class="row">
-            <div class="col-md-6 col-lg-8">
-                <div class="card my-3">
-                    <img src="img/cors.jpeg" class="card-image-top" alt="acquisitions">
-                    <div class="card-body">
-                        <h3 class="card-title">CORS</h3>
-                        <p class="card-text">CORS.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">CORS</h3>
-                        <p class="card-text">
-							<small>
-							<li>CORS
-							</small>
-						</p>
-                    </div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-8">
-                <div class="card my-3">
-                    <img src="img/BondPrice.jpg" class="card-image-top" alt="acquisitions" />
-                    <div class="card-body"> <h3 class="card-title">Bond Prices</h3> <p class="card-text">Bond Prices</p> </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">Bond Prices</h3> <p class="card-text"> <small> 
-							<li>Value of my bond comes down if Bond prices somewhere else is giving better returns 
-						</small> </p>
-                    </div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">Vatican Apostolic Archive</h3> <p class="card-text"> <small> 
-							<li>16 ppl only can enter
-							<li>Only 4 rooms (1 room with laptop)
-							<li>18th century Napolean - takes to Italy
-							<li>11th to 13th century - many docs are stolen
-							<li>1600 - Catholic vs Protestants fight
-							<li>Protestants asks question (both were anyways jews)
-							<li>2nd WW - Jews vs Nazi
-							<li>Vatican bank - did Hitler also have account?
-							<li>Vatican - Highest crime area (Hardly any Police)
-							<li>Vatican - drink heavy wine
-							<li>Coping International - children of fater priests
-							<li>Pope Francis is still aware sexual stuff in Catholic church
-							<li>Pope Benedict - courageous - brought out names
-							<li>Bishop Franco Mulakkal - Kerala - 12 times intercourse - was told 
-							<li>Windsom Doyle
-						</small> </p>
-					</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">xxx</h3> <p class="card-text"> <small> 
-							<li>Value of my bond comes down if Bond prices somewhere else is giving better returns 
-						</small> </p>
-                    </div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 1</h3> <p class="card-text"> <small> 
-							<li>Tally sticks once
-							<li>Hoover (1929 stocks lost - upto 1939)
-							<li>next come Francklin Roosevelet
-							<li>Red Indians were killed and roads/railways were put
-							<li>Delaware water used to come whoever pays tax rich
-							<li>1901 - CAA by US - after killing 90% of ST - huh
-							<li>at one stage - Land Rush - to kill all red indians to make roads (u cant disturb those rich folks)
-
-							<li>thats the time soviet was coming with communism - which is why until today US hates Soviet
-							<li>Slavic ethnic want to combine both Bosnia and Serbia
-							<li>Serbia killed Franz Ferdinand - who started putting tents
-							<li>Austria calls Germany
-							<li>Russia comes to Serbia due to enmity with Germany
-							<li>Germany told no France (both are enemies) - but France enraged
-							<li>Germany thought to shut France and later Serbia - and invaded thro Belgium to go France
-							<li>Britan came support for Belgium
-							<li>Japan supports Britain
-							<li>Turkey/Bulgaria went to Germany
-							<li>China with Russia
-							<li>This is the time US silently was watching
-
-							<li>nuclear fision released radioactive energy - harmful. But, fusion gives back only Helium - safe
-							<li>Congo- had 65% or uranium ore (US took tons from DRC)
-							<li>1920 - Einstien and his student (Szilard) - but on name of Einstein
-							<li>1933 - Hitler goes against jews (Szilard too a jew)
-							<li>Enrico Fermi - 1935 - even comes from German to US
-							<li>German prepared (using IG Farben) RockFellers Dupoint - prepared exploives
-							<li>ZyklonB - Cyanide (German prepared) - German killed 10L
-							<li>Szilard was asked if he can help - along with Fermi - prepared Nuclear reactor
-							<li>Along Edward Teller and Eugene Wigner (Father of H2 bomb) - ALL went to Einstein - we have prepared nuclear reactor - but German is preparing using Uranium - Einstein got alerted with devastation
-							<li>Einstein told will send letter (written by Szilard) - 1939 August - October it reaches Franklin Roosevelet 
-							<li>this letter was belittled / demeand
-							<li>1940 another letter Einstein, Szilard sends about German preparing nuc bomb
-							<li>Rooevelet gets alerted - (1942) - started Manhattan project (director: Heymer - father of Atom Bomb
-							<li>Heymer - grouped all Luminaries (was told you can do nuclear bomb) - as many as 60000 engineers in this Manhattan project ($6000 earlier - moves upto 2 billion $) (prepares Urannium based nuc littleBoy / plutonium based fatMan)
-							<li>Britain was also blended with this project
-						</small> </p>
-					</div>
-                </div>
-            </div>
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 2</h3> <p class="card-text"> <small> 
-							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
-							<li>Elizabeth Spring (a slave) - 2 times food and 6 times matter - then some work - in that 2 times, that horse food is also given (oats)
-							<li>Slave merchant - another letter - pleasure in having intercourse with mentally retarded
-							<li>Slaves was relaxing only 6 hours
-							<li>before 1820 - cotton was top cultivation - 
-							<li>lot of ships to bring ppl from Australia
-							<li>1st category) work in fields, 2nd: house, 3rd: personal assistance
-							<li>Hitler also once killed - but these idiots were maiming and making them mentally
-							<li>max they paid for a slave $250
-							<li>lot of examples where sexual torture to pregnant ppl and both infant / lady dies
-							<li>even after 5 presidents after freedom, there was slavery - 1820 William Lloyd Garrison- mention there is slavery
-
-							<li>George Washington created White House 
-							<li>White house: 132 rooms, 400 windows, 32 batchrooms - 1801 inauguration
-							<li>President house, Executive mansion - previous names (1901)
-							<li>always 1000 folks having food
-							<li>separate website to relay happenings in WHouse
-							<li>Preside's wife has poer to renovate rooms
-							<li>born as jew, grow as christ - Karl Marx comes - should save labors 
-							<li>America Ulysses S Grand (1869~) - US economy at the top
-							<li>then from EU Communism came to NewYork - thats when prostitution in NY/NJ 12000+ came upto
-
-							<li>1905 - Russia Japanese war might happen - America did peace treaty and stopped - also got Nobel prize
-							<li>1872~ - Communism is full in Europe - 
-							<li>Ulysses Grand's friends circle - had lot of corruption - 300 million
-							<li>There were many rules favored to owners
-							<li>Many clubs were created - so that labors go spend and exhaust money
-							<li>Grand told - forget unions - take care of owners
-							<li>e.g. all Crude Oil were going to Rockfeller - so, America was taking care of RockFellers
-							<li>William McKenley (1897~) comes in
-							<li>Spain vs Britain were having lot of colonies and so authority - how to get authority
-							<li>US thinks should we fight with Britain (oh no - all EU will leave US)
-							<li>how about Spain - lets support Cuba - go there and destory Navy - just 5 months (until 1898 May) - kicked Spain out of Cuba
-							<li>thats when all smaller countries though US will help - such a dictatorship was Spain's
-							<li>McKenley was assinated
-							<li>then came, MadMan (Theadre Roosevelet - with specks) - rich man - was having Asthma - always used to go the difficult route to create history
-							<li>he was telling - he does not want owner nor labor - he told owners with proper ethics
-							<li>Was telling 20-25 families alone have wealth - so, he put rules to capitalists
-							<li>like one who does oil refining should not cultivate cotton
-						</small> </p>
-					</div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
-							<li>Abrahalm Lincoln, Theodre Roosevelet, Woodrow Wilson - top 3 folks
-							<li>Panama Canal - Rooevelet constructed (1903)
-							<li>Goes to Columbia ot get premission - denied permission
-							<li>goes to Panama and creates a riot (America tells I will get you freedom) - columbia is kicked away - Panama canal comes (1907 - 1914)
-							<li>William Howard Taft - quite disgusting - brings up Dollar diplomacy - instead of showing military - will show economy and establish right
-							<li>but Woodrow Wilson wins against Taft - Taft goes back to professor
-							<li>Wilson does lot of preaching - all professors were against - and he RESIGNED
-							<li>he was invited as NJ Governow - then he become popular - he puts labor law 8 hrs - 
-							<li>1914 - when the war becomes too big until 1917 - thats when US steps in - 
-							<li>When German was fighting against UK/US - America draws a war plan - Americans think if they step in, they will kind of settle the matter
-							<li>at one stage - German lost all its economy 
-							<li>America finally told they want peace - and was pacifying (mind you America has lots of money now while EU lost everything) - thats when everyone was trapped in US's hands
-
-							<li>1929 great depression - 1933 Roosevelet becomes president
-							<li>1929-40 - great depression- chicken soup was giving
-							<li>Govt was giving money for a contract work
-							<li>Tennesee Valley Authority - by ordinary ppl
-							<li>FERA - Federal Emergency Relief Act - Money printed - Work progress association - was giving work
-							<li>Govt told ppl - you find your own work and we will support
-							<li>Is 2009 panedemic (H1N1) - fake? WHO did this through some capitalists
-						</small> </p>
-					</div>
-                </div>
-            </div>
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
-							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
-
-						</small> </p>
-					</div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">TPNotes1</h3> <p class="card-text"> <small> 
-							<li>1945 John mauchly - Computer<br>
-							<li>1954 - IBM Fortran - direct computer interact<br>
-							<li>1971 - Fred Cohen - Virus - <br>
-							<li>Tele Marketers loose job<br>
-							<li>Bank segment folks loose job<br>
-							<li>Travel agency folks loose job<br>
-							<li>Cashier jobs loose job<br>
-							<li>Postal, Manufac units, Data Entry ops , print journal<br>
-							==========================================<br>
-							<li>2023 - Russia 30Bn dollar deal - why not FTA<br>
-							<li>UK FTA - Patent right might get stolen<br>
-							<li>Eurasian Economic Union (EEU) - might join India - Russia, Tazhak, <br>
-							<li>2003 - Gadaffi, Sadaam - US eradicated<br>
-							<li>from minority Sunni(1/3) Sadaam was running Iraq<br>
-							<li>US develops Terrorism - ISIS<br>
-							==========================================<br>
-							<li>THAAD Missiles - South Korea - developed<br>
-							<li>China did Simulation War Theory against Taiwan<br>
-							<li>German has to give Patriot missiles as per Poland - but hesitant since it is Russia<br>
-							<li>Al-Asqa Mosque - important to Islam - Israel<br>
-						</small> </p>
-					</div>
-                </div>
-            </div>
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">TP Notes 2</h3> <p class="card-text"> <small> 
-							==========================================<br>
-							<li>Pak 1960 Indus Valley Treaty<br>
-							<li>Per capita income - increased<br>
-							<li>1971 - Bangla out<br>
-							<li>Country took loan and default - Pervez Musharaf took coup<br>
-							<li>Pervez liberalization, no subsidy, put general sales tax- but poor / job were less<br>
-							<li>Got loans from IMF<br>
-							<li>Imports were going more and more - from China - though exports more to US<br>
-							<li>CPEC - China Pak Energy corridor - improved connectivity - bcoz Pak had lot of imports from China<br>
-							<li>CPEC halted - Pak had no money<br>
-							<li>3 Trillion to 62 Trillion when Imran khan govt<br>
-							<li>3.3% of GDP itself is going to service interest<br>
-							<li>went 23 times in 75 yrs to IMF<br>
-							==========================================<br>
-							<li>Tata Tech gives tech to Electric tata cars <br>
-							<li>in 18 yrs - after TCS first time<br>
-							<li>Business Kohinoor Ratan Tata - KukuFM<br>
-							<li>No debt liability<br>
-							<li>Assets / Libailities - Tata has more (1.87) - Reliance 1:1 (assets equal to liabilities)<br>
-							<li>Aluminium alloy - light weight - good efficiency - but costly - Steel is heavy<br>
-							<li>Engineering company ERnD can give good prototypes<br>
-							<li>Tata Tech is ERnD - 3 verticals it has - a) Automotive Industry b) Aerospace (they did tool harmonization) - e.g. Screws if so many different types of screws - have one type - one screw driver - mass production - reduces cost - this is tool harmonization - 80% cost reduction c) Transportation & construction heavy machinery - Backhoe Loader (JCB) - Tata studied - came up with wide range of temp, powerful, drivers can sleep in - increased by 120% <br>
-							<li>Now IPO - bcoz EV revolution - be it India or outside US<br>
-							<li>Such an incredible - what risks a) 72% get from 5 clients only Jaguar b) only automative - if economy goes down, Tech might go down c) Talent pool in India - <br>
-							<li>
-						</small> </p>
-					</div>
-                </div>
-            </div>
-		</div>
-		
-		<!--Row-->
-        <div class="row">
-            <div class="col-md-6 col-lg-8">
-                <div class="card my-3">
-                    <img src="img/CalendarMake.jpg" class="card-image-top" alt="acquisitions">
-                    <div class="card-body">
-                        <h3 class="card-title">Open Excel and type =SEQUENCE(53,7,"1/1/2023") in first cell</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">notes</h3>
-                        <p class="card-text">
-							<small>
-							Open Excel and type =SEQUENCE(53,7,"1/1/2023") in first cell
-							</small>
-						</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<!--Row-->
-        <div class="row">
-            <div class="col-md-6 col-lg-8">
-                <div class="card my-3">
-                    <img src="img/CalendarMonthly.jpg" class="card-image-top" alt="acquisitions">
-                    <div class="card-body">
-                        <small>=SEQUENCE(6,7,$C$4-WEEKDAY($C$4,1)+1,1)</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h3 class="card-title">notes</h3>
-                        <p class="card-text">
-							<small>
-							Open Excel and type =SEQUENCE(6,7,$C$4-WEEKDAY($C$4,1)+1,1) in first cell<br>
-							Select all cells and format to 'd' (day)
-							</small>
-						</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<!--Row-->
-		<div class="row">  
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 3</h3> <p class="card-text"> <small> 
-							<li>Abrahalm Lincoln, Theodre Roosevelet, Woodrow Wilson - top 3 folks
-						</small> </p>
-					</div>
-                </div>
-            </div>
-			<div class="col-md-6 col-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-						<h3 class="card-title">US - Vol 4</h3> <p class="card-text"> <small> 
-							<li>BC 72 - so much Slavery in Romapuri - one who fought against is Spartacus - after 1820 OK
-						</small> </p>
-					</div>
-                </div>
-            </div>
-		</div>
-		
-    </div>
-</section>
+	'lingo': 'lingo.html',
+	'scrap2': 'scrap2.html',
+	'table': 'table.html',
+	'Notes': 'Notes.html',
+	
+	'WordQuiz': 'WordQuiz.html',
+	'C1 Exam': 'c1.html',
+	'Salesforce Developer': 'sf.html',
+	'Aura Code 1': 'AuraCode1.html',
+	'LWC JS': 'lwc_js.html',
+	'oldNewName': 'oldNewName.html'
+};
 
 
-</body>
-</html> 
 
+// keep a global reference to iframe as it will be needed multiple times
+myIframe = document.getElementById("my-iframe");
+
+function populateNavbar()
+{
+    // get reference to navbar
+    var myNavbar = document.getElementById("my-navbar");
+    for (var person in journalDetails)
+    {
+        // add a button for each person
+        // make it call main on click with event
+        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+    }
+}
+
+// we want to highlight which name was just clicked, to keep track of where in the index we currently are
+// to implement it we will have to clear this hightlight from previously clicked name
+// so keep last event handy to modify its highlight
+var lastEvent = null;
+
+function showIframe(currentEvent)
+{
+    // find title of button which was pressed
+    var person = currentEvent.target.textContent;
+
+    // clear highlight of last clicked name
+    if (lastEvent)
+    {
+        lastEvent.target.style.color = "#8ab4f8";
+        lastEvent.target.style.backgroundColor = "transparent";
+    }
+
+    // apply highlight to current clicked name
+    currentEvent.target.style.color = "black";
+    currentEvent.target.style.backgroundColor = "#8ab4f8";
+
+    // store current event as last event
+    lastEvent = currentEvent;
+    
+    // load iframe of this person's journal
+    myIframe.innerHTML = `<iframe src="${journalDetails[person]}" style="width: 100%; height: 100vh;"></iframe>`;
+
+    // prevent link from opening
+    currentEvent.preventDefault();
+}
+
+// populate navbar on pageload
+populateNavbar()
+
+// show first person's journal automatically
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Notes']}" style="width: 100%; height: 100vh;"></iframe>`;
