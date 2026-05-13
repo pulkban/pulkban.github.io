@@ -3,6 +3,7 @@ journalDetails = {
 
 	//--Udhay
 	'sep02':'Udhay',
+	'sf_admin': 'sf_admin.html',
 	'sf_pd2': 'sf_pd2.html',
 	'sf_sales': 'sf_sales.html',
 	'sf_service': 'sf_service.html',
