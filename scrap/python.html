@@ -313,6 +313,81 @@ def home(request):
     </div>
 
 
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+--models.py
+from django.db import models
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)	
+--serializers.py
+from rest_framework import serializers
+from .models import Student
+class StudentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"
+
+    def validate_name(self, value):
+        if len(value) &lt; 3:
+            raise serializers.ValidationError(
+                "Name must be at least 3 characters"
+            )
+        return value
+--views.py
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Student
+from .serializers import StudentSerializer
+
+@api_view(["GET", "POST"])
+def home(request):
+
+    if request.method == "POST":
+
+        serializer = StudentSerializer(data=request.data)
+
+		if serializer.is_valid():
+			serializer.save()
+
+			return Response(
+				{"message": "Student saved"},
+				status=status.HTTP_201_CREATED
+			)
+
+		return Response(
+			serializer.errors,
+			status=status.HTTP_400_BAD_REQUEST
+		)
+
+    students = Student.objects.all()
+    serializer = StudentSerializer(students, many=True)
+
+    return Response(serializer.data)
+----utils.py
+from django.urls import path
+from .views import home
+
+urlpatterns = [
+    path("", home),
+]
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+                <!--Your content here-->
+        </code></pre></div></div>
+      </div>
+    </div>
+
+
+
+
+
+
   </div>
 </section>
 
