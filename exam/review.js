@@ -10,6 +10,12 @@ if (typeof getQuestions !== "function") {
 
     const urlParams = new URLSearchParams(window.location.search);
     const questionIndex = parseInt(urlParams.get('index'));
+    // Accept user's selected answers as a comma-separated string (e.g., ?selected=A,B)
+    const selectedParam = urlParams.get('selected');
+    let selectedAnswers = [];
+    if (selectedParam) {
+        selectedAnswers = selectedParam.split(',');
+    }
 
     if (isNaN(questionIndex) || questionIndex < 0 || questionIndex >= questions.length) {
         document.getElementById('reviewQuestionContent').innerHTML = '<p class="text-danger">Question not found.</p>';
@@ -32,9 +38,10 @@ if (typeof getQuestions !== "function") {
 
         Object.entries(questionData.options).forEach(([key, value]) => {
             const isCorrect = questionData.answer.includes(key);
+            const isIncorrect = selectedAnswers.includes(key) && !isCorrect;
             questionHTML += `
-                <div class="option-item ${isCorrect ? 'correct-answer' : ''}">
-                    ${value} ${isCorrect ? ' (Correct Answer)' : ''}
+                <div class="option-item${isCorrect ? ' correct-answer' : ''}${isIncorrect ? ' incorrect-answer' : ''}">
+                    ${value} ${isCorrect ? ' (Correct Answer)' : ''}${isIncorrect ? ' (Your Answer)' : ''}
                 </div>
             `;
         });
