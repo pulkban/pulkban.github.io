@@ -1126,7 +1126,7 @@ window.getQuestions = function() {
 "C": "Flow Solutions",
 "D": "Bolt Solutions"
 },
-"answer": ["D"]
+"answer": ["C"]
 },
 {
 "question": "Which task is especially suited for Agentforce?",
