@@ -13,26 +13,91 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <style>
-	body {   font-family: 'Montserrat', sans-serif; }
+    body {font-family: 'Montserrat', sans-serif; background: #f3f5f8;}
+    .exam-layout {min-height: 100vh;}
+    .exam-sidebar {
+        width: 240px;
+        height: 100vh;
+        padding: 14px 12px;
+        background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+        border-right: 1px solid #e3ebf5;
+        box-shadow: 0 6px 16px rgba(20, 40, 70, 0.08);
+        overflow-y: auto;
+    }
+    .exam-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e6edf7;
+    }
+    #my-navbar b {
+        display: block;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #5a6d85;
+        margin: 10px 0 6px;
+    }
+    .exam-link {
+        display: block;
+        font-size: 0.88rem;
+        color: #1d3f6f;
+        text-decoration: none;
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        border-radius: 8px;
+        line-height: 1.2;
+    }
+    .exam-link:hover {background: #e7f1ff; color: #12355f;}
+    .exam-link.active {background: #cfe2ff; color: #0b2848; font-weight: 600;}
+    .exam-content {
+        margin-left: 240px;
+        padding: 12px;
+        width: calc(100% - 240px);
+        min-height: 100vh;
+    }
+    .exam-content iframe {
+        width: 100%;
+        height: calc(100vh - 24px);
+        border: none;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 8px 22px rgba(30, 45, 75, 0.08);
+    }
+    .exam-placeholder {
+        height: calc(100vh - 24px);
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 8px 22px rgba(30, 45, 75, 0.08);
+        border: 1px solid #e3ebf5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+    }
+    .exam-placeholder h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #183b66;
+    }
+    .exam-placeholder p {
+        margin: 0;
+        color: #58708f;
+        font-size: 0.98rem;
+    }
 </style>
 		
     </head>
 
     <body>
-        <div class="d-flex flex-row bd-highlight mb-3 align-items-stretch" style="height:100vh;">
-            <!--side bar showing all team members names and links-->
-            <div class="position-fixed p-2 bd-highlight text-left display-block overflow-auto" style="width:200; max-width: 200px; height:100vh;" >
-                <!--title of our site-->
-                <h1>Quiz / Exams</h1>
-                <!--buttons for each to persons page-->
-                <section id="my-navbar" class="pb-5">
-                </section>
+        <div class="exam-layout">
+            <div class="exam-sidebar position-fixed">
+                <h1 class="exam-title">Salesforce Model Questions</h1>
+                <section id="my-navbar" class="pb-4"></section>
             </div>
-
-            <!--main content showing iframe to that link-->
-            <div id="my-iframe" class="d-flex flex-fill bd-highlight" style="padding-left: 10%; padding-left: max(200px);">
-                
-            </div>
+            <div id="my-iframe" class="exam-content"></div>
         </div>
     </body>
 

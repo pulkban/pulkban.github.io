@@ -27,7 +27,8 @@ function startTimer() {
 function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     let seconds = (totalSeconds % 60).toString().padStart(2, '0');
-    document.getElementById("timer").textContent = `Time: ${minutes}:${seconds}`;
+    const timerText = document.getElementById("timerText");
+    if (timerText) timerText.textContent = `${minutes}:${seconds}`;
 }
 
 function stopTimer() {
@@ -53,11 +54,11 @@ function loadQuestion() {
         return showFinalResults();
     }
 	
-    // Check if the element exists before trying to update its content
-    const questionTotalElement = document.getElementById("questionTotal");
-    const questionPendingElement = document.getElementById("questionPending");
-    if (questionTotalElement) { questionTotalElement.textContent = `Total Questions: ${questions.length}`; }
-    if (questionPendingElement) { questionPendingElement.textContent = `Pending: ${questions.length - currentQuestionIndex}`; }
+    // Update new compact stats row
+    const totalText = document.getElementById("totalText");
+    const completedText = document.getElementById("completedText");
+    if (totalText) totalText.textContent = questions.length;
+    if (completedText) completedText.textContent = currentQuestionIndex;
 
     let questionData = questions[currentQuestionIndex];
     //document.getElementById("question").textContent = questionData.question;
@@ -139,7 +140,7 @@ function validateAnswer() {
     setTimeout(() => {
         for (let row of optionsTable) row.classList.remove("highlight-green", "highlight-red");
         if (!isCorrect) {
-            incorrectAnswers.push(questionData.question);
+            incorrectAnswers.push({ index: currentQuestionIndex, question: questionData.question });
             incorrectCount++;
         } else {
             correctCount++;
@@ -152,16 +153,25 @@ function validateAnswer() {
 }
 
 function updateScore() {
-    score++;
-    let scoreElement = document.getElementById("score");
-    scoreElement.textContent = `Score: ${score}`;
-    scoreElement.classList.add("highlight-green");
-    setTimeout(() => scoreElement.classList.remove("highlight-green"), 500);
+    score = correctCount;
+}
+
+function formatCurrentDateTime() {
+    const now = new Date();
+    const day = now.getDate().toString().padStart(2, '0');
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    return `${day}:${month}:${year} ${hours}:${minutes}`;
 }
 
 function updateCounters() {
-    document.getElementById("correctCounter").textContent = `Correct: ${correctCount}`;
-    document.getElementById("incorrectCounter").textContent = `Incorrect: ${incorrectCount}`;
+    const correctText = document.getElementById("correctText");
+    const incorrectText = document.getElementById("incorrectText");
+    if (correctText) correctText.textContent = correctCount;
+    if (incorrectText) incorrectText.textContent = incorrectCount;
 }
 
 function showAnswer() {
@@ -188,34 +198,26 @@ function showFinalResults() {
     document.getElementById("resultContainer").style.display = "block";
     
     document.getElementById("totalQuestions").textContent = questions.length;
-    document.getElementById("finalScore").textContent = score;
+    document.getElementById("finalScore").textContent = `${correctCount}/${incorrectCount}`;
 
     let minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     let seconds = (totalSeconds % 60).toString().padStart(2, '0');
     document.getElementById("finalTime").textContent = `${minutes}:${seconds}`;
+    document.getElementById("finalDate").textContent = formatCurrentDateTime();
 
 	const sfScriptTag = document.querySelector('script[src="sf.js"]');
 	const currentQuestionBank = sfScriptTag ? sfScriptTag.dataset.questionBank : 'sf_pd2.js'; // Default if not found or for testing
 
     let incorrectList = document.getElementById("incorrectQuestions");
     incorrectList.innerHTML = "";
-    incorrectAnswers.forEach(qText => { // qText is the question string itself
-        // Find the index of this question in the original 'questions' array
-        const originalIndex = questions.findIndex(q => q.question === qText);
-        if (originalIndex !== -1) {
-            let li = document.createElement("li");
-            let a = document.createElement("a");
-            a.href = `review_question.html?index=${originalIndex}&bank=${currentQuestionBank}`;
-            a.textContent = qText;
-            a.target = "_blank"; // Opens in a new tab
-            li.appendChild(a);
-            incorrectList.appendChild(li);
-        } else {
-            // Fallback if question text can't be matched (e.g., if question texts aren't unique)
-            let li = document.createElement("li");
-            li.textContent = qText + " (Original not found)";
-            incorrectList.appendChild(li);
-        }
+    incorrectAnswers.forEach(item => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.href = `review_question.html?index=${item.index}&bank=${currentQuestionBank}`;
+        a.textContent = item.question;
+        a.target = "_blank"; // Opens in a new tab
+        li.appendChild(a);
+        incorrectList.appendChild(li);
     });
 	
     // NEW: Display Marked Questions
@@ -246,9 +248,16 @@ function restartQuiz() {
     incorrectCount = 0;
     markedQuestions = []; // NEW: Reset marked questions on restart
 
-    document.getElementById("score").textContent = "Score: 0";
-    document.getElementById("correctCounter").textContent = "Correct: 0";
-    document.getElementById("incorrectCounter").textContent = "Incorrect: 0";
+    const correctText = document.getElementById("correctText");
+    const incorrectText = document.getElementById("incorrectText");
+    const completedText = document.getElementById("completedText");
+    const totalText = document.getElementById("totalText");
+    if (correctText) correctText.textContent = 0;
+    if (incorrectText) incorrectText.textContent = 0;
+    if (completedText && totalText) {
+        completedText.textContent = 0;
+        totalText.textContent = questions ? questions.length : 0;
+    }
 
     document.getElementById("quizContainer").style.display = "block";
     document.getElementById("resultContainer").style.display = "none";
