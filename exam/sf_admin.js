@@ -1336,7 +1336,7 @@ window.getQuestions = function() {
 "C": "Case Dashboard Refreshes",
 "D": "Case Escalation Rules"
 },
-"answer": ["D"]
+"answer": ["B"]
 },
 {
 "question": "When a qualified lead is converted, what happens to its related records?",
@@ -1347,7 +1347,7 @@ window.getQuestions = function() {
 "C": "All activities are attached to the resulting contact, account, and opportunity records.",
 "D": "Campaign history is attached to the resulting contact, account, and opportunity records."
 },
-"answer": ["D"]
+"answer": ["C"]
 },
 {
 "question": "A Platform Administrator deactivates an agent to add a new topic and action. What happens to any ongoing user conversations with the agent?",
