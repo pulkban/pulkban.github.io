@@ -25,15 +25,19 @@ window.showReviewModal = function(qIndex, selectedArr, questions, modalId = 'rev
     // Use the same image-processing logic as the quiz
     let formattedQuestion = (window.processQuestionTextForImages ? window.processQuestionTextForImages(q.question) : q.question);
     let html = `<div class='mb-2'><b>Question:</b><br>${formattedQuestion}</div><div><b>Options:</b><br>`;
-    Object.entries(q.options).forEach(([key, value]) => {
-        const isCorrect = Array.isArray(q.answer) ? q.answer.includes(key) : q.answer === key;
-        const isSelected = selectedArr && selectedArr.includes(key);
-        let label = '';
-        if (isCorrect && isSelected) label = ' (Your Answer & Correct Answer)';
-        else if (isCorrect) label = ' (Correct Answer)';
-        else if (isSelected) label = ' (Your Answer)';
-        html += `<div class='mb-1${isCorrect ? ' review-correct' : ''}${isSelected && !isCorrect ? ' review-incorrect' : ''}'>${value}${label}</div>`;
-    });
+    if (!q.options || Object.keys(q.options).length === 0) {
+        html += `<div class='text-muted'>No options available for this question.</div>`;
+    } else {
+        Object.entries(q.options).forEach(([key, value]) => {
+            const isCorrect = Array.isArray(q.answer) ? q.answer.includes(key) : q.answer === key;
+            const isSelected = selectedArr && selectedArr.includes(key);
+            let label = '';
+            if (isCorrect && isSelected) label = ' (Your Answer & Correct Answer)';
+            else if (isCorrect) label = ' (Correct Answer)';
+            else if (isSelected) label = ' (Your Answer)';
+            html += `<div class='mb-1${isCorrect ? ' review-correct' : ''}${isSelected && !isCorrect ? ' review-incorrect' : ''}'>${value}${label}</div>`;
+        });
+    }
     html += '</div>';
     document.getElementById(modalBodyId).innerHTML = html;
     let modal = new bootstrap.Modal(document.getElementById(modalId));
