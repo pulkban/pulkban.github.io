@@ -1006,6 +1006,651 @@ window.getQuestions = function() {
 
 
 
+{
+"question": "Cloud Kicks wants to ensure that every client has support based on the level of service that has been agreed on in the sales cycle. There are tiers to this support model, Gold, Silver, and Bronze. What should a Platform Administrator create to ensure that this is part of every client's account once they become a client?",
+"type": "single",
+"options": {
+"A": "A flow to assign Entitlements",
+"B": "Routing Configuration for each client",
+"C": "Email to Case for each service level",
+"D": "Case Assignment Rules for each client"
+},
+"answer": ["A"]
+},
+{
+"question": "What are three characteristics of a master-detail relationship? Choose 3 answers.",
+"type": "multiple",
+"options": {
+"A": "Permissions for the detail record are set independently of the master.",
+"B": "The owner field on the detail records is the owner of the master record.",
+"C": "Each object can have up to five master-detail relationships.",
+"D": "The master object can be a standard or custom object.",
+"E": "Roll-up summaries are supported in master-detail relationships."
+},
+"answer": ["B", "D", "E"]
+},
+{
+"question": "A Platform Administrator for Cloud Kicks needs to ensure that only the financial records belonging to each individual user are visible on the report in order to meet scope of the data privacy requirements. How should the administrator achieve this?",
+"type": "single",
+"options": {
+"A": "Set sharing model as Public Read/Write for the respective object(s)",
+"B": "Set sharing model as Private for the respective object(s).",
+"C": "Create multiple reports, each filtered to show records owned by each user.",
+"D": "Use Apex sharing to hide records."
+},
+"answer": ["B"]
+},
+{
+"question": "One of the sales managers at UC will be going on leave for several months. The executive wants to make sure the sales manager does not login to Salesforce while on leave.",
+"type": "single",
+"options": {
+"A": "Reassign the user license during the leave.",
+"B": "Change the login for that profile.",
+"C": "Freeze the user account.",
+"D": "Restrict login IP for the profile."
+},
+"answer": ["C"]
+},
+{
+"question": "A new agent is being developed to help customer service reps process customer requests for a replacement product. The agent needs to call an action that takes two inputs: productId and reasonCode. Which set of agent instructions should a Platform Administrator use for these inputs, according to best practices for Agentforce instructions?",
+"type": "single",
+"options": {
+"A": "Instructions for productId: 'The 18 character ID of the product.' Instructions for reasonCode: 'A numerical code.'",
+"B": "Instructions for productId: 'The product ID. Retrieve this from the conversation history or the user's input.' Instructions for reasonCode: 'The three-digit replacement reason. This is required when the product ID is present.'",
+"C": "Instructions for productId: 'ID from the product record.' Instructions for reasonCode: 'Code for the reason.'",
+"D": "Instructions for productId: 'The 18 character ID of the product. Retrieve this from the conversation history or the user's input. Required.' Instructions for reasonCode: 'A three-digit code that specifies the reason for replacement. This is required only when the product ID is present.'"
+},
+"answer": ["D"]
+},
+{
+"question": "The Sales director at Cloud Kicks wants to be able to predict upcoming revenue in the next several fiscal quarters so they can set goals and benchmark how reps are performing. Which two features should the administrator configure?",
+"type": "multiple",
+"options": {
+"A": "Opportunity Stages",
+"B": "Sales Quotes",
+"C": "Forecasting",
+"D": "Opportunity List View"
+},
+"answer": ["A", "C"]
+},
+{
+"question": "The client services and customer support teams share the same profile but have different permission sets. The custom object Retention related list needs to be restricted to the client services team on the Lightning record page layout. What should the administrator use to fulfill this request?",
+"type": "single",
+"options": {
+"A": "Record Type Assignment",
+"B": "Page Layout Assignment",
+"C": "Component Visibility",
+"D": "Sharing Settings"
+},
+"answer": ["C"]
+},
+{
+"question": "Users at Dream House Realty are only allowed to see opportunities they own. Leadership wants an enterprise-wide dashboard of all open opportunities in the pipeline so that users can see how the company is performing at any point in time. How should an administrator create the dashboard without changing any sharing settings?",
+"type": "single",
+"options": {
+"A": "Add a filter to the dashboard to filter the opportunities by owner role.",
+"B": "Update the dashboard folder settings to manager for the sales reps role.",
+"C": "Create a dashboard with the running user set as someone who can see all opportunities.",
+"D": "Build individual dashboards for profiles that need to see the enterprise results."
+},
+"answer": ["C"]
+},
+{
+"question": "The administrator at Cloud Kicks has a Custom picklist field on Lead, which is missing on the Contact when leads are converted. Which two items should the administrator do to make sure these values are populated?",
+"type": "multiple",
+"options": {
+"A": "Create a custom picklist field on Contact.",
+"B": "Update the picklist value with a validation rule.",
+"C": "Map the picklist field on the Lead to the Contact.",
+"D": "Set the picklist field to be required on the Lead Object."
+},
+"answer": ["A", "C"]
+},
+{
+"question": "The Sales manager at DreamHouse Realty wants the sales users to have a quick way to view and edit the Opportunities in their pipeline expected to close in the next 90 days. What should an administrator do to accomplish this request?",
+"type": "single",
+"options": {
+"A": "Create a custom report and schedule the sales users to receive it each day as a reminder to update their opportunities.",
+"B": "Enable Sales Console and show users how to open a tab for each opportunity in the pipeline that meets the requirements.",
+"C": "Create a list view on the Opportunity object and recommend users switch the view to Kanban to edit by drag and drop.",
+"D": "Make a new Sales dashboard and add a component that shows all opportunities that meet the criteria."
+},
+"answer": ["C"]
+},
+{
+"question": "DreamHouse Realty wants a templated process with a mortgage calculator that generates leads for loans. DHR needs to complete the project within 30 days and has maxed out its budget for the year. Which AppExchange Item should help the administrator meet the request?",
+"type": "single",
+"options": {
+"A": "Lightning Community",
+"B": "Lightning Data",
+"C": "Flow Solutions",
+"D": "Bolt Solutions"
+},
+"answer": ["D"]
+},
+{
+"question": "Which task is especially suited for Agentforce?",
+"type": "single",
+"options": {
+"A": "Single-step predefined processes",
+"B": "Static document generation",
+"C": "Multi-step processes that need adaption to change",
+"D": "Tasks without decision-making"
+},
+"answer": ["C"]
+},
+{
+"question": "A Platform Administrator at Universal Containers is asked to restrict login access for users to specific hours and specific IP addresses to help minimize the risk of bad actors getting into the org. Which setting should the administrator update to accomplish this?",
+"type": "single",
+"options": {
+"A": "Company Settings",
+"B": "The user's role",
+"C": "The user's profile",
+"D": "Custom permission sets"
+},
+"answer": ["C"]
+},
+{
+"question": "Ursa Major Solar wants to automatically notify a manager about any cases awaiting a response from an agent for more than 2 hours after case creation. Which feature should an administrator use to fulfill this requirement?",
+"type": "single",
+"options": {
+"A": "Formula field",
+"B": "Omni-Channel Supervisor",
+"C": "Case Escalation Rule",
+"D": "Assignment Rule"
+},
+"answer": ["C"]
+},
+{
+"question": "Dream House Realty has an approval process. A manager attempts to approve the record but receives an error. What should an administrator review to troubleshoot this request?",
+"type": "single",
+"options": {
+"A": "Add a delegated approver for the next approver in the process.",
+"B": "Update the field level security to view on fields that are updated in the process.",
+"C": "Check if the user in the next approver is inactive or missing",
+"D": "Review the page layout to ensure the fields updated in the process are visible"
+},
+"answer": ["C"]
+},
+{
+"question": "A platform admin needs to enable Agentforce for the service team. What is the most critical prerequisite for ensuring the service agents have a complete and accurate view of their customers?",
+"type": "single",
+"options": {
+"A": "Activate Email-to-Case for the agents.",
+"B": "Configure a new Service Console layout.",
+"C": "Verify Data Cloud is implemented.",
+"D": "Create new user profile for the agent."
+},
+"answer": ["C"]
+},
+{
+"question": "Northern Trail Outfitters wants to initiate expense reports from Salesforce to the external HR system. This process needs to be reviewed by managers and directors. Which two tools should an administrator configure?",
+"type": "multiple",
+"options": {
+"A": "Quick Action",
+"B": "Outbound Message",
+"C": "Email Alert Action",
+"D": "Approval Process"
+},
+"answer": ["B", "D"]
+},
+{
+"question": "Cloud Kicks has been seeing exponential growth and will be hiring additional sales reps and support reps. The support team will need access to the Service Console to manage cases. How should the administrator ensure the support reps have the appropriate access to the console?",
+"type": "single",
+"options": {
+"A": "Enable the Service Cloud User feature license for the support reps on the User Detail page.",
+"B": "Create a permission set for the Service Console and assign it to the support reps.",
+"C": "Build a Service Console using Lightning App Builder for the custom service profile.",
+"D": "Assign the Salesforce Platform User License to the support reps."
+},
+"answer": ["A"]
+},
+{
+"question": "A manager wants the sales team to update their opportunities on a regular basis. Which feature should a platform admin implement to help with this?",
+"type": "single",
+"options": {
+"A": "Similar Opportunities",
+"B": "Opportunity Update Reminders",
+"C": "Big Deal Alerts",
+"D": "Scheduled Reports"
+},
+"answer": ["B"]
+},
+{
+"question": "Cloud Kicks has a new administrator who is asked to put together a memo detailing Salesforce uses to budget for upcoming license purchases. Where should the administrator go to find out what type of licenses CK has purchased and how many are available?",
+"type": "single",
+"options": {
+"A": "Search for license types in Setup.",
+"B": "User Licenses Related List in Company Information.",
+"C": "User Management settings in Setup.",
+"D": "Usage Based Entitlement Related List in Company Information."
+},
+"answer": ["B"]
+},
+{
+"question": "Northern Trail Outfitters wants to ensure new Contacts are validated before they can be saved. If a user selects that the LeadSource picklist value is Other, NTO also wants to populate a custom text field called Source__c. Which validation rule should a Platform Administrator configure to meet this requirement?",
+"type": "single",
+"options": {
+"A": "AND(LeadSource = 'Other', Source__c = '')",
+"B": "AND(NOT(LeadSource = 'Other'), NOT(Source__c = ''))",
+"C": "AND(ISPICKVAL(LeadSource,'Other'), ISBLANK(Source__c))",
+"D": "AND(NOT(ISPICKVAL(LeadSource,'Other'))), NOT(ISBLANK(Source__c))"
+},
+"answer": ["C"]
+},
+{
+"question": "The Universal Containers sales team wants a visual way to manage their opportunity pipeline that allows them to see all deals at once, track progress through sales stages, and quickly move opportunities forward. Which feature should a Platform Administrator recommend to meet these requirements?",
+"type": "single",
+"options": {
+"A": "Set up opportunity reports with chart components and stage-based grouping.",
+"B": "Create a custom dashboard with opportunity pipeline charts and stage metrics.",
+"C": "Use the Kanban view for opportunities with card fields and drag-and-drop functionality.",
+"D": "Configure opportunity list views with custom filters and summary fields."
+},
+"answer": ["C"]
+},
+{
+"question": "Ursa Major Solar wants to roll out the Salesforce mobile app, and the first information it wants its users to see is the Top Opportunities report. What should a Platform Administrator configure to achieve this?",
+"type": "single",
+"options": {
+"A": "Add the Reports tab to the Salesforce mobile app.",
+"B": "Enable Today for the Salesforce mobile app.",
+"C": "Enable Mobile Home for the Salesforce mobile app.",
+"D": "Add the Dashboards tab to the Salesforce mobile app."
+},
+"answer": ["C"]
+},
+{
+"question": "A user at Northern Trail Outfitters is having trouble logging into Salesforce. The user's login history shows that this person has attempted to log in multiple times and has been locked out of the organization. Which two ways should the administrator help the user log into Salesforce?",
+"type": "multiple",
+"options": {
+"A": "Use the unlock button on the user's record detail page.",
+"B": "Reset password on the user's record detail page.",
+"C": "Reset the password policies to allow the user to login.",
+"D": "Log in as the user to unlock the user and reset the password."
+},
+"answer": ["A", "B"]
+},
+{
+"question": "Service reps in a call center do not have assigned desks. They sit at any available desk and use the computer on that desk to access Salesforce. A Platform Administrator has been asked to streamline the login process so the reps do not have to authenticate each time they log in at a different computer. Which function should the administrator use to implement this request?",
+"type": "single",
+"options": {
+"A": "Custom Profile",
+"B": "Trusted IP Ranges",
+"C": "Multi-factor Authentication",
+"D": "Permission Set"
+},
+"answer": ["B"]
+},
+
+{
+"question": "Universal Containers has two sales teams, Team A and Team B. Each team has their own role in the role hierarchy. Both roles are subordinates of the same Manager role. How should the administrator share records owned by sales Team A with Team B?",
+"type": "single",
+"options": {
+"A": "Hierarchical sharing",
+"B": "Use Manual sharing",
+"C": "Criteria based sharing",
+"D": "Owner based sharing"
+},
+"answer": ["D"]
+},
+{
+"question": "Cloud Kicks' management team is hoping to increase user productivity by switching to consoles instead of the current traditional Salesforce user interface. What should a Platform Administrator use to implement this request?",
+"type": "single",
+"options": {
+"A": "App Builder",
+"B": "Screen Flow",
+"C": "App Manager",
+"D": "Omni-Channel"
+},
+"answer": ["C"]
+},
+{
+"question": "A sales rep typically has several open opportunities for each of their accounts. Which tool should a Platform Administrator suggest to the sales rep to obtain the total number of accounts associated with open opportunities in a report?",
+"type": "single",
+"options": {
+"A": "Bucket Column",
+"B": "Report Filter",
+"C": "Unique Count",
+"D": "Group Rows"
+},
+"answer": ["C"]
+},
+{
+"question": "A Platform Administrator at Cloud Kicks is trying to set up a new user but receives an error about a duplicate username when trying to save the user record. What is causing this error to happen?",
+"type": "single",
+"options": {
+"A": "The username was not configured in the format of an email address.",
+"B": "The email address and username must be unique across all Salesforce orgs.",
+"C": "The username must be unique across all Salesforce orgs.",
+"D": "The username has a restricted domain name within it."
+},
+"answer": ["C"]
+},
+{
+"question": "Universal Containers customers have provided feedback that their support cases are not being responded to quickly enough. UC wants to send all unassigned Cases that have been open for more than 2 hours to an urgent Case queue and alert the support manager. Which feature should an administrator configure to meet this requirement?",
+"type": "single",
+"options": {
+"A": "Case Scheduled Reports",
+"B": "Case Assignment Rules",
+"C": "Case Dashboard Refreshes",
+"D": "Case Escalation Rules"
+},
+"answer": ["D"]
+},
+{
+"question": "When a qualified lead is converted, what happens to its related records?",
+"type": "single",
+"options": {
+"A": "Records from custom objects are attached to the resulting contact, account, and opportunity records.",
+"B": "Open activities only are attached to the resulting contact, account, and opportunity records.",
+"C": "All activities are attached to the resulting contact, account, and opportunity records.",
+"D": "Campaign history is attached to the resulting contact, account, and opportunity records."
+},
+"answer": ["D"]
+},
+{
+"question": "A Platform Administrator deactivates an agent to add a new topic and action. What happens to any ongoing user conversations with the agent?",
+"type": "single",
+"options": {
+"A": "The agent will pause the conversation and resume once reactivated.",
+"B": "The agent will continue conversations using the deactivated agent until reactivated.",
+"C": "The agent window automatically closes to prevent new messages.",
+"D": "The agent will send a system error message as a response to any new messages."
+},
+"answer": ["B"]
+},
+{
+"question": "At Cloud Kicks, when a rep needs to seek additional support help, there is a series of actions the company wants to ensure are taken. The steps include sending an email and changing the status and owner of the case. What should a Platform Administrator use to give the reps an easy way to make these updates?",
+"type": "single",
+"options": {
+"A": "Quick Text with Email Templates",
+"B": "Macros with Quick Actions",
+"C": "Autolaunched Flows with Email Alerts",
+"D": "Case Assignment Rules"
+},
+"answer": ["B"]
+},
+{
+"question": "There are multiple system administrators at Cloud Kicks that make configuration changes. Which tool gives the system administrators the ability to track these changes?",
+"type": "single",
+"options": {
+"A": "Health Check",
+"B": "Setup Audit Trail",
+"C": "Feed Tracking",
+"D": "History Tracking"
+},
+"answer": ["B"]
+},
+{
+"question": "A salesperson complains that the Log a Call button is missing from the highlights panel of an Opportunity page. What is the reason for this?",
+"type": "single",
+"options": {
+"A": "The Log a Call action will appear within the Activity Component as a standard behavior rather than the highlights panel.",
+"B": "The Log a Call action has not been added to the Salesforce Mobile and Lightning Experience Actions section of the page layout.",
+"C": "The custom Log a Call permission is missing from the user's profile and assigned permission sets.",
+"D": "The custom Log a Call permission has been disabled at the org level in Setup."
+},
+"answer": ["A"]
+},
+{
+"question": "Which feature gives a sales team the ability to prioritize deals with recent updates in the List view and Kanban view?",
+"type": "single",
+"options": {
+"A": "Big Deal Alerts",
+"B": "Report Filters",
+"C": "Deal Change Highlights",
+"D": "Opportunity Path"
+},
+"answer": ["C"]
+},
+{
+"question": "In an approval process, which feature allows a user to temporarily assign their approval responsibilities to another user for a predefined time period?",
+"type": "single",
+"options": {
+"A": "Approval Rule",
+"B": "Queue",
+"C": "Delegated Approver",
+"D": "Manager"
+},
+"answer": ["C"]
+},
+{
+"question": "Sales reps miss key fields when filling out an opportunity record through the sales process. Reps need to move forward in stages but are unable to enter a previous stage. Which three options should the administrator use to address this need?",
+"type": "multiple",
+"options": {
+"A": "Use Flow to mark fields required.",
+"B": "Configure Opportunity Path.",
+"C": "Mark fields required on the page layout.",
+"D": "Use validation rules.",
+"E": "Enable guided selling."
+},
+"answer": ["B", "D", "E"]
+},
+{
+"question": "A sales team is having difficulty understanding which stage the app is in and what the company sales process requires of them in that stage. Which features should a platform admin implement to help the sales team quickly determine where they are in the sales process and what is required of them?",
+"type": "single",
+"options": {
+"A": "Reports and dashboards",
+"B": "Opportunity Sales Path",
+"C": "Big deal alerts",
+"D": "List View"
+},
+"answer": ["B"]
+},
+{
+"question": "The sales reps at Cloud Kicks should be able to report on each other's account and opportunity records with the organization-wide default for account and opportunity both set to private. What should a platform admin do to achieve this?",
+"type": "single",
+"options": {
+"A": "Create an account and opportunity report to show any owned by each other member of the sales team and save the report into a shared report folder.",
+"B": "Create an owner-based sharing rule for account with sharing between public group of sales reps and read only opportunity access.",
+"C": "Utilize Apex sharing to share specific account and opportunity records between the sales reps.",
+"D": "Create manual sharing to share specific account and opportunity records between the sales reps."
+},
+"answer": ["B"]
+},
+{
+"question": "Ursa Major Solar wants to see collaboration and updates across various Chatter groups, records, and announcements from the CEO in a single place. What should a Platform Administrator configure to achieve this?",
+"type": "single",
+"options": {
+"A": "Chatter Group",
+"B": "Chatter Daily Digest",
+"C": "Chatter Feed",
+"D": "Chatter Stream"
+},
+"answer": ["D"]
+},
+{
+"question": "Universal Containers wants to track all stakeholders involved in its sales opportunities to ensure proper relationship management. Sales reps need to identify who has decision-making authority, who influences the buying process, and who serves as the primary contact for each deal. Which feature should a Platform Administrator configure to meet this requirement?",
+"type": "single",
+"options": {
+"A": "Configure opportunity team members to track internal and external stakeholders.",
+"B": "Set up account teams to track stakeholders across multiple opportunities.",
+"C": "Use standard fields on opportunities to track stakeholder information.",
+"D": "Use contact roles on opportunities to identify stakeholder involvement and influence."
+},
+"answer": ["D"]
+},
+{
+"question": "A Platform Administrator at Cloud Kicks needs to temporarily remove one dashboard from a shared folder with several dashboards to make some required changes. How should the administrator achieve this?",
+"type": "single",
+"options": {
+"A": "Remove View access to the shared folder.",
+"B": "Edit the dashboard properties and move it to a private dashboards folder.",
+"C": "Remove the permission set to the dashboard from the users.",
+"D": "Create a private group and add the dashboard to it."
+},
+"answer": ["B"]
+},
+{
+"question": "The VP of sales at AW Computing would like sales reps to check in with their top account every Monday. The VP would like a dashboard component to show the status of the check-ins. What should a Platform Administrator configure to remind the reps to contact their top account?",
+"type": "single",
+"options": {
+"A": "Create a time-based workflow task.",
+"B": "Enable the creation of recurring tasks.",
+"C": "Add the email action to the page layout.",
+"D": "Use a process email alert on the account."
+},
+"answer": ["B"]
+},
+{
+"question": "In an approval process, what happens when a queue is selected as the approver?",
+"type": "single",
+"options": {
+"A": "The queue requires unanimous approval from all of its members before the record is approved.",
+"B": "Any member of the queue can approve or reject the record and the queue is treated as a single entity.",
+"C": "Only the queue owner is notified about the approval request, not its members.",
+"D": "The queue can only be used for objects that do not support individual user approvals."
+},
+"answer": ["B"]
+},
+{
+"question": "The call center manager at Ursa Major Solar wants to provide agents with a case dashboard that can be drilled down by case origin, status, and owner. What should an administrator add to the dashboard to fulfill the request?",
+"type": "single",
+"options": {
+"A": "Bucket Column",
+"B": "Dashboard Component",
+"C": "Dashboard Filter",
+"D": "Combination Chart"
+},
+"answer": ["C"]
+},
+{
+"question": "A Platform Administrator is building an agent to help an ecommerce support team. The agent needs to call an action, named updateShippingAddress, that modifies a customer's shipping address in the system. Which set of Action Instructions should the administrator use for the updateShippingAddress action, according to best practices?",
+"type": "single",
+"options": {
+"A": "Use this to update shipping information. It's used for any changes to a customer's address in the system.",
+"B": "This action updates the customer's shipping address. It is to be used when a user wants to change their address. Only use this when a customer does not have an active order in the system.",
+"C": "This action allows for the changing of a shipping address, and the goal is to make sure the address is current and accurate.",
+"D": "Updates the shipping address for a customer order. The goal of the action is to modify the address on a customer's record. The agent should only use this action when the user explicitly requests to change their address."
+},
+"answer": ["D"]
+},
+{
+"question": "An agent is being developed with several actions that all retrieve information from different databases. A Platform Administrator has named the actions as follows: GetCustomerInfo, GetOrderDetails, GetShippingStatus. Which best practice should the administrator follow to improve these names?",
+"type": "single",
+"options": {
+"A": "Remove all verbs and use only nouns, such as CustomerInfo, OrderDetails, and ShippingStatus.",
+"B": "Add the word 'Salesforce' to the beginning of each action name to improve context for the large language model.",
+"C": "Use a consistent naming convention by starting each action with the verb 'Get'.",
+"D": "Use additional related verbs, such as Find, Retrieve, or Identify."
+},
+"answer": ["C"]
+},
+{
+"question": "An administrator at Cloud Kicks wants to deactivate a User who has left the company. What are two reasons that would prevent a user from being deactivated?",
+"type": "multiple",
+"options": {
+"A": "The user is part of a territory hierarchy.",
+"B": "The User is in a Custom hierarchy field.",
+"C": "The User is assigned in workflow email alert.",
+"D": "The User is the highest role in the role hierarchy"
+},
+"answer": ["A", "C"]
+},
+{
+"question": "The administrator at Ursa Major Solar imported records into an object by mistake. Which two tools should be used to undo this import?",
+"type": "multiple",
+"options": {
+"A": "Data Loader",
+"B": "Data Import Wizard",
+"C": "Mass Delete Records",
+"D": "Weekly Data Export"
+},
+"answer": ["A", "C"]
+},
+{
+"question": "What is the next step an agent performs when the tasks within an agentic loop are all unsatisfactory?",
+"type": "single",
+"options": {
+"A": "Provides the best answer possible with caveats",
+"B": "Gives an error message",
+"C": "Routes to a live agent",
+"D": "Asks for additional information"
+},
+"answer": ["D"]
+},
+
+{
+"question": "Cloud Kicks wants dashboards for sales and service teams but the administrator does not know where to start. What should the administrator do?",
+"type": "single",
+"options": {
+"A": "Use the Salesforce Labs Field Service Dashboards for service teams from AppExchange.",
+"B": "Enable Einstein Analytics and build custom dashboards using advanced analytics tools.",
+"C": "Use the Salesforce Labs CRM Dashboards for sales teams from AppExchange.",
+"D": "Manually create dashboards without using any prebuilt templates or packages."
+},
+"answer": ["C"]
+},
+{
+"question": "Cloud Kicks wants Agentforce to adapt its behavior based on real-time customer input. Which feature directly enables this capability?",
+"type": "single",
+"options": {
+"A": "Data Cloud",
+"B": "Custom actions",
+"C": "Screen flow",
+"D": "Tableau"
+},
+"answer": ["A"]
+},
+{
+"question": "Which action should a Platform Administrator configure to reverse a submitted approval request and unlock the associated record when setting up an approval process?",
+"type": "single",
+"options": {
+"A": "Final Rejection Actions",
+"B": "Recall Actions",
+"C": "Final Approval Actions",
+"D": "Initial Submission Actions"
+},
+"answer": ["B"]
+},
+{
+"question": "Which component of an approval process defines the chain of approval, determines which records can advance, and specifies where to assign approval requests?",
+"type": "single",
+"options": {
+"A": "Process Definition Detail",
+"B": "Approval Steps",
+"C": "Entry Criteria",
+"D": "Approval Actions"
+},
+"answer": ["B"]
+},
+{
+"question": "A Platform Administrator at Cloud Kicks wants to deactivate a User who has left the company. What are two reasons that would prevent a user from being deactivated?",
+"type": "multiple",
+"options": {
+"A": "The user is part of a territory hierarchy.",
+"B": "The User is in a Custom hierarchy field.",
+"C": "The User is assigned in workflow email alert.",
+"D": "The User is the highest role in the role hierarchy"
+},
+"answer": ["A", "C"]
+},
+{
+"question": "The administrator at Ursa Major Solar imported records into an object by mistake. Which two tools should be used to undo this import?",
+"type": "multiple",
+"options": {
+"A": "Data Loader",
+"B": "Data Import Wizard",
+"C": "Mass Delete Records",
+"D": "Weekly Data Export"
+},
+"answer": ["A", "C"]
+},
+{
+"question": "What is the next step an agent performs when the tasks within an agentic loop are all unsatisfactory?",
+"type": "single",
+"options": {
+"A": "Provides the best answer possible with caveats",
+"B": "Gives an error message",
+"C": "Routes to a live agent",
+"D": "Asks for additional information"
+},
+"answer": ["D"]
+}
+
+
+
 	
 ];
 };
