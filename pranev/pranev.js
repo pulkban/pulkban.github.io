@@ -1,11 +1,10 @@
-journalDetails = {
+const journalDetails = {
 
 	'Falling Words': 'fallingWords.html',
 	'Falling Words 2': 'fallingWords2.html',
 	'Falling Pics': 'fallingPics.html',
 	'Falling Table': 'fallingTables.html',
 	'Clock': 'clock.html',
-	'Quiz': 'q.html',
 	
 	'Falling 2E GK': 'falling2E.html',
 	'Falling 6A GK': 'falling6A.html',
@@ -23,7 +22,7 @@ journalDetails = {
 
 
 // keep a global reference to iframe as it will be needed multiple times
-myIframe = document.getElementById("my-iframe");
+const myIframe = document.getElementById("my-iframe");
 
 function populateNavbar()
 {
@@ -35,10 +34,10 @@ function populateNavbar()
         // make it call main on click with event
 		if(person.startsWith("sep")) {
 			console.log('you saw sep');
-			myNavbar.innerHTML += `<hr><b>${journalDetails[person]}</b><hr>`;
+            myNavbar.innerHTML += `<b>${journalDetails[person]}</b>`;
 			
 		} else {
-			myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`;
+            myNavbar.innerHTML += `<a class='exam-link' href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a>`;
 		}
     }
 }
@@ -54,21 +53,18 @@ function showIframe(currentEvent)
     var person = currentEvent.target.textContent;
 
     // clear highlight of last clicked name
-    if (lastEvent)
-    {
-        lastEvent.target.style.color = "#8ab4f8";
-        lastEvent.target.style.backgroundColor = "transparent";
+    if (lastEvent) {
+        lastEvent.target.classList.remove("active");
     }
 
     // apply highlight to current clicked name
-    currentEvent.target.style.color = "black";
-    currentEvent.target.style.backgroundColor = "#8ab4f8";
+    currentEvent.target.classList.add("active");
 
     // store current event as last event
     lastEvent = currentEvent;
     
     // load iframe of this person's journal
-    myIframe.innerHTML = `<iframe src="${journalDetails[person]}" style="width: 100%; height: 100vh;"></iframe>`;
+    myIframe.innerHTML = `<iframe src="${journalDetails[person]}"></iframe>`;
 
     // prevent link from opening
     currentEvent.preventDefault();
@@ -78,5 +74,5 @@ function showIframe(currentEvent)
 populateNavbar()
 
 // show first shloka by default
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Quiz']}" style="width: 100%; height: 100vh;"></iframe>`;
+document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Quiz']}"></iframe>`;
 

@@ -87,15 +87,15 @@
     <div class="container">
         <div class="quiz-container">
             <h1 class="text-center">7th Olympiad GK Quiz</h1>
-            <div class="d-flex justify-content-between">
-                <div id="timer">Time: 00:00</div>
-                <div id="score">Score: 0</div>
-            </div>
-
-            <!-- New counters for correct and incorrect answers -->
-            <div class="d-flex justify-content-between mt-2">
-                <div id="correctCounter">Correct: 0</div>
-                <div id="incorrectCounter">Incorrect: 0</div>
+            <div class="row align-items-center g-2 mb-2" style="font-size:1.1rem;">
+                <div class="col-3 text-start"><span id="timer"><span id="timerText">00:00</span></span></div>
+                <div class="col-6 text-center">
+                    <span id="correctCounter" style="color:green">Correct: <span id="correctText">0</span></span>
+                    <span id="incorrectCounter" style="color:red; margin-left:16px">Incorrect: <span id="incorrectText">0</span></span>
+                </div>
+                <div class="col-3 text-end">
+                    <span id="completedTotal"><span id="completedText">0</span>/<span id="totalText">0</span></span>
+                </div>
             </div>
 
             <div id="quizContainer" class="mt-3">
@@ -119,11 +119,32 @@
 
             <div id="resultContainer" class="mt-4" style="display:none;">
                 <h2>Quiz Completed</h2>
-                <p>Total Questions: <span id="totalQuestions"></span></p>
-                <p>Final Score: <span id="finalScore"></span></p>
-                <p>Total Time Taken: <span id="finalTime"></span></p>
+                <div class="row g-2 mb-3" style="font-size:1.1rem;">
+                    <div class="col-md-3 col-6"><strong>Total Qs:</strong> <span id="totalQuestions"></span></div>
+                    <div class="col-md-3 col-6"><strong>Score:</strong> <span id="finalScore"></span></div>
+                    <div class="col-md-3 col-6"><strong>Time Taken:</strong> <span id="finalTime"></span></div>
+                    <div class="col-md-3 col-6"><strong>Date:</strong> <span id="finalDate"></span></div>
+                </div>
                 <h3>Incorrect Questions:</h3>
                 <ul id="incorrectQuestions"></ul>
+
+                <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reviewModalLabel">Review Question</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="reviewModalBody"></div>
+                        </div>
+                    </div>
+                </div>
+
+				<style>
+.review-correct { background: lightgreen; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+.review-incorrect { background: #ffb3b3; color: #a10000; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+</style>
+				<script defer src="review_modal.js"></script>
 				<div id="markedQuestionsSection" style="display:none;">
 					<h3>Questions Marked for Review:</h3>
 					<ul id="markedQuestionsList"></ul>

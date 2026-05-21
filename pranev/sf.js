@@ -7,6 +7,18 @@ let correctCount = 0;
 let incorrectCount = 0;
 let questions; // No need to redeclare, it's set dynamically
 let markedQuestions = []; // NEW: Array to store marked question indices or questions themselves
+let selectedAnswersByIndex = {}; // Keep selected answers for modal review of marked questions
+
+function syncCurrentMarkState() {
+    const markCheckbox = document.getElementById("markQuestion");
+    if (!markCheckbox || currentQuestionIndex >= (questions ? questions.length : 0)) return;
+
+    if (markCheckbox.checked && !markedQuestions.includes(currentQuestionIndex)) {
+        markedQuestions.push(currentQuestionIndex);
+    } else if (!markCheckbox.checked && markedQuestions.includes(currentQuestionIndex)) {
+        markedQuestions = markedQuestions.filter(index => index !== currentQuestionIndex);
+    }
+}
 
 function startQuiz() {
     if (!questions || questions.length === 0) {
@@ -27,7 +39,8 @@ function startTimer() {
 function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     let seconds = (totalSeconds % 60).toString().padStart(2, '0');
-    document.getElementById("timer").textContent = `Time: ${minutes}:${seconds}`;
+    const timerText = document.getElementById("timerText");
+    if (timerText) timerText.textContent = `${minutes}:${seconds}`;
 }
 
 function stopTimer() {
@@ -52,12 +65,12 @@ function loadQuestion() {
     if (currentQuestionIndex >= questions.length) {
         return showFinalResults();
     }
-	
-    // Check if the element exists before trying to update its content
-    const questionTotalElement = document.getElementById("questionTotal");
-    const questionPendingElement = document.getElementById("questionPending");
-    if (questionTotalElement) { questionTotalElement.textContent = `Total Questions: ${questions.length}`; }
-    if (questionPendingElement) { questionPendingElement.textContent = `Pending: ${questions.length - currentQuestionIndex}`; }
+
+    // Update compact stats row
+    const totalText = document.getElementById("totalText");
+    const completedText = document.getElementById("completedText");
+    if (totalText) totalText.textContent = questions.length;
+    if (completedText) completedText.textContent = currentQuestionIndex;
 
     let questionData = questions[currentQuestionIndex];
     //document.getElementById("question").textContent = questionData.question;
@@ -112,16 +125,12 @@ function loadQuestion() {
 }
 
 function validateAnswer() {
-    // NEW: Check if the current question was marked before moving to the next
-    const markCheckbox = document.getElementById("markQuestion");
-    if (markCheckbox.checked && !markedQuestions.includes(currentQuestionIndex)) {
-        markedQuestions.push(currentQuestionIndex); // Add to marked questions if checked and not already added
-    } else if (!markCheckbox.checked && markedQuestions.includes(currentQuestionIndex)) {
-        markedQuestions = markedQuestions.filter(index => index !== currentQuestionIndex); // Remove if unchecked
-    }
-	
+    // Keep mark state in sync before moving ahead
+    syncCurrentMarkState();
+
     let questionData = questions[currentQuestionIndex];
     let selectedOptions = Array.from(document.querySelectorAll('input[name="answer"]:checked')).map(input => input.value);
+    selectedAnswersByIndex[currentQuestionIndex] = [...selectedOptions];
     let correctAnswers = questionData.answer;
 
     let isCorrect = selectedOptions.length === correctAnswers.length && selectedOptions.every(ans => correctAnswers.includes(ans));
@@ -139,7 +148,7 @@ function validateAnswer() {
     setTimeout(() => {
         for (let row of optionsTable) row.classList.remove("highlight-green", "highlight-red");
         if (!isCorrect) {
-            incorrectAnswers.push(questionData.question);
+            incorrectAnswers.push({ index: currentQuestionIndex, question: questionData.question, selected: selectedOptions });
             incorrectCount++;
         } else {
             correctCount++;
@@ -152,16 +161,25 @@ function validateAnswer() {
 }
 
 function updateScore() {
-    score++;
-    let scoreElement = document.getElementById("score");
-    scoreElement.textContent = `Score: ${score}`;
-    scoreElement.classList.add("highlight-green");
-    setTimeout(() => scoreElement.classList.remove("highlight-green"), 500);
+    score = correctCount;
+}
+
+function formatCurrentDateTime() {
+    const now = new Date();
+    const day = now.getDate().toString().padStart(2, '0');
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const month = months[now.getMonth()];
+    const year = now.getFullYear();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    return `${day}:${month}:${year} ${hours}:${minutes}`;
 }
 
 function updateCounters() {
-    document.getElementById("correctCounter").textContent = `Correct: ${correctCount}`;
-    document.getElementById("incorrectCounter").textContent = `Incorrect: ${incorrectCount}`;
+    const correctText = document.getElementById("correctText");
+    const incorrectText = document.getElementById("incorrectText");
+    if (correctText) correctText.textContent = correctCount;
+    if (incorrectText) incorrectText.textContent = incorrectCount;
 }
 
 function showAnswer() {
@@ -178,7 +196,30 @@ function showAnswer() {
 }
 
 function finishQuiz() {
-    // This function will directly jump to the final results screen.
+    syncCurrentMarkState();
+    // If not past last question, evaluate the current selection before results.
+    if (currentQuestionIndex < questions.length) {
+        let questionData = questions[currentQuestionIndex];
+        let selectedOptions = Array.from(document.querySelectorAll('input[name="answer"]:checked')).map(input => input.value);
+        selectedAnswersByIndex[currentQuestionIndex] = [...selectedOptions];
+        let correctAnswers = questionData.answer;
+        let isCorrect = selectedOptions.length === correctAnswers.length && selectedOptions.every(ans => correctAnswers.includes(ans));
+
+        if (!isCorrect) {
+            if (!incorrectAnswers.some(item => item.index === currentQuestionIndex)) {
+                incorrectAnswers.push({ index: currentQuestionIndex, question: questionData.question, selected: selectedOptions });
+                incorrectCount++;
+            }
+        } else {
+            if (selectedOptions.length > 0 && !incorrectAnswers.some(item => item.index === currentQuestionIndex)) {
+                correctCount++;
+                updateScore();
+            }
+        }
+        updateCounters();
+        currentQuestionIndex = questions.length;
+    }
+
     showFinalResults();
 }
 
@@ -188,35 +229,24 @@ function showFinalResults() {
     document.getElementById("resultContainer").style.display = "block";
     
     document.getElementById("totalQuestions").textContent = questions.length;
-    document.getElementById("finalScore").textContent = score;
+    document.getElementById("finalScore").textContent = `${correctCount}/${correctCount + incorrectCount}`;
 
     let minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     let seconds = (totalSeconds % 60).toString().padStart(2, '0');
     document.getElementById("finalTime").textContent = `${minutes}:${seconds}`;
+    const finalDate = document.getElementById("finalDate");
+    if (finalDate) finalDate.textContent = formatCurrentDateTime();
 
-	const sfScriptTag = document.querySelector('script[src="sf.js"]');
-	const currentQuestionBank = sfScriptTag ? sfScriptTag.dataset.questionBank : 'sf_pd2.js'; // Default if not found or for testing
-
-    let incorrectList = document.getElementById("incorrectQuestions");
-    incorrectList.innerHTML = "";
-    incorrectAnswers.forEach(qText => { // qText is the question string itself
-        // Find the index of this question in the original 'questions' array
-        const originalIndex = questions.findIndex(q => q.question === qText);
-        if (originalIndex !== -1) {
-            let li = document.createElement("li");
-            let a = document.createElement("a");
-            a.href = `review_question.html?index=${originalIndex}&bank=${currentQuestionBank}`;
-            a.textContent = qText;
-            a.target = "_blank"; // Opens in a new tab
-            li.appendChild(a);
-            incorrectList.appendChild(li);
-        } else {
-            // Fallback if question text can't be matched (e.g., if question texts aren't unique)
-            let li = document.createElement("li");
-            li.textContent = qText + " (Original not found)";
-            incorrectList.appendChild(li);
-        }
-    });
+    // Use shared modal review logic
+    if (typeof window.setupReviewModal === 'function') {
+        window.setupReviewModal({
+            questions,
+            incorrectAnswers,
+            containerId: 'incorrectQuestions',
+            modalId: 'reviewModal',
+            modalBodyId: 'reviewModalBody'
+        });
+    }
 	
     // NEW: Display Marked Questions
     let markedList = document.getElementById("markedQuestionsList");
@@ -225,11 +255,22 @@ function showFinalResults() {
         document.getElementById("markedQuestionsSection").style.display = "block";
         markedQuestions.forEach(index => {
             let li = document.createElement("li");
-            let a = document.createElement("a");
-            a.href = `review_question.html?index=${index}&bank=${currentQuestionBank}`;
-            a.textContent = questions[index].question; // Display the question text
-            a.target = "_blank"; // Opens in a new tab
-            li.appendChild(a);
+            let btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "btn btn-link p-0 text-start";
+            btn.style.wordBreak = "break-word";
+            btn.textContent = questions[index].question;
+            btn.onclick = function() {
+                window.showReviewModal(
+                    index,
+                    selectedAnswersByIndex[index] || [],
+                    questions,
+                    "reviewModal",
+                    "reviewModalBody",
+                    "Marked for Review"
+                );
+            };
+            li.appendChild(btn);
             markedList.appendChild(li);
         });
     } else {
@@ -245,10 +286,18 @@ function restartQuiz() {
     correctCount = 0;
     incorrectCount = 0;
     markedQuestions = []; // NEW: Reset marked questions on restart
+    selectedAnswersByIndex = {};
 
-    document.getElementById("score").textContent = "Score: 0";
-    document.getElementById("correctCounter").textContent = "Correct: 0";
-    document.getElementById("incorrectCounter").textContent = "Incorrect: 0";
+    const correctText = document.getElementById("correctText");
+    const incorrectText = document.getElementById("incorrectText");
+    const completedText = document.getElementById("completedText");
+    const totalText = document.getElementById("totalText");
+    if (correctText) correctText.textContent = 0;
+    if (incorrectText) incorrectText.textContent = 0;
+    if (completedText && totalText) {
+        completedText.textContent = 0;
+        totalText.textContent = questions ? questions.length : 0;
+    }
 
     document.getElementById("quizContainer").style.display = "block";
     document.getElementById("resultContainer").style.display = "none";
