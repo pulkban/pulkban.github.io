@@ -6,6 +6,7 @@ journalDetails = {
 
 	//--Frequent
 	'sep88':'Frequent',
+	'SuryaShatakam': 'Suryashatakam.html',
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'GaneshaPanchaRatnam': 'GaneshaPanchaRatnam.html',
 	'VishnuSahasraNamam': 'VishnuSahasraNamam.html',
