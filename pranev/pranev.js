@@ -3,12 +3,12 @@ const journalDetails = {
 	'Falling Words': 'fallingWords.html',
 	'Falling Words 2': 'fallingWords2.html',
 	'Falling Pics': 'fallingPics.html',
-	'Falling Table': 'fallingTables.html',
-	'Clock': 'clock.html',
-	
+	'Falling Table': 'fallingTables.html',	
 	'Falling 2E GK': 'falling2E.html',
 	'Falling 6A GK': 'falling6A.html',
 	'falling2EHindi': 'falling2EHindi.html',
+    
+	'Clock': 'clock.html',
 	'olympiad_comp': 'olympiad_comp.html',
 	'Q Pranev 3H': 'q.html',
 	
@@ -73,6 +73,15 @@ function showIframe(currentEvent)
 // populate navbar on pageload
 populateNavbar()
 
-// show first shloka by default
-document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Quiz']}"></iframe>`;
+// show first menu item by default
+const firstMenuItem = Object.keys(journalDetails).find((key) => !key.startsWith("sep"));
+if (firstMenuItem) {
+    document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails[firstMenuItem]}"></iframe>`;
+
+    const firstLink = document.querySelector("#my-navbar .exam-link");
+    if (firstLink) {
+        firstLink.classList.add("active");
+        lastEvent = { target: firstLink };
+    }
+}
 
