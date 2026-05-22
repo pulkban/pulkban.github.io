@@ -1,94 +1,224 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-  <title>Pranev Questions</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pranev Questions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
+    <script src="sf.js"></script>
+    <script src="qb_general.js?v=1"></script>
+    <script src="qb_langarts.js?v=1"></script>
+    <script src="qbSocial.js?v=1"></script>
+    <script src="qbLiterature.js?v=1"></script>
+    <script src="qbComputers.js?v=1"></script>
+    <script src="qbMaths.js?v=1"></script>
+    <script src="qbKannada.js?v=1"></script>
+    <script src="qbHindi.js?v=1"></script>
+    <script src="qb_pics.js?v=1"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  
-  <script type = "text/javascript" src="q.js?v=1"></script>
-  <script type = "text/javascript" src="qb_general.js?v=1"></script>
-  <script type = "text/javascript" src="qb_langarts.js?v=1"></script>
-  <script type = "text/javascript" src="qbSocial.js?v=1"></script>
-  <script type = "text/javascript" src="qbLiterature.js?v=1"></script>
-  <script type = "text/javascript" src="qbComputers.js?v=1"></script>
-  <script type = "text/javascript" src="qbMaths.js?v=1"></script>
-  <script type = "text/javascript" src="qbKannada.js?v=1"></script>
-  <script type = "text/javascript" src="qbHindi.js?v=1"></script>
-  <script type = "text/javascript" src="qb_pics.js?v=1"></script>
-  
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	<style>
-	body {
-	  font-family: 'Montserrat', sans-serif;
-	}
-	</style>
-	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .quiz-container {
+            background: white;
+            padding: 16px 20px 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 100%;
+            margin: 10px auto;
+        }
+        .quiz-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .quiz-table th, .quiz-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .quiz-table th { background-color: #007bff; color: white; }
+        .highlight-green { background-color: lightgreen; transition: background-color 0.8s ease-in-out; }
+        .highlight-red   { background-color: lightcoral; transition: background-color 0.8s ease-in-out; }
+        #score, #timer { font-size: 20px; font-weight: bold; color: #007bff; }
+        #question { text-align: left; font-size: 20px; font-weight: bold; }
+        .option-input { width: 20px; height: 20px; }
+        .option-cell  { width: 50px; }
+        #correctCounter, #incorrectCounter { font-size: 18px; font-weight: bold; margin-top: 10px; }
+        #correctCounter   { color: green; }
+        #incorrectCounter { color: red; }
+        #explanationText  { color: gray; margin-top: 20px; font-style: italic; }
+        .setup-panel select { font-size: 0.95rem; padding: 4px 8px; border-radius: 6px; border: 1px solid #ced4da; }
+        .setup-panel label  { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+        .review-correct   { background: lightgreen; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+        .review-incorrect { background: #ffb3b3; color: #a10000; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+    </style>
 </head>
 
-<body onload="loadWords()">
-<div class="m-4">
-	<br>
-	<h2 class="text-center"><strong>Pranev questions - Grade 3H</strong></h2>
-	<hr style="border-top: 2px dotted red" />
+<body>
+    <div class="container">
+        <div class="quiz-container">
 
-	<label for="chapters">Choose a Bank:</label>
-	<select name="chapters" id="chapters" onchange="nextQuote()">
-	  <option value="1">General</option>
-	  <option value="2">Social</option>
-	  <option value="3">Language Arts</option>
-	  <option value="4">Literature</option>
-	  <option value="5">Computers</option>
-	  <option value="6">Maths</option>
-	  <option value="7">Kannada</option>
-	  <option value="8">Hindi</option>
-	  <option value="9">Pics</option>
-	</select>
-	&nbsp;&nbsp;
-	<label for="choice">Move in:</label>
-	<select name="choice" id="choice">
-	  <option value="order">Order</option>
-	  <option value="random">Random</option>
-	</select>
-	<br><br>
-	<label class="display-6 float-right bg-warning font-weight-bold p-2" id="lblScore">Score: </label>
-	<br><br>
-	<!--Display QUESTION here -->
-	<div class="row"><h1 class="display-6 text-danger"><label id="question">Question</label></h1></div>
-	
+            <!-- Setup: bank + order + GO -->
+            <div class="setup-panel row align-items-end g-2 mb-3">
+                <div class="col-auto">
+                    <label for="chapters">Choose a Bank:</label><br>
+                    <select id="chapters">
+                        <option value="1">General</option>
+                        <option value="2">Social</option>
+                        <option value="3">Language Arts</option>
+                        <option value="4">Literature</option>
+                        <option value="5">Computers</option>
+                        <option value="6">Maths</option>
+                        <option value="7">Kannada</option>
+                        <option value="8">Hindi</option>
+                        <option value="9">Pics</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <label for="choice">Move in:</label><br>
+                    <select id="choice">
+                        <option value="order">Order</option>
+                        <option value="random">Random</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button id="goBtn" class="btn btn-success" onclick="startQBank()">GO</button>
+                </div>
+            </div>
 
-	
-	<!--Display OPTIONS here -->
-	<div id="AllOptions">
-		<!--OPTIONS -->
-	</div>
+            <!-- Stats row (hidden until GO) -->
+            <div id="statsRow" class="row align-items-center g-2 mb-2" style="font-size:1.1rem; display:none;">
+                <div class="col-3 text-start"><span id="timer"><span id="timerText">00:00</span></span></div>
+                <div class="col-6 text-center">
+                    <span id="correctCounter" style="color:green">Correct: <span id="correctText">0</span></span>
+                    <span id="incorrectCounter" style="color:red; margin-left:16px">Incorrect: <span id="incorrectText">0</span></span>
+                </div>
+                <div class="col-3 text-end">
+                    <span id="completedTotal"><span id="completedText">0</span>/<span id="totalText">0</span></span>
+                </div>
+            </div>
 
-	<!--ANSWER -->
-	<blockquote><p class="h2" id="answer">Answer</p></blockquote>
-	
-	<div class="row">
-		<div class="col-sm-6"> <button type="button" accesskey="a" class="btn btn-warning w-100" onclick = "showAnswer()">Show Answer</button> </div>
-		<div class="col-sm-6"><button type="button" accesskey="n" class="btn btn-success w-100" onclick = "nextQuote()">Next Question</button></div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-sm-6"> <button type="button" accesskey="l" id="show" class="btn btn-info w-100" onclick = "showAll()">Show All</button> </div>
-		<div class="col-sm-6"><button type="button" accesskey="h" id="hide" class="btn btn-info w-100" onclick = "hideAll()">Hide All</button></div>
-	</div>
-	
+            <!-- Quiz area (hidden until GO) -->
+            <div id="quizContainer" style="display:none;">
+                <h4 id="question"></h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="markQuestion">
+                    <label class="form-check-label" for="markQuestion">Mark for Review</label>
+                </div>
+                <table class="quiz-table">
+                    <tbody id="options"></tbody>
+                </table>
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-danger" onclick="finishQuiz()">Finish</button>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" onclick="validateAnswer()">Next</button>
+                        <button class="btn btn-warning" onclick="showAnswer()">Show Answer</button>
+                    </div>
+                </div>
+                <div id="explanationText"></div>
+            </div>
 
-	
-	<!--TABLE-->
-	<div id="qsTable" class="bg-light">
-	</div>
+            <!-- Results (hidden until quiz ends) -->
+            <div id="resultContainer" class="mt-4" style="display:none;">
+                <h2>Quiz Completed</h2>
+                <div class="row g-2 mb-3" style="font-size:1.1rem;">
+                    <div class="col-md-3 col-6"><strong>Total Qs:</strong> <span id="totalQuestions"></span></div>
+                    <div class="col-md-3 col-6"><strong>Score:</strong> <span id="finalScore"></span></div>
+                    <div class="col-md-3 col-6"><strong>Time Taken:</strong> <span id="finalTime"></span></div>
+                    <div class="col-md-3 col-6"><strong>Date:</strong> <span id="finalDate"></span></div>
+                </div>
+                <h3>Incorrect Questions:</h3>
+                <ul id="incorrectQuestions"></ul>
 
-</div>
+                <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reviewModalLabel">Review Question</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="reviewModalBody"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <script defer src="review_modal.js"></script>
+                <div id="markedQuestionsSection" style="display:none;">
+                    <h3>Questions Marked for Review:</h3>
+                    <ul id="markedQuestionsList"></ul>
+                </div>
+                <button class="btn btn-success" onclick="restartQuiz()">Restart Quiz</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var _bankQuestions = null; // cache the base bank for restart
+
+        function startQBank() {
+            var bankVal = document.getElementById('chapters').value;
+            var bankMap = {
+                '1': qbGeneral,
+                '2': qbSocial,
+                '3': qbLanguageArts,
+                '4': qbLiterature,
+                '5': qbComputers,
+                '6': qbMaths,
+                '7': qbKannada,
+                '8': qbHindi,
+                '9': qbPics
+            };
+            var base = bankMap[bankVal] || qbGeneral;
+            _bankQuestions = base.slice(); // store for restart
+
+            var orderVal = document.getElementById('choice').value;
+            var arr = base.slice();
+            if (orderVal === 'random') {
+                for (var i = arr.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+                }
+            }
+            questions = arr;
+
+            // Disable setup controls
+            document.getElementById('chapters').disabled = true;
+            document.getElementById('choice').disabled = true;
+            document.getElementById('goBtn').disabled = true;
+
+            // Show stats row
+            document.getElementById('statsRow').style.display = 'flex';
+
+            // Reset sf.js state and start
+            currentQuestionIndex = 0;
+            score = 0;
+            totalSeconds = 0;
+            incorrectAnswers = [];
+            correctCount = 0;
+            incorrectCount = 0;
+            markedQuestions = [];
+            selectedAnswersByIndex = {};
+
+            document.getElementById('correctText').textContent = '0';
+            document.getElementById('incorrectText').textContent = '0';
+            document.getElementById('completedText').textContent = '0';
+            document.getElementById('timerText').textContent = '00:00';
+
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'none';
+
+            startQuiz();
+        }
+    </script>
 </body>
 </html>
