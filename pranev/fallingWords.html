@@ -94,13 +94,21 @@
         let isPaused = false;
         let currentWord = null;
         let fallDuration = 3; // Default fall duration
+        let runSeq = 0;
+        let answerTimerId = null;
 
-		function showAnswerAtNinetyPercent(answer, questionFontSizePx) {
-			const showDelay = fallDuration * 900;
-			setTimeout(() => {
+        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        const isCurrentRun = (runId) => runId === runSeq;
+
+		function showAnswerAtNinetyPercent(answer, questionFontSizePx, runId) {
+			clearTimeout(answerTimerId);
+			answerTimerId = setTimeout(() => {
+				if (!isCurrentRun(runId)) {
+					return;
+				}
 				answerDisplay.textContent = answer;
 				answerDisplay.style.fontSize = `${questionFontSizePx / 2}px`;
-			}, showDelay);
+			}, fallDuration * 900);
 		}
         
         function shuffleArray(array) {
@@ -110,7 +118,10 @@
             }
         }
         
-        function createFallingWord(word) {
+        function createFallingWord(word, runId) {
+            if (!isCurrentRun(runId)) {
+                return Promise.resolve(false);
+            }
             return new Promise(resolve => {
                 const div = document.createElement('div');
                 div.className = 'falling-word';
@@ -119,37 +130,40 @@
                 container.appendChild(div);
                 currentWord = div;
 				const questionFontSizePx = parseFloat(getComputedStyle(div).fontSize) || 32;
-				showAnswerAtNinetyPercent(word, questionFontSizePx);
+				showAnswerAtNinetyPercent(word, questionFontSizePx, runId);
                 
                 div.addEventListener('animationend', () => {
-                    container.removeChild(div);
-                    resolve();
-                });
+                    if (container.contains(div)) {
+                        container.removeChild(div);
+                    }
+                    if (isCurrentRun(runId)) {
+                        answerDisplay.textContent = '';
+                    }
+                    resolve(isCurrentRun(runId));
+                }, { once: true });
             });
         }
         
 		async function startFallingWords() {
+			const runId = ++runSeq;
 			const selectedLevel = document.querySelector('input[name="level"]:checked').value;
 			const words = [...levelWords[selectedLevel]]; // Clone array to avoid mutations
+			clearTimeout(answerTimerId);
 			container.innerHTML = ''; // Clear previous words before starting
 			answerDisplay.textContent = '';
+			currentWord = null;
 			isPaused = false; // Ensure it starts in unpaused mode
 
-			while (true) { // Infinite loop for repeating the game
+			while (isCurrentRun(runId)) { // Infinite loop for repeating the game
 				shuffleArray(words);
-				for (let i = 0; i < words.length; i++) {
-					if (isPaused) {
-						await new Promise(resolve => {
-							const checkPause = setInterval(() => {
-								if (!isPaused) {
-									clearInterval(checkPause);
-									resolve();
-								}
-							}, 100);
-						});
+				for (const word of words) {
+					while (isPaused && isCurrentRun(runId)) {
+						await sleep(100);
 					}
-					await createFallingWord(words[i]);
-					await new Promise(resolve => setTimeout(resolve, 500)); // Short delay before next word
+					if (!isCurrentRun(runId) || !(await createFallingWord(word, runId))) {
+						return;
+					}
+					await sleep(500); // Short delay before next word
 				}
 			}
 		}
