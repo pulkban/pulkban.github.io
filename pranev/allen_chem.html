@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ALLEN Chemistry</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script defer src="review_modal.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        html, body { overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f8f9fa; margin: 0; }
+        .quiz-container { background: white; padding: 16px 20px 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 1200px; width: 100%; margin: 12px auto; }
+        .quiz-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .quiz-table th, .quiz-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .quiz-table th { background-color: #007bff; color: white; }
+        .highlight-green { background-color: lightgreen; transition: background-color 0.8s ease-in-out; }
+        .highlight-red { background-color: lightcoral; transition: background-color 0.8s ease-in-out; }
+        .option-input { width: 20px; height: 20px; }
+        .option-cell { width: 50px; }
+        #mc-question { text-align: left; font-size: 20px; font-weight: bold; }
+        #mc-explanation { color: gray; margin-top: 20px; font-style: italic; }
+        .setup-panel select { font-size: 0.95rem; padding: 4px 8px; border-radius: 6px; border: 1px solid #ced4da; min-width: 170px; }
+        .setup-panel label { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+        .stat-pill { font-size: 1.05rem; font-weight: 700; color: #0b4f9a; }
+        .controls-row { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .controls-row select { width: auto; min-width: 110px; }
+        #falling-words-container { position: relative; height: 313px; overflow: hidden; }
+        #answer-display { min-height: 1.4em; margin-top: 8px; color: #a8adb5; line-height: 1.2; }
+        @keyframes fall { 0% { top: 0; opacity: 1; } 100% { top: 90%; opacity: 0; } }
+        .falling-item.question { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; animation: fall 5s linear forwards; font-size: 1.7em; white-space: pre-wrap; max-width: 95%; }
+        .review-correct { background: lightgreen; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+        .review-incorrect { background: #ffb3b3; color: #a10000; border-radius: 5px; padding: 4px 8px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <h1 class="text-center">ALLEN Chemistry</h1>
+
+            <div class="setup-panel row align-items-end g-2 mb-3">
+                <div class="col-auto">
+                    <label for="identifier-select">Identifier:</label><br>
+                    <select id="identifier-select"></select>
+                </div>
+                <div class="col-auto">
+                    <label for="style-select">Style:</label><br>
+                    <select id="style-select">
+                        <option value="">Select Style</option>
+                        <option value="multiple">multiple choice</option>
+                        <option value="floating">floating</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button id="go-btn" class="btn btn-success" disabled>GO</button>
+                </div>
+            </div>
+
+            <section id="mc-section" style="display:none;">
+                <div class="row align-items-center g-2 mb-2" style="font-size:1.1rem;">
+                    <div class="col-3 text-start"><span class="stat-pill">Time: <span id="mc-timer-text">00:00</span></span></div>
+                    <div class="col-6 text-center">
+                        <span class="stat-pill text-success">Correct: <span id="mc-correct-text">0</span></span>
+                        <span class="stat-pill text-danger" style="margin-left:16px">Incorrect: <span id="mc-incorrect-text">0</span></span>
+                    </div>
+                    <div class="col-3 text-end">
+                        <span class="stat-pill"><span id="mc-completed-text">0</span>/<span id="mc-total-text">0</span></span>
+                    </div>
+                </div>
+
+                <div id="mc-quiz-container" class="mt-3">
+                    <h4 id="mc-question"></h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mc-mark-question">
+                        <label class="form-check-label" for="mc-mark-question">Mark for Review</label>
+                    </div>
+                    <table class="quiz-table">
+                        <tbody id="mc-options"></tbody>
+                    </table>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button id="mc-finish-btn" class="btn btn-danger" accesskey="f">Finish</button>
+                        <div class="d-flex gap-2">
+                            <button id="mc-next-btn" class="btn btn-primary" accesskey="n">Next</button>
+                            <button id="mc-show-answer-btn" class="btn btn-warning" accesskey="s">Show Answer</button>
+                        </div>
+                    </div>
+                    <div id="mc-explanation" style="display:none;"></div>
+                </div>
+
+                <div id="mc-result" class="mt-4" style="display:none;">
+                    <h2>Quiz Completed</h2>
+                    <div class="row g-2 mb-3" style="font-size:1.1rem;">
+                        <div class="col-md-3 col-6"><strong>Total Qs:</strong> <span id="mc-final-total"></span></div>
+                        <div class="col-md-3 col-6"><strong>Score:</strong> <span id="mc-final-score"></span></div>
+                        <div class="col-md-3 col-6"><strong>Time Taken:</strong> <span id="mc-final-time"></span></div>
+                        <div class="col-md-3 col-6"><strong>Date:</strong> <span id="mc-final-date"></span></div>
+                    </div>
+                    <h3>Incorrect Questions:</h3>
+                    <ul id="mc-incorrect-list"></ul>
+                    <div id="mc-marked-section" style="display:none;">
+                        <h3>Questions Marked for Review:</h3>
+                        <ul id="mc-marked-list"></ul>
+                    </div>
+                    <button id="mc-restart-btn" class="btn btn-success">Restart Quiz</button>
+                </div>
+            </section>
+
+            <section id="falling-section" class="text-center" style="display:none;">
+                <div id="falling-words-container"></div>
+                <div class="controls-row">
+                    <button id="falling-start-btn" class="btn btn-primary">Start Game</button>
+                    <button id="falling-show-answer-btn" class="btn btn-info">Show Answer</button>
+                    <button id="falling-pause-btn" class="btn btn-warning">Pause</button>
+                    <select id="falling-speed-select" class="form-control">
+                        <option value="1">1 sec</option>
+                        <option value="3" selected>3 sec</option>
+                        <option value="5">5 sec</option>
+                    </select>
+                </div>
+                <div id="answer-display"></div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel">Review Question</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="reviewModalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="allen_chem.js"></script>
+    <script src="allen_module.js"></script>
+</body>
+</html>

@@ -48,15 +48,24 @@ function stopTimer() {
 }
 
 function processQuestionTextForImages(text) {
-    // Regular expression to find <<filename.ext>> where ext can be jpg, jpeg, png, gif
-    // The `gi` flags make it global (find all matches) and case-insensitive
-    const imagePattern = /{{([^>]+\.(?:jpg|jpeg|png|gif))}}/gi;
+    const input = String(text || '');
 
-    // Replace each found pattern with an <img> tag
-    return text.replace(imagePattern, (match, filename) => {
-        // You can customize the img tag with alt text, width, height, or classes
-        return `<img src="${filename}" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;">`;
-    });
+    function buildImageTag(imagePath) {
+        const path = String(imagePath || '').trim();
+        if (!path) {
+            return '';
+        }
+        if (/\.(?:png|jpe?g)$/i.test(path)) {
+            return `<img src="${path}" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;">`;
+        }
+        const safePath = path.replace(/"/g, '&quot;');
+        return `<img src="${safePath}.png" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;" onerror="if(!this.dataset.tryJpg){this.dataset.tryJpg='1';this.src='${safePath}.jpg';}else if(!this.dataset.tryJpeg){this.dataset.tryJpeg='1';this.src='${safePath}.jpeg';}else{this.style.display='none';}">`;
+    }
+
+    let rendered = input.replace(/{{([^}]+)}}/gi, (match, filename) => buildImageTag(filename));
+    rendered = rendered.replace(/\/n\s*(?:>>>|&gt;&gt;&gt;)\s*([A-Za-z0-9_./-]+)/gi, (match, filename) => `<br>${buildImageTag(filename)}`);
+    rendered = rendered.replace(/(?:>>>|&gt;&gt;&gt;)\s*([A-Za-z0-9_./-]+)/gi, (match, filename) => buildImageTag(filename));
+    return rendered;
 }
 
 function loadQuestion() {

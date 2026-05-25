@@ -5,7 +5,7 @@ const journalDetails = {
 	'sep01': 'Falling',
 	'Falling Words': 'fallingWords.html',
 	'Falling Words 2': 'fallingWords2.html',
-	'Falling Pics': 'fallingPics.html',
+	'Falling Pic (foot, flag)': 'fallingPics.html',
 	'Falling Table': 'fallingTables.html',
 	'Falling 2E GK': 'falling2E.html',
 	'Falling 6A GK': 'falling6A.html',
@@ -16,6 +16,12 @@ const journalDetails = {
 	'Q Pranev 3H': 'q.html',
 	'vup_gk': 'vup_gk.html',
 	'vup_maths': 'vup_maths.html',
+
+    'sep03': 'ALLEN 8',
+    'allen_physics': 'allen_physics.html',
+    'allen_chem': 'allen_chem.html',
+    'allen_bio': 'allen_bio.html',
+    'allen_maths': 'allen_maths.html',
 
 };
 
