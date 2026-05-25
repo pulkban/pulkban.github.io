@@ -11,36 +11,70 @@
             text-align: center;
             font-family: Arial, sans-serif;
             padding-top: 20px;
+            min-height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle at 20% 20%, #f8fafc, #e2e8f0);
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
         .clock-container {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 340px;
+            height: 340px;
             margin: 20px auto;
-            border: 5px solid black;
+            border: 10px solid #1f2937;
             border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
         }
         .clock-number span {
             position: absolute;
-            transform: translate(-50%, -50%);
-            font-size: 20px; /* Increased font size */
+            left: 50%;
+            top: 50%;
+            transform: rotate(calc(var(--n) * 30deg)) translateY(-128px) rotate(calc(var(--n) * -30deg));
+            font-size: 20px;
             font-weight: bold;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Bootstrap font */
+            color: #111827;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
         }
         .hour-hand, .minute-hand {
             position: absolute;
-            width: 8px; /* Increased thickness */
-            height: 80px;
-            background: black;
-            transform-origin: bottom;
+            transform-origin: bottom center;
             bottom: 50%;
             left: 50%;
             transform: translateX(-50%) rotate(0deg);
-            clip-path: polygon(50% 0%, 100% 100%, 50% 80%, 0% 100%);
+            border-radius: 999px;
+        }
+        .hour-hand {
+            width: 12px;
+            height: 92px;
+            background: linear-gradient(180deg, #374151, #111827);
+            z-index: 3;
         }
         .minute-hand {
-            height: 100px;
-            background: red;
+            width: 8px;
+            height: 128px;
+            background: linear-gradient(180deg, #ef4444, #b91c1c);
+            z-index: 2;
+        }
+        .clock-container::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0f172a;
+            border: 3px solid #f8fafc;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
         }
         .clock-number {
             position: absolute;
@@ -52,30 +86,95 @@
         .clock-number span {
             position: absolute;
         }
+        .answer-box {
+            min-height: 42px;
+            margin-top: 8px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #b91c1c;
+            opacity: 0;
+            transform: translateY(-24px);
+            transition: opacity 0.2s ease;
+        }
+        .answer-box.flash {
+            opacity: 1;
+            animation: fallFlash 900ms ease-out;
+        }
+        @keyframes fallFlash {
+            0% {
+                opacity: 0;
+                transform: translateY(-36px) scale(0.96);
+            }
+            35% {
+                opacity: 1;
+                transform: translateY(8px) scale(1.08);
+            }
+            60% {
+                transform: translateY(-4px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Read Time</h1> <!-- Added title -->
-    <button class="btn btn-primary mb-3" onclick="setRandomTime()">Set Random Time</button>
+    <div class="controls">
+        <select id="durationSelect" class="form-select" style="width: 160px;">
+            <option value="1">1 sec</option>
+            <option value="3">3 sec</option>
+            <option value="5" selected>5 sec</option>
+            <option value="10">10 sec</option>
+        </select>
+        <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+    </div>
     <div class="clock-container">
         <div class="hour-hand" id="hourHand"></div>
         <div class="minute-hand" id="minuteHand"></div>
         <div class="clock-number">
-            <span style="top: 10%; left: 50%">12</span>
-            <span style="top: 15%; left: 70%">1</span>
-            <span style="top: 30%; left: 90%">2</span>
-            <span style="top: 50%; left: 95%">3</span>
-            <span style="top: 70%; left: 90%">4</span>
-            <span style="top: 85%; left: 70%">5</span>
-            <span style="top: 90%; left: 50%">6</span>
-            <span style="top: 85%; left: 25%">7</span>
-            <span style="top: 70%; left: 10%">8</span>
-            <span style="top: 50%; left: 5%">9</span>
-            <span style="top: 30%; left: 10%">10</span>
-            <span style="top: 15%; left: 25%">11</span>
+            <span style="--n: 0">12</span>
+            <span style="--n: 1">1</span>
+            <span style="--n: 2">2</span>
+            <span style="--n: 3">3</span>
+            <span style="--n: 4">4</span>
+            <span style="--n: 5">5</span>
+            <span style="--n: 6">6</span>
+            <span style="--n: 7">7</span>
+            <span style="--n: 8">8</span>
+            <span style="--n: 9">9</span>
+            <span style="--n: 10">10</span>
+            <span style="--n: 11">11</span>
         </div>
     </div>
+    <div id="answerBox" class="answer-box"></div>
     <script>
+        let currentTimeLabel = "";
+        let answerTimer = null;
+        let roundTimer = null;
+        let gameRunning = false;
+
+        function getReadableTime(hours, minutes) {
+            const hh = hours.toString().padStart(2, '0');
+            const mm = minutes.toString().padStart(2, '0');
+            return `${hh}:${mm}`;
+        }
+
+        function showAnswerFlash(text) {
+            const answerBox = document.getElementById('answerBox');
+            answerBox.textContent = text;
+            answerBox.classList.remove('flash');
+            void answerBox.offsetWidth;
+            answerBox.classList.add('flash');
+        }
+
+        function clearAnswerFlash() {
+            const answerBox = document.getElementById('answerBox');
+            answerBox.classList.remove('flash');
+            answerBox.textContent = '';
+        }
+
         function setRandomTime() {
             let hours = Math.floor(Math.random() * 12) + 1;
             let minutes = [0, 15, 30, 45][Math.floor(Math.random() * 4)];
@@ -83,7 +182,41 @@
             let minuteDeg = minutes * 6;
             document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
             document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+            currentTimeLabel = getReadableTime(hours, minutes);
         }
+
+        function startGame() {
+            gameRunning = true;
+            runRound();
+        }
+
+        function runRound() {
+            if (answerTimer) {
+                clearTimeout(answerTimer);
+            }
+            if (roundTimer) {
+                clearTimeout(roundTimer);
+            }
+
+            clearAnswerFlash();
+            setRandomTime();
+
+            const durationSeconds = Number(document.getElementById('durationSelect').value);
+            const totalMs = durationSeconds * 1000;
+            const revealMs = Math.floor(totalMs * 0.9);
+
+            answerTimer = setTimeout(() => {
+                showAnswerFlash(`Answer: ${currentTimeLabel}`);
+            }, revealMs);
+
+            roundTimer = setTimeout(() => {
+                if (gameRunning) {
+                    runRound();
+                }
+            }, totalMs);
+        }
+
+        setRandomTime();
     </script>
 </body>
 </html>
