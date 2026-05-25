@@ -1,19 +1,19 @@
 const journalDetails = {
 
+	'Clock': 'clock.html',
+
+	'sep01': 'Falling',
 	'Falling Words': 'fallingWords.html',
 	'Falling Words 2': 'fallingWords2.html',
 	'Falling Pics': 'fallingPics.html',
-	'Falling Table': 'fallingTables.html',	
+	'Falling Table': 'fallingTables.html',
 	'Falling 2E GK': 'falling2E.html',
 	'Falling 6A GK': 'falling6A.html',
 	'falling2EHindi': 'falling2EHindi.html',
-    
-	'Clock': 'clock.html',
+
+	'sep02': 'Pranev',
 	'olympiad_comp': 'olympiad_comp.html',
 	'Q Pranev 3H': 'q.html',
-	
-	//--Pranev
-	'sep01':'Pranev',
 	'vup_gk': 'vup_gk.html',
 	'vup_maths': 'vup_maths.html',
 

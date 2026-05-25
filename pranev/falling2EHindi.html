@@ -7,15 +7,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         html, body {
-            height: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         body {
             margin: 0;
         }
         .container {
-            max-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .controls-row {
             display: flex;
@@ -58,7 +56,7 @@
 <body>
     <div class="container text-center">
         <h1>Falling Questions</h1>
-        <div id="falling-words-container" style="position: relative; height: 250px; overflow: hidden;"></div>
+        <div id="falling-words-container" style="position: relative; height: 313px; overflow: hidden;"></div>
         <div class="controls-row">
             <select id="level-select" class="form-control">
                 <option value="hindi">Hindi</option>
@@ -150,6 +148,7 @@
                 div.className = 'falling-item';
                 div.classList.add('question');
                 div.textContent = itemObj.text;
+                answerDisplay.textContent = '';
                 div.style.animation = `fall ${fallDuration}s linear forwards`;
                 div.style.animationPlayState = isPaused ? 'paused' : 'running';
                 container.appendChild(div);

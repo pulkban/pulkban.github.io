@@ -6,56 +6,21 @@
     <title>Falling Multiplication Questions</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-        body {
-            margin: 0;
-        }
-        .container {
-            max-height: 100vh;
-            overflow: hidden;
-        }
-        .controls-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .controls-row select {
-            width: auto;
-            min-width: 110px;
-        }
-        .controls-row .btn {
-            margin: 0;
-        }
-        #answer-display {
-            min-height: 1.4em;
-            margin-top: 8px;
-            color: #a8adb5;
-            line-height: 1.2;
-        }
-        @keyframes fall {
-            0% { top: 0; opacity: 1; }
-            100% { top: 90%; opacity: 0; }
-        }
-        .falling-question {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 4em;
-            text-align: center;
-            animation: fall 5s linear forwards;
-        }
+        html, body { overflow-x: hidden; }
+        body { margin: 0; }
+        .container { overflow-x: hidden; }
+        .controls-row { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .controls-row select { width: auto; min-width: 110px; }
+        .controls-row .btn { margin: 0; }
+        #answer-display { min-height: 1.4em; margin-top: 8px; color: #a8adb5; line-height: 1.2; }
+        @keyframes fall { 0% { top: 0; opacity: 1; } 100% { top: 90%; opacity: 0; } }
+        .falling-question { position: absolute; left: 50%; transform: translateX(-50%); font-size: 4em; text-align: center; animation: fall 5s linear forwards; }
     </style>
 </head>
 <body>
     <div class="container text-center">
         <h1>Falling Multiplication Questions</h1>
-        <div id="falling-words-container" style="position: relative; height: 250px; overflow: hidden;"></div>
+        <div id="falling-words-container" style="position: relative; height: 313px; overflow: hidden;"></div>
         <div class="controls-row">
             <button class="btn btn-primary" onclick="startFallingQuestions()">Start Game</button>
             <button class="btn btn-warning" onclick="togglePause()">Pause</button>
@@ -72,14 +37,12 @@
         function generateMultiplicationQuestions() {
             const questions = [];
             const tables = [2, 3, 4, 5, 6, 7, 8, 9];
-            while (questions.length < 10) {
-                const table = tables[Math.floor(Math.random() * tables.length)];
-                const multiplier = Math.floor(Math.random() * 9) + 1; // 1 to 10
-                const question = `${table} x ${multiplier} =`;
-                if (!questions.includes(question)) {
-                    questions.push(question);
+            for (const table of tables) {
+                for (let multiplier = 1; multiplier <= 12; multiplier++) {
+                    questions.push(`${table} x ${multiplier} =`);
                 }
             }
+            shuffleArray(questions);
             return questions;
         }
 
@@ -88,6 +51,8 @@
         let isPaused = false;
         let currentQuestion = null;
         let fallDuration = 3;
+        let gameId = 0;
+        let answerTimerId = null;
 
         function getTableAnswer(question) {
             const match = question.match(/(\d+)\s*x\s*(\d+)/i);
@@ -99,7 +64,8 @@
 
         function showAnswerAtNinetyPercent(answer, questionFontSizePx) {
             const showDelay = fallDuration * 900;
-            setTimeout(() => {
+            clearTimeout(answerTimerId);
+            answerTimerId = setTimeout(() => {
                 answerDisplay.textContent = answer;
                 answerDisplay.style.fontSize = `${questionFontSizePx / 2}px`;
             }, showDelay);
@@ -117,6 +83,7 @@
                 const div = document.createElement('div');
                 div.className = 'falling-question';
                 div.textContent = question;
+                answerDisplay.textContent = '';
                 div.style.animation = `fall ${fallDuration}s linear forwards`;
                 div.style.animationPlayState = isPaused ? 'paused' : 'running';
                 container.appendChild(div);
@@ -133,26 +100,37 @@
 
         async function startFallingQuestions() {
             const questions = generateMultiplicationQuestions();
+            const thisGameId = ++gameId;
+            let index = 0;
+            clearTimeout(answerTimerId);
             container.innerHTML = '';
             answerDisplay.textContent = '';
             isPaused = false;
 
-            while (true) {
-                shuffleArray(questions);
-                for (let i = 0; i < questions.length; i++) {
-                    if (isPaused) {
-                        await new Promise(resolve => {
-                            const checkPause = setInterval(() => {
-                                if (!isPaused) {
-                                    clearInterval(checkPause);
-                                    resolve();
-                                }
-                            }, 100);
-                        });
-                    }
-                    await createFallingQuestion(questions[i]);
-                    await new Promise(resolve => setTimeout(resolve, 500));
+            while (thisGameId === gameId) {
+                if (isPaused) {
+                    await new Promise(resolve => {
+                        const checkPause = setInterval(() => {
+                            if (!isPaused || thisGameId !== gameId) {
+                                clearInterval(checkPause);
+                                resolve();
+                            }
+                        }, 100);
+                    });
                 }
+
+                if (thisGameId !== gameId) {
+                    break;
+                }
+
+                if (index >= questions.length) {
+                    shuffleArray(questions);
+                    index = 0;
+                }
+
+                await createFallingQuestion(questions[index]);
+                index++;
+                await new Promise(resolve => setTimeout(resolve, 500));
             }
         }
 

@@ -7,15 +7,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
 		html, body {
-			height: 100%;
-			overflow: hidden;
+			overflow-x: hidden;
 		}
 		body {
 			margin: 0;
 		}
 		.container {
-			max-height: 100vh;
-			overflow: hidden;
+			overflow-x: hidden;
 		}
 		.controls-row {
 			display: flex;
@@ -52,7 +50,7 @@
 <body>
     <div class="container text-center">
         <h1>Falling Words Game</h1>
-		<div id="falling-words-container" style="position: relative; height: 250px; overflow: hidden;"></div>
+		<div id="falling-words-container" style="position: relative; height: 313px; overflow: hidden;"></div>
 		<div class="controls-row">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-outline-primary"><input type="radio" name="level" value="1" autocomplete="off" checked> Level 1</label>
@@ -126,6 +124,7 @@
                 const div = document.createElement('div');
                 div.className = 'falling-word';
                 div.textContent = word;
+				answerDisplay.textContent = '';
                 div.style.animation = `fall ${fallDuration}s linear forwards`;
                 container.appendChild(div);
                 currentWord = div;
