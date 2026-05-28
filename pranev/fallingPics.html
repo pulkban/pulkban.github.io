@@ -11,6 +11,7 @@
         }
         body {
             margin: 0;
+            padding-top: 6px;
         }
         .container {
             overflow-x: hidden;
@@ -19,9 +20,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            margin-top: 6px;
         }
         .controls-row select {
             width: auto;
@@ -29,6 +30,12 @@
         }
         .controls-row .btn {
             margin: 0;
+        }
+        #question-counter {
+            min-width: 62px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
         }
         @keyframes fall {
             0% { top: 0; opacity: 1; }
@@ -47,7 +54,7 @@
         }
         #answer-display {
             min-height: 1.4em;
-            margin-top: 8px;
+            margin-top: 4px;
             color: #a8adb5;
             line-height: 1.2;
         }
@@ -55,13 +62,17 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1>Falling Images</h1>
-        <div id="falling-words-container" style="position: relative; height: 313px; overflow: hidden;"></div>
+        <h1 style="margin-bottom: 8px;">Falling Images</h1>
+        <div id="falling-words-container" style="position: relative; height: 420px; overflow: hidden;"></div>
         <div class="controls-row">
             <select id="level-select" class="form-control">
                 <option value="football">Football</option>
-                <option value="flag">Flag</option>
-				<option value="flags">Flags</option>
+                <option value="personalities">Personalities</option>
+                <option value="states">States</option>
+                <option value="hindu">Hindu</option>
+                <option value="flag_l1">Flag - L1</option>
+				<option value="flag_l2">Flag - L2</option>
+				<option value="flag_l3">Flag - L3</option>
             </select>
             <button class="btn btn-primary" onclick="startFallingWords()">Start Game</button>
             <button class="btn btn-info" onclick="showAnswer()">Show Answer</button>
@@ -70,7 +81,9 @@
                 <option value="1">1 sec</option>
                 <option value="3" selected>3 sec</option>
                 <option value="5">5 sec</option>
+                <option value="10">10 sec</option>
             </select>
+            <span id="question-counter">0/0</span>
         </div>
         <div id="answer-display"></div>
     </div>
@@ -78,11 +91,29 @@
     <script>
         const levelWords = {
             "football": ["gen_bebeto.jpg", "gen_beckham.jpg", "gen_jairzinho.jpg", "gen_maradona.jpg", "gen_mbappe.jpg", "gen_messi.jpg", "gen_neymar.jpg", "gen_neymar2.jpg", "gen_pele.jpg", "gen_pele2.jpg", "gen_rivaldo.jpg", "gen_romario.jpg", "gen_ronaldo.jpg", "gen_ronaldo2.jpg", "gen_tostao.jpg", "gen_zico.jpg", "gen_zidane.jpg"],
-			
-			"flag": ["Afghanistan.png", "Argentina.png", "Armenia.png", "Australia.png", "Austria.png", "Azerbaijan.png", "Bahamas.png", "Bahrain.png", "Bangladesh.png", "Belgium.png", "Bhutan.png", "Brazil.png", "Cambodia.png", "Canada.png", "China.png", "Cuba.png", "Denmark.png", "Dominican_Republic.png", "Egypt.png", "Finland.png", "France.png", "Germany.png", "Gibraltar.png", "Greece.png", "Greenland.png", "Hong_Kong.png", "Hungary.png", "Iceland.png", "India.png", "Indonesia.png", "Iran.png", "Iraq.png", "Israel.png", "Italy.png", "Jamaica.png", "Japan.png", "Kenya.png", "Kuwait.png", "Liberia.png", "Libya.png", "Malaysia.png", "Maldives.png", "Mexico.png", "Morocco.png", "Myanmar.png", "Nepal.png", "Netherlands.png", "New_Zealand.png", "Nigeria.png", "North_Korea.png", "Norway.png", "Oman.png", "Pakistan.png", "Philippines.png", "Poland.png", "Portugal.png", "Qatar.png", "Saudi_Arabia.png", "Singapore.png", "South_Africa.png", "South_Korea.png", "Soviet_Union.png", "Spain.png", "Sri_Lanka.png", "Switzerland.png", "Taiwan.png", "Thailand.png", "Tibet.png", "Trinidad_and_Tobago.png", "Turkey.png", "UAE.png", "Uganda.png", "Ukraine.png", "United_Kingdom.png", "United_States_of_America.png", "Vatican_City.png", "Vietnam.png", "Yemen.png", "Zimbabwe.png"],
-			
-			"flags": ["Albania.png", "Algeria.png", "American_Samoa.png", "Andorra.png", "Angola.png", "Anguilla.png", "Antigua_and_Barbuda.png", "Aruba.png", "Barbados.png", "Belarus.png", "Belize.png", "Benin.png", "Bermuda.png", "Bolivia.png", "Bosnia.png", "Botswana.png", "British_Virgin_Islands.png", "Brunei.png", "Bulgaria.png", "Burkina_Faso.png", "Burundi.png", "Cameroon.png", "Cape_Verde.png", "Cayman_Islands.png", "Central_African_Republic.png", "Chad.png", "Chile.png", "Christmas_Island.png", "Colombia.png", "Comoros.png", "Cook_Islands.png", "Costa_Rica.png", "Croatia.png", "Cyprus.png", "Cyprus_Northern.png", "Czech_Republic.png", "Côte_d'Ivoire.png", "Democratic_Republic_of_the_Congo.png", "Djibouti.png", "Dominica.png", "Ecuador.png", "El_Salvador.png", "Equatorial_Guinea.png", "Eritrea.png", "Estonia.png", "Ethiopia.png", "Falkland_Islands.png", "Faroe_Islands.png", "Fiji.png", "French_Polynesia.png", "Gabon.png", "Gambia.png", "Georgia.png", "Ghana.png", "Grenada.png", "Guam.png", "Guatemala.png", "Guinea.png", "Guinea_Bissau.png", "Guyana.png", "Haiti.png", "Honduras.png", "Ireland.png", "Jordan.png", "Kazakhstan.png", "Kiribati.png", "Kyrgyzstan.png", "Laos.png", "Latvia.png", "Lebanon.png", "Lesotho.png", "Liechtenstein.png", "Lithuania.png", "Luxembourg.png", "Macao.png", "Macedonia.png", "Madagascar.png", "Malawi.png", "Mali.png", "Malta.png", "Marshall_Islands.png", "Martinique.png", "Mauritania.png", "Mauritius.png", "Micronesia.png", "Moldova.png", "Monaco.png", "Mongolia.png", "Montserrat.png", "Mozambique.png", "Namibia.png", "Nauru.png", "Netherlands_Antilles.png", "Nicaragua.png", "Niger.png", "Niue.png", "Norfolk_Island.png", "Palau.png", "Panama.png", "Papua_New_Guinea.png", "Paraguay.png", "Peru.png", "Pitcairn_Islands.png", "Puerto_Rico.png", "Republic_of_the_Congo.png", "Romania.png", "Russian_Federation.png", "Rwanda.png", "Saint_Kitts_and_Nevis.png", "Saint_Lucia.png", "Saint_Pierre.png", "Saint_Vicent_and_the_Grenadines.png", "Samoa.png", "San_Marino.png", "Sao_Tomé_and_Príncipe.png", "Senegal.png", "Serbia_and_Montenegro.png", "Seychelles.png", "Sierra_Leone.png", "Slovakia.png", "Slovenia.png", "Soloman_Islands.png", "Somalia.png", "South_Georgia.png", "Sudan.png", "Suriname.png", "Swaziland.png", "Sweden.png", "Syria.png", "Tajikistan.png", "Tanzania.png", "Timor-Leste.png", "Togo.png", "Tonga.png", "Tunisia.png", "Turkmenistan.png", "Turks_and_Caicos_Islands.png", "Tuvalu.png", "Uruguay.png", "US_Virgin_Islands.png", "Uzbekistan.png", "Vanuatu.png", "Venezuela.png", "Wallis_and_Futuna.png", "Zambia.png"]
 
+            "personalities": ["gen_ambedkar.jpg", "gen_arnab.jpg", "gen_azad.jpg", "gen_bhagat.jpg", "gen_gandhi.jpg", "gen_indira.jpg", "gen_kohli.jpg", "gen_lal.jpg", "gen_modi.jpg", "gen_nehru.jpg", "gen_patel.jpg", "gen_radhakrish.jpg", "gen_saroj.jpg", "gen_subhash.jpg", "gen_tagore.jpg", "gen_annieBesant.jpg","gen_annieBesant2.jpg","gen_dadabhaiNaroji.jpg","gen_gopalKrishnaGokale.jpg","gen_alluriSitaramaRaju.jpg","gen_veerSavarkar.jpg", "gen_rahul_gandhi.jpg", "gen_sachin_tendulkar.png", "gen_bumrah.jpg", "gen_rohit_sharma.jpg", "gen_sunil_gavaskar.jpg", "gen_kapil_dev.jpg"],
+
+            "states": ["gen_tamilnadu.png", "gen_karnataka.png", "gen_kerala.png", "gen_maharashtra.png", "gen_madhya_pradesh.png", "gen_uttarpradesh.png", "gen_andhra.png", "gen_westBengal.png", "gen_rajasthan.png", "gen_gujarat.png", "gen_odisha.png", "gen_telangana.png", "gen_uttarakhand.png", "gen_assam.png", "gen_arunachal.png", "gen_chattisgarh.png", "gen_jharkhand.png", "gen_himachal.png", "gen_punjab.png", "gen_ladakh.png", "gen_kashmir.png", "gen_lakshadweep.png", "gen_andaman.png"],
+
+            "hindu": ["Kanakadasa.jpg", "MeeraBai.jpg", "RamakrishnaParamahamsa.jpg", "Sadguru.jpg", "SriSriRaviShankar.jpg", "SwamiVivekananda.jpg", "Tiruvalluvar.jpg"],
+			
+			"flag_l1": ["India.png", "China.png", "Pakistan.png", "Nepal.png", "Bangladesh.png", "United_States_of_America.png", "United_Kingdom.png", "Australia.png", "Soviet_Union.png", "Israel.png", "Brazil.png", "France.png", "New_Zealand.png", "Sri_Lanka.png", "Bhutan.png", "Japan.png", "South_Korea.png", "Singapore.png", "Germany.png"],
+
+			"flag_l2": ["Afghanistan.png", "Argentina.png", "Armenia.png", "Austria.png", "Azerbaijan.png", "Bahamas.png", "Bahrain.png", "Belgium.png", "Cambodia.png", "Canada.png", "Cuba.png", "Denmark.png", "Dominican_Republic.png", "Egypt.png", "Finland.png", "Gibraltar.png", "Greece.png", "Greenland.png", "Hong_Kong.png", "Hungary.png", "Iceland.png", "Indonesia.png", "Iran.png", "Iraq.png", "Italy.png", "Jamaica.png", "Kenya.png", "Kuwait.png", "Liberia.png", "Libya.png", "Malaysia.png", "Maldives.png", "Mexico.png", "Morocco.png", "Myanmar.png", "Netherlands.png", "Nigeria.png", "North_Korea.png", "Norway.png", "Oman.png", "Philippines.png", "Poland.png", "Portugal.png", "Qatar.png", "Saudi_Arabia.png", "South_Africa.png", "Spain.png", "Switzerland.png", "Taiwan.png", "Thailand.png", "Tibet.png", "Trinidad_and_Tobago.png", "Turkey.png", "UAE.png", "Uganda.png", "Ukraine.png", "Vatican_City.png", "Vietnam.png", "Yemen.png", "Zimbabwe.png"],
+			
+			"flag_l3": ["Albania.png", "Algeria.png", "American_Samoa.png", "Andorra.png", "Angola.png", "Anguilla.png", "Antigua_and_Barbuda.png", "Aruba.png", "Barbados.png", "Belarus.png", "Belize.png", "Benin.png", "Bermuda.png", "Bolivia.png", "Bosnia.png", "Botswana.png", "British_Virgin_Islands.png", "Brunei.png", "Bulgaria.png", "Burkina_Faso.png", "Burundi.png", "Cameroon.png", "Cape_Verde.png", "Cayman_Islands.png", "Central_African_Republic.png", "Chad.png", "Chile.png", "Christmas_Island.png", "Colombia.png", "Comoros.png", "Cook_Islands.png", "Costa_Rica.png", "Croatia.png", "Cyprus.png", "Cyprus_Northern.png", "Czech_Republic.png", "Côte_d'Ivoire.png", "Democratic_Republic_of_the_Congo.png", "Djibouti.png", "Dominica.png", "Ecuador.png", "El_Salvador.png", "Equatorial_Guinea.png", "Eritrea.png", "Estonia.png", "Ethiopia.png", "Falkland_Islands.png", "Faroe_Islands.png", "Fiji.png", "French_Polynesia.png", "Gabon.png", "Gambia.png", "Georgia.png", "Ghana.png", "Grenada.png", "Guam.png", "Guatemala.png", "Guinea.png", "Guinea_Bissau.png", "Guyana.png", "Haiti.png", "Honduras.png", "Ireland.png", "Jordan.png", "Kazakhstan.png", "Kiribati.png", "Kyrgyzstan.png", "Laos.png", "Latvia.png", "Lebanon.png", "Lesotho.png", "Liechtenstein.png", "Lithuania.png", "Luxembourg.png", "Macao.png", "Macedonia.png", "Madagascar.png", "Malawi.png", "Mali.png", "Malta.png", "Marshall_Islands.png", "Martinique.png", "Mauritania.png", "Mauritius.png", "Micronesia.png", "Moldova.png", "Monaco.png", "Mongolia.png", "Montserrat.png", "Mozambique.png", "Namibia.png", "Nauru.png", "Netherlands_Antilles.png", "Nicaragua.png", "Niger.png", "Niue.png", "Norfolk_Island.png", "Palau.png", "Panama.png", "Papua_New_Guinea.png", "Paraguay.png", "Peru.png", "Pitcairn_Islands.png", "Puerto_Rico.png", "Republic_of_the_Congo.png", "Romania.png", "Russian_Federation.png", "Rwanda.png", "Saint_Kitts_and_Nevis.png", "Saint_Lucia.png", "Saint_Pierre.png", "Saint_Vicent_and_the_Grenadines.png", "Samoa.png", "San_Marino.png", "Sao_Tomé_and_Príncipe.png", "Senegal.png", "Serbia_and_Montenegro.png", "Seychelles.png", "Sierra_Leone.png", "Slovakia.png", "Slovenia.png", "Soloman_Islands.png", "Somalia.png", "South_Georgia.png", "Sudan.png", "Suriname.png", "Swaziland.png", "Sweden.png", "Syria.png", "Tajikistan.png", "Tanzania.png", "Timor-Leste.png", "Togo.png", "Tonga.png", "Tunisia.png", "Turkmenistan.png", "Turks_and_Caicos_Islands.png", "Tuvalu.png", "Uruguay.png", "US_Virgin_Islands.png", "Uzbekistan.png", "Vanuatu.png", "Venezuela.png", "Wallis_and_Futuna.png", "Zambia.png"]
+
+        };
+
+        const levelFolders = {
+            "football": "football",
+            "personalities": "",
+            "states": "states",
+            "hindu": "hindu",
+            "flag_l1": "flag",
+            "flag_l2": "flag",
+            "flag_l3": "flags"
         };
 
         const container = document.getElementById('falling-words-container');
@@ -93,9 +124,19 @@
         let currentImageFile = null;
         let runSeq = 0;
         let answerTimerId = null;
+        let currentQuestionNumber = 0;
+        let currentQuestionTotal = 0;
 
         const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
         const isCurrentRun = (runId) => runId === runSeq;
+
+        function updateQuestionCounter() {
+            const counterEl = document.getElementById('question-counter');
+            if (!counterEl) {
+                return;
+            }
+            counterEl.textContent = `${currentQuestionNumber}/${currentQuestionTotal}`;
+        }
 
         function showAnswerAtNinetyPercent(answer, questionFontSizePx, runId) {
             clearTimeout(answerTimerId);
@@ -104,7 +145,7 @@
                     return;
                 }
                 answerDisplay.textContent = answer;
-                answerDisplay.style.fontSize = `${questionFontSizePx / 2}px`;
+                answerDisplay.style.fontSize = `${questionFontSizePx}px`;
             }, fallDuration * 900);
         }
 
@@ -115,6 +156,24 @@
             }
         }
 
+        function buildCandidateImageSrcs(imageFile, folder) {
+            const candidates = [];
+            const add = (src) => {
+                if (src && !candidates.includes(src)) {
+                    candidates.push(src);
+                }
+            };
+
+            add(folder ? `./pics/${folder}/${imageFile}` : `./pics/${imageFile}`);
+            add(`./pics/${imageFile}`);
+
+            ["football", "flag", "flags", "personalities", "states", "hindu"].forEach(commonFolder => {
+                add(`./pics/${commonFolder}/${imageFile}`);
+            });
+
+            return candidates;
+        }
+
         function createFallingImage(imageFile, folder, runId) {
             if (!isCurrentRun(runId)) {
                 return Promise.resolve(false);
@@ -123,7 +182,17 @@
                 const div = document.createElement('div');
                 div.className = 'falling-image';
                 const img = document.createElement('img');
-                img.src = `./pics/${folder}/${imageFile}`; // Use folder in the path
+                const candidateSrcs = buildCandidateImageSrcs(imageFile, folder);
+                let candidateIndex = 0;
+                img.src = candidateSrcs[candidateIndex] || '';
+                img.onerror = () => {
+                    candidateIndex += 1;
+                    if (candidateIndex < candidateSrcs.length) {
+                        img.src = candidateSrcs[candidateIndex];
+                    } else {
+                        img.style.display = 'none';
+                    }
+                };
                 img.alt = imageFile.split('.')[0];
                 div.appendChild(img);
                 answerDisplay.textContent = '';
@@ -151,8 +220,11 @@
             const runId = ++runSeq;
             const selectedLevel = document.getElementById('level-select').value;
             const images = levelWords[selectedLevel] ? [...levelWords[selectedLevel]] : []; // Fallback to empty array
+            const imageFolder = Object.prototype.hasOwnProperty.call(levelFolders, selectedLevel)
+                ? levelFolders[selectedLevel]
+                : selectedLevel;
             if (images.length === 0) {
-                console.error(`No images found for folder: ${selectedLevel}`);
+                console.error(`No images found for level: ${selectedLevel}`);
                 return;
             }
             clearTimeout(answerTimerId);
@@ -161,6 +233,9 @@
             currentImage = null;
             currentImageFile = null;
             isPaused = false;
+            currentQuestionTotal = images.length;
+            currentQuestionNumber = 0;
+            updateQuestionCounter();
 
             while (isCurrentRun(runId)) {
                 shuffleArray(images);
@@ -168,7 +243,9 @@
                     while (isPaused && isCurrentRun(runId)) {
                         await sleep(100);
                     }
-                    if (!isCurrentRun(runId) || !(await createFallingImage(imageFile, selectedLevel, runId))) {
+                    currentQuestionNumber = (currentQuestionNumber % currentQuestionTotal) + 1;
+                    updateQuestionCounter();
+                    if (!isCurrentRun(runId) || !(await createFallingImage(imageFile, imageFolder, runId))) {
                         return;
                     }
                     await sleep(500);
@@ -191,10 +268,10 @@
             if (currentImageFile) {
                 const answer = currentImageFile.split('.')[0]; // Remove extension
                 answerDisplay.textContent = answer;
-                answerDisplay.style.fontSize = '14px';
+                answerDisplay.style.fontSize = '28px';
             } else {
                 answerDisplay.textContent = 'No image falling yet!';
-                answerDisplay.style.fontSize = '14px';
+                answerDisplay.style.fontSize = '28px';
             }
         }
     </script>

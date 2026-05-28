@@ -50,16 +50,61 @@ function stopTimer() {
 function processQuestionTextForImages(text) {
     const input = String(text || '');
 
-    function buildImageTag(imagePath) {
-        const path = String(imagePath || '').trim();
-        if (!path) {
+    function resolveImagePath(pathLike) {
+        const raw = String(pathLike || '').trim();
+        if (!raw) {
             return '';
         }
-        if (/\.(?:png|jpe?g)$/i.test(path)) {
-            return `<img src="${path}" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;">`;
+        if (/^(?:https?:|data:|\/|\.\/|\.\.\/|pics\/)/i.test(raw)) {
+            return raw;
         }
-        const safePath = path.replace(/"/g, '&quot;');
-        return `<img src="${safePath}.png" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;" onerror="if(!this.dataset.tryJpg){this.dataset.tryJpg='1';this.src='${safePath}.jpg';}else if(!this.dataset.tryJpeg){this.dataset.tryJpeg='1';this.src='${safePath}.jpeg';}else{this.style.display='none';}">`;
+        return `pics/${raw}`;
+    }
+
+    function buildCandidatePaths(imagePath) {
+        const raw = String(imagePath || '').trim();
+        if (!raw) {
+            return [];
+        }
+
+        const candidates = [];
+        const addCandidate = (candidate) => {
+            if (candidate && !candidates.includes(candidate)) {
+                candidates.push(candidate);
+            }
+        };
+
+        const normalized = resolveImagePath(raw);
+        const hasExt = /\.(?:png|jpe?g)$/i.test(normalized);
+
+        if (hasExt) {
+            addCandidate(normalized);
+            return candidates;
+        }
+
+        addCandidate(`${normalized}.png`);
+        addCandidate(`${normalized}.jpg`);
+        addCandidate(`${normalized}.jpeg`);
+
+        // Football images are stored in pics/football with gen_* names.
+        if (/^gen_/i.test(raw)) {
+            addCandidate(`pics/football/${raw}.png`);
+            addCandidate(`pics/football/${raw}.jpg`);
+            addCandidate(`pics/football/${raw}.jpeg`);
+        }
+
+        return candidates;
+    }
+
+    function buildImageTag(imagePath) {
+        const candidates = buildCandidatePaths(imagePath);
+        if (candidates.length === 0) {
+            return '';
+        }
+        const candidatesAttr = candidates
+            .map(path => path.replace(/"/g, '&quot;'))
+            .join('|');
+        return `<img src="${candidates[0]}" data-candidates="${candidatesAttr}" data-candidate-index="0" alt="Question Image" style="max-width: 100%; height: auto; display: block; margin-top: 10px; margin-bottom: 10px;" onerror="var arr=(this.dataset.candidates||'').split('|');var i=parseInt(this.dataset.candidateIndex||'0',10)+1;if(i<arr.length){this.dataset.candidateIndex=String(i);this.src=arr[i];}else{this.style.display='none';}">`;
     }
 
     let rendered = input.replace(/{{([^}]+)}}/gi, (match, filename) => buildImageTag(filename));
