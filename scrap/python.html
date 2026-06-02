@@ -13,6 +13,7 @@ pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line
 code{color:inherit;background:transparent;}
 .row{margin:0;}
 .col-12,.col-md-6,.col-xl-6{padding:2px;}
+.code-section{color:#b91c1c;font-weight:inherit;}
 	</style>
 </head>
 
@@ -40,6 +41,8 @@ code{color:inherit;background:transparent;}
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
+**Python General
+
 platform indep? yes
 why interpreter? line by line - unlike full java Compile-time
 whats pip? installer pkg
@@ -87,7 +90,49 @@ def home(request):
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-                <!--Your content here-->
+**Python General
+
+---Whats wrong below - it doesnt have 'self' - so, objemp.greet() which converts to Employee.greet(objemp) wont work.
+class Employee:
+    def greet():
+        print("Hello")
+--otherwise make it staticmethod
+    @staticmethod
+    def greet():
+reference counting / garbage collection = track object references, when no reference, delete object (mem free)
+mem mgt in python = private heap space (all objects, data structures)
+multiple inheritance = from multiple classes, e.g. class C(A, B)
+how to delete file using python = os.remove(), os.unlink()
+sort(), sorted() - technique = Tim sort algorithm (merge + insertion sort)
+Timsort - real world data often partially sorted ([1, 2, 3, 4, 10, 8, 9]) - TimSort detects these already-sorted portions (called runs) - takes advantage
+list vs tuple = [] vs (), mutable vs immutable, tuple faster than list, tuple can be used as dict key, tuple uses less memory
+multithreading = Why doesn't Python threading speed up CPU-intensive tasks - In CPython (the standard Python interpreter), only one thread can execute Python bytecode at a time. = solution: use multiprocessing - each process has one interpretter - 
+faster - python list or numpy array? numpy array - optimized for numerical operations, uses less memory, faster for large datasets
+compilation, linking ? = compilation: source code to bytecode, linking: combine multiple modules into a single executable
+PEP8 = Python Enhancement Proposal 8 - style guide for python code - naming conventions, indentation, line length, etc.
+*args vs **kwargs = *args for variable number of positional arguments, **kwargs for variable number of keyword arguments = kwargs (display(name="Udhay", age=30, city="Bangalore")); args (display("Udhay", 30, "Bangalore")) = tuple vs dictionary
+--Generator function
+def numbers():
+    yield 1
+    yield 2
+    yield 3
+
+g = numbers()
+
+print(next(g))
+print(next(g))
+print(next(g))
+------
+Django vs flask = large vs medium
+ensure python code compatible with 2 and 3 = use __future__ imports, avoid deprecated features, test code with both versions, use tools like 'six' for compatibility
+--infinite
+def infinite():
+    n = 1
+    while True:
+        yield n
+        n += 1
+--------
+Dataframes vs Series = DataFrame 2D, Series 1D, both from pandas library, DataFrame can hold multiple Series, Series is a single column of data (single excel column vs excel table)
         </code></pre></div></div>
       </div>
     </div>
@@ -117,6 +162,22 @@ print(b)
 ---output
 [[1, 2], [3, 4]]
 [[100, 2], [3, 4]]
+
+**Closure
+Use of closure? - for storing secret:
+def outer():
+    secret = "admin password"
+    def inner():
+        print(secret)
+    return inner
+x = outer()
+x()
+output---
+admin password
+
+Because secret is not directly accessible outside.
+print(secret) --- this fails
+        
 				</code></pre>
         </div></div>
       </div>
@@ -124,7 +185,7 @@ print(b)
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 		<pre><code>
-List comprehension sample:---(short way of writing list)
+--List comprehension sample:---(short way of writing list)
 
 output = [x**2 if x % 2 == 0 else x**3 for x in range(1, 11)]
 print(output)
@@ -133,6 +194,33 @@ print(output)
 for x in range(1, 6):
 	output.append(x * 2)
 print(output)
+
+--Copy contents of one file to another file:
+with open("source.txt", "r") as src:
+    content = src.read()
+with open("destination.txt", "w") as dest:
+    dest.write(content)
+(or)
+with open("source.txt", "r") as src, open("destination.txt", "w") as dest:
+    for line in src:
+        dest.write(line)
+
+--- read json, parse and print
+import json
+json_data = '''
+{
+  "employees": [
+    {"name": "John", "age": 25},
+    {"name": "Mary", "age": 28}
+  ]
+}
+'''
+data = json.loads(json_data)
+for emp in data["employees"]:
+    print(emp["name"], emp["age"])
+(or)
+for emp in data["employees"]:
+    print(emp["name"], emp["age"])
 			</code></pre>
         </div></div>
       </div>
@@ -170,19 +258,7 @@ print(count)
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-Use of closure? - for storing secret:
-def outer():
-    secret = "admin password"
-    def inner():
-        print(secret)
-    return inner
-x = outer()
-x()
-output---
-admin password
 
-Because secret is not directly accessible outside.
-print(secret) --- this fails
         </code></pre></div></div>
       </div>
 
@@ -259,7 +335,7 @@ output---- 3   6
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-<strong>====DJango====</strong>: Student Mgt System
+**====DJango====: Student Mgt System
 
 ==folder structure:
 student_project/
@@ -317,6 +393,7 @@ def home(request):
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
+**Django + Django REST Framework
 --models.py
 from django.db import models
 class Student(models.Model):
@@ -378,13 +455,252 @@ urlpatterns = [
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
+**FASTAPI
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Student(BaseModel):
+    name: str
+    city: str
+
+students = []
+
+@app.get("/")
+def get_students():
+    return students
+
+@app.post("/")
+def create_student(student: Student):
+    if len(student.name) < 3:
+        return {"error": "Name must be at least 3 characters"}
+    students.append(student)
+    return {"message": "Student saved"}
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+**FLASK
+
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+students = []
+
+@app.route("/", methods=["GET"])
+def get_students():
+    return jsonify(students)
+
+@app.route("/", methods=["POST"])
+def create_student():
+    data = request.get_json()
+
+    if len(data["name"]) < 3:
+        return jsonify({
+            "error": "Name must be at least 3 characters"
+        }), 400
+
+    students.append(data)
+
+    return jsonify({
+        "message": "Student saved"
+    }), 201
+
+if __name__ == "__main__":
+    app.run(debug=True)
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
                 <!--Your content here-->
         </code></pre></div></div>
       </div>
     </div>
 
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+**--Apache Airflow: 
+airflow: run this data workflow on a schedule and manage its steps
+u can write cron job and also retries and timers - but they are manual
 
+DAG = Directed Acyclic graph
+name few operators = BashOperator, PythonOp, EmailOp, EmptyOp (func used to creat task)
+---write dag script - give a name - start and daily
+from airflow import DAG
+from airflow.providers.standard.operators.python import PythonOperator
+from datetime import datetime, timedelta
+with DAG(
+    'etl_pipeline',
+    start_date=datetime(2025, 10, 20),
+    schedule='0 2 * * *',  # Run daily at 2 AM
+) as dag:
+    t1 = PythonOperator(
+        task_id='extract',
+        python_callable=extract,
+        retries=3,
+        retry_delay=timedelta(minutes=5),
+    )
+    t2 = PythonOperator(
+        task_id='transform',
+        python_callable=transform
+    )
+    t3 = PythonOperator(
+        task_id='load',
+        python_callable=load
+    )
+    t1 >> t2 >> t3
+---first then second and thrid simul, then fourth
+first >> [second, third]
+third << fourth
 
+---sample code, retries, scheduled
+default_args = {
+    "owner": "airflow",
+    "depends_on_past": False,
+    "retries": 2,
+    "retry_delay": timedelta(minutes=5),
+    "email_on_failure": False,
+    "email_on_retry": False,
+}
+def extract():
+    print("Extracting data")
+
+def transform():
+    print("Transforming data")
+
+def load():
+    print("Loading data")
+
+with DAG(
+    dag_id="sample_dependency_retry_dag",
+    default_args=default_args,
+    description="DAG with dependencies and retries",
+    start_date=datetime(2026, 1, 1),
+    schedule_interval="@daily",
+    catchup=False,
+    tags=["sample"],
+) as dag:
+    t1 = PythonOperator(task_id="extract", python_callable=extract)
+    t2 = PythonOperator(task_id="transform", python_callable=transform)
+    t3 = PythonOperator(task_id="load", python_callable=load)
+
+    t1 >> t2 >> t3
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+--gRPC
+
+gRPC = high-performance RPC framework using HTTP/2 and Protocol Buffers
+Why is protobuf preferred over json = smaller, faster to serialize/deserialize, and gives a strict schema (performance up)
+retries how works = handle transient failures using backoff, max attempts, and jitter
+idempotency = runs multiple times, same effect (no dup work)
+-- scenario quetions
+event received twice due to retry - avoid duplicates = Use an idempotency key, store processed event IDs
+A gRPC service is fast, but the automation is slow. Where do you look first? = check downstream events, queue backlog
+single bad event keeps failing = Move it to a dead-letter queue
+handle schema changes in protobuf? = Use backward-compatible changes
+workflow has steps A -> B -> C. B fails after A succeeds. What pattern helps? = Saga pattern or compensating actions. Persist step state so the workflow can resume safely
+gRPC vs REST = Think HTTP/2 + Protobuf + streaming + high performance (gRPC) vs HTTP/JSON + browser-friendly + wider interoperability (REST).
+
+**Code
+--hello.proto:
+syntax = "proto3";
+service HelloService {
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+message HelloRequest {
+  string name = 1;
+}
+message HelloReply {
+  string message = 1;
+}
+--server.py
+import grpc
+from concurrent import futures
+import hello_pb2
+import hello_pb2_grpc
+
+class HelloService(hello_pb2_grpc.HelloServiceServicer):
+    def SayHello(self, request, context):
+        return hello_pb2.HelloReply(message=f"Hello {request.name}")
+
+server = grpc.server(futures.ThreadPoolExecutor())
+hello_pb2_grpc.add_HelloServiceServicer_to_server(HelloService(), server)
+server.add_insecure_port("[::]:50051")
+server.start()
+server.wait_for_termination()
+--client.py
+import grpc
+import hello_pb2
+import hello_pb2_grpc
+
+channel = grpc.insecure_channel("localhost:50051")
+stub = hello_pb2_grpc.HelloServiceStub(channel)
+
+response = stub.SayHello(
+    hello_pb2.HelloRequest(name="Udhay")
+)
+
+print(response.message)
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+--Camunda
+
+BPMN vs DMN = visual process language Camunda vs decision-table style way to model business rules
+BPMN = process flow, DMN = decision logic.
+worker/external task = service that picks up work from Camunda and completes
+Why use Camunda? = make workflows visible, controllable, auditable, and easier to change
+What happens if a worker crashes while processing? = Job timeout expires, broker reassigns the job, another worker can pick it up
+idempotency important? = job may be re-executed after timeout (no dup)
+How do you integrate Kafka with Camunda = Kafka Event -> Consumer -> Start Process Instance -> Camunda Workflow
+Message Event vs Service Task = Waits for external event vs Executes work immediately
+BPMN Error and a Technical Failure = Business exception (Credit score too low) vs Database unavailable (Timeout, NW issue)
+How would you implement a Saga pattern in Camunda = Reserve Inventory, Charge Card, Create Shipment - now, (shipment fails) - Refund Card, Release Inventory
+explain: idempotency, retries, message correlation, saga/compensation, and worker scaling
+--code
+@JobWorker(type = "process-order")
+public void processOrder(
+        JobClient client,
+        ActivatedJob job) {
+
+    String orderId =
+        job.getVariablesAsMap()
+           .get("orderId")
+           .toString();
+
+    System.out.println("Processing " + orderId);
+
+    client.newCompleteCommand(job.getKey())
+          .send()
+          .join();
+}
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+                <!--Your content here-->
+        </code></pre></div></div>
+      </div>
+    </div>
 
 
 
@@ -393,4 +709,9 @@ urlpatterns = [
 
 
 </body>
+<script src="scrap.js"></script>
+<script>
+// Format cheatsheet code blocks (convert '--' to red sections and URLs to links)
+formatCheatsheetCode();
+</script>
 </html>

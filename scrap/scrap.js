@@ -76,3 +76,69 @@ populateNavbar()
 
 // show first person's journal automatically
 document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Notes']}" style="width: 100%; height: 100vh;"></iframe>`;
+
+/**
+ * CHEATSHEET CODE FORMATTER
+ * Converts '--' comments to red sections and 'http/https' URLs to clickable links
+ * Call this function after DOM is loaded on any cheatsheet HTML
+ */
+function formatCheatsheetCode() {
+	document.querySelectorAll('pre code').forEach(function(codeEl) {
+		var lines = codeEl.textContent.replace(/\r\n?/g, '\n').split('\n');
+		codeEl.textContent = '';
+
+		lines.forEach(function(line, index) {
+			if (line.trimStart().startsWith('--')) {
+				// Format comment lines in red
+				var sectionLine = document.createElement('span');
+				sectionLine.className = 'code-section';
+
+				var markerIndexInComment = line.indexOf('**');
+				if (markerIndexInComment === -1) {
+					sectionLine.textContent = line;
+				} else {
+					var commentBeforeMarker = line.slice(0, markerIndexInComment);
+					var commentBoldText = line.slice(markerIndexInComment + 2);
+
+					if (commentBeforeMarker) {
+						sectionLine.appendChild(document.createTextNode(commentBeforeMarker));
+					}
+
+					var commentStrongEl = document.createElement('strong');
+					commentStrongEl.textContent = commentBoldText;
+					sectionLine.appendChild(commentStrongEl);
+				}
+
+				codeEl.appendChild(sectionLine);
+			} else if (line.indexOf('**') !== -1) {
+				var markerIndex = line.indexOf('**');
+				var beforeMarker = line.slice(0, markerIndex);
+				var boldText = line.slice(markerIndex + 2);
+
+				if (beforeMarker) {
+					codeEl.appendChild(document.createTextNode(beforeMarker));
+				}
+
+				var strongEl = document.createElement('strong');
+				strongEl.textContent = boldText;
+				codeEl.appendChild(strongEl);
+			} else if (/^https?:\/\//.test(line.trim())) {
+				// Convert URL lines to clickable links
+				var linkEl = document.createElement('a');
+				linkEl.href = line.trim();
+				linkEl.target = '_blank';
+				linkEl.textContent = line;
+				linkEl.style.color = '#1d4ed8';
+				codeEl.appendChild(linkEl);
+			} else {
+				// Add regular text
+				codeEl.appendChild(document.createTextNode(line));
+			}
+
+			// Add newline between lines
+			if (index < lines.length - 1) {
+				codeEl.appendChild(document.createTextNode('\n'));
+			}
+		});
+	});
+}
