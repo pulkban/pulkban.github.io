@@ -258,7 +258,32 @@ print(count)
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
+Method Overloading = Compile-time Polymorphism
+Method Overriding = Runtime Polymorphism
 
+Override e.g.:
+class Animal:
+    def sound(self):
+        print("animal sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("bark")
+
+a = Dog()
+a.sound()
+output---- bark
+[same method -> different forms]
+
+Overloading e.g.:
+class Calc:
+    def add(self, a, b, c=0):
+        return a + b + c
+x = Calc()
+print(x.add(1, 2))
+print(x.add(1, 2, 3))
+output---- 3   6
+[same method -> different behavior based on arguments]
         </code></pre></div></div>
       </div>
 
@@ -295,95 +320,6 @@ logging ended
 
 --meaning: transfer_money = logging(authentication(transfer_money))
 
-        </code></pre></div></div>
-      </div>
-    </div>
-
-
-    <!-- ROW 1 -->
-    <div class="row g-2">
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body"><pre><code>
-Method Overloading = Compile-time Polymorphism
-Method Overriding = Runtime Polymorphism
-
-Override e.g.:
-class Animal:
-    def sound(self):
-        print("animal sound")
-
-class Dog(Animal):
-    def sound(self):
-        print("bark")
-
-a = Dog()
-a.sound()
-output---- bark
-[same method -> different forms]
-
-Overloading e.g.:
-class Calc:
-    def add(self, a, b, c=0):
-        return a + b + c
-x = Calc()
-print(x.add(1, 2))
-print(x.add(1, 2, 3))
-output---- 3   6
-[same method -> different behavior based on arguments]
-        </code></pre></div></div>
-      </div>
-
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body"><pre><code>
-**====DJango====: Student Mgt System
-
-==folder structure:
-student_project/
-    myapp/
-    payments/
-    attendance/
-    exams/
-
-==pip install django
-==django-admin startproject student_project
-==python manage.py startapp myapp
-==python manage.py runserver
-
-==models.py
-from django.db import models
-class Student(models.Model):
-    name = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-
-==createTable: createTable: python manage.py makemigrations
-
-==views.py
-from django.shortcuts import render
-from .models import Student
-
-def home(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        city = request.POST.get("city")
-        Student.objects.create(
-            name=name,
-            city=city
-        )
-    students = Student.objects.all()
-    return render(request, "home.html", {
-        "students": students
-    })
-===home.html
-&lt;form method="POST"&gt;
-{% csrf_token %}
-&lt;input type="text" name="name" placeholder="Name"&gt;
-&lt;input type="text" name="city" placeholder="City"&gt;
-&lt;button type="submit"&gt;Save&lt;/button&gt;
-&lt;/form&gt;
-&lt;hr&gt;
-{% for s in students %}
-&lt;p&gt;{{ s.name }} - {{ s.city }}&lt;/p&gt;
-{% endfor %}
         </code></pre></div></div>
       </div>
     </div>
@@ -455,32 +391,59 @@ urlpatterns = [
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-**FASTAPI
+**====DJango====: Student Mgt System
 
-from fastapi import FastAPI
-from pydantic import BaseModel
+==folder structure:
+student_project/
+    myapp/
+    payments/
+    attendance/
+    exams/
 
-app = FastAPI()
+==pip install django
+==django-admin startproject student_project
+==python manage.py startapp myapp
+==python manage.py runserver
 
-class Student(BaseModel):
-    name: str
-    city: str
+==models.py
+from django.db import models
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
 
-students = []
+==createTable: createTable: python manage.py makemigrations
 
-@app.get("/")
-def get_students():
-    return students
+==views.py
+from django.shortcuts import render
+from .models import Student
 
-@app.post("/")
-def create_student(student: Student):
-    if len(student.name) < 3:
-        return {"error": "Name must be at least 3 characters"}
-    students.append(student)
-    return {"message": "Student saved"}
+def home(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        city = request.POST.get("city")
+        Student.objects.create(
+            name=name,
+            city=city
+        )
+    students = Student.objects.all()
+    return render(request, "home.html", {
+        "students": students
+    })
+===home.html
+&lt;form method="POST"&gt;
+{% csrf_token %}
+&lt;input type="text" name="name" placeholder="Name"&gt;
+&lt;input type="text" name="city" placeholder="City"&gt;
+&lt;button type="submit"&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+&lt;hr&gt;
+{% for s in students %}
+&lt;p&gt;{{ s.name }} - {{ s.city }}&lt;/p&gt;
+{% endfor %}
         </code></pre></div></div>
       </div>
     </div>
+
 
     <!-- ROW 1 -->
     <div class="row g-2">
@@ -515,6 +478,43 @@ def create_student():
 
 if __name__ == "__main__":
     app.run(debug=True)
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+**FASTAPI
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Student(BaseModel):
+    name: str
+    city: str
+
+students = []
+
+@app.get("/")
+def get_students():
+    return students
+
+@app.post("/")
+def create_student(student: Student):
+    if len(student.name) < 3:
+        return {"error": "Name must be at least 3 characters"}
+    students.append(student)
+    return {"message": "Student saved"}
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+
         </code></pre></div></div>
       </div>
 
@@ -692,6 +692,58 @@ public void processOrder(
           .send()
           .join();
 }
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+**Docker
+
+--code to execute a simple python file - dockerfile
+FROM python:3.11
+WORKDIR /app
+COPY . /app/
+CMD ["python", "app.py"
+
+docker --version
+docker build -t calculator . = (creating container); docker desktop will have that container; in cmd, docker run -it calculator
+-it meaning = interactive
+
+
+**OAuth vs JWT
+
+* Auth vs Authorize = who are you vs are u authorized to do though I know u
+* jwt = header, payload, signature
+* oauth = not token, protocol - go to site a - u select sitex for auth in site a - a reidrects call to x and receives token - that token is good for customer to now access x (that token might be a jwt also)
+* jwt is like id card - has all the details
+* oauth - is like getting key - not everything
+* both work in sync
+        </code></pre></div></div>
+      </div>
+    </div>
+
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+**kafka
+
+kafka = publish/subscribe - durable messaging sys - 
+e.g. order creation - instead of calling one after another - call inventory srv, call payment srv, call shipping srv, call email srv, call analy; intead of that - put a topic 'Order Created' - those 5 services independently read it
+fault tolerant = mean: data replication (if broker dies, follower broker)
+1 zookeeper cluster - n Brokers - n Topics - n Partitions - n Offsets
+Offsets = unique id, for each message
+producer = apps that publish messages to kafka - creae producer record
+what zookeeper does = used for distributed coord and mgt of kafka cluster (maintains metadata, leader election)
+ISR Replicas = In Sync Replicas - that maintains the replica 
+(practical) - 6 partitions - how many consumer instnces recommended = 6 (1 each)
+(practical) - if only 2 consumer instances = C1: {p0, p1, p2}, c2: {p3, p4, p5}; supose 4 consumers? - may be C1: {p0, p1}, C2: {p2, p3}
+(practical) - what if 8 consumers, = 2 will stay idle
+(practical) - if one consumer dies = kafka reconfigures and rebalancing
+how many copy of events (E.g. Hello world) = depends on replication factor (E.g. 3) - Leader copy=1, Follower copy = 2
+if orderCreated, orderShipped both go to different partitions, wont consumer c1 picks orderCreated after c2 picking orderShipped = yes, may be (kafka no guarantee) - so, devs use Order_ID=101 (define key) for all events and put one by one in same partition
+
         </code></pre></div></div>
       </div>
 
