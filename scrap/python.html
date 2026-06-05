@@ -143,7 +143,7 @@ Dataframes vs Series = DataFrame 2D, Series 1D, both from pandas library, DataFr
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
 				<pre><code>
-shallow copy vs deep copy
+**shallow copy vs deep copy
 				
 ---shallow copy
 import copy
@@ -440,6 +440,47 @@ def home(request):
 {% for s in students %}
 &lt;p&gt;{{ s.name }} - {{ s.city }}&lt;/p&gt;
 {% endfor %}
+
+---------------------
+**Pure API code
+from django.http import JsonResponse
+from .models import Student
+
+def create_student(request):
+    if request.method != "POST":
+        return JsonResponse(
+            {"error": "Method not allowed"},
+            status=405
+        )
+
+    name = request.POST.get("name", "").strip()
+    city = request.POST.get("city", "").strip()
+
+    if not name:
+        return JsonResponse(
+            {"error": "Name is required"},
+            status=400
+        )
+
+    if len(name) < 3:
+        return JsonResponse(
+            {"error": "Name must be at least 3 characters"},
+            status=400
+        )
+
+    student = Student.objects.create(
+        name=name,
+        city=city
+    )
+
+    return JsonResponse(
+        {
+            "id": student.id,
+            "message": "Student created"
+        },
+        status=201
+    )
+
         </code></pre></div></div>
       </div>
     </div>
