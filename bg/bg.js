@@ -1,6 +1,8 @@
 journalDetails = {
 
+
 	'BG_Dyaanam': 'BG_Prayer.html',
+	'BG_Mahatmyam': 'BG_Mahatmyam.html',
 
 	'BG_01_Chapter': 'BG_01_Chapter.html',
 	'BG_02_Chapter': 'BG_02_Chapter.html',
@@ -23,10 +25,8 @@ journalDetails = {
 	'BGEndingPrayer': 'BGEndingPrayer.html',
 	'BGAarti': 'BGAarti.html',
 	'BG_SapthaShloki': 'BG_SapthaShloki.html',
-	'BG_Mahatmyam': 'BG_Mahatmyam.html',
 	
 	'BGQuiz': 'BGQuiz.html',
-
 };
 
 
