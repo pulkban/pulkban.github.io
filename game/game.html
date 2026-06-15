@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Games</title>
+  <style>
+    body { margin: 20px; background: white; font-family: Arial; }
+    h1 { text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .tile { padding: 20px; border: 1px solid #ccc; border-radius: 8px; text-align: center; text-decoration: none; color: black; cursor: pointer; transition: 0.2s; }
+    .tile:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+<h1>Games</h1>
+<div class="grid">
+  <a href="chess_game.html" target="_blank" class="tile">
+    <div style="font-size: 2em;">♔</div>
+    <b>2-Player Chess</b>
+  </a>
+  <a href="chess_vs_computer.html" target="_blank" class="tile">
+    <div style="font-size: 2em;">🤖</div>
+    <b>Computer vs Human</b>
+  </a>
+  <a href="jungle_run_and_gun_game.html" target="_blank" class="tile">
+    <div style="font-size: 2em;">🎯</div>
+    <b>Jungle Run & Gun</b>
+  </a>
+</div>
+</body>
+</html>

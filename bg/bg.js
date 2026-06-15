@@ -3,6 +3,7 @@ journalDetails = {
 
 	'BG_Dyaanam': 'BG_Prayer.html',
 	'BG_Mahatmyam': 'BG_Mahatmyam.html',
+    'BG_Mahatmyam2': 'BG_Mahatmyam2.html',
 
 	'BG_01_Chapter': 'BG_01_Chapter.html',
 	'BG_02_Chapter': 'BG_02_Chapter.html',
