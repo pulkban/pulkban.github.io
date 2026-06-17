@@ -23,6 +23,7 @@ journalDetails = {
 	'AdityaHrudayam': 'AdityaHrudayam.html',
 	'SwayamvaraParvatiMantramaala': 'SwayamvaraParvatiMantramaala.html',
 	'YogaMantram': 'YogaMantram.html',
+	'MahalakshmiAshtakam': 'MahalakshmiAshtakam.html',
 	
 	//--Hanuman
 	'sep14':'Hanuman',
@@ -32,6 +33,7 @@ journalDetails = {
 	
 	//--Devi
 	'sep9':'Devi',
+	'MahalakshmiAshtakam': 'MahalakshmiAshtakam.html',
 	'DeviAparadhaKshamapanaStotram': 'DeviAparadhaKshamapanaStotram.html',
 	'DurgaChandrakalaStuti': 'DurgaChandrakalaStuti.html',
 	'GowriDashakam': 'GowriDashakam.html',
