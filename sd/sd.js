@@ -250,6 +250,34 @@ function showIframe(currentEvent)
     currentEvent.preventDefault();
 }
 
+// ── Theme toggle (day / night) ──
+// Call this once per stotra page after DOM is ready.
+// Remembers choice for the current browser session only.
+function initThemeToggle() {
+	var STORAGE_KEY = "sd-theme";
+	var root = document.documentElement;
+	var toggle = document.getElementById("themeToggle");
+	if (!toggle) return;
+	var currentTheme = sessionStorage.getItem(STORAGE_KEY) === "night" ? "night" : "day";
+
+	function applyTheme(theme) {
+		if (theme === "night") {
+			root.setAttribute("data-theme", "night");
+			toggle.textContent = "\u2600\ufe0f Day";
+		} else {
+			root.removeAttribute("data-theme");
+			toggle.textContent = "\uD83C\uDF19 Night";
+		}
+		sessionStorage.setItem(STORAGE_KEY, theme);
+		currentTheme = theme;
+	}
+
+	applyTheme(currentTheme);
+	toggle.addEventListener("click", function () {
+		applyTheme(currentTheme === "day" ? "night" : "day");
+	});
+}
+
 // populate navbar on pageload
 populateNavbar()
 

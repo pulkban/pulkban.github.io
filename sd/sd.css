@@ -1,0 +1,31 @@
+/* ── Stotra page shared styles ── */
+
+:root {
+  --bg-main: linear-gradient(180deg, #fffef8 0%, #f7f4e8 100%);
+  --text-main: #2a2418;
+  --card-bg: #fffdf6;
+  --card-border: #eadfb8;
+  --header-bg: #fff7db;
+  --toggle-bg: #fff4cc;
+  --toggle-text: #2a2418;
+  --toggle-border: #d6c483;
+}
+
+[data-theme="night"] {
+  --bg-main: linear-gradient(180deg, #151a21 0%, #10151b 100%);
+  --text-main: #ede9df;
+  --card-bg: #1c232d;
+  --card-border: #3a4556;
+  --header-bg: #2a3340;
+  --toggle-bg: #2c3645;
+  --toggle-text: #f0ece3;
+  --toggle-border: #4a5970;
+}
+
+body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(--text-main); transition: background 0.25s ease, color 0.25s ease; }
+.page-wrap { padding: 1.5rem 1rem; }
+.stotra-card { border: 1px solid var(--card-border); border-radius: 1rem; box-shadow: 0 8px 24px rgba(70, 52, 14, 0.08); background: var(--card-bg); }
+.stotra-card .card-header { display: flex; align-items: center; justify-content: space-between; background: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+.theme-toggle-btn { border: 1px solid var(--toggle-border); background: var(--toggle-bg); color: var(--toggle-text); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; line-height: 1; white-space: nowrap; }
+.stotra-text { line-height: 1.45; }
+.verse { margin-bottom: 0.2rem; }
