@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
-</style>
+	<link rel="stylesheet" href="sd.css" />
 </head>
 <body>
-
-<hr>
-<div class="mx-4">
-<div class="card" >
-<h1 class="card-header display-5">Sri Lakshmi Sahasranama Stothram - Sanskrit</h1>
-<h1 class="card-header display-5">श्रीलक्ष्मी सहस्रनाम स्तोत्रम्  </h1>
-<div class="card-body display-6">
+<div class="container-fluid page-wrap">
+	<div class="mx-md-4">
+		<div class="card stotra-card">
+			<h1 class="card-header display-5">Sri Lakshmi Sahasranama Stothram - Sanskrit
+				<button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">🌙 Night</button>
+			</h1>
+			<h1 class="card-header display-5">श्रीलक्ष्मी सहस्रनाम स्तोत्रम्</h1>
+			<div class="card-body display-6 stotra-text">
 
 <br>
 श्रीस्कन्दपुराणे सनत्कुमारसंहितायाम् ।<br>
@@ -627,9 +625,12 @@ Kshama prarthana<br>
 <br>
 <br>
 
+			</div>
+			<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
+		</div>
+	</div>
 </div>
-<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
-</div></div>
-<br>
+<script src="sd.js"></script>
+<script>initThemeToggle();</script>
 </body>
-</html> 
+</html>

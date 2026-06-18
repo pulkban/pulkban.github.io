@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
-	<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<style>
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-</style>
+	<link rel="stylesheet" href="sd.css" />
 </head>
 <body>
-
-<hr>
-<div class="mx-4">
-<div class="card" >
-<h1 class="card-header display-5">Nithya Parayana Shloka</h1>
-<h1 class="card-header display-5">नित्य पारायण श्लोकाः</h1>
-<div class="card-body display-6">
+<div class="container-fluid page-wrap">
+	<div class="mx-md-4">
+		<div class="card stotra-card">
+			<h1 class="card-header display-5">Nithya Parayana Shloka
+				<button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">🌙 Night</button>
+			</h1>
+			<h1 class="card-header display-5">नित्य पारायण श्लोकाः</h1>
+			<div class="card-body display-6 stotra-text">
 <br>
 <h1 class="card-header display-5"><strong>பெரிய புராணம்</strong></h1>
 <p style="font-size: 20px;">பெரிய புராணத்தின் தொடக்கச் செய்யுள் - சேக்கிழார் பெருமானுக்கு சிவபெருமானே அடியெடுத்துக் கொடுத்து, அதிலிருந்து விளைந்த வாழ்த்துப் பாடல்</p>
@@ -37,7 +29,7 @@ body {
 <p style="font-size: 20px;">ஆழ்வார் முதலில் மனிதர்களின் காலக்கணக்கில் பல ஆண்டுகள் என்று சொல்லி, பிறகு தேவர்களின் காலக்கணக்கில் பல ஆண்டுகள் என்று சொல்லி, பிறகு ப்ரஹ்மாவின் காலக்கணக்கில் பல ஆண்டுகள் என்று சொல்லி, இறுதியாக பல பல ப்ரஹ்மாக்களின் காலக்கணக்கில் பல ஆண்டுகள் என்று சொல்லி, காப்பிடுகிறார் (ரக்ஷை செய்கிறார்).</p>
 <p style="font-size: 30px;">
 பல்லாண்டு பல்லாண்டு பல்லாயிரத்தாண்டு *<br>
-பலகோடி நூறாயிரம்<br>
+பலகோடி நூறாயிரம்<br>	
 மல்லாண்ட திண் தோள் மணிவண்ணா !* உன்<br>
 சேவடி செவ்வி திருக்காப்பு<br>
 </p>
@@ -79,7 +71,7 @@ May all you think becomes successful<br>
 </p>
 <br>
 <p style="font-size: 30px;">
-பக்ஷெள தே மாருதf பாது சந்திர சூர்யௌ ச ப்ருஷ்டதஹ <br>
+பக்ஷெள தே மாருதஃ பாது சந்திர சூர்யௌ ச ப்ருஷ்டதஹ <br>
 ஷிரஷ்த  பாது வன்ஹிஸ்தே வஸவஸ் ஸர்வ தஸ்தனும் <br>
 அஹம் ச தே ஸதா புத்ர ஷாந்தி ஸ்வஸ்தி பராயணா <br>
 இஹாஸீனா  பவிஷ்யாமி ஸ்வஸ்திகாரே ரதா ஸதா <br>
@@ -147,14 +139,10 @@ BG 4.24<br>
 <h6>48 days - Fear goes away - Jaadaga Doshas goes away - New Shakti</h6>
 ॐ<br>
 श्री कारुण्याय गरुडाय<br>
-वेदरूपाय<br>
-विनदा पुत्राय<br>
-विष्णुभक्ति प्रियाय<br>
-अमृतकलश हस्ताय<br>
-बहु पराक्रमाय<br>
+वेदरूपाय, विनदा पुत्राय, विष्णुभक्ति प्रियाय<br>
+अमृतकलश हस्ताय, बहु पराक्रमाय<br>
 पक्षिराजाय<br>
-सर्ववक्र<br>
-सर्व दोष<br>
+सर्ववक्र, सर्व दोष, <br>
 विष सर्प विनाशनाय स्वाहा<br>
 <br>
 
@@ -252,9 +240,12 @@ BG 4.24<br>
 नि मि<br>
 <br>
 
+			</div>
+			<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
+		</div>
+	</div>
 </div>
-<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
-</div></div>
-<br>
+<script src="sd.js"></script>
+<script>initThemeToggle();</script>
 </body>
-</html> 
+</html>

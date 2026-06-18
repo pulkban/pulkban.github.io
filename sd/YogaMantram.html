@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<style> body {   font-family: 'Montserrat', sans-serif; }  .card-text{ font-size:19px; </style>
+	<link rel="stylesheet" href="sd.css" />
 </head>
 <body>
-<div class="mx-4">
-<div class="card" >
-<br>
-<h1 class="card-header display-5">Yoga Mantram</h1>
-<br>
-<div class="card-text m-1">
-....
-</div>
-<div class="card-body display-6">
+<div class="container-fluid page-wrap">
+	<div class="mx-md-4">
+		<div class="card stotra-card">
+			<h1 class="card-header display-5">Yoga Mantram
+				<button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">🌙 Night</button>
+			</h1>
+			<div class="card-body display-6 stotra-text">
 
 ॐ हिरण्मयेन पात्रेण सत्यस्यापिहितं मुखम्‌।<br>
 तत् त्वं पूषन्नपावृणु सत्यधर्माय दृष्टये ॥<br>
@@ -57,10 +52,12 @@
 योऽपाकरोत् तं प्रवरं मुनीनां,<br>
 पतंजलि प्रांज लिरानतोऽस्मि।।<br>
 
-<br>
+			</div>
+			<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
+		</div>
+	</div>
 </div>
-<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
-</div></div>
-<br>
+<script src="sd.js"></script>
+<script>initThemeToggle();</script>
 </body>
-</html> 
+</html>

@@ -29,3 +29,22 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
 .theme-toggle-btn { border: 1px solid var(--toggle-border); background: var(--toggle-bg); color: var(--toggle-text); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; line-height: 1; white-space: nowrap; }
 .stotra-text { line-height: 1.45; }
 .verse { margin-bottom: 0.2rem; }
+.stotra-text .card-text { font-size: 33.333%; line-height: 1.35; }
+.tamil-verse { font-size: 125%; line-height: 1.35; }
+.stotra-table th, .stotra-table td { padding: 0.3rem 0.45rem; vertical-align: top; }
+.stotra-table {
+  color: var(--text-main);
+  border-color: var(--card-border);
+}
+.stotra-table th,
+.stotra-table td {
+  color: var(--text-main);
+  border-color: var(--card-border);
+}
+.stotra-table > :not(caption) > * > * {
+  background-color: transparent;
+}
+.stotra-table.table-hover > tbody > tr:hover > * {
+  color: var(--text-main);
+  background-color: rgba(120, 140, 170, 0.18);
+}

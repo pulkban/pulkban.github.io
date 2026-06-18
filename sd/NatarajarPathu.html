@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!--<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">-->
-	<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-
-<style> body {   font-family: 'Abel', sans-serif; }
-
-.card-text{ font-sizve:32px; }</style>
+	<link rel="stylesheet" href="sd.css" />
 </head>
-<body class="bg-primary">
-<hr>
-<div class="mx-4">
-<div class="card" >
-<h1 class="card-header display-5">Natarajar Pathu</h1>
+<body>
+<div class="container-fluid page-wrap">
+	<div class="mx-md-4">
+		<div class="card stotra-card">
+			<h1 class="card-header display-5">Natarajar Pathu
+				<button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">🌙 Night</button>
+			</h1>
 <div class="card-text m-3">
 
 Sirumanavoor Munusami Mudaliyar</br>
@@ -26,7 +21,7 @@ Sirumanavoor Munusami Mudaliyar</br>
 தில்லையில் விளங்கும் ஸ்ரீ நடராஜரின் மேல் அளவிற்கடந்த பக்தியினால் “நடராஜப் பத்து” (Natarajar pathu) பாடல்களை சிறுமணவூர் முனுசாமி அவர்கள் முன்னூறு வருடங்களுக்கு முன்பு எழுதியுள்ளார்… தற்போது சிறுமணைவை எனும் ஊர் பெயர் மாற்றம் ஏற்பட்டு, திருவள்ளூர் தாலுக்காவில், கருமுத்தூர் ஒன்றியத்தில் அமைந்துள்ளது. அவர் எழுதிய  நடராஜ பத்து சைவ அன்பர்களிடம் மிக பிரபலமாகத் திகழ்ந்தது…  திருவாசகத்திற்கு இணையாக  தில்லை நடராஜரின் மீது பாடப்பட்ட நடராஜ பத்து (Nataraja patthu song) ஆகும்..<br>
 
 </div>
-<div class="card-body display-6 bg-light background-div">
+<div class="card-body display-6 stotra-text">
 Started 26-Feb-2025<br>
 Maha Shivraatri<br>
 
@@ -236,9 +231,12 @@ Maha Shivraatri<br>
 இனியவள மருவு சிறு வனவை முனி<br>
 சாமி எனை ஆள்வதினி யுன் கடன் காண்<br>
 <br>
+			</div>
+			<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
+		</div>
+	</div>
 </div>
-<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
-</div></div>
-<br>
+<script src="sd.js"></script>
+<script>initThemeToggle();</script>
 </body>
-</html> 
+</html>
