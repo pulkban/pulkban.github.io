@@ -1,30 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Games</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games Hub</title>
   <style>
-    body { margin: 20px; background: white; font-family: Arial; }
-    h1 { text-align: center; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .tile { padding: 20px; border: 1px solid #ccc; border-radius: 8px; text-align: center; text-decoration: none; color: black; cursor: pointer; transition: 0.2s; }
-    .tile:hover { background: #f0f0f0; }
+    :root {
+      --bg-a: #edf4ff;
+      --bg-b: #d9e6ff;
+      --card: #ffffff;
+      --ink: #11203f;
+      --soft-ink: #4c5f87;
+      --line: #d9e0f4;
+      --accent: #088aa4;
+      --accent-2: #045c84;
+      --shadow: rgba(17, 32, 63, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(4, 92, 132, 0.22), transparent 36%),
+        radial-gradient(circle at 85% 90%, rgba(8, 138, 164, 0.2), transparent 40%),
+        linear-gradient(160deg, var(--bg-a) 0%, var(--bg-b) 100%);
+      padding: 28px 18px;
+    }
+
+    .container {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      color: var(--soft-ink);
+      font-size: clamp(0.95rem, 2.1vw, 1.1rem);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 18px;
+    }
+
+    .tile {
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 14px;
+      align-items: start;
+      box-shadow: 0 10px 24px var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(4, 92, 132, 0.35);
+      box-shadow: 0 16px 28px rgba(17, 32, 63, 0.18);
+    }
+
+    .tile:focus-visible {
+      outline: 3px solid rgba(8, 138, 164, 0.35);
+      outline-offset: 2px;
+    }
+
+    .icon {
+      height: 60px;
+      width: 60px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: #fff;
+      background: linear-gradient(160deg, var(--accent), var(--accent-2));
+    }
+
+    .content h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.22;
+    }
+
+    .content p {
+      margin: 8px 0 0;
+      color: var(--soft-ink);
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 16px 12px;
+      }
+
+      .tile {
+        padding: 15px;
+        grid-template-columns: 56px 1fr;
+      }
+
+      .icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+      }
+
+      .content h2 {
+        font-size: 1.2rem;
+      }
+
+      .content p {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
-<h1>Games</h1>
-<div class="grid">
-  <a href="chess_game.html" target="_blank" class="tile">
-    <div style="font-size: 2em;">♔</div>
-    <b>2-Player Chess</b>
-  </a>
-  <a href="chess_vs_computer.html" target="_blank" class="tile">
-    <div style="font-size: 2em;">🤖</div>
-    <b>Computer vs Human</b>
-  </a>
-  <a href="jungle_run_and_gun_game.html" target="_blank" class="tile">
-    <div style="font-size: 2em;">🎯</div>
-    <b>Jungle Run & Gun</b>
-  </a>
-</div>
+  <main class="container">
+    <header class="hero">
+      <h1>Games Hub</h1>
+      <p>Pick a game and jump right in.</p>
+    </header>
+
+    <section class="grid" aria-label="Available games">
+      <a href="chess_game.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">♔</div>
+        <div class="content">
+          <h2>2-Player Chess</h2>
+          <p>Classic chess for two players on the same screen. Plan, defend, and checkmate.</p>
+        </div>
+      </a>
+
+      <a href="chess_vs_computer.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">🤖</div>
+        <div class="content">
+          <h2>Chess vs Computer</h2>
+          <p>Practice against the computer and sharpen your openings, tactics, and endgame play.</p>
+        </div>
+      </a>
+
+      <a href="jungle_run_and_gun_game.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">🎯</div>
+        <div class="content">
+          <h2>Jungle Run &amp; Gun</h2>
+          <p>Fast-paced action with movement, timing, and quick reflexes through jungle challenges.</p>
+        </div>
+      </a>
+
+      <a href="fifteen_puzzle.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">🧩</div>
+        <div class="content">
+          <h2>15 Puzzle (4x4)</h2>
+          <p>Slide numbered tiles into place on a 4x4 grid and solve the classic puzzle challenge.</p>
+        </div>
+      </a>
+
+      <a href="eight_puzzle.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">🧠</div>
+        <div class="content">
+          <h2>8 Puzzle (3x3)</h2>
+          <p>A kid-friendly 3x3 version with the same sliding rules and quicker solve sessions.</p>
+        </div>
+      </a>
+
+      <a href="2048.html" target="_blank" class="tile">
+        <div class="icon" aria-hidden="true">🔢</div>
+        <div class="content">
+          <h2>2048</h2>
+          <p>Slide, merge, and grow powers of two on a 4x4 board until no more moves remain.</p>
+        </div>
+      </a>
+    </section>
+  </main>
 </body>
 </html>
