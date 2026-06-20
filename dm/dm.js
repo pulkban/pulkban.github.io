@@ -35,7 +35,7 @@ function populateNavbar()
     {
         // add a button for each person
         // make it call main on click with event
-        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a>`
     }
 }
 
@@ -52,13 +52,11 @@ function showIframe(currentEvent)
     // clear highlight of last clicked name
     if (lastEvent)
     {
-        lastEvent.target.style.color = "#8ab4f8";
-        lastEvent.target.style.backgroundColor = "transparent";
+        lastEvent.target.classList.remove("active");
     }
 
     // apply highlight to current clicked name
-    currentEvent.target.style.color = "black";
-    currentEvent.target.style.backgroundColor = "#8ab4f8";
+    currentEvent.target.classList.add("active");
 
     // store current event as last event
     lastEvent = currentEvent;
@@ -75,4 +73,12 @@ populateNavbar()
 
 // show first person's journal automatically
 document.getElementById("my-iframe").innerHTML = `<iframe src="${journalDetails['Instructions']}" style="width: 100%; height: 100vh;"></iframe>`;
+
+// mirror selected state for the default page
+var defaultLink = document.querySelector("#my-navbar a");
+if (defaultLink)
+{
+    defaultLink.classList.add("active");
+    lastEvent = { target: defaultLink };
+}
 

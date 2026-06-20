@@ -31,6 +31,68 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
 .verse { margin-bottom: 0.2rem; }
 .stotra-text .card-text { font-size: 33.333%; line-height: 1.35; }
 .tamil-verse { font-size: 125%; line-height: 1.35; }
+
+/* Shared compact left-navbar layout for index pages */
+.nav-page {
+  font-family: "Montserrat", sans-serif;
+  background: #fff;
+  color: #111;
+}
+.nav-shell {
+  height: 100vh;
+}
+.nav-sidebar {
+  background: #fafaf6;
+  border-right: 1px solid #ddd;
+  width: 220px;
+  min-width: 220px;
+  height: 100vh;
+}
+.nav-sidebar h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+.navbar-links a {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.15;
+  padding: 1px 5px;
+  color: #2563eb;
+  text-decoration: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar-links a:hover {
+  background: #e8f0fe;
+}
+.navbar-links a.active {
+  color: #111;
+  background: #bcd4ff;
+}
+.navbar-links b {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 4px 0 1px;
+}
+.navbar-links hr {
+  margin: 1px 0;
+  border-color: #e5e5e5;
+}
+.nav-content {
+  padding-left: 220px;
+}
+.nav-hero {
+  margin-bottom: 0.4rem;
+  border-radius: 0.5rem;
+}
 .stotra-table th, .stotra-table td { padding: 0.3rem 0.45rem; vertical-align: top; }
 .stotra-table {
   color: var(--text-main);

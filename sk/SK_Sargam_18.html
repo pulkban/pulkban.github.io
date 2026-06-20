@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-body { font-family: "Lato", sans-serif; }
-.card-text{ font-size:19px; }
-</style>
+	<link rel="stylesheet" href="../sd/sd.css" />
 </head>
 <body>
-
-<hr>
-<div class="mx-4">
-<div class="card" >
-<h1 class="card-header display-5">Sargam - 18</h1>
-<div class="card-body display-6">
+<div class="container-fluid page-wrap">
+	<div class="mx-md-4">
+		<div class="card stotra-card">
+            <h1 class="card-header display-5">Sargam - 18
+                <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">&#127769; Night</button>
+			</h1>
+			<div class="card-body display-6 stotra-text">
 
 ॥ रावणागमनम् ॥<br><br>
 तथा विप्रेक्षमाणस्य वनं पुष्पितपादपम् ।<br/>
@@ -84,10 +83,15 @@ body { font-family: "Lato", sans-serif; }
 दिदृक्षुरसितापाङ्गामुपावर्तत रावणः ॥ ३२ ॥<br><br>
 इत्यार्षे श्रीमद्रामायणे वाल्मीकीये आदिकाव्ये सुन्दरकाण्डे अष्टादशः सर्गः ॥ १८ ॥
 
-<br><div class="card-text">https://stotranidhi.com/hi/valmiki-ramayana-sundara-kanda-in-sanskrit/</div>
+<br>https://stotranidhi.com/hi/valmiki-ramayana-sundara-kanda-in-sanskrit/
+
+
+			</div>
+			<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
+		</div>
+	</div>
 </div>
-<div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
-</div></div>
-<br>
+<script src="../sd/sd.js"></script>
+<script>initThemeToggle();</script>
 </body>
-</html> 
+</html>

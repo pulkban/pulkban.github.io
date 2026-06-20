@@ -115,7 +115,7 @@ function populateNavbar()
     {
         // add a button for each person
         // make it call main on click with event
-        myNavbar.innerHTML += `<a href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a><br>`
+		myNavbar.innerHTML += `<a href='${journalDetails[person]}' data-href='${journalDetails[person]}' onclick='showIframe(event)'>${person}</a>`
     }
 }
 
@@ -126,8 +126,9 @@ var lastEvent = null;
 
 function showIframe(currentEvent)
 {
-    // find title of button which was pressed
-    var person = currentEvent.target.textContent;
+	// find title of button which was pressed
+	var target = currentEvent.currentTarget || currentEvent.target;
+	var person = target.textContent;
 
     // clear highlight of last clicked name
     if (lastEvent)
@@ -137,14 +138,16 @@ function showIframe(currentEvent)
     }
 
     // apply highlight to current clicked name
-    currentEvent.target.style.color = "black";
-    currentEvent.target.style.backgroundColor = "#8ab4f8";
+	target.style.color = "black";
+	target.style.backgroundColor = "#8ab4f8";
 
     // store current event as last event
-    lastEvent = currentEvent;
+	lastEvent = { target: target };
+
+	var href = target.getAttribute("data-href") || target.getAttribute("href");
     
     // load iframe of this person's journal
-    myIframe.innerHTML = `<iframe src="${journalDetails[person]}" style="width: 100%; height: 100vh;"></iframe>`;
+	myIframe.innerHTML = `<iframe src="${href}" style="width: 100%; height: 100vh;"></iframe>`;
 
     // prevent link from opening
     currentEvent.preventDefault();
