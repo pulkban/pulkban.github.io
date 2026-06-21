@@ -1,85 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="UTF_8">
-        <title>Pranev's Place</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script defer src="pranev.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Pranev's Place</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script defer src="pranev.js"></script>
+    <link href="../styles.css" rel="stylesheet">
+    <link href="../sd/sd.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-		
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<style>
-    html, body {height: 100%; overflow: hidden;}
-    body {font-family: 'Montserrat', sans-serif; background: #f3f5f8; margin: 0;}
-    .exam-layout {height: 100vh; overflow: hidden;}
-    .exam-sidebar {
-        width: 240px;
-        height: 100vh;
-        padding: 14px 12px;
-        background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-        border-right: 1px solid #e3ebf5;
-        box-shadow: 0 6px 16px rgba(20, 40, 70, 0.08);
-        overflow-y: auto;
-    }
-    .exam-title {
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        padding-bottom: 8px;
-        border-bottom: 1px solid #e6edf7;
-    }
-    #my-navbar b {
-        display: block;
-        font-size: 0.78rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: #5a6d85;
-        margin: 10px 0 6px;
-    }
-    .exam-link {
-        display: block;
-        font-size: 0.88rem;
-        color: #1d3f6f;
-        text-decoration: none;
-        padding: 6px 8px;
-        margin-bottom: 4px;
-        border-radius: 8px;
-        line-height: 1.2;
-    }
-    .exam-link:hover {background: #e7f1ff; color: #12355f;}
-    .exam-link.active {background: #cfe2ff; color: #0b2848; font-weight: 600;}
-    .exam-content {
-        margin-left: 240px;
-        padding: 12px;
-        width: calc(100% - 240px);
-        height: 100vh;
-        overflow: hidden;
-        box-sizing: border-box;
-    }
-    .exam-content iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 0 8px 22px rgba(30, 45, 75, 0.08);
-    }
-</style>
-		
-    </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        html, body { height: 100%; overflow: hidden; }
+        .nav-shell { height: 100vh; margin-bottom: 0 !important; }
+        .nav-content { height: 100vh; overflow: hidden; padding: 10px 10px 10px 230px; box-sizing: border-box; }
+        #my-iframe iframe { width: 100%; height: 100%; border: none; border-radius: 8px; background: #fff; display: block; }
+    </style>
+</head>
 
-    <body>
-        <div class="exam-layout">
-            <div class="exam-sidebar position-fixed">
-                <h1 class="exam-title">Pranev's Place</h1>
-                <section id="my-navbar" class="pb-4"></section>
-            </div>
-            <div id="my-iframe" class="exam-content"></div>
+<body class="nav-page">
+    <div class="d-flex flex-row bd-highlight mb-3 align-items-stretch nav-shell">
+        <div class="sidebar nav-sidebar position-fixed p-2 overflow-auto">
+            <h1>Pranev's Place</h1>
+            <section id="my-navbar" class="navbar-links pb-5"></section>
         </div>
-    </body>
+
+        <div id="my-iframe" class="d-flex flex-fill bd-highlight nav-content"></div>
+    </div>
+</body>
 
 </html>

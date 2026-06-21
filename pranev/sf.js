@@ -55,6 +55,10 @@ function processQuestionTextForImages(text) {
         if (!raw) {
             return '';
         }
+        // Keep explicit folder paths (for example: images_vup_maths/foo.jpg) as-is.
+        if (raw.includes('/') || raw.includes('\\')) {
+            return raw;
+        }
         if (/^(?:https?:|data:|\/|\.\/|\.\.\/|pics\/)/i.test(raw)) {
             return raw;
         }
