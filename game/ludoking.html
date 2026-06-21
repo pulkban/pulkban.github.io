@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo King</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .game-container {
+            display: flex;
+            gap: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .board-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #game-board {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border: 3px solid #333;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            grid-template-rows: repeat(15, 1fr);
+            gap: 0;
+            padding: 2px;
+        }
+
+        .board-square {
+            background: white;
+            border: 1px solid #ddd;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .board-square:hover {
+            background: #f0f0f0;
+        }
+
+        .board-square.path {
+            background: #fffacd;
+        }
+
+        .board-square.safe {
+            background: #e6f3ff;
+            border: 2px solid #4CAF50;
+        }
+
+        .board-square.home {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border: 2px solid #FF8C00;
+            font-weight: bold;
+        }
+
+        .board-square.start-red {
+            background: #ffcccc;
+            border: 2px solid #ff0000;
+        }
+
+        .board-square.start-yellow {
+            background: #ffffcc;
+            border: 2px solid #ffff00;
+        }
+
+        .board-square.start-blue {
+            background: #ccccff;
+            border: 2px solid #0000ff;
+        }
+
+        .board-square.start-green {
+            background: #ccffcc;
+            border: 2px solid #00cc00;
+        }
+
+        .token {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            cursor: grab;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .token:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .token.red {
+            background: #ff0000;
+        }
+
+        .token.yellow {
+            background: #ffff00;
+            color: #333;
+        }
+
+        .token.blue {
+            background: #0000ff;
+        }
+
+        .token.green {
+            background: #00cc00;
+            color: #333;
+        }
+
+        .control-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 250px;
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .current-player {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+        }
+
+        .current-player.red {
+            background: #ff0000;
+        }
+
+        .current-player.yellow {
+            background: #ffff00;
+            color: #333;
+        }
+
+        .current-player.blue {
+            background: #0000ff;
+        }
+
+        .current-player.green {
+            background: #00cc00;
+            color: #333;
+        }
+
+        .dice-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ff9800;
+        }
+
+        .dice {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-height: 80px;
+            min-width: 80px;
+        }
+
+        #roll-dice {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        #roll-dice:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        #roll-dice:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #roll-dice:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .stats {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .stats p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .stats strong {
+            color: #667eea;
+        }
+
+        .game-status {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            background: #e8f5e9;
+            border: 2px solid #4CAF50;
+            color: #2e7d32;
+            display: none;
+        }
+
+        .game-status.show {
+            display: block;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn.reset {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn.reset:hover {
+            background: #d32f2f;
+        }
+
+        @media (max-width: 768px) {
+            .game-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            #game-board {
+                width: 100%;
+                max-width: 400px;
+                height: 400px;
+            }
+
+            .control-section {
+                min-width: auto;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        .rules {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .rules h4 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="board-section">
+            <h1>🎲 Ludo King</h1>
+            <div id="game-board"></div>
+        </div>
+
+        <div class="control-section">
+            <div class="info-box">
+                <h3>Current Turn</h3>
+                <div class="current-player" id="current-player">Player 1 (Red)</div>
+            </div>
+
+            <div class="dice-section">
+                <div>Roll the Dice</div>
+                <div class="dice" id="dice-display">-</div>
+                <button id="roll-dice">🎲 Roll Dice</button>
+            </div>
+
+            <div class="info-box">
+                <h3>Tokens Status</h3>
+                <div class="stats" id="token-stats">
+                    <p><strong>Red:</strong> <span id="red-count">0</span>/4 home</p>
+                    <p><strong>Yellow:</strong> <span id="yellow-count">0</span>/4 home</p>
+                    <p><strong>Blue:</strong> <span id="blue-count">0</span>/4 home</p>
+                    <p><strong>Green:</strong> <span id="green-count">0</span>/4 home</p>
+                </div>
+            </div>
+
+            <div class="game-status" id="game-status"></div>
+
+            <div class="controls">
+                <button class="btn reset" id="reset-game">Reset Game</button>
+            </div>
+
+            <div class="rules">
+                <h4>How to Play:</h4>
+                <ul>
+                    <li>Roll the dice to move your tokens</li>
+                    <li>Must roll a 6 to bring token out</li>
+                    <li>Move tokens clockwise around the board</li>
+                    <li>Capture opponent tokens by landing on same space</li>
+                    <li>First player to bring all tokens home wins!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game Configuration
+        const BOARD_SIZE = 52;
+        const PLAYERS = ['red', 'yellow', 'blue', 'green'];
+        const TOKENS_PER_PLAYER = 4;
+        const HOME_STRETCH = 6;
+
+        // Game State
+        let gameState = {
+            currentPlayer: 0,
+            players: {},
+            lastDiceRoll: 0,
+            gameOver: false,
+            canRoll: true
+        };
+
+        // Initialize player tokens
+        function initializeGame() {
+            gameState.players = {};
+            PLAYERS.forEach(player => {
+                gameState.players[player] = {
+                    tokens: [
+                        { id: 0, position: -1, inHome: false },
+                        { id: 1, position: -1, inHome: false },
+                        { id: 2, position: -1, inHome: false },
+                        { id: 3, position: -1, inHome: false }
+                    ],
+                    homeCount: 0
+                };
+            });
+            gameState.currentPlayer = 0;
+            gameState.lastDiceRoll = 0;
+            gameState.gameOver = false;
+            gameState.canRoll = true;
+            renderBoard();
+            updateUI();
+        }
+
+        // Create the board layout
+        function createBoard() {
+            const board = document.getElementById('game-board');
+            board.innerHTML = '';
+
+            // Create 15x15 grid
+            for (let i = 0; i < 225; i++) {
+                const square = document.createElement('div');
+                square.className = 'board-square';
+                square.id = `square-${i}`;
+
+                // Determine square type
+                const type = getBoardSquareType(i);
+                if (type) {
+                    square.classList.add(type);
+                }
+
+                board.appendChild(square);
+            }
+        }
+
+        // Determine board square classification
+        function getBoardSquareType(index) {
+            // Calculate row and column
+            const row = Math.floor(index / 15);
+            const col = index % 15;
+
+            // Red start area (top-left)
+            if (row < 6 && col < 6) {
+                return row === 2 && col === 2 ? 'start-red' : '';
+            }
+
+            // Yellow start area (top-right)
+            if (row < 6 && col > 8) {
+                return row === 2 && col === 12 ? 'start-yellow' : '';
+            }
+
+            // Blue start area (bottom-right)
+            if (row > 8 && col > 8) {
+                return row === 12 && col === 12 ? 'start-blue' : '';
+            }
+
+            // Green start area (bottom-left)
+            if (row > 8 && col < 6) {
+                return row === 12 && col === 2 ? 'start-green' : '';
+            }
+
+            // Main path (cross shape)
+            if ((row === 7 || col === 7) && !(row < 6 || row > 8 || col < 6 || col > 8)) {
+                // Check for safe zones
+                if ((row === 7 && col === 1) || (row === 1 && col === 7) ||
+                    (row === 7 && col === 13) || (row === 13 && col === 7)) {
+                    return 'safe';
+                }
+                if ((row === 7 && col === 2) || (row === 2 && col === 7) ||
+                    (row === 7 && col === 12) || (row === 12 && col === 7)) {
+                    return 'safe';
+                }
+                return 'path';
+            }
+
+            // Home areas
+            if (row === 7 && col > 8 && col < 15) return 'home';
+            if (row > 8 && row < 15 && col === 7) return 'home';
+            if (row === 7 && col >= 0 && col < 6) return 'home';
+            if (row >= 0 && row < 6 && col === 7) return 'home';
+
+            return '';
+        }
+
+        // Roll the dice
+        function rollDice() {
+            if (!gameState.canRoll || gameState.gameOver) return;
+
+            const diceValue = Math.floor(Math.random() * 6) + 1;
+            gameState.lastDiceRoll = diceValue;
+
+            document.getElementById('dice-display').textContent = diceValue;
+            gameState.canRoll = false;
+
+            // Check if player can move
+            const currentPlayerKey = PLAYERS[gameState.currentPlayer];
+            const canMoveToken = canPlayerMoveToken(currentPlayerKey, diceValue);
+
+            if (!canMoveToken) {
+                setTimeout(() => {
+                    alert(`No valid moves! Next player's turn.`);
+                    nextTurn();
+                }, 500);
+            }
+
+            updateUI();
+        }
+
+        // Check if player can move any token
+        function canPlayerMoveToken(playerKey, diceValue) {
+            const player = gameState.players[playerKey];
+            
+            for (let token of player.tokens) {
+                if (token.inHome) continue; // Already home
+                
+                if (token.position === -1 && diceValue === 6) {
+                    return true; // Can bring token out with 6
+                }
+                
+                if (token.position >= 0) {
+                    return true; // Can move any active token
+                }
+            }
+            
+            return false;
+        }
+
+        // Move to next player's turn
+        function nextTurn() {
+            gameState.currentPlayer = (gameState.currentPlayer + 1) % 4;
+            gameState.lastDiceRoll = 0;
+            gameState.canRoll = true;
+            document.getElementById('dice-display').textContent = '-';
+            updateUI();
+            checkGameWon();
+        }
+
+        // Move token
+        function moveToken(playerIndex, tokenId, steps) {
+            const playerKey = PLAYERS[playerIndex];
+            const token = gameState.players[playerKey].tokens[tokenId];
+
+            if (token.inHome) return false;
+
+            let newPosition = token.position + steps;
+
+            // Bring token out
+            if (token.position === -1 && gameState.lastDiceRoll === 6) {
+                token.position = getPlayerStartPosition(playerIndex);
+                newPosition = token.position;
+            } else if (token.position === -1) {
+                return false;
+            }
+
+            // Move along path
+            if (newPosition <= BOARD_SIZE - 1) {
+                token.position = newPosition;
+            } else if (newPosition === BOARD_SIZE) {
+                token.position = newPosition;
+                checkHomeEntry(playerKey, tokenId);
+            }
+
+            // Check for captures
+            checkCapture(playerKey, tokenId);
+            renderBoard();
+
+            return true;
+        }
+
+        // Get player's starting position on the board
+        function getPlayerStartPosition(playerIndex) {
+            const startPositions = [0, 13, 26, 39];
+            return startPositions[playerIndex];
+        }
+
+        // Check if token can enter home
+        function checkHomeEntry(playerKey, tokenId) {
+            const token = gameState.players[playerKey].tokens[tokenId];
+            if (token.position >= BOARD_SIZE) {
+                token.inHome = true;
+                gameState.players[playerKey].homeCount++;
+                token.position = BOARD_SIZE + 1; // In home area
+            }
+        }
+
+        // Check for token capture
+        function checkCapture(playerKey, tokenId) {
+            const token = gameState.players[playerKey].tokens[tokenId];
+            if (token.inHome) return;
+
+            PLAYERS.forEach(opponentKey => {
+                if (opponentKey === playerKey) return;
+
+                gameState.players[opponentKey].tokens.forEach(oppToken => {
+                    if (oppToken.position === token.position && !oppToken.inHome) {
+                        oppToken.position = -1; // Send back to start
+                    }
+                });
+            });
+        }
+
+        // Check if game is won
+        function checkGameWon() {
+            PLAYERS.forEach((playerKey, playerIndex) => {
+                if (gameState.players[playerKey].homeCount === TOKENS_PER_PLAYER) {
+                    gameState.gameOver = true;
+                    const playerName = playerKey.charAt(0).toUpperCase() + playerKey.slice(1);
+                    showGameStatus(`🎉 ${playerName} Player Wins! 🎉`);
+                    return;
+                }
+            });
+        }
+
+        // Show game status message
+        function showGameStatus(message) {
+            const statusEl = document.getElementById('game-status');
+            statusEl.textContent = message;
+            statusEl.classList.add('show');
+        }
+
+        // Render the board with tokens
+        function renderBoard() {
+            // Clear all tokens
+            document.querySelectorAll('.token').forEach(el => el.remove());
+
+            // Render all tokens
+            PLAYERS.forEach((playerKey, playerIndex) => {
+                gameState.players[playerKey].tokens.forEach((token, tokenId) => {
+                    if (token.position === -1) {
+                        // In starting area
+                        const startSquareId = getStartSquareId(playerIndex, tokenId);
+                        const square = document.getElementById(startSquareId);
+                        if (square) renderTokenOnSquare(square, playerKey, tokenId);
+                    } else if (token.inHome) {
+                        // In home area
+                        const homeSquareId = getHomeSquareId(playerIndex, tokenId);
+                        const square = document.getElementById(homeSquareId);
+                        if (square) renderTokenOnSquare(square, playerKey, tokenId);
+                    } else {
+                        // On the path
+                        const boardPosition = getGridPosition(token.position);
+                        const squareId = `square-${boardPosition}`;
+                        const square = document.getElementById(squareId);
+                        if (square) renderTokenOnSquare(square, playerKey, tokenId);
+                    }
+                });
+            });
+        }
+
+        // Render a single token on a square
+        function renderTokenOnSquare(square, playerKey, tokenId) {
+            const token = document.createElement('div');
+            token.className = `token ${playerKey}`;
+            token.textContent = tokenId + 1;
+            token.onclick = (e) => {
+                e.stopPropagation();
+                if (gameState.currentPlayer === PLAYERS.indexOf(playerKey) && 
+                    gameState.lastDiceRoll > 0 && !gameState.canRoll) {
+                    moveToken(PLAYERS.indexOf(playerKey), tokenId, gameState.lastDiceRoll);
+                    nextTurn();
+                }
+            };
+            square.appendChild(token);
+        }
+
+        // Get start square ID for a token
+        function getStartSquareId(playerIndex, tokenId) {
+            const startSquares = [
+                ['square-37', 'square-37', 'square-37', 'square-37'],
+                ['square-67', 'square-67', 'square-67', 'square-67'],
+                ['square-187', 'square-187', 'square-187', 'square-187'],
+                ['square-157', 'square-157', 'square-157', 'square-157']
+            ];
+            return startSquares[playerIndex][tokenId];
+        }
+
+        // Get home square ID for a token
+        function getHomeSquareId(playerIndex, tokenId) {
+            const homeSquares = [
+                ['square-112', 'square-128', 'square-129', 'square-130'],
+                ['square-100', 'square-101', 'square-102', 'square-103'],
+                ['square-42', 'square-57', 'square-72', 'square-87'],
+                ['square-126', 'square-111', 'square-96', 'square-81']
+            ];
+            return homeSquares[playerIndex][tokenId];
+        }
+
+        // Convert path position to grid square ID
+        function getGridPosition(pathPosition) {
+            const pathMapping = [
+                105, 104, 103, 102, 101, 100, 85, 70, 55, 40, 25, 10, 11, 12, 13, 14, 29, 44, 59, 74, 89,
+                104, 119, 120, 121, 122, 123, 138, 153, 168, 183, 182, 181, 180, 179, 164, 149, 134, 119,
+                104, 89, 74, 59, 44, 29, 14, 13, 12, 11, 10, 25, 40
+            ];
+            return pathMapping[pathPosition % pathMapping.length];
+        }
+
+        // Update UI elements
+        function updateUI() {
+            const playerNames = ['Player 1 (Red)', 'Player 2 (Yellow)', 'Player 3 (Blue)', 'Player 4 (Green)'];
+            const playerColors = ['red', 'yellow', 'blue', 'green'];
+
+            document.getElementById('current-player').textContent = playerNames[gameState.currentPlayer];
+            document.getElementById('current-player').className = `current-player ${playerColors[gameState.currentPlayer]}`;
+
+            // Update token counts
+            PLAYERS.forEach((playerKey, index) => {
+                const count = gameState.players[playerKey].homeCount;
+                document.getElementById(`${playerKey}-count`).textContent = count;
+            });
+        }
+
+        // Reset game
+        function resetGame() {
+            document.getElementById('game-status').classList.remove('show');
+            initializeGame();
+        }
+
+        // Event listeners
+        document.getElementById('roll-dice').addEventListener('click', rollDice);
+        document.getElementById('reset-game').addEventListener('click', resetGame);
+
+        // Initialize on page load
+        createBoard();
+        initializeGame();
+    </script>
+</body>
+</html>

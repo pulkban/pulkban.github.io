@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Udhay's Ping Pong</title>
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --field: #0f1b2d;
+      --line: #2a3d5f;
+      --text: #e6eefc;
+      --accent: #53d3ff;
+      --accent2: #ff7b72;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, #1c2f55 0%, transparent 35%),
+        radial-gradient(circle at 80% 90%, #17344f 0%, transparent 40%),
+        var(--bg);
+      color: var(--text);
+      padding: 16px;
+    }
+
+    .wrap {
+      width: min(920px, 96vw);
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(20px, 2.8vw, 32px);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hud {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      opacity: 0.95;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .score {
+      font-size: clamp(18px, 2.2vw, 28px);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .score .player {
+      color: var(--accent);
+    }
+
+    .score .ai {
+      color: var(--accent2);
+    }
+
+    canvas {
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      background: var(--field);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .hint {
+      font-size: 13px;
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .hud {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Udhay's Ping Pong</h1>
+    <div class="hud">
+      <div>Controls: <strong>W/S</strong> or <strong>Arrow Up/Arrow Down</strong></div>
+      <div class="score">
+        <span class="player" id="playerScore">0</span>
+        :
+        <span class="ai" id="aiScore">0</span>
+      </div>
+      <div id="status">First to 7 wins</div>
+    </div>
+    <canvas id="game" width="900" height="500" aria-label="Pong game canvas"></canvas>
+    <div class="hint">Press Space to pause/resume. Press R to reset score.</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    const playerScoreEl = document.getElementById("playerScore");
+    const aiScoreEl = document.getElementById("aiScore");
+    const statusEl = document.getElementById("status");
+
+    const FIELD = {
+      width: canvas.width,
+      height: canvas.height,
+      margin: 14,
+    };
+
+    const PADDLE = {
+      width: 14,
+      height: 90,
+      speed: 420,
+      aiSpeed: 360,
+      aiReaction: 0.12,
+      aiError: 18,
+    };
+
+    const BALL = {
+      size: 12,
+      baseSpeed: 320,
+      maxSpeed: 740,
+      speedIncrease: 1.05,
+    };
+
+    let paused = false;
+    let winner = null;
+    const WIN_SCORE = 7;
+
+    const state = {
+      player: {
+        x: FIELD.margin + 10,
+        y: FIELD.height / 2 - PADDLE.height / 2,
+        vy: 0,
+      },
+      ai: {
+        x: FIELD.width - FIELD.margin - 10 - PADDLE.width,
+        y: FIELD.height / 2 - PADDLE.height / 2,
+        vy: 0,
+        thinkTimer: 0,
+        targetY: FIELD.height / 2,
+      },
+      ball: {
+        x: FIELD.width / 2,
+        y: FIELD.height / 2,
+        vx: BALL.baseSpeed,
+        vy: BALL.baseSpeed * 0.35,
+      },
+      score: {
+        player: 0,
+        ai: 0,
+      },
+    };
+
+    const keys = {
+      up: false,
+      down: false,
+    };
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function resetBall(towardPlayer) {
+      state.ball.x = FIELD.width / 2;
+      state.ball.y = FIELD.height / 2;
+
+      const dirX = towardPlayer ? -1 : 1;
+      const angle = (Math.random() * 0.9 - 0.45);
+
+      state.ball.vx = Math.cos(angle) * BALL.baseSpeed * dirX;
+      state.ball.vy = Math.sin(angle) * BALL.baseSpeed;
+    }
+
+    function resetGame(fullReset = false) {
+      state.player.y = FIELD.height / 2 - PADDLE.height / 2;
+      state.ai.y = FIELD.height / 2 - PADDLE.height / 2;
+      state.ai.thinkTimer = 0;
+      state.ai.targetY = FIELD.height / 2;
+      resetBall(Math.random() < 0.5);
+
+      if (fullReset) {
+        state.score.player = 0;
+        state.score.ai = 0;
+        winner = null;
+        statusEl.textContent = "First to 7 wins";
+        updateScoreUI();
+      }
+    }
+
+    function updateScoreUI() {
+      playerScoreEl.textContent = String(state.score.player);
+      aiScoreEl.textContent = String(state.score.ai);
+    }
+
+    function scorePoint(playerScored) {
+      if (playerScored) {
+        state.score.player += 1;
+      } else {
+        state.score.ai += 1;
+      }
+      updateScoreUI();
+
+      if (state.score.player >= WIN_SCORE || state.score.ai >= WIN_SCORE) {
+        winner = state.score.player > state.score.ai ? "Player" : "AI";
+        statusEl.textContent = `${winner} wins! Press R to play again.`;
+        paused = true;
+      } else {
+        statusEl.textContent = "Point scored!";
+        resetBall(!playerScored);
+      }
+    }
+
+    function updatePlayer(dt) {
+      if (keys.up) {
+        state.player.vy = -PADDLE.speed;
+      } else if (keys.down) {
+        state.player.vy = PADDLE.speed;
+      } else {
+        state.player.vy = 0;
+      }
+
+      state.player.y += state.player.vy * dt;
+      state.player.y = clamp(state.player.y, FIELD.margin, FIELD.height - FIELD.margin - PADDLE.height);
+    }
+
+    function predictBallY() {
+      const b = state.ball;
+
+      if (b.vx <= 0) {
+        return FIELD.height / 2;
+      }
+
+      const targetX = state.ai.x;
+      const travelTime = (targetX - b.x) / b.vx;
+
+      if (travelTime <= 0) {
+        return b.y;
+      }
+
+      let predictedY = b.y + b.vy * travelTime;
+
+      const top = FIELD.margin + BALL.size / 2;
+      const bottom = FIELD.height - FIELD.margin - BALL.size / 2;
+      const span = bottom - top;
+
+      while (predictedY < top || predictedY > bottom) {
+        if (predictedY < top) {
+          predictedY = top + (top - predictedY);
+        }
+        if (predictedY > bottom) {
+          predictedY = bottom - (predictedY - bottom);
+        }
+      }
+
+      return clamp(predictedY, top, bottom);
+    }
+
+    function updateAI(dt) {
+      state.ai.thinkTimer -= dt;
+
+      if (state.ai.thinkTimer <= 0) {
+        state.ai.thinkTimer = PADDLE.aiReaction;
+
+        const noise = (Math.random() * 2 - 1) * PADDLE.aiError;
+        state.ai.targetY = predictBallY() - PADDLE.height / 2 + noise;
+      }
+
+      const centerY = state.ai.y + PADDLE.height / 2;
+      const desired = state.ai.targetY + PADDLE.height / 2;
+      const delta = desired - centerY;
+
+      if (Math.abs(delta) < 4) {
+        state.ai.vy = 0;
+      } else {
+        state.ai.vy = Math.sign(delta) * PADDLE.aiSpeed;
+      }
+
+      state.ai.y += state.ai.vy * dt;
+      state.ai.y = clamp(state.ai.y, FIELD.margin, FIELD.height - FIELD.margin - PADDLE.height);
+    }
+
+    function handlePaddleCollision(paddle, isPlayer) {
+      const b = state.ball;
+      const left = paddle.x;
+      const right = paddle.x + PADDLE.width;
+      const top = paddle.y;
+      const bottom = paddle.y + PADDLE.height;
+
+      const ballLeft = b.x - BALL.size / 2;
+      const ballRight = b.x + BALL.size / 2;
+      const ballTop = b.y - BALL.size / 2;
+      const ballBottom = b.y + BALL.size / 2;
+
+      const intersects = ballRight >= left && ballLeft <= right && ballBottom >= top && ballTop <= bottom;
+      if (!intersects) {
+        return;
+      }
+
+      const relativeHit = (b.y - (paddle.y + PADDLE.height / 2)) / (PADDLE.height / 2);
+      const bounceAngle = relativeHit * (Math.PI / 3);
+      const speed = Math.min(Math.hypot(b.vx, b.vy) * BALL.speedIncrease, BALL.maxSpeed);
+      const dir = isPlayer ? 1 : -1;
+
+      b.vx = Math.cos(bounceAngle) * speed * dir;
+      b.vy = Math.sin(bounceAngle) * speed;
+
+      if (isPlayer) {
+        b.x = right + BALL.size / 2;
+      } else {
+        b.x = left - BALL.size / 2;
+      }
+    }
+
+    function updateBall(dt) {
+      state.ball.x += state.ball.vx * dt;
+      state.ball.y += state.ball.vy * dt;
+
+      const topLimit = FIELD.margin + BALL.size / 2;
+      const bottomLimit = FIELD.height - FIELD.margin - BALL.size / 2;
+
+      if (state.ball.y <= topLimit) {
+        state.ball.y = topLimit;
+        state.ball.vy *= -1;
+      }
+      if (state.ball.y >= bottomLimit) {
+        state.ball.y = bottomLimit;
+        state.ball.vy *= -1;
+      }
+
+      handlePaddleCollision(state.player, true);
+      handlePaddleCollision(state.ai, false);
+
+      if (state.ball.x < 0) {
+        scorePoint(false);
+      }
+      if (state.ball.x > FIELD.width) {
+        scorePoint(true);
+      }
+    }
+
+    function drawField() {
+      ctx.clearRect(0, 0, FIELD.width, FIELD.height);
+
+      ctx.strokeStyle = "#2a3d5f";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(FIELD.margin, FIELD.margin, FIELD.width - FIELD.margin * 2, FIELD.height - FIELD.margin * 2);
+
+      ctx.setLineDash([10, 10]);
+      ctx.beginPath();
+      ctx.moveTo(FIELD.width / 2, FIELD.margin);
+      ctx.lineTo(FIELD.width / 2, FIELD.height - FIELD.margin);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    function drawPaddle(paddle, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(paddle.x, paddle.y, PADDLE.width, PADDLE.height);
+    }
+
+    function drawBall() {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(state.ball.x - BALL.size / 2, state.ball.y - BALL.size / 2, BALL.size, BALL.size);
+    }
+
+    function drawPauseText() {
+      if (!paused) {
+        return;
+      }
+
+      ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
+      ctx.fillRect(0, 0, FIELD.width, FIELD.height);
+
+      ctx.fillStyle = "#e6eefc";
+      ctx.font = "700 34px Segoe UI";
+      ctx.textAlign = "center";
+      ctx.fillText(winner ? `${winner} Won` : "Paused", FIELD.width / 2, FIELD.height / 2);
+
+      ctx.font = "500 18px Segoe UI";
+      ctx.fillText("Press Space to continue", FIELD.width / 2, FIELD.height / 2 + 36);
+      ctx.textAlign = "start";
+    }
+
+    function draw() {
+      drawField();
+      drawPaddle(state.player, "#53d3ff");
+      drawPaddle(state.ai, "#ff7b72");
+      drawBall();
+      drawPauseText();
+    }
+
+    let lastTime = 0;
+    function gameLoop(time) {
+      const dt = Math.min((time - lastTime) / 1000, 0.033);
+      lastTime = time;
+
+      if (!paused) {
+        updatePlayer(dt);
+        updateAI(dt);
+        updateBall(dt);
+      }
+
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowUp" || event.key.toLowerCase() === "w") {
+        keys.up = true;
+      }
+      if (event.key === "ArrowDown" || event.key.toLowerCase() === "s") {
+        keys.down = true;
+      }
+      if (event.key === " ") {
+        paused = !paused;
+        statusEl.textContent = paused ? "Paused" : "Playing";
+      }
+      if (event.key.toLowerCase() === "r") {
+        paused = false;
+        resetGame(true);
+      }
+    });
+
+    window.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowUp" || event.key.toLowerCase() === "w") {
+        keys.up = false;
+      }
+      if (event.key === "ArrowDown" || event.key.toLowerCase() === "s") {
+        keys.down = false;
+      }
+    });
+
+    resetGame(true);
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>

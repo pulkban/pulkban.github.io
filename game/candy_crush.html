@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Candy Crush</title>
+  <style>
+    :root {
+      --bg-1: #fff1f2;
+      --bg-2: #eef9ff;
+      --panel: #ffffff;
+      --text: #213547;
+      --accent: #ff5f87;
+      --shadow: 0 10px 28px rgba(33, 53, 71, 0.16);
+      --cell-size: min(10.5vw, 58px);
+      --gap: 6px;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, #ffd9e6 0%, transparent 45%),
+        radial-gradient(circle at 88% 22%, #d7f6ff 0%, transparent 50%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .game-shell {
+      width: min(96vw, 740px);
+      background: var(--panel);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+      letter-spacing: 0.2px;
+    }
+
+    .score-chip {
+      background: #fff7cd;
+      border: 2px solid #ffd65a;
+      color: #7a5600;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 14px;
+      min-width: 140px;
+      text-align: center;
+    }
+
+    .board-wrap {
+      display: grid;
+      justify-content: center;
+      overflow: auto;
+      padding: 8px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(8, var(--cell-size));
+      grid-template-rows: repeat(8, var(--cell-size));
+      gap: var(--gap);
+      background: linear-gradient(160deg, #f6f6ff, #eaf7ff);
+      border-radius: 18px;
+      padding: 10px;
+      border: 2px solid #d6e2ff;
+    }
+
+    .cell {
+      width: var(--cell-size);
+      height: var(--cell-size);
+      border-radius: var(--radius);
+      border: 0;
+      cursor: pointer;
+      position: relative;
+      transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+      box-shadow: inset 0 -6px 14px rgba(0, 0, 0, 0.16), inset 0 4px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .cell:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.06);
+    }
+
+    .cell.selected {
+      outline: 3px solid #222;
+      outline-offset: 2px;
+      transform: scale(1.04);
+    }
+
+    .cell.removing {
+      animation: pop 220ms ease forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.12); opacity: 0; }
+    }
+
+    .red { background: linear-gradient(145deg, #ff4a4a, #cc1f1f); }
+    .blue { background: linear-gradient(145deg, #4ca2ff, #1363d1); }
+    .green { background: linear-gradient(145deg, #40d175, #0f9b54); }
+    .yellow { background: linear-gradient(145deg, #ffd84d, #e6b100); }
+    .orange { background: linear-gradient(145deg, #ff9c47, #ea6a00); }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: #44576a;
+      line-height: 1.35;
+      background: #f7fbff;
+      border: 1px solid #d9ebff;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    @media (max-width: 520px) {
+      .game-shell {
+        padding: 14px;
+      }
+
+      :root {
+        --cell-size: min(10.2vw, 44px);
+        --gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="game-shell">
+    <div class="top-bar">
+      <h1 class="title">Mini Candy Crush</h1>
+      <div class="score-chip" id="scoreLabel">Score: 0</div>
+    </div>
+
+    <section class="board-wrap">
+      <div class="board" id="board" aria-label="Candy board"></div>
+    </section>
+
+    <p class="hint">
+      Run locally: open this HTML file in any modern browser. Click one candy, then an adjacent candy to swap.
+      Matches of 3+ in rows/columns are cleared automatically and score points.
+    </p>
+  </main>
+
+  <script>
+    // Basic game configuration.
+    const SIZE = 8;
+    const COLORS = ["red", "blue", "green", "yellow", "orange"];
+    const boardEl = document.getElementById("board");
+    const scoreLabelEl = document.getElementById("scoreLabel");
+
+    let board = [];
+    let selected = null;
+    let score = 0;
+    let lockInput = false;
+
+    function randomColor() {
+      return COLORS[Math.floor(Math.random() * COLORS.length)];
+    }
+
+    function inBounds(r, c) {
+      return r >= 0 && r < SIZE && c >= 0 && c < SIZE;
+    }
+
+    function areAdjacent(a, b) {
+      const dr = Math.abs(a.r - b.r);
+      const dc = Math.abs(a.c - b.c);
+      return dr + dc === 1;
+    }
+
+    function getCellEl(r, c) {
+      return boardEl.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`);
+    }
+
+    function updateScore(points) {
+      score += points;
+      scoreLabelEl.textContent = `Score: ${score}`;
+    }
+
+    // Score rule requested: 3 -> 10, 4 -> 20, then +10 for each extra candy.
+    function pointsForRun(length) {
+      if (length === 3) return 10;
+      return 10 * (length - 2);
+    }
+
+    function createBoardWithoutStartingMatches() {
+      board = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
+
+      for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+          let color;
+          do {
+            color = randomColor();
+            // Avoid creating immediate 3-match while building the initial board.
+          } while (
+            (c >= 2 && board[r][c - 1] === color && board[r][c - 2] === color) ||
+            (r >= 2 && board[r - 1][c] === color && board[r - 2][c] === color)
+          );
+          board[r][c] = color;
+        }
+      }
+    }
+
+    function renderBoard() {
+      boardEl.innerHTML = "";
+      const frag = document.createDocumentFragment();
+
+      for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = `cell ${board[r][c]}`;
+          button.dataset.r = String(r);
+          button.dataset.c = String(c);
+          button.setAttribute("aria-label", `${board[r][c]} candy at row ${r + 1}, column ${c + 1}`);
+          button.addEventListener("click", onCellClick);
+          frag.appendChild(button);
+        }
+      }
+
+      boardEl.appendChild(frag);
+    }
+
+    function clearSelectionUI() {
+      const prev = boardEl.querySelector(".cell.selected");
+      if (prev) prev.classList.remove("selected");
+    }
+
+    function markSelected(r, c) {
+      clearSelectionUI();
+      const el = getCellEl(r, c);
+      if (el) el.classList.add("selected");
+    }
+
+    function swapInBoard(a, b) {
+      const temp = board[a.r][a.c];
+      board[a.r][a.c] = board[b.r][b.c];
+      board[b.r][b.c] = temp;
+    }
+
+    function findMatchesAndScore() {
+      const toRemove = new Set();
+      let points = 0;
+
+      // Check row runs.
+      for (let r = 0; r < SIZE; r++) {
+        let c = 0;
+        while (c < SIZE) {
+          const color = board[r][c];
+          let end = c + 1;
+          while (end < SIZE && board[r][end] === color) end++;
+          const runLength = end - c;
+          if (runLength >= 3) {
+            points += pointsForRun(runLength);
+            for (let i = c; i < end; i++) toRemove.add(`${r},${i}`);
+          }
+          c = end;
+        }
+      }
+
+      // Check column runs.
+      for (let c = 0; c < SIZE; c++) {
+        let r = 0;
+        while (r < SIZE) {
+          const color = board[r][c];
+          let end = r + 1;
+          while (end < SIZE && board[end][c] === color) end++;
+          const runLength = end - r;
+          if (runLength >= 3) {
+            points += pointsForRun(runLength);
+            for (let i = r; i < end; i++) toRemove.add(`${i},${c}`);
+          }
+          r = end;
+        }
+      }
+
+      return { toRemove, points };
+    }
+
+    function animateRemoval(toRemove) {
+      for (const id of toRemove) {
+        const [r, c] = id.split(",").map(Number);
+        const cell = getCellEl(r, c);
+        if (cell) cell.classList.add("removing");
+      }
+    }
+
+    function removeAndCollapse(toRemove) {
+      // Remove matched candies.
+      for (const id of toRemove) {
+        const [r, c] = id.split(",").map(Number);
+        board[r][c] = null;
+      }
+
+      // Collapse each column down and refill from top.
+      for (let c = 0; c < SIZE; c++) {
+        const kept = [];
+        for (let r = SIZE - 1; r >= 0; r--) {
+          if (board[r][c] !== null) kept.push(board[r][c]);
+        }
+
+        let r = SIZE - 1;
+        for (const color of kept) {
+          board[r][c] = color;
+          r--;
+        }
+
+        while (r >= 0) {
+          board[r][c] = randomColor();
+          r--;
+        }
+      }
+    }
+
+    async function resolveBoardCascades() {
+      while (true) {
+        const { toRemove, points } = findMatchesAndScore();
+        if (toRemove.size === 0) break;
+
+        updateScore(points);
+        animateRemoval(toRemove);
+        await sleep(170);
+        removeAndCollapse(toRemove);
+        renderBoard();
+        await sleep(110);
+      }
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function trySwapAndResolve(first, second) {
+      lockInput = true;
+      swapInBoard(first, second);
+      renderBoard();
+
+      const { toRemove } = findMatchesAndScore();
+      if (toRemove.size === 0) {
+        // Invalid move: swap back if it did not create any match.
+        await sleep(120);
+        swapInBoard(first, second);
+        renderBoard();
+      } else {
+        await resolveBoardCascades();
+      }
+
+      lockInput = false;
+    }
+
+    async function onCellClick(event) {
+      if (lockInput) return;
+
+      const target = event.currentTarget;
+      const r = Number(target.dataset.r);
+      const c = Number(target.dataset.c);
+
+      if (!selected) {
+        selected = { r, c };
+        markSelected(r, c);
+        return;
+      }
+
+      const second = { r, c };
+
+      // Clicking the same cell deselects it.
+      if (selected.r === second.r && selected.c === second.c) {
+        selected = null;
+        clearSelectionUI();
+        return;
+      }
+
+      // If non-adjacent, simply move selection to the new candy.
+      if (!areAdjacent(selected, second)) {
+        selected = second;
+        markSelected(r, c);
+        return;
+      }
+
+      const first = selected;
+      selected = null;
+      clearSelectionUI();
+      await trySwapAndResolve(first, second);
+    }
+
+    async function init() {
+      createBoardWithoutStartingMatches();
+      renderBoard();
+      // Safety pass in case of rare accidental initial match.
+      await resolveBoardCascades();
+    }
+
+    init();
+  </script>
+</body>
+</html>

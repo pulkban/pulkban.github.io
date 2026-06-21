@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman-Like Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .game-container {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #gameCanvas {
+            border: 3px solid #667eea;
+            background: #000;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            cursor: none;
+        }
+
+        .info-panel {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            color: #667eea;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-value {
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .controls {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+            padding: 10px;
+            background: #2a2a2a;
+            border-radius: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .game-over {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            min-width: 300px;
+        }
+
+        .game-over.show {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .game-over h2 {
+            color: #667eea;
+            font-size: 2em;
+        }
+
+        .game-over p {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .info-panel {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #gameCanvas {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 Pacman-Like Maze Game</h1>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        
+        <div class="info-panel">
+            <div class="info-item">
+                <span>Score</span>
+                <span class="info-value" id="scoreDisplay">0</span>
+            </div>
+            <div class="info-item">
+                <span>Level</span>
+                <span class="info-value" id="levelDisplay">1</span>
+            </div>
+            <div class="info-item">
+                <span>Lives</span>
+                <span class="info-value" id="livesDisplay">3</span>
+            </div>
+            <div class="info-item">
+                <span>Pellets Left</span>
+                <span class="info-value" id="pelletsDisplay">0</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <p><strong>Controls:</strong> Arrow Keys or WASD to move • Space to Pause</p>
+            <p><strong>Goal:</strong> Collect all pellets while avoiding enemies!</p>
+        </div>
+
+        <div class="button-group">
+            <button onclick="game.togglePause()">Pause/Resume</button>
+            <button onclick="game.reset()">New Game</button>
+            <button onclick="game.nextLevel()">Next Level</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="game-over" id="gameOverModal">
+        <h2 id="gameOverTitle">Game Over!</h2>
+        <p id="gameOverMessage"></p>
+        <button onclick="game.reset()">Play Again</button>
+    </div>
+
+    <script>
+        /**
+         * PACMAN-LIKE MAZE GAME
+         * A cross-platform educational game demonstrating:
+         * - Canvas rendering and animation loops
+         * - Collision detection
+         * - Simple AI pathfinding
+         * - Game state management
+         * - Input handling
+         * 
+         * Architecture:
+         * - Game: Main game manager
+         * - Player: User-controlled character
+         * - Enemy: AI-controlled enemies
+         * - Maze: Level definition and structure
+         * - CollisionDetector: Collision handling
+         */
+
+        // ==================== CONSTANTS ====================
+        const GRID_SIZE = 20; // Each cell is 20x20 pixels
+        const COLS = 30;
+        const ROWS = 30;
+        const CANVAS_WIDTH = GRID_SIZE * COLS;
+        const CANVAS_HEIGHT = GRID_SIZE * ROWS;
+
+        // Tile types
+        const TILE = {
+            EMPTY: 0,
+            WALL: 1,
+            PELLET: 2,
+            POWER_PELLET: 3
+        };
+
+        // Directions
+        const DIRECTION = {
+            UP: { x: 0, y: -1, name: 'UP' },
+            DOWN: { x: 0, y: 1, name: 'DOWN' },
+            LEFT: { x: -1, y: 0, name: 'LEFT' },
+            RIGHT: { x: 1, y: 0, name: 'RIGHT' }
+        };
+
+        // Colors
+        const COLORS = {
+            PLAYER: '#FFE900',
+            WALL: '#0033CC',
+            PELLET: '#FFAA00',
+            POWER_PELLET: '#FF00FF',
+            ENEMY1: '#FF0000',
+            ENEMY2: '#FFB8FF',
+            ENEMY3: '#00FFFF',
+            EMPTY: '#000000'
+        };
+
+        // ==================== COLLISION DETECTOR ====================
+        /**
+         * Handles all collision detection in the game
+         */
+        class CollisionDetector {
+            /**
+             * Check if a position is valid (not a wall)
+             */
+            static isWall(maze, gridX, gridY) {
+                if (gridX < 0 || gridX >= COLS || gridY < 0 || gridY >= ROWS) {
+                    return true; // Treat out-of-bounds as wall
+                }
+                return maze.getTile(gridX, gridY) === TILE.WALL;
+            }
+
+            /**
+             * Check if two entities collide
+             */
+            static checkCollision(entity1, entity2) {
+                return entity1.gridX === entity2.gridX && entity1.gridY === entity2.gridY;
+            }
+
+            /**
+             * Check if player collected pellet
+             */
+            static checkPelletCollision(player, maze) {
+                const tile = maze.getTile(player.gridX, player.gridY);
+                if (tile === TILE.PELLET) {
+                    maze.setTile(player.gridX, player.gridY, TILE.EMPTY);
+                    player.score += 10;
+                    return true;
+                }
+                if (tile === TILE.POWER_PELLET) {
+                    maze.setTile(player.gridX, player.gridY, TILE.EMPTY);
+                    player.score += 50;
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        // ==================== PLAYER CLASS ====================
+        /**
+         * Represents the player character (Pacman)
+         */
+        class Player {
+            constructor(startX, startY) {
+                this.gridX = startX;
+                this.gridY = startY;
+                this.nextX = startX;
+                this.nextY = startY;
+                this.direction = DIRECTION.RIGHT;
+                this.nextDirection = DIRECTION.RIGHT;
+                this.score = 0;
+                this.lives = 3;
+                this.moveSpeed = 1; // Moves every frame
+            }
+
+            /**
+             * Queue the next direction based on input
+             */
+            setNextDirection(direction) {
+                this.nextDirection = direction;
+            }
+
+            /**
+             * Update player position
+             */
+            update(maze) {
+                // Try to move in the next direction
+                const nextX = this.gridX + this.nextDirection.x;
+                const nextY = this.gridY + this.nextDirection.y;
+
+                if (!CollisionDetector.isWall(maze, nextX, nextY)) {
+                    this.gridX = nextX;
+                    this.gridY = nextY;
+                    this.direction = this.nextDirection;
+                } else {
+                    // If can't move in next direction, try current direction
+                    const currentX = this.gridX + this.direction.x;
+                    const currentY = this.gridY + this.direction.y;
+                    if (!CollisionDetector.isWall(maze, currentX, currentY)) {
+                        this.gridX = currentX;
+                        this.gridY = currentY;
+                    }
+                }
+
+                // Keep player in bounds
+                this.gridX = Math.max(0, Math.min(COLS - 1, this.gridX));
+                this.gridY = Math.max(0, Math.min(ROWS - 1, this.gridY));
+
+                // Check pellet collision
+                CollisionDetector.checkPelletCollision(this, maze);
+            }
+
+            /**
+             * Render player on canvas
+             */
+            render(ctx) {
+                const x = this.gridX * GRID_SIZE + GRID_SIZE / 2;
+                const y = this.gridY * GRID_SIZE + GRID_SIZE / 2;
+                const radius = GRID_SIZE / 2 - 2;
+
+                // Draw Pacman-like circle with mouth
+                ctx.fillStyle = COLORS.PLAYER;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Draw mouth based on direction
+                const mouthAngle = Math.PI / 6;
+                ctx.fillStyle = COLORS.EMPTY;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.arc(x, y, radius, mouthAngle, Math.PI * 2 - mouthAngle);
+                ctx.fill();
+            }
+
+            reset(startX, startY) {
+                this.gridX = startX;
+                this.gridY = startY;
+                this.direction = DIRECTION.RIGHT;
+                this.nextDirection = DIRECTION.RIGHT;
+            }
+        }
+
+        // ==================== ENEMY CLASS ====================
+        /**
+         * Represents an enemy character with simple AI
+         * Uses basic pathfinding and movement patterns
+         */
+        class Enemy {
+            constructor(startX, startY, color, type = 'chase') {
+                this.gridX = startX;
+                this.gridY = startY;
+                this.startX = startX;
+                this.startY = startY;
+                this.color = color;
+                this.type = type; // 'chase', 'patrol', 'random'
+                this.direction = DIRECTION.RIGHT;
+                this.moveCounter = 0;
+                this.updateFrequency = 10; // Move every N frames
+                this.patrolPath = [];
+                this.patrolIndex = 0;
+            }
+
+            /**
+             * Simple AI logic to chase player or patrol
+             */
+            update(maze, player) {
+                this.moveCounter++;
+                if (this.moveCounter < this.updateFrequency) {
+                    return;
+                }
+                this.moveCounter = 0;
+
+                if (this.type === 'chase') {
+                    this.chasePlayer(maze, player);
+                } else if (this.type === 'patrol') {
+                    this.patrolArea(maze);
+                } else if (this.type === 'random') {
+                    this.moveRandom(maze);
+                }
+            }
+
+            /**
+             * Chase player using simple pathfinding
+             * Moves toward player by checking adjacent cells
+             */
+            chasePlayer(maze, player) {
+                const dx = player.gridX - this.gridX;
+                const dy = player.gridY - this.gridY;
+
+                let possibleMoves = [];
+
+                // Check all four directions
+                const directions = [DIRECTION.UP, DIRECTION.DOWN, DIRECTION.LEFT, DIRECTION.RIGHT];
+                
+                for (let dir of directions) {
+                    const newX = this.gridX + dir.x;
+                    const newY = this.gridY + dir.y;
+                    
+                    if (!CollisionDetector.isWall(maze, newX, newY)) {
+                        // Calculate distance to player if we move in this direction
+                        const distance = Math.abs(newX - player.gridX) + Math.abs(newY - player.gridY);
+                        possibleMoves.push({ dir, distance });
+                    }
+                }
+
+                // Sort by distance (closest first)
+                possibleMoves.sort((a, b) => a.distance - b.distance);
+
+                // Move toward player
+                if (possibleMoves.length > 0) {
+                    const nextMove = possibleMoves[0];
+                    this.gridX += nextMove.dir.x;
+                    this.gridY += nextMove.dir.y;
+                    this.direction = nextMove.dir;
+                }
+            }
+
+            /**
+             * Patrol a defined area using a path
+             */
+            patrolArea(maze) {
+                if (this.patrolPath.length === 0) {
+                    this.generatePatrolPath();
+                }
+
+                const target = this.patrolPath[this.patrolIndex];
+                if (Math.abs(this.gridX - target.x) <= 1 && Math.abs(this.gridY - target.y) <= 1) {
+                    this.patrolIndex = (this.patrolIndex + 1) % this.patrolPath.length;
+                } else {
+                    // Simple pathfinding toward patrol point
+                    if (this.gridX < target.x) this.gridX++;
+                    else if (this.gridX > target.x) this.gridX--;
+                    
+                    if (this.gridY < target.y) this.gridY++;
+                    else if (this.gridY > target.y) this.gridY--;
+                }
+            }
+
+            /**
+             * Generate a patrol path around the maze
+             */
+            generatePatrolPath() {
+                this.patrolPath = [
+                    { x: 1, y: 1 },
+                    { x: COLS - 2, y: 1 },
+                    { x: COLS - 2, y: ROWS - 2 },
+                    { x: 1, y: ROWS - 2 }
+                ];
+            }
+
+            /**
+             * Move randomly in any valid direction
+             */
+            moveRandom(maze) {
+                const directions = [DIRECTION.UP, DIRECTION.DOWN, DIRECTION.LEFT, DIRECTION.RIGHT];
+                let validMoves = [];
+
+                for (let dir of directions) {
+                    const newX = this.gridX + dir.x;
+                    const newY = this.gridY + dir.y;
+                    
+                    if (!CollisionDetector.isWall(maze, newX, newY)) {
+                        validMoves.push(dir);
+                    }
+                }
+
+                if (validMoves.length > 0) {
+                    const randomDir = validMoves[Math.floor(Math.random() * validMoves.length)];
+                    this.gridX += randomDir.x;
+                    this.gridY += randomDir.y;
+                    this.direction = randomDir;
+                }
+            }
+
+            /**
+             * Render enemy on canvas
+             */
+            render(ctx) {
+                const x = this.gridX * GRID_SIZE + GRID_SIZE / 2;
+                const y = this.gridY * GRID_SIZE + GRID_SIZE / 2;
+                const size = GRID_SIZE / 2 - 2;
+
+                // Draw ghost-like shape
+                ctx.fillStyle = this.color;
+                ctx.fillRect(x - size, y - size, size * 2, size * 2);
+
+                // Draw eyes
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(x - size + 3, y - size + 3, 3, 3);
+                ctx.fillRect(x + size - 6, y - size + 3, 3, 3);
+            }
+
+            reset() {
+                this.gridX = this.startX;
+                this.gridY = this.startY;
+                this.patrolIndex = 0;
+            }
+        }
+
+        // ==================== MAZE CLASS ====================
+        /**
+         * Manages the maze layout and tiles
+         */
+        class Maze {
+            constructor(level = 1) {
+                this.level = level;
+                this.tiles = [];
+                this.pelletsRemaining = 0;
+                this.generateMaze();
+            }
+
+            /**
+             * Generate maze layout using a predefined pattern
+             */
+            generateMaze() {
+                // Initialize empty maze
+                this.tiles = Array(ROWS).fill(null).map(() => Array(COLS).fill(TILE.EMPTY));
+
+                // Create borders
+                for (let x = 0; x < COLS; x++) {
+                    this.tiles[0][x] = TILE.WALL;
+                    this.tiles[ROWS - 1][x] = TILE.WALL;
+                }
+                for (let y = 0; y < ROWS; y++) {
+                    this.tiles[y][0] = TILE.WALL;
+                    this.tiles[y][COLS - 1] = TILE.WALL;
+                }
+
+                // Create internal maze structure
+                this.createMazeStructure();
+
+                // Place pellets
+                this.placePellets();
+            }
+
+            /**
+             * Create internal walls and passages
+             */
+            createMazeStructure() {
+                // Create vertical walls
+                for (let y = 2; y < ROWS - 2; y += 4) {
+                    for (let x = 2; x < COLS - 2; x += 5) {
+                        for (let i = 0; i < 3; i++) {
+                            if (x + i < COLS - 1) {
+                                this.tiles[y][x + i] = TILE.WALL;
+                            }
+                        }
+                    }
+                }
+
+                // Create horizontal walls
+                for (let x = 2; x < COLS - 2; x += 5) {
+                    for (let y = 2; y < ROWS - 2; y += 4) {
+                        for (let i = 0; i < 2; i++) {
+                            if (y + i < ROWS - 1) {
+                                this.tiles[y + i][x] = TILE.WALL;
+                            }
+                        }
+                    }
+                }
+
+                // Create central maze area
+                for (let y = 10; y < ROWS - 10; y++) {
+                    for (let x = 10; x < COLS - 10; x++) {
+                        if ((y % 3 === 0 && x % 4 === 0) || (y % 5 === 0 && x % 5 === 0)) {
+                            this.tiles[y][x] = TILE.WALL;
+                        }
+                    }
+                }
+            }
+
+            /**
+             * Place pellets throughout the maze
+             */
+            placePellets() {
+                this.pelletsRemaining = 0;
+                for (let y = 1; y < ROWS - 1; y++) {
+                    for (let x = 1; x < COLS - 1; x++) {
+                        if (this.tiles[y][x] === TILE.EMPTY) {
+                            // Random chance for power pellet
+                            if (Math.random() < 0.05) {
+                                this.tiles[y][x] = TILE.POWER_PELLET;
+                            } else {
+                                this.tiles[y][x] = TILE.PELLET;
+                            }
+                            this.pelletsRemaining++;
+                        }
+                    }
+                }
+            }
+
+            /**
+             * Get tile type at position
+             */
+            getTile(x, y) {
+                if (x < 0 || x >= COLS || y < 0 || y >= ROWS) {
+                    return TILE.WALL;
+                }
+                return this.tiles[y][x];
+            }
+
+            /**
+             * Set tile type at position
+             */
+            setTile(x, y, tileType) {
+                if (x >= 0 && x < COLS && y >= 0 && y < ROWS) {
+                    this.tiles[y][x] = tileType;
+                    if (tileType !== TILE.PELLET && tileType !== TILE.POWER_PELLET) {
+                        this.pelletsRemaining--;
+                    }
+                }
+            }
+
+            /**
+             * Render maze on canvas
+             */
+            render(ctx) {
+                for (let y = 0; y < ROWS; y++) {
+                    for (let x = 0; x < COLS; x++) {
+                        const tile = this.tiles[y][x];
+                        const pixelX = x * GRID_SIZE;
+                        const pixelY = y * GRID_SIZE;
+
+                        if (tile === TILE.WALL) {
+                            ctx.fillStyle = COLORS.WALL;
+                            ctx.fillRect(pixelX, pixelY, GRID_SIZE, GRID_SIZE);
+                            ctx.strokeStyle = '#0051FF';
+                            ctx.strokeRect(pixelX, pixelY, GRID_SIZE, GRID_SIZE);
+                        } else if (tile === TILE.PELLET) {
+                            ctx.fillStyle = COLORS.PELLET;
+                            ctx.beginPath();
+                            ctx.arc(pixelX + GRID_SIZE / 2, pixelY + GRID_SIZE / 2, 2, 0, Math.PI * 2);
+                            ctx.fill();
+                        } else if (tile === TILE.POWER_PELLET) {
+                            ctx.fillStyle = COLORS.POWER_PELLET;
+                            ctx.beginPath();
+                            ctx.arc(pixelX + GRID_SIZE / 2, pixelY + GRID_SIZE / 2, 4, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+                }
+            }
+        }
+
+        // ==================== GAME CLASS ====================
+        /**
+         * Main game manager - coordinates all game systems
+         */
+        class Game {
+            constructor(canvasId) {
+                this.canvas = document.getElementById(canvasId);
+                this.ctx = this.canvas.getContext('2d');
+                this.level = 1;
+                this.maze = null;
+                this.player = null;
+                this.enemies = [];
+                this.running = false;
+                this.paused = false;
+                this.gameOver = false;
+                this.won = false;
+                this.frameCount = 0;
+                this.fps = 60;
+                this.lastFrameTime = 0;
+
+                this.setupInputHandlers();
+                this.reset();
+            }
+
+            /**
+             * Setup keyboard and input handlers
+             */
+            setupInputHandlers() {
+                const keyMap = {
+                    'ArrowUp': DIRECTION.UP,
+                    'KeyW': DIRECTION.UP,
+                    'ArrowDown': DIRECTION.DOWN,
+                    'KeyS': DIRECTION.DOWN,
+                    'ArrowLeft': DIRECTION.LEFT,
+                    'KeyA': DIRECTION.LEFT,
+                    'ArrowRight': DIRECTION.RIGHT,
+                    'KeyD': DIRECTION.RIGHT
+                };
+
+                document.addEventListener('keydown', (e) => {
+                    if (keyMap[e.code]) {
+                        this.player.setNextDirection(keyMap[e.code]);
+                        e.preventDefault();
+                    }
+                    if (e.code === 'Space') {
+                        this.togglePause();
+                        e.preventDefault();
+                    }
+                });
+            }
+
+            /**
+             * Initialize game state
+             */
+            reset() {
+                this.level = 1;
+                this.maze = new Maze(this.level);
+                this.player = new Player(COLS / 2, ROWS / 2);
+                this.enemies = [
+                    new Enemy(2, 2, COLORS.ENEMY1, 'chase'),
+                    new Enemy(COLS - 3, 2, COLORS.ENEMY2, 'patrol'),
+                    new Enemy(2, ROWS - 3, COLORS.ENEMY3, 'random')
+                ];
+                this.running = true;
+                this.paused = false;
+                this.gameOver = false;
+                this.won = false;
+                this.frameCount = 0;
+                this.updateUI();
+                this.startGameLoop();
+            }
+
+            /**
+             * Start the main game loop
+             */
+            startGameLoop() {
+                const gameLoop = (currentTime) => {
+                    if (this.lastFrameTime === 0) {
+                        this.lastFrameTime = currentTime;
+                    }
+
+                    const deltaTime = currentTime - this.lastFrameTime;
+                    this.lastFrameTime = currentTime;
+
+                    if (deltaTime >= 1000 / this.fps) {
+                        this.update();
+                        this.render();
+                        this.lastFrameTime = currentTime;
+                    }
+
+                    if (this.running) {
+                        requestAnimationFrame(gameLoop);
+                    }
+                };
+
+                requestAnimationFrame(gameLoop);
+            }
+
+            /**
+             * Update game state
+             */
+            update() {
+                if (this.paused || this.gameOver || this.won) {
+                    return;
+                }
+
+                this.frameCount++;
+
+                // Update player
+                this.player.update(this.maze);
+
+                // Update enemies
+                for (let enemy of this.enemies) {
+                    enemy.update(this.maze, this.player);
+                }
+
+                // Check collisions with enemies
+                for (let enemy of this.enemies) {
+                    if (CollisionDetector.checkCollision(this.player, enemy)) {
+                        this.onEnemyCollision();
+                    }
+                }
+
+                // Check win condition
+                if (this.maze.pelletsRemaining <= 0) {
+                    this.onLevelComplete();
+                }
+
+                this.updateUI();
+            }
+
+            /**
+             * Handle collision with enemy
+             */
+            onEnemyCollision() {
+                this.player.lives--;
+                if (this.player.lives <= 0) {
+                    this.endGame(false);
+                } else {
+                    // Reset player position
+                    this.player.reset(COLS / 2, ROWS / 2);
+                    for (let enemy of this.enemies) {
+                        enemy.reset();
+                    }
+                }
+            }
+
+            /**
+             * Handle level completion
+             */
+            onLevelComplete() {
+                this.won = true;
+                this.showGameOverModal('Level Complete!', `You won! Final Score: ${this.player.score}`, true);
+            }
+
+            /**
+             * End game
+             */
+            endGame(won) {
+                this.gameOver = true;
+                const message = won 
+                    ? `You won! Final Score: ${this.player.score}` 
+                    : `Game Over! Final Score: ${this.player.score}`;
+                this.showGameOverModal('Game Over!', message, won);
+            }
+
+            /**
+             * Toggle pause state
+             */
+            togglePause() {
+                if (!this.gameOver && !this.won) {
+                    this.paused = !this.paused;
+                    this.updateUI();
+                }
+            }
+
+            /**
+             * Move to next level
+             */
+            nextLevel() {
+                this.level++;
+                this.maze = new Maze(this.level);
+                this.gameOver = false;
+                this.won = false;
+                this.enemies.forEach(e => e.reset());
+                this.hideGameOverModal();
+                this.updateUI();
+            }
+
+            /**
+             * Render game
+             */
+            render() {
+                // Clear canvas
+                this.ctx.fillStyle = COLORS.EMPTY;
+                this.ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+                // Render maze
+                this.maze.render(this.ctx);
+
+                // Render player
+                this.player.render(this.ctx);
+
+                // Render enemies
+                for (let enemy of this.enemies) {
+                    enemy.render(this.ctx);
+                }
+
+                // Render pause overlay
+                if (this.paused) {
+                    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+                    this.ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                    
+                    this.ctx.fillStyle = '#FFF';
+                    this.ctx.font = 'bold 30px Arial';
+                    this.ctx.textAlign = 'center';
+                    this.ctx.fillText('PAUSED', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+                }
+            }
+
+            /**
+             * Update UI display
+             */
+            updateUI() {
+                document.getElementById('scoreDisplay').textContent = this.player.score;
+                document.getElementById('levelDisplay').textContent = this.level;
+                document.getElementById('livesDisplay').textContent = this.player.lives;
+                document.getElementById('pelletsDisplay').textContent = Math.max(0, this.maze.pelletsRemaining);
+            }
+
+            /**
+             * Show game over modal
+             */
+            showGameOverModal(title, message, won = false) {
+                const modal = document.getElementById('gameOverModal');
+                const overlay = document.getElementById('overlay');
+                document.getElementById('gameOverTitle').textContent = title;
+                document.getElementById('gameOverMessage').textContent = message;
+                modal.classList.add('show');
+                overlay.classList.add('show');
+            }
+
+            /**
+             * Hide game over modal
+             */
+            hideGameOverModal() {
+                const modal = document.getElementById('gameOverModal');
+                const overlay = document.getElementById('overlay');
+                modal.classList.remove('show');
+                overlay.classList.remove('show');
+            }
+        }
+
+        // ==================== INITIALIZATION ====================
+        let game = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            game = new Game('gameCanvas');
+        });
+    </script>
+</body>
+</html>
