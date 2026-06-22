@@ -92,6 +92,12 @@
             text-align: right;
             font-weight: 600;
             word-break: break-all;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: #e2e8f0;
         }
 
         .history-empty {
@@ -173,6 +179,7 @@
         .keys {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, minmax(58px, auto));
             gap: 10px;
         }
 
@@ -182,7 +189,7 @@
             border-radius: 12px;
             background: var(--key);
             color: var(--text);
-            font-size: 1.2rem;
+            font-size: 1.45rem;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.08s ease, filter 0.2s ease;
@@ -206,12 +213,70 @@
 
         .key-equals {
             background: var(--key-equals);
-            grid-row: span 2;
+            grid-column: 2 / span 3;
+            grid-row: 6;
         }
 
         .key-zero {
             grid-column: span 2;
         }
+
+        .key-clear {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .key-backspace {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .key-open-paren {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .key-close-paren {
+            grid-column: 4;
+            grid-row: 1;
+        }
+
+        .key-op-pow {
+            grid-column: 1;
+            grid-row: 6;
+        }
+
+        .key-op-div {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .key-op-mul {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        .key-op-sub {
+            grid-column: 1;
+            grid-row: 4;
+        }
+
+        .key-op-add {
+            grid-column: 1;
+            grid-row: 5;
+        }
+
+        .key-n7 { grid-column: 2; grid-row: 2; }
+        .key-n8 { grid-column: 3; grid-row: 2; }
+        .key-n9 { grid-column: 4; grid-row: 2; }
+        .key-n4 { grid-column: 2; grid-row: 3; }
+        .key-n5 { grid-column: 3; grid-row: 3; }
+        .key-n6 { grid-column: 4; grid-row: 3; }
+        .key-n1 { grid-column: 2; grid-row: 4; }
+        .key-n2 { grid-column: 3; grid-row: 4; }
+        .key-n3 { grid-column: 4; grid-row: 4; }
+        .key-n0 { grid-column: 2 / span 2; grid-row: 5; }
+        .key-dot { grid-column: 4; grid-row: 5; }
 
         @media (max-width: 420px) {
             .app-shell {
@@ -229,7 +294,7 @@
 
             .display {
                 height: 64px;
-                font-size: 1.6rem;
+                font-size: 2.4rem;
             }
 
             .copy-btn {
@@ -237,8 +302,17 @@
             }
 
             .key {
-                min-height: 52px;
-                font-size: 1.05rem;
+                min-height: 64px;
+                font-size: 2rem;
+            }
+
+            .history-title {
+                font-size: 1.5rem;
+            }
+
+            .history-item,
+            .history-empty {
+                font-size: 1.425rem;
             }
         }
     </style>
@@ -260,27 +334,31 @@
 
                 <!-- Calculator buttons: clear, operators, digits, equals -->
                 <div class="keys">
-                    <button type="button" class="key key-action" data-action="clear">C</button>
-                    <button type="button" class="key key-operator" data-value="^">^</button>
-                    <button type="button" class="key key-operator" data-value="/">/</button>
-                    <button type="button" class="key key-operator" data-value="*">*</button>
-                    <button type="button" class="key key-operator" data-value="-">-</button>
+                    <button type="button" class="key key-action key-clear" data-action="clear">C</button>
+                    <button type="button" class="key key-action key-backspace" data-action="backspace">⌫</button>
+                    <button type="button" class="key key-operator key-open-paren" data-value="(">(</button>
+                    <button type="button" class="key key-operator key-close-paren" data-value=")">)</button>
+                    <button type="button" class="key key-operator key-op-pow" data-value="^">^</button>
+                    <button type="button" class="key key-operator key-op-div" data-value="/">/</button>
+                    <button type="button" class="key key-operator key-op-mul" data-value="*">*</button>
+                    <button type="button" class="key key-operator key-op-sub" data-value="-">-</button>
+                    <button type="button" class="key key-operator key-op-add" data-value="+">+</button>
 
-                    <button type="button" class="key" data-value="7">7</button>
-                    <button type="button" class="key" data-value="8">8</button>
-                    <button type="button" class="key" data-value="9">9</button>
-                    <button type="button" class="key key-operator" data-value="+">+</button>
+                    <button type="button" class="key key-n7" data-value="7">7</button>
+                    <button type="button" class="key key-n8" data-value="8">8</button>
+                    <button type="button" class="key key-n9" data-value="9">9</button>
 
-                    <button type="button" class="key" data-value="4">4</button>
-                    <button type="button" class="key" data-value="5">5</button>
-                    <button type="button" class="key" data-value="6">6</button>
+                    <button type="button" class="key key-n4" data-value="4">4</button>
+                    <button type="button" class="key key-n5" data-value="5">5</button>
+                    <button type="button" class="key key-n6" data-value="6">6</button>
+
+                    <button type="button" class="key key-n1" data-value="1">1</button>
+                    <button type="button" class="key key-n2" data-value="2">2</button>
+                    <button type="button" class="key key-n3" data-value="3">3</button>
+
+                    <button type="button" class="key key-zero key-n0" data-value="0">0</button>
+                    <button type="button" class="key key-dot" data-value=".">.</button>
                     <button type="button" class="key key-equals" data-action="equals">=</button>
-
-                    <button type="button" class="key" data-value="1">1</button>
-                    <button type="button" class="key" data-value="2">2</button>
-                    <button type="button" class="key" data-value="3">3</button>
-                    <button type="button" class="key key-zero" data-value="0">0</button>
-                    <button type="button" class="key" data-value=".">.</button>
                 </div>
             </section>
 
@@ -306,23 +384,29 @@
         let expression = "";
         let justEvaluated = false;
         let calculationHistory = [];
+        let pendingAutoClosers = 0;
+
+        function getMobileFontScale() {
+            return window.matchMedia("(max-width: 420px)").matches ? 1.5 : 1;
+        }
 
         function updateDisplay(value) {
             const displayValue = value || "0";
             const visibleValue = displayValue.length > MAX_DISPLAY_CHARS
                 ? displayValue.slice(0, MAX_DISPLAY_CHARS)
                 : displayValue;
+            const mobileScale = getMobileFontScale();
 
             display.value = visibleValue;
 
             if (visibleValue.length <= 10) {
-                display.style.fontSize = "2rem";
+                display.style.fontSize = `${2 * mobileScale}rem`;
             } else if (visibleValue.length <= 14) {
-                display.style.fontSize = "1.7rem";
+                display.style.fontSize = `${1.7 * mobileScale}rem`;
             } else if (visibleValue.length <= 17) {
-                display.style.fontSize = "1.45rem";
+                display.style.fontSize = `${1.45 * mobileScale}rem`;
             } else {
-                display.style.fontSize = "1.2rem";
+                display.style.fontSize = `${1.2 * mobileScale}rem`;
             }
         }
 
@@ -331,42 +415,96 @@
         }
 
         function currentNumberSegment() {
-            const parts = expression.split(/[+\-*/^]/);
+            const cursorIndex = expression.length - pendingAutoClosers;
+            const beforeCursor = expression.slice(0, cursorIndex);
+            const parts = beforeCursor.split(/[+\-*/^()]/);
             return parts[parts.length - 1] || "";
+        }
+
+        function insertAtCursor(value) {
+            const cursorIndex = expression.length - pendingAutoClosers;
+            expression = `${expression.slice(0, cursorIndex)}${value}${expression.slice(cursorIndex)}`;
+        }
+
+        function canInsertOperatorAtCursor(value) {
+            const cursorIndex = expression.length - pendingAutoClosers;
+            const beforeCursor = expression.slice(0, cursorIndex);
+            const lastChar = beforeCursor.slice(-1);
+            const secondLastChar = beforeCursor.slice(-2, -1);
+
+            if (!beforeCursor) {
+                return value === "-";
+            }
+
+            if (lastChar === "(") {
+                return value === "-";
+            }
+
+            if (isOperator(lastChar)) {
+                // Allow unary minus immediately after another operator: e.g., 3*(-2)
+                if (value === "-" && lastChar !== "-") {
+                    return true;
+                }
+
+                // Prevent chains like *-- while preserving unary negatives.
+                if (value === "-" && lastChar === "-" && isOperator(secondLastChar)) {
+                    return false;
+                }
+
+                return false;
+            }
+
+            return true;
         }
 
         function appendValue(value) {
             if (justEvaluated && !isOperator(value)) {
                 expression = "";
+                pendingAutoClosers = 0;
             }
             justEvaluated = false;
 
-            const lastChar = expression.slice(-1);
-            const secondLastChar = expression.slice(-2, -1);
+            const cursorIndex = expression.length - pendingAutoClosers;
+            const beforeCursor = expression.slice(0, cursorIndex);
+            const lastChar = beforeCursor.slice(-1);
 
-            if (isOperator(value)) {
-                if (!expression) {
-                    if (value === "-") {
-                        expression = "-";
-                        updateDisplay(expression);
-                    }
+            if (value === "(") {
+                if (expression.length + 2 > MAX_DISPLAY_CHARS) {
                     return;
                 }
 
-                // Allow unary negative after another operator: e.g., 3*-2
-                if (value === "-" && isOperator(lastChar) && lastChar !== "-") {
-                    expression += value;
+                insertAtCursor("()");
+                pendingAutoClosers += 1;
+                updateDisplay(expression);
+                return;
+            }
+
+            if (value === ")") {
+                if (pendingAutoClosers > 0) {
+                    pendingAutoClosers -= 1;
                     updateDisplay(expression);
                     return;
                 }
 
-                // Prevent chains like 3*--2 while preserving unary negatives.
-                if (value === "-" && lastChar === "-" && isOperator(secondLastChar)) {
+                const openCount = (expression.match(/\(/g) || []).length;
+                const closeCount = (expression.match(/\)/g) || []).length;
+
+                if (openCount > closeCount && expression.length < MAX_DISPLAY_CHARS && !isOperator(lastChar) && lastChar !== "(") {
+                    insertAtCursor(")");
+                    updateDisplay(expression);
+                }
+
+                return;
+            }
+
+            if (isOperator(value)) {
+                if (!canInsertOperatorAtCursor(value)) {
                     return;
                 }
 
                 if (isOperator(lastChar)) {
-                    expression = expression.slice(0, -1) + value;
+                    const replaceIndex = cursorIndex - 1;
+                    expression = `${expression.slice(0, replaceIndex)}${value}${expression.slice(cursorIndex)}`;
                     updateDisplay(expression);
                     return;
                 }
@@ -379,8 +517,8 @@
                     return;
                 }
 
-                if (!expression || isOperator(lastChar)) {
-                    expression += "0";
+                if (!beforeCursor || isOperator(lastChar) || lastChar === "(") {
+                    insertAtCursor("0");
                 }
             }
 
@@ -388,14 +526,43 @@
                 return;
             }
 
-            expression += value;
+            insertAtCursor(value);
             updateDisplay(expression);
         }
 
         function clearAll() {
             expression = "";
             justEvaluated = false;
+            pendingAutoClosers = 0;
             updateDisplay("0");
+        }
+
+        function backspace() {
+            if (!expression) {
+                updateDisplay("0");
+                return;
+            }
+
+            const cursorIndex = expression.length - pendingAutoClosers;
+
+            if (cursorIndex > 0) {
+                const charBeforeCursor = expression[cursorIndex - 1];
+                const charAtCursor = expression[cursorIndex];
+
+                // If deleting an auto-paired opening bracket, remove its pending closing mate too.
+                if (charBeforeCursor === "(" && charAtCursor === ")" && pendingAutoClosers > 0) {
+                    expression = `${expression.slice(0, cursorIndex - 1)}${expression.slice(cursorIndex + 1)}`;
+                    pendingAutoClosers -= 1;
+                } else {
+                    expression = `${expression.slice(0, cursorIndex - 1)}${expression.slice(cursorIndex)}`;
+                }
+            } else if (pendingAutoClosers > 0) {
+                expression = expression.slice(0, -1);
+                pendingAutoClosers -= 1;
+            }
+
+            updateDisplay(expression || "0");
+            justEvaluated = false;
         }
 
         function renderHistory() {
@@ -411,12 +578,20 @@
             calculationHistory.forEach((item) => {
                 const li = document.createElement("li");
                 li.className = "history-item";
-                li.textContent = item;
+                li.textContent = `${item.input} = ${item.result}`;
+                li.title = "Click to reuse this expression";
+                li.addEventListener("click", () => {
+                    expression = item.input;
+                    pendingAutoClosers = 0;
+                    justEvaluated = false;
+                    updateDisplay(expression || "0");
+                });
                 historyList.appendChild(li);
             });
         }
 
-        function addToHistory(item) {
+        function addToHistory(input, result) {
+            const item = { input, result };
             calculationHistory.unshift(item);
 
             if (calculationHistory.length > MAX_HISTORY) {
@@ -460,9 +635,36 @@
             const inputExpression = expression;
 
             // Reject malformed expressions such as trailing operators or illegal characters.
-            if (/[^0-9+\-*/.^]/.test(expression) || /[+\-*/.^]$/.test(expression)) {
+            if (/[^0-9+\-*/.^()]/.test(expression) || /[+\-*/.^]$/.test(expression)) {
                 updateDisplay("Error");
                 expression = "";
+                pendingAutoClosers = 0;
+                justEvaluated = true;
+                return;
+            }
+
+            let bracketDepth = 0;
+            for (const char of expression) {
+                if (char === "(") {
+                    bracketDepth += 1;
+                }
+
+                if (char === ")") {
+                    bracketDepth -= 1;
+                    if (bracketDepth < 0) {
+                        updateDisplay("Error");
+                        expression = "";
+                        pendingAutoClosers = 0;
+                        justEvaluated = true;
+                        return;
+                    }
+                }
+            }
+
+            if (bracketDepth !== 0 || /[+\-*/.^(]$/.test(expression)) {
+                updateDisplay("Error");
+                expression = "";
+                pendingAutoClosers = 0;
                 justEvaluated = true;
                 return;
             }
@@ -482,11 +684,13 @@
                 }
 
                 updateDisplay(expression);
-                addToHistory(`${inputExpression} = ${expression}`);
+                addToHistory(inputExpression, expression);
                 justEvaluated = true;
+                pendingAutoClosers = 0;
             } catch (error) {
                 updateDisplay("Error");
                 expression = "";
+                pendingAutoClosers = 0;
                 justEvaluated = true;
             }
         }
@@ -502,6 +706,11 @@
 
             if (action === "clear") {
                 clearAll();
+                return;
+            }
+
+            if (action === "backspace") {
+                backspace();
                 return;
             }
 
@@ -525,7 +734,7 @@
                 return;
             }
 
-            if (["+", "-", "*", "/", "^"].includes(key)) {
+            if (["+", "-", "*", "/", "^", "(", ")"].includes(key)) {
                 appendValue(key);
                 return;
             }
@@ -543,9 +752,7 @@
 
             if (key === "Backspace") {
                 event.preventDefault();
-                expression = expression.slice(0, -1);
-                updateDisplay(expression || "0");
-                justEvaluated = false;
+                backspace();
                 return;
             }
 
