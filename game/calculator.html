@@ -125,9 +125,12 @@
             margin-bottom: 0;
             padding: 10px 14px 10px 58px;
             text-align: right;
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 500;
             color: var(--text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .display-wrap {
@@ -294,7 +297,7 @@
 
             .display {
                 height: 64px;
-                font-size: 2.4rem;
+                font-size: 1.8rem;
             }
 
             .copy-btn {
@@ -399,14 +402,14 @@
 
             display.value = visibleValue;
 
-            if (visibleValue.length <= 10) {
-                display.style.fontSize = `${2 * mobileScale}rem`;
-            } else if (visibleValue.length <= 14) {
-                display.style.fontSize = `${1.7 * mobileScale}rem`;
-            } else if (visibleValue.length <= 17) {
-                display.style.fontSize = `${1.45 * mobileScale}rem`;
+            if (visibleValue.length <= 8) {
+                display.style.fontSize = `${1.5 * mobileScale}rem`;
+            } else if (visibleValue.length <= 12) {
+                display.style.fontSize = `${1.3 * mobileScale}rem`;
+            } else if (visibleValue.length <= 16) {
+                display.style.fontSize = `${1.1 * mobileScale}rem`;
             } else {
-                display.style.fontSize = `${1.2 * mobileScale}rem`;
+                display.style.fontSize = `${0.9 * mobileScale}rem`;
             }
         }
 
