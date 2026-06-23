@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway Surfers - Browser Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 800px;
+            background: linear-gradient(to bottom, #87CEEB, #E0FFFF);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        canvas {
+            border: 2px solid #222;
+            background: linear-gradient(to bottom, #87CEEB, #E0FFFF);
+            display: block;
+            touch-action: none;
+        }
+
+        /* HUD Elements */
+        #hud {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        #score {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 8px 16px;
+            border-radius: 8px;
+            min-width: 120px;
+        }
+
+        #distance {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 8px 16px;
+            border-radius: 8px;
+            min-width: 120px;
+            text-align: right;
+        }
+
+        /* Game Over Modal */
+        #gameOverModal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 20;
+            min-width: 300px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        #gameOverModal h2 {
+            color: #FF6B6B;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #gameOverModal p {
+            color: #fff;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        #gameOverModal button {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #gameOverModal button:hover {
+            background: #45a049;
+        }
+
+        /* Start Screen */
+        #startScreen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 30;
+            flex-direction: column;
+        }
+
+        #startScreen h1 {
+            color: #FFD700;
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        #startScreen p {
+            color: #fff;
+            font-size: 18px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        #startScreen .controls {
+            color: #90EE90;
+            font-size: 14px;
+            margin-top: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        #startButton {
+            margin-top: 30px;
+            padding: 15px 50px;
+            font-size: 24px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        #startButton:hover {
+            background: #FF5252;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #score, #distance {
+                font-size: 18px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- HUD (Heads Up Display) -->
+        <div id="hud">
+            <div id="score">Score: 0</div>
+            <div id="distance">Distance: 0m</div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal">
+            <h2>GAME OVER</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Distance: <span id="finalDistance">0</span>m</p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen">
+            <h1>🚇 SUBWAY SURFERS 🚇</h1>
+            <p>Dodge obstacles and collect coins!</p>
+            <div class="controls">
+                <p><strong>Desktop Controls:</strong></p>
+                <p>← → Arrow Keys to Move | Space to Jump | S to Slide</p>
+                <p><strong>Mobile Controls:</strong></p>
+                <p>Swipe Left/Right | Swipe Up to Jump | Swipe Down to Slide</p>
+            </div>
+            <button id="startButton">START GAME</button>
+        </div>
+    </div>
+
+    <script>
+        // ==================== GAME CONFIGURATION ====================
+        const CONFIG = {
+            // Canvas
+            CANVAS_WIDTH: 600,
+            CANVAS_HEIGHT: 800,
+            // Lanes
+            LANE_COUNT: 3,
+            LANE_WIDTH: 200,
+            // Player
+            PLAYER_WIDTH: 40,
+            PLAYER_HEIGHT: 60,
+            PLAYER_SPEED: 200, // pixels per second
+            // Jump
+            JUMP_FORCE: 800,
+            GRAVITY: 2400,
+            // Slide
+            SLIDE_DURATION: 0.4,
+            SLIDE_HEIGHT_MULTIPLIER: 0.5,
+            // Game progression
+            BASE_SPAWN_RATE: 0.012,
+            MAX_SPAWN_RATE: 0.05,
+            INITIAL_OBSTACLE_SPEED: 250,
+            MAX_OBSTACLE_SPEED: 500,
+            // Difficulty
+            DIFFICULTY_INCREASE_INTERVAL: 20, // seconds
+            DIFFICULTY_MULTIPLIER: 1.05,
+        };
+
+        // ==================== GAME STATE ====================
+        let gameState = {
+            isRunning: false,
+            isPaused: false,
+            score: 0,
+            distance: 0,
+            coinsCollected: 0,
+            time: 0,
+            difficulty: 1,
+        };
+
+        // ==================== INPUT HANDLING ====================
+        let inputState = {
+            left: false,
+            right: false,
+            jump: false,
+            slide: false,
+            // Touch tracking
+            touchStartX: 0,
+            touchStartY: 0,
+            lastLaneChange: 0,
+        };
+
+        // ==================== PLAYER CLASS ====================
+        class Player {
+            constructor() {
+                this.x = CONFIG.CANVAS_WIDTH / 2 - CONFIG.PLAYER_WIDTH / 2;
+                this.y = CONFIG.CANVAS_HEIGHT - 100;
+                this.velocityX = 0;
+                this.velocityY = 0;
+                this.isJumping = false;
+                this.isSliding = false;
+                this.slideTimer = 0;
+                this.animationFrame = 0;
+            }
+
+            // Update player position and state
+            update(deltaTime) {
+                // Handle horizontal movement with smooth velocity
+                if (inputState.left) {
+                    this.velocityX = -CONFIG.PLAYER_SPEED;
+                } else if (inputState.right) {
+                    this.velocityX = CONFIG.PLAYER_SPEED;
+                } else {
+                    // No input - stop horizontal movement
+                    this.velocityX = 0;
+                }
+
+                // Update X position
+                this.x += this.velocityX * deltaTime;
+
+                // Clamp X position to game bounds
+                this.x = Math.max(0, Math.min(this.x, CONFIG.CANVAS_WIDTH - CONFIG.PLAYER_WIDTH));
+
+                // Handle jumping
+                if (inputState.jump && !this.isJumping && !this.isSliding) {
+                    this.velocityY = -CONFIG.JUMP_FORCE;
+                    this.isJumping = true;
+                    inputState.jump = false;
+                }
+
+                // Handle sliding
+                if (inputState.slide && !this.isSliding && !this.isJumping) {
+                    this.isSliding = true;
+                    this.slideTimer = CONFIG.SLIDE_DURATION;
+                    inputState.slide = false;
+                }
+
+                // Update sliding
+                if (this.isSliding) {
+                    this.slideTimer -= deltaTime;
+                    if (this.slideTimer <= 0) {
+                        this.isSliding = false;
+                    }
+                }
+
+                // Apply gravity and jumping physics
+                if (this.isJumping || this.velocityY !== 0) {
+                    this.velocityY += CONFIG.GRAVITY * deltaTime;
+                    this.y += this.velocityY * deltaTime;
+
+                    // Ground collision
+                    if (this.y >= CONFIG.CANVAS_HEIGHT - 100) {
+                        this.y = CONFIG.CANVAS_HEIGHT - 100;
+                        this.velocityY = 0;
+                        this.isJumping = false;
+                    }
+                }
+
+                // Update animation frame
+                this.animationFrame += deltaTime * 10;
+            }
+
+            // Get player height (reduced when sliding)
+            getHeight() {
+                return this.isSliding ? CONFIG.PLAYER_HEIGHT * CONFIG.SLIDE_HEIGHT_MULTIPLIER : CONFIG.PLAYER_HEIGHT;
+            }
+
+            // Get collision bounding box
+            getBounds() {
+                return {
+                    x: this.x + 5,
+                    y: this.y + 10,
+                    width: CONFIG.PLAYER_WIDTH - 10,
+                    height: this.getHeight() - 10,
+                };
+            }
+
+            // Draw player on canvas
+            draw(ctx) {
+                const bounds = this.getBounds();
+                
+                // Draw player body (yellow for visibility)
+                ctx.fillStyle = '#FFD700';
+                ctx.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
+
+                // Draw eyes
+                ctx.fillStyle = '#000';
+                ctx.fillRect(bounds.x + 5, bounds.y + 5, 5, 5);
+                ctx.fillRect(bounds.x + bounds.width - 10, bounds.y + 5, 5, 5);
+
+                // Draw sliding indicator
+                if (this.isSliding) {
+                    ctx.fillStyle = 'rgba(255, 200, 0, 0.5)';
+                    ctx.fillRect(bounds.x - 10, bounds.y + bounds.height - 5, bounds.width + 20, 5);
+                }
+
+                // Draw jumping indicator
+                if (this.isJumping) {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.beginPath();
+                    ctx.ellipse(bounds.x + bounds.width / 2, this.y + bounds.height + 5, bounds.width / 2, 3, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+
+        // ==================== OBSTACLE CLASS ====================
+        class Obstacle {
+            constructor(x) {
+                this.x = x;
+                this.y = -50;
+                this.width = 25;
+                this.height = 25;
+                this.speed = CONFIG.INITIAL_OBSTACLE_SPEED * gameState.difficulty;
+            }
+
+            update(deltaTime) {
+                this.y += this.speed * deltaTime;
+            }
+
+            isOffScreen() {
+                return this.y > CONFIG.CANVAS_HEIGHT;
+            }
+
+            getBounds() {
+                return {
+                    x: this.x,
+                    y: this.y,
+                    width: this.width,
+                    height: this.height,
+                };
+            }
+
+            draw(ctx) {
+                // Draw obstacle as red box
+                ctx.fillStyle = '#FF4444';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                
+                // Draw warning pattern
+                ctx.strokeStyle = '#FF8888';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(this.x + 5, this.y + 5, this.width - 10, this.height - 10);
+                
+                // Draw skull-like pattern
+                ctx.fillStyle = '#FF8888';
+                ctx.fillRect(this.x + 8, this.y + 8, 8, 8);
+                ctx.fillRect(this.x + 24, this.y + 8, 8, 8);
+                ctx.fillRect(this.x + 16, this.y + 22, 8, 8);
+            }
+        }
+
+        // ==================== COLLECTIBLE CLASS ====================
+        class Collectible {
+            constructor(x) {
+                this.x = x;
+                this.y = -25;
+                this.width = 25;
+                this.height = 25;
+                this.speed = CONFIG.INITIAL_OBSTACLE_SPEED * gameState.difficulty;
+                this.rotation = 0;
+            }
+
+            update(deltaTime) {
+                this.y += this.speed * deltaTime;
+                this.rotation += deltaTime * 5;
+            }
+
+            isOffScreen() {
+                return this.y > CONFIG.CANVAS_HEIGHT;
+            }
+
+            getBounds() {
+                return {
+                    x: this.x,
+                    y: this.y,
+                    width: this.width,
+                    height: this.height,
+                };
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+                ctx.rotate(this.rotation);
+                
+                // Draw coin as circle
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(0, 0, this.width / 2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Draw coin shine
+                ctx.strokeStyle = '#FFFF00';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(0, 0, this.width / 2 - 2, 0, Math.PI * 2);
+                ctx.stroke();
+                
+                ctx.restore();
+            }
+        }
+
+        // ==================== COLLISION DETECTION ====================
+        function checkCollision(rect1, rect2) {
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
+        }
+
+        // ==================== GAME OBJECTS ====================
+        let player;
+        let obstacles = [];
+        let collectibles = [];
+
+        // ==================== SPAWNING LOGIC ====================
+        function spawnObstacle() {
+            const x = Math.random() * (CONFIG.CANVAS_WIDTH - 25);
+            obstacles.push(new Obstacle(x));
+        }
+
+        function spawnCollectible() {
+            const x = Math.random() * (CONFIG.CANVAS_WIDTH - 25);
+            collectibles.push(new Collectible(x));
+        }
+
+        // ==================== UPDATE GAME STATE ====================
+        function updateGame(deltaTime) {
+            if (!gameState.isRunning || gameState.isPaused) return;
+
+            // Update time and difficulty
+            gameState.time += deltaTime;
+            gameState.distance = Math.floor(gameState.time * 100); // Distance in meters
+
+            // Difficulty progression
+            const difficultyLevel = Math.floor(gameState.time / CONFIG.DIFFICULTY_INCREASE_INTERVAL);
+            gameState.difficulty = 1 + difficultyLevel * 0.1;
+
+            // Adjust spawn rates based on difficulty
+            const spawnRate = Math.min(
+                CONFIG.BASE_SPAWN_RATE * gameState.difficulty,
+                CONFIG.MAX_SPAWN_RATE
+            );
+
+            // Spawn obstacles
+            if (Math.random() < spawnRate) {
+                spawnObstacle();
+            }
+
+            // Spawn collectibles (less frequent than obstacles)
+            if (Math.random() < spawnRate * 0.5) {
+                spawnCollectible();
+            }
+
+            // Update player
+            player.update(deltaTime);
+
+            // Update obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                obstacles[i].update(deltaTime);
+
+                // Check collision with player
+                if (checkCollision(player.getBounds(), obstacles[i].getBounds())) {
+                    endGame();
+                    return;
+                }
+
+                // Remove off-screen obstacles
+                if (obstacles[i].isOffScreen()) {
+                    obstacles.splice(i, 1);
+                }
+            }
+
+            // Update collectibles
+            for (let i = collectibles.length - 1; i >= 0; i--) {
+                collectibles[i].update(deltaTime);
+
+                // Check collision with player
+                if (checkCollision(player.getBounds(), collectibles[i].getBounds())) {
+                    gameState.score += 10;
+                    gameState.coinsCollected++;
+                    collectibles.splice(i, 1);
+                } else if (collectibles[i].isOffScreen()) {
+                    // Remove off-screen collectibles
+                    collectibles.splice(i, 1);
+                }
+            }
+
+            // Update HUD
+            document.getElementById('score').textContent = `Score: ${gameState.score}`;
+            document.getElementById('distance').textContent = `Distance: ${gameState.distance}m`;
+        }
+
+        // ==================== RENDERING ====================
+        function drawGame(ctx) {
+            // Clear canvas
+            ctx.fillStyle = 'rgba(135, 206, 235, 0.8)';
+            ctx.fillRect(0, 0, CONFIG.CANVAS_WIDTH, CONFIG.CANVAS_HEIGHT);
+
+            // Draw road markings (center line)
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([20, 20]);
+            ctx.beginPath();
+            ctx.moveTo(CONFIG.CANVAS_WIDTH / 2, 0);
+            ctx.lineTo(CONFIG.CANVAS_WIDTH / 2, CONFIG.CANVAS_HEIGHT);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw obstacles
+            for (let obstacle of obstacles) {
+                obstacle.draw(ctx);
+            }
+
+            // Draw collectibles
+            for (let collectible of collectibles) {
+                collectible.draw(ctx);
+            }
+
+            // Draw player
+            player.draw(ctx);
+
+            // Draw difficulty indicator
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+            ctx.font = '14px Arial';
+            ctx.fillText(`Speed: ${gameState.difficulty.toFixed(2)}x`, 10, CONFIG.CANVAS_HEIGHT - 10);
+        }
+
+        // ==================== GAME LOOP ====================
+        let lastTime = Date.now();
+
+        function gameLoop() {
+            const currentTime = Date.now();
+            const deltaTime = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
+
+            // Cap delta time to prevent large jumps
+            const cappedDeltaTime = Math.min(deltaTime, 0.016 * 3); // ~3 frames max
+
+            // Update and draw
+            updateGame(cappedDeltaTime);
+            
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            drawGame(ctx);
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // ==================== INPUT HANDLING ====================
+        function setupInputHandlers() {
+            // Keyboard input
+            document.addEventListener('keydown', (e) => {
+                if (!gameState.isRunning) return;
+                
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        inputState.left = true;
+                        break;
+                    case 'ArrowRight':
+                        inputState.right = true;
+                        break;
+                    case ' ':
+                        inputState.jump = true;
+                        e.preventDefault();
+                        break;
+                    case 's':
+                    case 'S':
+                        inputState.slide = true;
+                        break;
+                }
+            });
+
+            document.addEventListener('keyup', (e) => {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        inputState.left = false;
+                        break;
+                    case 'ArrowRight':
+                        inputState.right = false;
+                        break;
+                }
+            });
+
+            // Touch input
+            const canvas = document.getElementById('gameCanvas');
+            
+            canvas.addEventListener('touchstart', (e) => {
+                if (!gameState.isRunning) return;
+                inputState.touchStartX = e.touches[0].clientX;
+                inputState.touchStartY = e.touches[0].clientY;
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                if (!gameState.isRunning) return;
+                e.preventDefault();
+                
+                // Get current touch position
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                
+                const deltaX = currentX - inputState.touchStartX;
+                const deltaY = currentY - inputState.touchStartY;
+                
+                const threshold = 15;
+
+                // Continuous left/right movement during swipe
+                if (Math.abs(deltaX) > threshold) {
+                    inputState.left = deltaX < 0;
+                    inputState.right = deltaX > 0;
+                } else {
+                    inputState.left = false;
+                    inputState.right = false;
+                }
+            });
+
+            canvas.addEventListener('touchend', (e) => {
+                if (!gameState.isRunning) return;
+                
+                // Reset movement on touch end
+                inputState.left = false;
+                inputState.right = false;
+                
+                const touchEndX = e.changedTouches[0].clientX;
+                const touchEndY = e.changedTouches[0].clientY;
+                
+                const deltaX = touchEndX - inputState.touchStartX;
+                const deltaY = touchEndY - inputState.touchStartY;
+                
+                const threshold = 30;
+
+                // Vertical swipe detection (jump/slide)
+                if (Math.abs(deltaY) > threshold) {
+                    if (deltaY < 0) {
+                        // Swipe up - jump
+                        inputState.jump = true;
+                    } else {
+                        // Swipe down - slide
+                        inputState.slide = true;
+                    }
+                }
+            });
+        }
+
+        // ==================== GAME STATE MANAGEMENT ====================
+        function startGame() {
+            // Hide start screen
+            document.getElementById('startScreen').style.display = 'none';
+
+            // Reset game state
+            gameState = {
+                isRunning: true,
+                isPaused: false,
+                score: 0,
+                distance: 0,
+                coinsCollected: 0,
+                time: 0,
+                difficulty: 1,
+            };
+
+            // Reset input state
+            inputState = {
+                left: false,
+                right: false,
+                jump: false,
+                slide: false,
+                touchStartX: 0,
+                touchStartY: 0,
+                lastLaneChange: 0,
+            };
+
+            // Create player
+            player = new Player();
+            obstacles = [];
+            collectibles = [];
+
+            // Start game loop
+            lastTime = Date.now();
+            requestAnimationFrame(gameLoop);
+        }
+
+        function endGame() {
+            gameState.isRunning = false;
+
+            // Show game over modal
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('finalDistance').textContent = gameState.distance;
+            document.getElementById('gameOverModal').style.display = 'block';
+        }
+
+        function restartGame() {
+            document.getElementById('gameOverModal').style.display = 'none';
+            startGame();
+        }
+
+        // ==================== INITIALIZATION ====================
+        function init() {
+            const canvas = document.getElementById('gameCanvas');
+            canvas.width = CONFIG.CANVAS_WIDTH;
+            canvas.height = CONFIG.CANVAS_HEIGHT;
+
+            // Setup input handlers
+            setupInputHandlers();
+
+            // Setup start button
+            document.getElementById('startButton').addEventListener('click', startGame);
+
+            // Draw initial empty canvas
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'rgba(135, 206, 235, 0.8)';
+            ctx.fillRect(0, 0, CONFIG.CANVAS_WIDTH, CONFIG.CANVAS_HEIGHT);
+        }
+
+        // Start the game when page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
