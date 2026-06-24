@@ -286,6 +286,7 @@ function initThemeToggle() {
 function applyTamilVerseStyles() {
 	var tamilRegex = /[\u0B80-\u0BFF]/;
 	var tamilCharRegex = /[\u0B80-\u0BFF]/g;
+	var devanagariCharRegex = /[\u0900-\u097F]/g;
 	var selectors = [
 		".stotra-text .verse",
 		".stotra-text p"
@@ -305,7 +306,8 @@ function applyTamilVerseStyles() {
 		var text = container.textContent || "";
 		var tamilChars = (text.match(tamilCharRegex) || []).length;
 		var latinChars = (text.match(/[A-Za-z]/g) || []).length;
-		if (tamilChars > 0 && tamilChars >= latinChars * 2) {
+		var devanagariChars = (text.match(devanagariCharRegex) || []).length;
+		if (tamilChars > 0 && tamilChars >= latinChars * 2 && devanagariChars === 0) {
 			container.classList.add("tamil-verse");
 		}
 	});
