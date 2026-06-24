@@ -36,6 +36,8 @@ echo.
 echo Files included in last commit:
 git show --name-status --pretty="" HEAD
 
+echo.
+echo Doing git push...
 git push
 if errorlevel 1 (
 	echo git push failed.
