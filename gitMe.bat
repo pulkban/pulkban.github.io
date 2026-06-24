@@ -13,6 +13,11 @@ echo Branch:
 git branch --show-current
 
 echo.
+echo Committing as:
+git config user.name
+git config user.email
+
+echo.
 echo Changed files before staging:
 git status --short
 
