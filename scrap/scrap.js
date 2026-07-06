@@ -4,7 +4,9 @@ journalDetails = {
 	'Salesforce': 'Salesforce.html',
 	'qa_python': 'qa_python.html',
 	'java': 'java.html',
+	'java2': 'java2.html',
 	'python': 'python.html',
+	'learn_ai': 'learn_ai.html',
 	'react': 'react.html',
 	'angular': 'angular.html',
 	'sql': 'sql.html',
@@ -88,7 +90,7 @@ function formatCheatsheetCode() {
 		codeEl.textContent = '';
 
 		lines.forEach(function(line, index) {
-			if (line.trimStart().startsWith('--')) {
+			if (line.trimStart().startsWith('--') || /---+\s*$/.test(line)) {
 				// Format comment lines in red
 				var sectionLine = document.createElement('span');
 				sectionLine.className = 'code-section';

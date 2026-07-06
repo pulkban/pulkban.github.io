@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+	<style>
+body,html{margin:0;padding:0;background:#f5f7fb;font-family:monospace;}
+.container-fluid{max-width:100%;}
+.card{border:1px solid #ddd;margin:2px;}
+.card-body{padding:8px;}
+pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;white-space:pre-wrap;word-break:break-word;}
+code{color:inherit;background:transparent;}
+.row{margin:0;}
+.col-12,.col-md-6,.col-xl-6{padding:2px;}
+.code-section{color:#b91c1c;font-weight:inherit;}
+	</style>
+</head>
+
+<body>
+
+<section class="cheatsheet bg-light py-2">
+  <div class="container-fluid px-2">
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+-----------LLM-----------
+neural network that is trained to predict the next term of an input sequence
+e.g. all that glitter is _ _ _ _ (gold)
+LLM predicts next word based on input sequence
+
+-----------tokenization (smallest) -----------
+to process input sequence - break into tokens - smallest unit of meaning
+- break into chunks e.g. "all" "that" "glitt" "ers" "eat" "ing"
+
+-----------vectors -  -----------
+trying to derive meaning from those small tokens by 'clustering'
+llm in n-dimensional space - words of same meaning is clustered - and has a coordinate (0.00, 0.00)
+
+-----------Attention Mechanism -----------
+e.g. "tasty apple" "apple's revene" "apple of my eye" - apple has different meanings - by looking at nearby words - adds context to apple - 
+you do attention operation: vector_Revenue + vector_Apple - 
+then, you push into that direction
+
+-----------how do u train LLM-----------
+- 2017 - self supervised learning - the input stream is having some inherent structure with which you understand the pattern and predict the next word even in input is not there - e.g. 5...4...3...2..(blank) - u know it will be 1.
+ 
+-----------Transformer-----------
+input tokens -> attn block -> feed forward neural network -> output vectors
+output vectors -> attn block (might find more relationsihps) -> ffnn -> output
+...
+...
+12 layers - these days, 100s
+principle: get input -> get meaning -> manipulate again and again -> preduct
+attn block: O(N2) Order n square
+ 
+-----------fine tuning-----------
+what kind of 'next token'
+if financial - next token - in financial terms
+if medical - next token - in medical terms
+so, take the base model - make it go through series of similar questions
+fine tuning process - penalizes undesirable responses - who is next us pres? "even i wanted to know"
+e.g. base model llama + company fine tunes to a context => relevant responses
+ 
+-----------few shot prompting-----------
+instead of plain query to LLM - pad it with examples during the input e.g. where is my order (E.g. it is in transit and eta=11-Jun) - now, responses are quite good
+called "example prompting"
+ 
+-----------retrieval augmented generation (add more context, augment, generate resp)-----------
+like example (for controlling llm response quality) - give some more (like .docx, .pdf etc)
+this can be either in graphDB (as neoJ says) or vectors or in-mem db) - usually vector db
+it does similarity search and sends to LLM - LLM converts to vectors - provide response
+ 
+-----------vector db-----------
+"I am upset with your payment system. I expect a refund"
+suppose there is document [low rating, drops off] - that will be sent now for such an input query. these docs are in vector db -
+ 
+-----------mcp-----------
+vector db - stores the intra company docs
+what if outside ur enterprice
+mcp comes up - u can go outside boundary
+ 
+-----------context engineering-----------
+all of these put together - few shot prompting, RAG (relevant from vector db, add context to query), mcp (external service)
+u may have 100 chats in LLM
+Summarize in 5 chats - u can use it for next chat session
+SLM does this summarization
+no more stateless -
+ 
+-----------Agents-----------
+long running process (agent)
+	|- can query llm
+	|- can query external systems
+	|- other agents
+ 
+-----------reinforcement learning-----------
+with human feedback
+query -> LLM -> response 1, response 2 - +1/-1
+all +1s assumine in a space and -1s in a space - you like to go positve space - negative space u dont want to go
+reinforcement cannot build models - they learn based on feedback - creating positive spaces
+ 
+-----------chain of thought-----------
+how many keystories are needed to type numbers from 1 to 1000
+break into thoughts---
+single digit = 0 to 9 = 10
+double digiits = ...
+triple digit = 1
+ 
+-----------reasoning model-----------
+mostly uses chain of thought, - break in steps and does
+e.g.
+Deep Seek, Open AI
+ 
+-----------multi modal models-----------
+text, image, video generations
+while u r discussing about cat food - good to show image of cat
+ 
+-----------small language models-----------
+3-300 million parameters - fewer weights
+llm: 300-300 billion
+useful - because trained on lesser data - company specific - task specific
+ 
+-----------Distillation-----------
+process of building SLM
+one input - send LLM - output 1
+same input - send SLM - output 2 
+match output1 and output2 - if OK - SLM is good - or change the weights of SLM
+ 
+-----------Quantization-----------
+neural networks - each weights (line that connects 2 dots)
+each line instead of 32-bit, can I store in 8-bit
+Training cost is not reduced
+but inference cost (running a model in prod)
+
+https://www.youtube.com/watch?v=OYvlznJ4IZQ
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+<script src="scrap.js"></script>
+<script>
+// Format cheatsheet code blocks (convert '--' to red sections and URLs to links)
+formatCheatsheetCode();
+</script>
+</html>

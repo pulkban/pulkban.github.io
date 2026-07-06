@@ -2,117 +2,180 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
 	<style>
-		body, html { margin: 0; padding: 0; background-color: #f5f7fb; }
-		.cheatsheet .container { max-width: 1000px; padding-left: 8px; padding-right: 8px; }
-		.cheatsheet .card { border-radius: 0.65rem; box-shadow: 0 2px 4px rgba(0,0,0,0.08); margin-bottom: 10px; }
-		.cheatsheet .card-body { padding: 10px 14px; }
-		.cheatsheet .card-title { font-size: 1rem; margin-bottom: 4px; font-weight: 600; }
-		.cheatsheet small { font-size: 0.85rem; line-height: 1.3; }
-		.cheatsheet li { margin-left: 14px; margin-bottom: 2px; }
-		pre { background: #e6f3ff; padding: 10px; }
+body,html{margin:0;padding:0;background:#f5f7fb;font-family:monospace;}
+.container-fluid{max-width:100%;}
+.card{border:1px solid #ddd;margin:2px;}
+.card-body{padding:8px;}
+pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;white-space:pre-wrap;word-break:break-word;}
+code{color:inherit;background:transparent;}
+.row{margin:0;}
+.col-12,.col-md-6,.col-xl-6{padding:2px;}
+.code-section{color:#b91c1c;font-weight:inherit;}
+table{width:100%;border-collapse:collapse;font-size:0.85rem;}
+table thead tr{background:#b91c1c;color:white;font-weight:bold;}
+table thead td,table tbody td{border:1px solid #ddd;padding:6px;font-size:0.8rem;}
+table tbody tr:nth-child(odd){background:#f9fafb;}
+table tbody tr:nth-child(even){background:#ffffff;}
 	</style>
 </head>
 
 <body>
 
 <section class="cheatsheet bg-light py-2">
-  <div class="container-fluid px-2">   <!-- full width, tiny side padding -->
+  <div class="container-fluid px-2">
 
     <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-				<!--Your content here-->
-			</p>
+		Rapid Fire:
+        <p class="card-text">
+          <img src="img/java_11.jpg" width="90%"/>
+        </p>
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-                <!--Your content here-->
-			</p>
+		common microservices patterns:<br>
+		e.g. Sidecar pattern is a microservices deployment / architecture pattern
+        <p class="card-text">
+          <img src="img/java_12.jpg" width="90%"/>
+        </p>
         </div></div>
       </div>
     </div>
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+
+    <!-- ROW 2 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-				<!--Your content here-->
-			</p>
+		Rapid Fire:
+        <p class="card-text">
+          <img src="img/java_9.jpg" width="75%"/>
+        </p>
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-                <!--Your content here-->
-			</p>
+common microservices patterns:
+e.g. Sidecar pattern is a microservices deployment / architecture pattern
+          <table>
+            <thead>
+              <tr>
+                <td>Pattern Type</td>
+                <td>Pattern Name</td>
+                <td>Purpose / Hint</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Deployment / Helper</td>
+                <td>Sidecar</td>
+                <td>Add helper functionality without changing main service</td>
+              </tr>
+              <tr>
+                <td>Deployment / Release</td>
+                <td>Blue-Green Deployment</td>
+                <td>Two identical environments, switch traffic safely</td>
+              </tr>
+              <tr>
+                <td>Integration / Anti-Corruption</td>
+                <td>ACL / Anti-Corruption Layer</td>
+                <td>Translate external/legacy models to internal models</td>
+              </tr>
+              <tr>
+                <td>Integration / Communication</td>
+                <td>API Gateway</td>
+                <td>Single entry point for multiple microservices</td>
+              </tr>
+              <tr>
+                <td>Integration / Communication</td>
+                <td>Service Registry / Discovery</td>
+                <td>Services find each other dynamically (Eureka, Consul)</td>
+              </tr>
+              <tr>
+                <td>Resilience / Fault Tolerance</td>
+                <td>Circuit Breaker</td>
+                <td>Prevent cascading failures in dependent services</td>
+              </tr>
+              <tr>
+                <td>Resilience / Fault Tolerance</td>
+                <td>Retry / Backoff</td>
+                <td>Retry failed calls with delay</td>
+              </tr>
+              <tr>
+                <td>Data / Consistency</td>
+                <td>Saga</td>
+                <td>Manage distributed transactions in microservices</td>
+              </tr>
+              <tr>
+                <td>Security / Access</td>
+                <td>Token-based Auth</td>
+                <td>JWT / OAuth for service-to-service calls</td>
+              </tr>
+              <tr>
+                <td>Observability</td>
+                <td>Log Aggregation / Metrics</td>
+                <td>Collect logs, metrics from all services via sidecar or agent</td>
+              </tr>
+            </tbody>
+          </table>
         </div></div>
       </div>
     </div>
-	
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+
+    <!-- ROW 3 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		https://onecompiler.com/java/3xwdkvpcc<br>
-		https://www.jdoodle.com/spring<br><br>
-            <p class="card-text">
-		print duplicate elements in array
-		<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+https://onecompiler.com/java/3xwdkvpcc
+https://www.jdoodle.com/spring
+
+Print duplicate elements in array -----------
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 3, 7, 1, 9};
 
         System.out.println("Duplicate elements:");
-        for (int i = 0; i &lt; arr.length; i++) {
-            for (int j = i + 1; j &lt; arr.length; j++) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] == arr[j]) {
                     System.out.println(arr[i]);
-                    break; // avoid printing same duplicate multiple times
+                    break;
                 }
             }
         }
     }
 }
-//Print uniq num:
+
+Print unique numbers -----------
 import java.util.*;
 int[] arr = {1, 3, 5, 1, 5, 1};
-List&lt;Integer&gt; result = new ArrayList<>();
-for (int i = 0; i &lt; arr.length; i++) {
+List<Integer> result = new ArrayList<>();
+for (int i = 0; i < arr.length; i++) {
     if (!result.contains(arr[i])) {
         result.add(arr[i]);
     }
 }
 System.out.println(result);
-		</code></pre>
-			</p>
-        </div></div>
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		Reverse the string:
-            <p class="card-text">
-			<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Reverse the string -----------
 public class Main {
     public static void main(String[] args) {
         String str = "hello world";
         char[] chars = str.toCharArray();
         int n = chars.length;
 
-        // Reverse in place
-        for (int i = 0; i &lt; n / 2; i++) {
+        for (int i = 0; i < n / 2; i++) {
             char temp = chars[i];
             chars[i] = chars[n - 1 - i];
             chars[n - 1 - i] = temp;
@@ -123,19 +186,19 @@ public class Main {
         System.out.println("Reversed: " + reversed);
     }
 }
-			</code></pre>
-			</p>
-        </div></div>
+
+Output:
+Original: hello world
+Reversed: dlrow olleh
+        </code></pre></div></div>
       </div>
     </div>
 
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 5 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		Bring 3rd largest num in array - using streams
-            <p class="card-text">
-<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Find 3rd largest number using streams -----------
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -143,252 +206,232 @@ public class Main {
     public static void main(String[] args) {
         int[] arr = {5, 1, 9, 3, 7, 9};
 
-        int someNumber = Arrays.stream(arr)
+        int thirdLargest = Arrays.stream(arr)
                                .boxed()
                                .sorted(Comparator.reverseOrder())
                                .distinct()
                                .skip(2)
                                .findFirst()
-                               .orElseThrow(() -> new RuntimeException("message"));
+                               .orElseThrow();
 
-        System.out.println("someNum: " + someNumber);
+        System.out.println("3rd: " + thirdLargest);
     }
 }
-</code></pre>
-			</p>
-        </div></div>
+
+Output: 3rd: 5
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		how to create and use a custom exception in Java
-            <p class="card-text">
-                <pre><code>
-)public class Main {
-    // Custom exception class
+        <div class="card h-100"><div class="card-body"><pre><code>
+Custom Exception in Java -----------
+public class Main {
     static class MyException extends Exception {
         public MyException(String message) {
             super(message);
         }
     }
 
-    // Method that throws custom exception
-    static void checkValue(int value) throws MyException {
-        if (value &lt; 0) {
-            throw new MyException("Value cannot be negative: " + value);
+    static void checkValue(int value) 
+        throws MyException {
+        if (value < 0) {
+            throw new MyException(
+                "Value cannot be negative");
         } else {
-            System.out.println("Value is OK: " + value);
+            System.out.println(
+                "Value is OK: " + value);
         }
     }
 
     public static void main(String[] args) {
         try {
-            checkValue(10);  // OK
-            checkValue(-5);  // Will throw MyException
+            checkValue(10);
+            checkValue(-5);
         } catch (MyException e) {
-            System.out.println("Caught exception: " + e.getMessage());
+            System.out.println(
+                "Caught: " + e.getMessage());
         }
     }
 }
-				</code></pre>
-			</p>
-        </div></div>
-      </div>
-    </div>
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		Rapid Fire:
-            <p class="card-text">
-				<img src="img/java_11.jpg" width="90%"/>
-			</p>
-        </div></div>
-      </div>
 
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		common microservices patterns:<br>
-		e.g. Sidecar pattern is a microservices deployment / architecture pattern
-            <p class="card-text">
-                <img src="img/java_12.jpg" width="90%"/>
-			</p>
-        </div></div>
+Output:
+Value is OK: 10
+Caught: Value cannot be negative
+        </code></pre></div></div>
       </div>
     </div>
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-			Rapid Fire:
-            <p class="card-text">
-				<img src="img/java_9.jpg" width="75%"/>
-			</p>
-        </div></div>
-      </div>
 
+    <!-- ROW 6 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-                <!--Your content here-->
-			</p>
-        </div></div>
-      </div>
-    </div>
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
-      <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-In main(), create two threads to safely increment a counter and also update a ConcurrentHashMap atomically. Print the counter and map.
-<pre><code>
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+        <div class="card h-100"><div class="card-body"><pre><code>
+Atomic Operations and Thread Safety -----------
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
 
 public class Main {
-
-    public static void main(String[] args) throws InterruptedException {
-
-        AtomicInteger counter = new AtomicInteger(0);
-        Runnable task = () -> counter.incrementAndGet();
+    public static void main(String[] args) 
+        throws InterruptedException {
+        AtomicInteger counter = 
+            new AtomicInteger(0);
+        Runnable task = () -> 
+            counter.incrementAndGet();
+        
         Thread t1 = new Thread(task);
         Thread t2 = new Thread(task);
-        t1.start(); t2.start();
-        t1.join(); t2.join();
-        System.out.println("Counter: " + counter.get());
+        t1.start(); 
+        t2.start();
+        t1.join(); 
+        t2.join();
+        
+        System.out.println(
+            "Counter: " + counter.get());
 
-        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, Integer> map 
+            = new ConcurrentHashMap<>();
         map.put("A", 1);
         map.merge("A", 1, Integer::sum);
         System.out.println("Map: " + map);
     }
 }
-</code></pre>
-			</p>
-Counter: 2<br>
-Map: {A=2}<br>
-        </div></div>
+
+Output:
+Counter: 2
+Map: {A=2}
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-sending email notifications asynchronously<br>
-<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Asynchronous Email Notifications -----------
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) 
+        throws InterruptedException {
         System.out.println("Main app starts");
+        
         Runnable emailTask = () -> {
             try {
-                Thread.sleep(2000); // simulate delay
-                System.out.println("Email sent to user!");
+                Thread.sleep(2000);
+                System.out.println(
+                    "Email sent to user!");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         };
+        
         new Thread(emailTask).start();
-        System.out.println("Main app continues without waiting for email");
+        System.out.println(
+            "Main continues without waiting");
     }
 }
-</code></pre>
-			</p>
-        </div></div>
+
+Output:
+Main app starts
+Main continues without waiting
+(after 2 sec)
+Email sent to user!
+        </code></pre></div></div>
       </div>
     </div>
-	
 
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 7 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-Write an EventListener Code:
-Lets a method listen to events published in your Spring application. - Decouples the publisher (sends event) and listener (handles event) - Can be synchronous or asynchronous (@Async).
-				<pre><code>
-// Main class
-public class MainApp {
+        <div class="card h-100"><div class="card-body"><pre><code>
+EventListener Pattern -----------
+Write an EventListener Code: Lets a method listen to events published in your Spring application. - Decouples the publisher (sends event) and listener (handles event) - Can be synchronous or asynchronous (@Async).
 
-    public static void main(String[] args) {
-        System.out.println("Publishing event...");
+Purpose: Method listens to published events
+Decouples publisher and listener
 
-        // Create event
-        MyEvent event = new MyEvent("Hello Event!");
-
-        // Notify listener
-        MyEventListener listener = new MyEventListener();
-        listener.handleEvent(event);
-    }
-}
-
-// Custom event
 class MyEvent {
     private final String message;
-
-    public MyEvent(String message) {
-        this.message = message;
+    public MyEvent(String msg) {
+        this.message = msg;
     }
-
     public String getMessage() {
         return message;
     }
 }
 
-// Event listener
 class MyEventListener {
-    public void handleEvent(MyEvent event) {
-        System.out.println("Received event with message: " + event.getMessage());
+    public void handleEvent(MyEvent e) {
+        System.out.println(
+            "Received: " + e.getMessage());
     }
 }
-				</code></pre>
-			</p>
-        </div></div>
+
+public class MainApp {
+    public static void main(String[] args) {
+        MyEvent event = 
+            new MyEvent("Hello!");
+        MyEventListener listener = 
+            new MyEventListener();
+        listener.handleEvent(event);
+    }
+}
+
+Output:
+Received: Hello!
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-			Spring WebFlux (Reactive, Non-Blocking)<br>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Spring WebFlux Reactive -----------
 Spring WebFlux → handles requests non-blocking using reactive streams (Mono / Flux); instead of blocking threads for IO, it registers callbacks and reuses few threads to serve many requests ⚡
-                <pre><code>
-Mono → 0 or 1 result
-Flux → 0…N results
+
+Mono = 0 or 1 result
+Flux = 0…N results
+
+Non-blocking, uses callbacks, reuses threads
 
 @RestController
 public class UserController {
     @GetMapping("/user/{id}")
-    public Mono<User> getUser(@PathVariable String id) {
-        return userService.findById(id); // returns Mono<User>
+    public Mono<User> getUser(
+        @PathVariable String id) {
+        return userService.findById(id);
     }
+    
     @GetMapping("/users")
     public Flux<User> getAllUsers() {
-        return userService.findAll(); // returns Flux<User>
+        return userService.findAll();
     }
 }
-				</code></pre>
-			</p>
-        </div></div>
+
+Usage:
+Mono<User> mono = 
+    Mono.just(user);
+
+Flux<User> flux = 
+    Flux.fromIterable(users);
+
+Prevents thread blocking
+Scales to many concurrent requests
+        </code></pre></div></div>
       </div>
     </div>
 
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 8 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-Retryable vs manual retry			
-<pre><code>
-'@Retryable → Spring handles retry automatically; just annotate method, configure attempts & backoff; cleaner, less code ⚡
-Manual retry → you write a loop + try-catch yourself; full control over logic, delay, and exception handling 🛠️
+        <div class="card h-100"><div class="card-body"><pre><code>
+Retryable vs Manual Retry -----------
+@Retryable: Spring handles automatically
+Manual: You write try-catch loop
 
-@Retryable(value = RuntimeException.class, maxAttempts = 3, backoff = @Backoff(1000))
+@Retryable Approach -----------
+@Retryable(
+    value = RuntimeException.class, 
+    maxAttempts = 3, 
+    backoff = @Backoff(1000))
 public void callService() { 
     // may fail
 }
 
-for (int i=0; i&lt;3; i++) {
+Manual Retry -----------
+for (int i = 0; i < 3; i++) {
     try {
         callService();
         break;
@@ -396,195 +439,176 @@ for (int i=0; i&lt;3; i++) {
         Thread.sleep(1000);
     }
 }
-			</code></pre>
-			</p>
-        </div></div>
+
+Comparison:
+@Retryable: Cleaner, less code
+Manual: Full control, complex logic
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-                Distributed Locking in Spring Boot
-				<pre><code>
-Used when multiple instances of a service must not execute the same critical section at the same time.
-Examples: scheduled jobs, updating shared resource, payment processing.
-Common implementations: Redis, Zookeeper, Database locks.
+        <div class="card h-100"><div class="card-body"><pre><code>
+Distributed Locking in Spring -----------
+When: Multiple service instances must not 
+execute critical section simultaneously
 
-import org.redisson.api.RLock;
-import org.redisson.api.RedissonClient;
-import org.springframework.stereotype.Service;
+Examples: scheduled jobs, shared resource 
+update, payment processing
 
-import java.util.concurrent.TimeUnit;
+Tools: Redis, Zookeeper, DB locks
 
 @Service
 public class JobService {
-
     private final RedissonClient redisson;
-
-    public JobService(RedissonClient redisson) {
-        this.redisson = redisson;
-    }
-
+    
     public void runJob() {
-        RLock lock = redisson.getLock("myJobLock");
+        RLock lock = 
+            redisson.getLock("jobLock");
         try {
-            // try lock for 5 sec, auto release after 10 sec
-            if (lock.tryLock(5, 10, TimeUnit.SECONDS)) {
-                System.out.println("Running critical job");
-                Thread.sleep(2000); // simulate work
-            } else {
-                System.out.println("Job already running elsewhere");
+            if (lock.tryLock(5, 10, 
+                TimeUnit.SECONDS)) {
+                // critical work here
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } finally {
-            if (lock.isHeldByCurrentThread()) lock.unlock();
+            if (lock.isHeldByCurrentThread()) 
+                lock.unlock();
         }
     }
 }
-				</code></pre>
-			</p>
-        </div></div>
+        </code></pre></div></div>
       </div>
     </div>
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+
+    <!-- ROW 9 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-Microservices ACL / Anti-Corruption Layer (ACL) pattern — simple hint style:
-<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Anti-Corruption Layer (ACL) -----------
+Protects service from legacy/external models
 Purpose: Protect your service from legacy or external system models; prevent “leaking” unwanted complexity into your domain.
 How: Introduce a translator layer that converts external models → internal models.
 Benefit: Keeps your microservice clean, consistent, and decoupled.
 
-// External service DTO
+Translates external models to internal models
+
+// External DTO
 class ExternalUser {
     public String fullName;
     public String phone;
 }
 
-// Internal domain model
+// Internal domain
 class User {
     private String name;
-    private String contactNumber;
+    private String contact;
 }
 
-// ACL / Translator
+// ACL Translator
 class UserTranslator {
-    public static User fromExternal(ExternalUser e) {
+    public static User fromExternal(
+        ExternalUser e) {
         User u = new User();
         u.setName(e.fullName);
-        u.setContactNumber(e.phone);
+        u.setContact(e.phone);
         return u;
     }
 }
 
-// Usage
+Usage:
 ExternalUser ext = new ExternalUser();
-ext.fullName = "Alice"; ext.phone = "12345";
+ext.fullName = "Alice";
+ext.phone = "12345";
 
-User internal = UserTranslator.fromExternal(ext);
-</code></pre>
-			</p>
-        </div></div>
+User internal = 
+    UserTranslator.fromExternal(ext);
+
+Benefit: Keeps service clean, decoupled
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-                <!--Your content here-->
-			</p>
+        <div class="card h-100"><div class="card-body"><pre><code>
+(empty box for future content)
+        </code></pre>
         </div></div>
       </div>
     </div>
 
-	
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 10 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
+        <div class="card h-100"><div class="card-body"><pre><code>
+String Comparison Output -----------
+What will be printed?
 
-            <p class="card-text">
-			Tell the output of this code:
-              <small>
-				<pre><code>
-public class Test {
-  public static void main(String[] args) {
-    String a = "hello";
-    String b = "hello";
-    String c = new String("hello");
+String a = "hello";
+String b = "hello";
+String c = new String("hello");
 
-    System.out.println(a == b);
-    System.out.println(a == c);
-    System.out.println(a.equals(c));
-  }
-}
-<img src="img/java_1.jpg" width="50%"/>
-				</code></pre>
-			  </small>
-			</p>
-        </div></div>
+System.out.println(a == b);     // true
+System.out.println(a == c);     // false
+System.out.println(a.equals(c)); // true
+
+Explanation:
+a == b: Both point to same pool reference
+a == c: a is pool, c is heap (different)
+a.equals(c): Compares content (both hello)
+
+String literal → goes to pool, reused
+new String() → creates separate heap object
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		Output when spring boot starts
-            <p class="card-text">
-              <small>
-                <code><pre>
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import jakarta.annotation.PostConstruct;
+        <div class="card h-100"><div class="card-body"><pre><code>
+Spring Boot Startup Output -----------
+What is printed when Spring starts?
 
 @Service
 class A {
-
-    @Autowired
-    private B b;
-
-    public void methodA() {
-        System.out.println("A.methodA start");
-        b.methodB();
-        System.out.println("A.methodA end");
-    }
-
+    @Autowired private B b;
+    
     @PostConstruct
     public void init() {
         System.out.println("A.init");
         methodA();
     }
+    
+    public void methodA() {
+        System.out.println("A.start");
+        b.methodB();
+        System.out.println("A.end");
+    }
 }
 
 @Service
 class B {
-
     public void methodB() {
         System.out.println("B.methodB");
         methodC();
     }
-
     public void methodC() {
         System.out.println("B.methodC");
     }
 }
-<img src="img/java_2.jpg" width="50%"/>
-				</pre></code>
-			</small>
-			</p>
-        </div></div>
+
+Output:
+A.init
+A.start
+B.methodB
+B.methodC
+A.end
+        </code></pre></div></div>
       </div>
     </div>
 
-
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 11 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-			Get the output:
-				<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Method Overloading Output -----------
+What gets printed?
+
 class A {
   void show(int x) {
     System.out.println("A");
@@ -603,264 +627,219 @@ public class Test {
     obj.show(10);
   }
 }
-				</code></pre>
-			</p>
-			Answer: A
-        </div></div>
+
+Answer: A
+
+Why:
+- obj is type A (reference)
+- A has show(int x)
+- B.show(Integer x) is OVERLOADING, not 
+  overriding (different param types)
+- Compiler: A.show(int) at compile time
+- Runtime: Executes A (no override exists)
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-Get me output (math):
-            <p class="card-text">
-			<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Math Calculation Output -----------
+What is printed?
+
 public class Main {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 3, 2, 4};
         int sum = 0;
 
-        for (int i = 0; i &lt; arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (i % 2 == 0) {
                 sum += arr[i] * 2;
             } else {
                 sum += arr[i];
             }
         }
-
         System.out.println("Sum: " + sum);
     }
 }
-			</code></pre>
-			</p>
-        </div></div>
+
+Trace:
+i=0: arr[0]=2, even → 2*2=4, sum=4
+i=1: arr[1]=3, odd → 3, sum=7
+i=2: arr[2]=5, even → 5*2=10, sum=17
+i=3: arr[3]=3, odd → 3, sum=20
+i=4: arr[4]=2, even → 2*2=4, sum=24
+i=5: arr[5]=4, odd → 4, sum=28
+
+Output: Sum: 28
+        </code></pre></div></div>
       </div>
     </div>
 
-
-
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 12 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-			Write Springboot code for Employee
-				<pre><code>
+        <div class="card h-100"><div class="card-body"><pre><code>
+SpringBoot Employee CRUD -----------
 @Entity
 class Employee {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
     private String name;
 }
+
 @Repository
-interface EmployeeRepo extends JpaRepository<Employee, Long> {
+interface EmployeeRepo extends 
+    JpaRepository<Employee, Long> {
 }
+
 @Service
 class EmployeeService {
     @Autowired
     private EmployeeRepo repo;
-
+    
     public Employee save(Employee e) {
         return repo.save(e);
     }
-
+    
     public List<Employee> getAll() {
         return repo.findAll();
     }
 }
+
 @RestController
 @RequestMapping("/emp")
 class EmployeeController {
-
     @Autowired
     private EmployeeService service;
-
+    
     @PostMapping
-    public Employee save(@RequestBody Employee e) {
+    public Employee save(@RequestBody E e) {
         return service.save(e);
     }
-
+    
     @GetMapping
     public List<Employee> getAll() {
         return service.getAll();
     }
 }
-@RestControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(Exception.class)
-    public String handleException(Exception ex) {
-        return "Error: " + ex.getMessage();
-    }
-}
-				</code></pre>
-			</p>
-        </div></div>
+        </code></pre></div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-		Write API to fetch employees by multiple optional filters (name, dept, salary range)
-            <p class="card-text">
-<pre><code>
-=================ENTITY
-@Entity
-public class Employee {
+        <div class="card h-100"><div class="card-body"><pre><code>
+Dynamic Filters: Optional Params -----------
+Fetch employees by name, dept, salary range
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+REPOSITORY
+import org.springframework.data.jpa.
+    repository.JpaSpecificationExecutor;
 
-    private String name;
-    private String department;
-    private Double salary;
-
-    // getters & setters
+public interface EmployeeRepository extends 
+    JpaRepository<Employee, Long>, 
+    JpaSpecificationExecutor<Employee> {
 }
-=================REPOSITORY
-import org.springframework.data.jpa.repository.*;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface EmployeeRepository 
-    extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {
-}
-=================SPECIFICATION (Dynamic Filter)
-import org.springframework.data.jpa.domain.Specification;
-
-public class EmployeeSpecification {
-
-    public static Specification<Employee> filter(
-            String name, String dept, Double minSalary, Double maxSalary) {
-
+SPECIFICATION
+public class EmployeeSpec {
+    public static Specification<Employee> 
+        filter(String name, String dept, 
+        Double minS, Double maxS) {
         return (root, query, cb) -> {
-            var predicates = cb.conjunction();
-
-            if (name != null && !name.isEmpty()) {
-                predicates = cb.and(predicates,
-                        cb.like(root.get("name"), "%" + name + "%"));
-            }
-
-            if (dept != null && !dept.isEmpty()) {
-                predicates = cb.and(predicates,
-                        cb.equal(root.get("department"), dept));
-            }
-
-            if (minSalary != null) {
-                predicates = cb.and(predicates,
-                        cb.greaterThanOrEqualTo(root.get("salary"), minSalary));
-            }
-
-            if (maxSalary != null) {
-                predicates = cb.and(predicates,
-                        cb.lessThanOrEqualTo(root.get("salary"), maxSalary));
-            }
-
-            return predicates;
+            var p = cb.conjunction();
+            if (name != null && 
+                !name.isEmpty())
+                p = cb.and(p,
+                    cb.like(root.get("name"), 
+                    "%" + name + "%"));
+            if (dept != null && 
+                !dept.isEmpty())
+                p = cb.and(p,
+                    cb.equal(root.get("dept"), 
+                    dept));
+            if (minS != null)
+                p = cb.and(p,
+                    cb.greaterThanOrEqualTo(
+                    root.get("salary"), minS));
+            return p;
         };
     }
 }
-========================SERVICE
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.List;
-
-@Service
-public class EmployeeService {
-
-    @Autowired
-    private EmployeeRepository repo;
-
-    public List<Employee> getEmployees(
-            String name, String dept, Double minSalary, Double maxSalary) {
-
-        return repo.findAll(
-            EmployeeSpecification.filter(name, dept, minSalary, maxSalary)
-        );
-    }
-}
-===========================CONTROLLER
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
-
-@RestController
-@RequestMapping("/employees")
-public class EmployeeController {
-
-    @Autowired
-    private EmployeeService service;
-
-    @GetMapping
-    public List<Employee> getEmployees(
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String dept,
-            @RequestParam(required = false) Double minSalary,
-            @RequestParam(required = false) Double maxSalary) {
-
-        return service.getEmployees(name, dept, minSalary, maxSalary);
-    }
-}
-</code></pre>
-<img src="img/java_10.jpg" width="75%"/>
-			</p>
-        </div></div>
+        </code></pre></div></div>
       </div>
     </div>
 
-    <!-- ROW 1 -->
-    <div class="row g-2 mb-2">
+    <!-- ROW 13 -->
+    <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-			Identify mistakes in Springboot code below:
-				<code><pre>
+        <div class="card h-100"><div class="card-body"><pre><code>
+Identify Code Mistakes -----------
 @Service
 public class EmployeeService {
 
     @Autowired
-    private EmployeeRepository repo
+    private EmployeeRepository repo  // Missing ;
 
-    public Employee saveEmployee(Employee emp) {
+    public Employee save(E emp) {
         if(emp.getName().isEmpty()) {
-            throw new RuntimeException("Name required");
+            throw new RuntimeException(
+                "Name required");
         }
         return repo.save(emp);
     }
 
-    public List<Employee> getAllEmployees() {
+    public List<Employee> getAll() {
         return repo.findAll();
     }
 
-    public Employee getEmployeeById(Long id) {
-        return repo.findById(id).get();
+    public Employee getById(Long id) {
+        return repo.findById(id).get(); 
+        // UNSAFE - NoSuchElement possible
     }
 
-    public void deleteEmployee(Long id) {
+    public void delete(Long id) {
         repo.deleteById(id);
-        System.out.println(10/0);
+        System.out.println(10/0); 
+        // ArithmeticException
     }
 }
-				</pre></code>
-<img src="img/java_8.jpg" width="75%"/>
-			</p>
+
+MISTAKES:
+1. Missing semicolon after @Autowired field
+2. findById().get() can throw exception
+3. Division by zero throws exception
+4. No null check before getName()
+        </code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+(empty box for future content)
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 14 - MICROSERVICES PATTERNS TABLE -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+(empty box for future content)
+        </code></pre>
+
         </div></div>
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body">
-            <p class="card-text">
-              <small>
-                <!--Your content here-->
-			</small>
-			</p>
-        </div></div>
+        <div class="card h-100"><div class="card-body"><pre><code>
+(empty box for future content)
+        </code></pre></div></div>
       </div>
     </div>
-
 
   </div>
 </section>
 
-
 </body>
+<script src="scrap.js"></script>
+<script>
+formatCheatsheetCode();
+</script>
 </html>
