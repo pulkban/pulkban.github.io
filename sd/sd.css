@@ -30,7 +30,7 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
 .stotra-text { line-height: 1.45; }
 .verse { margin-bottom: 0.2rem; }
 .stotra-text .card-text { font-size: 33.333%; line-height: 1.35; }
-.tamil-verse { font-size: 125%; line-height: 1.35; }
+.tamil-verse { font-size: 65%; line-height: 1.35; }
 
 /* Shared compact left-navbar layout for index pages */
 .nav-page {
