@@ -6,7 +6,7 @@ if "%~1"=="" (
 	exit /b 1
 )
 
-set "COMMIT_MSG=%*"
+set "COMMIT_MSG=%~1"
 
 echo.
 echo Branch:
