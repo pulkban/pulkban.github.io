@@ -31,6 +31,7 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
 .verse { margin-bottom: 0.2rem; }
 .stotra-text .card-text { font-size: 33.333%; line-height: 1.35; }
 .tamil-verse { font-size: 65%; line-height: 1.35; }
+.highlight-yellow { background-color: #fff9b1; padding: 0.15em 0.4em; border-radius: 0.25em; color: #222; font-weight: bold; }
 
 /* Shared compact left-navbar layout for index pages */
 .nav-page {
