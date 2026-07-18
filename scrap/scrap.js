@@ -10,6 +10,7 @@ journalDetails = {
 	'react': 'react.html',
 	'angular': 'angular.html',
 	'sql': 'sql.html',
+	'VnVAutomotive': 'VnVAutomotive.html',
 
 	
 	'lingo': 'lingo.html',

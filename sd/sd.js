@@ -104,6 +104,7 @@ const journalDetails = [
 	['sep8', 'Ganesha'],
 	['GanaNayakaAshtakam', 'GanaNayakaAshtakam.html'],
 	['Gananayaka', 'Gananayaka.html'],
+	['VinayagarAgaval', 'VinayagarAgaval.html'],
 
 	//--Sivan
 	['sep1', 'Sivan'],
@@ -148,6 +149,7 @@ const journalDetails = [
 	['SubramanyaSahasranamam', 'SubramanyaSahasranamam.html'],
 	['ShriSwaminathaAshtakam', 'ShriSwaminathaAshtakam.html'],
 	['VelMaaral', 'VelMaaral.html'],
+	['KandarAnubhooti', 'KandarAnubhooti.html'],
 	
 	//--Saibaba
 	['sep19', 'Saibaba'],
@@ -155,6 +157,7 @@ const journalDetails = [
 
 	//--Rama Krishna Vishnu
 	['sep3', 'Rama Krishna Vishnu'],
+	['BhajaGovindam', 'BhagaGovindam.html'],
 	['GovindaAshtakam', 'GovindaAshtakam.html'],
 	['SriVenkateshwaraSuprabhatam', 'SriVenkateshwaraSuprabhatam.html'],
 	['GuruvathaPureeshaPancharatnam', 'GuruvathaPureeshaPancharatnam.html'],
