@@ -108,6 +108,7 @@ const journalDetails = [
 
 	//--Sivan
 	['sep1', 'Sivan'],
+	['Thiruvasagam', 'Thiruvasagam.html'],
 	['SivanMantras', 'SivanMantras.html'],
 	['Lingashtakam', 'Lingashtakam.html'],
 	['Bilwashtakam', 'Bilwashtakam.html'],
