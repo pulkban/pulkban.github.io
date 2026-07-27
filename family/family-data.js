@@ -1,0 +1,175 @@
+/*
+  EDIT YOUR FAMILY HERE
+  ---------------------
+  Each person can have:
+    name      - displayed name
+    dob       - date of birth (any format you prefer)
+    place     - birthplace, hometown, or current place
+    picture   - URL or a local path such as "pics/grandmother.jpg"
+    spouse    - optional person object
+    children  - optional array of person objects
+
+  Keep local photos in the family/pics folder. If a photo is missing, the
+  person's initials are shown automatically.
+*/
+const FAMILY_DATA = {
+  name: "Chenchaiah",
+  dob: "1917",
+  place: "Sholinghur, India",
+  picture: "pics/chenchaiah.jpg",
+  spouse: {
+    name: "Sulochanammal",
+    dob: "1924?",
+    place: "KV Kuppam, India",
+    picture: "pics/sulochanammal.jpg",
+  },
+  children: [
+    {
+      name: "Venkatesa Setty",
+      dob: "1940",
+      place: "Sholinghur, India",
+      picture: "pics/venkatesa_setty.jpg",
+      spouse: {
+        name: "Ratnammal",
+        dob: "1946",
+        place: "Sholinghur, India",
+        picture: "pics/ratnammal.jpg",
+      },
+      children: [
+        {
+          name: "Narasimhan",
+          dob: "1970?",
+          place: "Sholinghur, India",
+          picture: "pics/narasimhan.jpg",
+        },
+        {
+          name: "Lalitha",
+          dob: "1973?",
+          place: "Arani, India",
+          picture: "pics/lalitha.jpg",
+        },
+        {
+          name: "Jayakumar",
+          dob: "1974?",
+          place: "",
+          picture: "pics/jayakumar.jpg",
+          children: [
+            {
+              name: "Madhumitha",
+              dob: "",
+              place: "",
+              picture: "pics/madhumitha.jpg",
+            }
+          ]
+        },
+        {
+          name: "Prabhakaran",
+          dob: "1976",
+          place: "",
+          picture: "pics/prabhakaran.jpg",
+          children: [
+            {
+              name: "Pooja",
+              dob: "1996",
+              place: "",
+              picture: "pics/pooja.jpg",
+            },
+            {
+              name: "Varsha Banu",
+              dob: "1999",
+              place: "",
+              picture: "pics/varsha_banu.jpg",
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: "Vasantha",
+      dob: "1943",
+      place: "Vadamalpet, India",
+      picture: "pics/vasantha.jpg",
+    },
+    {
+      name: "Shyamala",
+      dob: "1949",
+      place: "Alangayam, India",
+      picture: "pics/shyamala.jpg",
+    },
+    {
+      name: "Ramamurthy",
+      dob: "1951",
+      place: "Sholinghur, India",
+      picture: "pics/ramamurthy.jpg",
+      spouse: {
+        name: "Sukumari",
+        dob: "1957",
+        place: "",
+        picture: "pics/sukumari.jpg",
+      },
+      children: [
+        {
+          name: "Udhay Kumar",
+          dob: "1979",
+          place: "Bangalore, India",
+          picture: "pics/udhay_kumar.jpg",
+          spouse: {
+            name: "Lalitharchana",
+            dob: "1984",
+            place: "",
+            picture: "pics/lalitharchana.jpg",
+          },
+          children: [
+            {
+              name: "VU Prajev",
+              dob: "2013",
+              place: "",
+              picture: "pics/prajev.jpg",
+            },
+            {
+              name: "VU Kavya",
+              dob: "2017",
+              place: "",
+              picture: "pics/kavya.jpg",
+            }
+          ]
+        },
+        {
+          name: "Kishore Kumar",
+          dob: "1981",
+          place: "",
+          picture: "pics/kishore_kumar.jpg",
+        },
+        {
+          name: "Vinoth Kumar",
+          dob: "1982",
+          place: "",
+          picture: "pics/vinoth_kumar.jpg",
+          spouse: {
+            name: "Reka",
+            dob: "1992",
+            place: "",
+            picture: "pics/reka.jpg",
+          },
+          children: [
+            {
+              name: "Cheeku",
+              dob: "2016",
+              place: "",
+              picture: "pics/cheeku.jpg",
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  others: [
+    {
+      name: "Chengalraya",
+      relation: "Brother",
+      dob: "1925",
+      place: "Sholinghur, India",
+      picture: "pics/chengalraya.jpg",
+    }
+  ]
+};

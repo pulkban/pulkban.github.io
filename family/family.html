@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive family tree">
+  <title>Our Family Tree</title>
+  <link rel="stylesheet" href="family.css">
+  <script defer src="family-data.js"></script>
+  <script defer src="family.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Generations &amp; memories</p>
+      <h1>Our Family Tree</h1>
+    </div>
+    <div class="toolbar" aria-label="Family tree controls">
+      <button id="expand-all" type="button">+ Expand all</button>
+      <button id="collapse-all" type="button">− Collapse all</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="tree-viewport" id="tree-viewport" tabindex="0"
+      aria-label="Scrollable family tree. Hold Shift and use the mouse wheel to scroll sideways.">
+      <div class="tree" id="family-tree"></div>
+    </div>
+    <p class="scroll-hint">Scroll sideways to view larger generations.</p>
+  </main>
+
+  <footer>
+    <span id="family-count"></span>
+    <span aria-hidden="true">•</span>
+    <span>Made with love</span>
+  </footer>
+</body>
+</html>
