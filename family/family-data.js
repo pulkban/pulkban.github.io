@@ -115,7 +115,7 @@ const FAMILY_DATA = {
           picture: "pics/udhay_kumar.jpg",
           spouse: {
             name: "Lalitharchana",
-            dob: "1984",
+            dob: "9-12-1984",
             place: "",
             picture: "pics/lalitharchana.jpg",
           },

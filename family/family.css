@@ -122,6 +122,7 @@ main { padding: 0 1rem; }
 .tree li:last-child::before { border-right: 1.5px solid var(--line); border-radius: 0 8px 0 0; }
 .tree li:first-child::after { border-radius: 8px 0 0 0; }
 .tree > ul > li::before, .tree > ul > li::after { display: none; }
+.tree > ul > li:only-child::after { display: none; }
 
 .children::before {
   content: "";

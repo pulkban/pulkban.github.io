@@ -7,10 +7,29 @@
     return name.split(/\s+/).map(part => part[0]).slice(0, 2).join("").toUpperCase();
   }
 
-  function ageFromDob(dob) {
+  function parseDob(dob) {
     if (!dob) return null;
-    const birthDate = new Date(dob);
-    if (Number.isNaN(birthDate.getTime())) return null;
+    const value = String(dob).trim();
+    const numericDate = value.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$/);
+    if (numericDate) {
+      const day = Number(numericDate[1]);
+      const month = Number(numericDate[2]);
+      const year = Number(numericDate[3]);
+      const parsed = new Date(year, month - 1, day);
+      if (parsed.getFullYear() === year &&
+          parsed.getMonth() === month - 1 &&
+          parsed.getDate() === day) {
+        return parsed;
+      }
+      return null;
+    }
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  function ageFromDob(dob) {
+    const birthDate = parseDob(dob);
+    if (!birthDate) return null;
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const birthdayPending = today.getMonth() < birthDate.getMonth() ||
@@ -21,8 +40,8 @@
 
   function formatDob(dob) {
     if (!dob) return "";
-    const birthDate = new Date(dob);
-    if (Number.isNaN(birthDate.getTime())) return dob;
+    const birthDate = parseDob(dob);
+    if (!birthDate) return dob;
     const day = String(birthDate.getDate()).padStart(2, "0");
     const month = birthDate.toLocaleString("en-US", { month: "short" });
     return `${day}-${month}-${birthDate.getFullYear()}`;
