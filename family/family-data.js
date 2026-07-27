@@ -30,10 +30,10 @@ const FAMILY_DATA = {
       place: "Sholinghur, India",
       picture: "pics/venkatesa_setty.jpg",
       spouse: {
-        name: "Ratnammal",
+        name: "Sulochanammal",
         dob: "1946",
         place: "Sholinghur, India",
-        picture: "pics/ratnammal.jpg",
+        picture: "pics/Sulochanammal.jpg",
       },
       children: [
         {
@@ -76,7 +76,7 @@ const FAMILY_DATA = {
             },
             {
               name: "Varsha Banu",
-              dob: "1999",
+              dob: "1-1-2007",
               place: "",
               picture: "pics/varsha_banu.jpg",
             }

@@ -112,6 +112,13 @@ main { padding: 0 1rem; }
 .tree li:only-child::before, .tree li:only-child::after { display: none; }
 .tree li:first-child::before { border-top: 0; }
 .tree li:last-child::after { border: 0; }
+.tree li:only-child::after {
+  display: block;
+  left: 50%;
+  width: 0;
+  border: 0;
+  border-left: 1.5px solid var(--line);
+}
 .tree li:last-child::before { border-right: 1.5px solid var(--line); border-radius: 0 8px 0 0; }
 .tree li:first-child::after { border-radius: 8px 0 0 0; }
 .tree > ul > li::before, .tree > ul > li::after { display: none; }
