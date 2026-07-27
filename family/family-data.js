@@ -121,13 +121,13 @@ const FAMILY_DATA = {
           },
           children: [
             {
-              name: "VU Prajev",
+              name: "V U Pranev",
               dob: "2013",
               place: "",
-              picture: "pics/prajev.jpg",
+              picture: "pics/pranev.jpg",
             },
             {
-              name: "VU Kavya",
+              name: "V U Kavya",
               dob: "2017",
               place: "",
               picture: "pics/kavya.jpg",
