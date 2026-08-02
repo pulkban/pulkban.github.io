@@ -15,7 +15,7 @@
         <button id="themeToggle" class="theme-toggle-btn" type="button" aria-label="Toggle day and night theme">🌙 Night</button>
       </h1>
       <h1 class="card-header display-5">श्री मूक पञ्च शती</h1>
-      <div class="card-body display-6 stotra-text">
+      <div class="card-body stotra-text mooka-content">
         श्रीमूकपञ्चशती<br>
         Written by Mooka Kavi (20th Aachaaryar)<br>
         Written for Kanchi Kaamakshi<br>
@@ -39,7 +39,7 @@
         95 -  pure heart <br>
         99 - cure for dem(mooka)<br>
         <hr>
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <ul class="nav mooka-section-switcher mb-3" id="pills-tab" role="tablist" aria-label="Mooka Pancha Shathi sections">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="arya-shatakam-tab" data-bs-toggle="pill" data-bs-target="#arya-shatakam" type="button" role="tab" aria-controls="arya-shatakam" aria-selected="true">Arya Shatakam 1-100</button>
   </li>
@@ -53,11 +53,11 @@
     <button class="nav-link" id="kataaksha-shatakam-tab" data-bs-toggle="pill" data-bs-target="#kataaksha-shatakam" type="button" role="tab" aria-controls="kataaksha-shatakam" aria-selected="false">Kataaksha Shatakam 301-400</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="mandasmita-shatakam-tab" data-bs-toggle="pill" data-bs-target="#mandasmita-shatakam" type="button" role="tab" aria-controls="mandasmita-shatakam" aria-selected="false">Mandasmita Shatakam 101-200</button>
+    <button class="nav-link" id="mandasmita-shatakam-tab" data-bs-toggle="pill" data-bs-target="#mandasmita-shatakam" type="button" role="tab" aria-controls="mandasmita-shatakam" aria-selected="false">Mandasmita Shatakam 401-500</button>
   </li>
 </ul>
         <hr>
-        <div class="tab-content display-6" id="pills-tabContent">
+        <div class="tab-content display-6 mooka-tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="arya-shatakam" role="tabpanel" aria-labelledby="arya-shatakam-tab" tabindex="0">
 1. आर्याशतकम्<br>
 started on 11-Sep-2021<br>
@@ -381,7 +381,7 @@ started on 9-Oct-2021<br>
 आर्याशतकं सम्पूर्णम् ॥<br>
 <br>
   </div>
-  <div class="tab-pane fade display-6" id="paadaravinda-shatakam" role="tabpanel" aria-labelledby="paadaravinda-shatakam-tab" tabindex="0">
+  <div class="tab-pane fade" id="paadaravinda-shatakam" role="tabpanel" aria-labelledby="paadaravinda-shatakam-tab" tabindex="0">
 ॥ पादार विन्द शतकम् ॥<br>
 (about feet)<br>
 <br>
@@ -925,7 +925,7 @@ started on 14-Nov-2021<br>
 idi shri पादारविन्द शतकं सम्पूर्णम् ॥<br>
 <br>
   </div>
-  <div class="tab-pane fade display-6" id="stuthi-shatakam" role="tabpanel" aria-labelledby="stuthi-shatakam-tab" tabindex="0">
+  <div class="tab-pane fade" id="stuthi-shatakam" role="tabpanel" aria-labelledby="stuthi-shatakam-tab" tabindex="0">
 ॥ स्तुतिशतकम् ॥ <br>
 पाण्डित्यं परमेश्वरि स्तुतिविधौ नैवाश्रयन्ते गिरां<br>
 वैरिञ्चान्यपि गुम्फनानि विगलद्गर्वाणि शर्वाणि ते ।<br>
@@ -1460,7 +1460,7 @@ started 16-Jan-2022<br>
 <br>
 स्तुतिशतकं सम्पूर्णम् ॥<br>
   </div>
-  <div class="tab-pane fade display-6" id="kataaksha-shatakam" role="tabpanel" aria-labelledby="kataaksha-shatakam-tab" tabindex="0">
+  <div class="tab-pane fade" id="kataaksha-shatakam" role="tabpanel" aria-labelledby="kataaksha-shatakam-tab" tabindex="0">
 ॥ कटाक्षशतकम् ॥<br>
 मोहान्ध कार निवहं विनिहन्तु मीडे<br>
 मूकात्मना मपि महा कविता वदान्यान् ।<br>
@@ -1986,7 +1986,7 @@ aत्यन्त गर्व मनधीत समस्त शास्त
 <br>
 कटाक्षशतकं सम्पूर्णम् ॥<br>
   </div>
-  <div class="tab-pane fade display-6" id="mandasmita-shatakam" role="tabpanel" aria-labelledby="mandasmita-shatakam-tab" tabindex="0">
+  <div class="tab-pane fade" id="mandasmita-shatakam" role="tabpanel" aria-labelledby="mandasmita-shatakam-tab" tabindex="0">
 ॥ मन्दस्मित शतकम् ॥ (about smile)<br>
 बध्नीमो वय मञ्जलिं प्रतिदिनं बन्धच्छिदे देहिनां<br>
 कन्दर्पागम तन्त्र मूलगुरवे कल्याण केलीभुवे ।<br>
@@ -2518,6 +2518,7 @@ Ended 1-May-2022<br>
 </div>
 
 </div>
+      </div>
       <div class="card-footer bg-transparent border-success"><i>Udhay's</i></div>
     </div>
   </div>
