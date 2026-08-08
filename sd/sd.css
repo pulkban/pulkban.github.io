@@ -204,3 +204,118 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
   color: var(--text-main);
   background-color: rgba(120, 140, 170, 0.18);
 }
+
+/* Vishnu Sahasranamam: complete names and explanation notes */
+.vsn-notes-content {
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+.vsn-notes-content > p {
+  margin-bottom: 0.45rem;
+}
+.vsn-notes-content > p:first-of-type:not(.vsn-back-link),
+.vsn-notes-content > p:nth-of-type(2),
+.vsn-notes-content > p:nth-of-type(3),
+.vsn-notes-content > p:nth-of-type(4) {
+  text-align: center;
+}
+.vsn-back-link {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 0.45rem 0.65rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+}
+.vsn-section-heading {
+  margin: 1.4rem 0 0.6rem;
+  color: #7b4b00;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+[data-theme="night"] .vsn-section-heading {
+  color: #ffd17d;
+}
+.vsn-list-item {
+  margin: 0 0 0.2rem 1.4rem;
+}
+.vsn-list-item::before {
+  content: "•";
+  margin-right: 0.45rem;
+}
+.vsn-table-wrap {
+  margin: 0.8rem 0 1.4rem;
+  border-radius: 0.5rem;
+}
+.vsn-names-table {
+  min-width: 760px;
+  margin-bottom: 0;
+  table-layout: fixed;
+  font-size: 0.92rem;
+}
+.vsn-names-table .vsn-col-1 {
+  width: 7%;
+  text-align: center;
+  font-weight: 700;
+}
+.vsn-names-table .vsn-col-2 {
+  width: 23%;
+  font-weight: 600;
+}
+.vsn-names-table .vsn-col-3 {
+  width: 70%;
+}
+.vsn-names-table .vsn-names-table .vsn-col-1,
+.vsn-names-table .vsn-names-table .vsn-col-2,
+.vsn-names-table .vsn-names-table .vsn-col-3 {
+  width: 33.333%;
+  text-align: left;
+}
+.vsn-names-table .vsn-names-table td,
+.vsn-names-table .vsn-names-table th {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.vsn-table-heading > th {
+  background-color: var(--header-bg) !important;
+  font-weight: 700;
+}
+.vsn-cell-line {
+  margin-bottom: 0.28rem;
+}
+.vsn-cell-line:last-child {
+  margin-bottom: 0;
+}
+.vsn-devanagari {
+  font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
+  font-size: 1.18em;
+  line-height: 1.55;
+}
+.vsn-tamil {
+  font-family: "Noto Sans Tamil", "Latha", sans-serif;
+  font-size: 1.05em;
+  line-height: 1.55;
+}
+.vsn-note-image {
+  display: block;
+  width: auto;
+  max-width: min(100%, 720px);
+  max-height: 75vh;
+  margin: 0.65rem auto;
+  object-fit: contain;
+  border-radius: 0.35rem;
+}
+@media (max-width: 767px) {
+  .vsn-notes-page.page-wrap {
+    padding: 0.5rem 0.2rem;
+  }
+  .vsn-notes-page .card-header {
+    font-size: 1.25rem;
+  }
+  .vsn-notes-content {
+    padding: 0.65rem;
+  }
+  .vsn-names-table {
+    font-size: 0.86rem;
+  }
+}
