@@ -15,6 +15,18 @@ code{color:inherit;background:transparent;}
 .row{margin:0;}
 .col-12,.col-md-6,.col-xl-6{padding:2px;}
 .code-section{color:#b91c1c;font-weight:inherit;}
+.fde-content{background:#e6f3ff;color:#1e293b;padding:8px;font-size:.85rem;line-height:1.4;height:100%;}
+.fde-content p{margin:0 0 10px;}
+.fde-content .question{color:#b91c1c;}
+.fde-diagram{display:block;width:100%;height:auto;margin:0 0 12px;border:1px solid #b8cadb;border-radius:6px;background:#fff;}
+.mini-table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:.72rem;table-layout:fixed;}
+.mini-table th,.mini-table td{border:1px solid #94a3b8;padding:4px 5px;text-align:left;vertical-align:top;overflow-wrap:anywhere;}
+.mini-table th{background:#cfe5f7;font-weight:700;}
+.mini-table tbody tr:nth-child(even){background:rgba(255,255,255,.38);}
+.mini-table.fde-roles th:first-child,.mini-table.fde-roles td:first-child{width:16%;}
+.mini-table.fde-roles th:nth-child(2),.mini-table.fde-roles td:nth-child(2){width:47%;}
+.mini-table.fde-roles th:nth-child(3),.mini-table.fde-roles td:nth-child(3){width:37%;}
+.fde-emphasis{border-left:4px solid #b91c1c;padding:6px 8px;background:#fff4cc;font-weight:700;}
   </style>
 </head>
 <body>
@@ -122,6 +134,141 @@ Answer: Measure each stage: retrieval → reranking → prompt construction → 
     </div>
 
     <!-- ROW 3 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**AI Assisted DLC
+
+[[Q]]How would you conduct an AI-assisted mob construction session?[[/Q]]
+Product, architecture, engineering and QA jointly provide context; AI generates incremental artifacts; the team reviews each output, executes tests, corrects errors and records reusable prompts.
+
+[[Q]]Build a reusable prompt for generating a user story. What must it contain?[[/Q]]
+Role, business context, objective, constraints, source material, required format, acceptance-criteria rules, examples, uncertainty handling and instruction not to invent requirements.
+
+[[Q]]How would you use AI in a brownfield application with poor documentation?[[/Q]]
+Analyze repositories, APIs, database schemas and logs; generate dependency maps and documentation; use SMEs to validate findings; track confidence and avoid treating generated content as fact.
+
+[[Q]]What validation framework would you establish for AI-generated outputs?[[/Q]]
+Define golden datasets and rubrics; measure correctness, groundedness, completeness, security and latency; run automated evaluations and require human review for high-risk outputs.
+
+[[Q]]How would you measure whether AI-DLC is delivering value?[[/Q]]
+Lead time, story readiness, developer cycle time, escaped defects, test coverage, rework, deployment frequency, acceptance rate, cost and user satisfaction—compared against a baseline.
+
+[[Q]]A team reports that AI generated code faster but defects increased. What would you do?[[/Q]]
+Analyze defect categories and prompts, improve context and standards, add test/security gates, restrict risky use cases, coach the team and measure quality—not just coding speed.</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><div class="fde-content">
+          <p><strong>WHAT IS AN FDE!?</strong></p>
+          <img class="fde-diagram" src="fde-technical-owner.png" alt="FDE technical deployment owner coordinating product, engineering, architecture, security, QA, DevOps, operations and adoption">
+          <p>An FDE is usually a T-shaped technical leader: broad across the lifecycle, deep in selected engineering areas. They are not expected to be the best business analyst, architect, developer, security specialist, QA engineer and operator simultaneously.</p>
+          <p><strong>“Own end to end” means accountable for connecting the work—not personally performing every task.</strong></p>
+
+          <table class="mini-table fde-roles">
+            <thead><tr><th>Area</th><th>FDE's responsibility</th><th>Works with</th></tr></thead>
+            <tbody>
+              <tr><td>Discovery</td><td>Lead workshops, ask technical questions and translate workflows</td><td>Product owner, domain SME, users</td></tr>
+              <tr><td>Architecture</td><td>Own the overall solution and technical decisions</td><td>Enterprise architect, security, data teams</td></tr>
+              <tr><td>Development</td><td>Build critical components, prototypes and integration patterns</td><td>Software and ML engineers</td></tr>
+              <tr><td>Evaluation</td><td>Define evaluation approach and implement the harness</td><td>SMEs, QA, risk and compliance</td></tr>
+              <tr><td>Security</td><td>Design controls into the solution</td><td>Security, privacy and legal teams</td></tr>
+              <tr><td>Deployment</td><td>Make the application production-ready</td><td>Platform, DevOps and SRE</td></tr>
+              <tr><td>Adoption</td><td>Resolve technical adoption problems</td><td>Product, training and change teams</td></tr>
+              <tr><td>Operations</td><td>Establish monitoring, runbooks and escalation</td><td>Operations, support and SRE</td></tr>
+              <tr><td>Handover</td><td>Transfer knowledge and confirm operational readiness</td><td>Customer engineering and support teams</td></tr>
+            </tbody>
+          </table>
+
+          <p class="question">Is the FDE a polyglot?</p>
+          <p>Yes—in the sense of being a technical generalist capable of moving across APIs, data, AI models, cloud infrastructure and customer systems. However:</p>
+
+          <table class="mini-table">
+            <thead><tr><th>Expected</th><th>Not expected</th></tr></thead>
+            <tbody>
+              <tr><td>Understand the business workflow</td><td>Be the final healthcare policy authority</td></tr>
+              <tr><td>Personally write production code</td><td>Build the entire system alone</td></tr>
+              <tr><td>Make cross-system architecture decisions</td><td>Replace enterprise and security architects</td></tr>
+              <tr><td>Build evaluations and analyse failures</td><td>Manually execute every QA activity</td></tr>
+              <tr><td>Understand deployment and monitoring</td><td>Operate production alone permanently</td></tr>
+              <tr><td>Communicate with technical and business users</td><td>Own the commercial relationship</td></tr>
+            </tbody>
+          </table>
+
+          <p>For a small proof of concept, an FDE might independently build most of the solution. For production, the usual model is an FDE-led delivery squad, for example:</p>
+          <p>1 FDE<br>2–4 software/AI engineers<br>Product owner and domain SME<br>Part-time architect and security specialist<br>QA/evaluation engineer<br>DevOps/SRE support</p>
+          <p><strong>SO, THE FDE IS NOT A ONE-PERSON DELIVERY TEAM.</strong></p>
+          <p class="fde-emphasis">THE FDE IS THE HANDS-ON TECHNICAL OWNER WHO ENSURES ALL THE SPECIALIST CONTRIBUTIONS BECOME ONE WORKING, MEASURABLE PRODUCTION SOLUTION.</p>
+        </div></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 4 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**LLMOps
+
+[[Q]]Faithfulness is high but context recall is low. What does that mean?[[/Q]]
+The model uses retrieved content correctly, but the retriever is missing required information. Investigate ingestion, chunking, embeddings, filters and top-k.
+
+[[Q]]How would you evaluate a RAG application before release?[[/Q]]
+Create a representative golden dataset; measure retrieval, answer, citation and safety quality; compare against the current production baseline and block regressions.
+
+[[Q]]Context precision is low but recall is high. What would you change?[[/Q]]
+Retrieval finds the required content but includes excessive noise. Improve ranking, metadata filters, hybrid search, reranking and top-k.
+
+[[Q]]How would you deploy a new prompt safely?[[/Q]]
+Version it, run offline evaluations, compare it with the baseline, canary release it, monitor results and retain immediate rollback capability.
+
+[[Q]]What should be captured in an LLM trace?[[/Q]]
+Request, prompt version, model, retrieved chunks, tool calls, response, latency, token usage, cost, errors, evaluation scores and user feedback—subject to privacy controls.
+
+[[Q]]How would you control LLM cost?[[/Q]]
+Route simple requests to smaller models, reduce context, cache safe results, limit tokens and tool loops, batch evaluations and monitor cost per successful task.
+
+[[Q]]Documents change every day. How do you keep RAG current?[[/Q]]
+Detect changes, process only changed documents, delete stale vectors, version sources, schedule or trigger ingestion and verify freshness through monitoring.
+
+[[Q]]How do you protect sensitive information?[[/Q]]
+Data minimisation, encryption, redaction, access controls, tenant isolation, retention policies, approved providers and audit logging.
+
+[[Q]]What does an LLMOps production incident rollback involve?[[/Q]]
+Restore the previous prompt, model, retriever/index or tool version; disable risky actions; preserve traces; validate recovery and conduct error analysis.
+
+[[Q]]How do production failures improve the system?[[/Q]]
+Classify failures, add them to the evaluation dataset, fix the relevant component, run regression tests and deploy through controlled rollout.
+
+[[Q]]“Ragas reports faithfulness 0.95, context recall 0.52 and context precision 0.48. Diagnose the system and explain what you would change first.”[[/Q]]
+A good candidate should say the generator is largely grounded, but retrieval is both missing necessary evidence and returning noise; therefore, investigate the ingestion and retrieval pipeline before changing the LLM.
+
+[[Q]]Ragas reports faithfulness 0.95, context recall 0.52 and context precision 0.48. Diagnose it.[[/Q]]
+Generation is grounded, but retrieval misses relevant information and returns noise. Check ingestion, chunking and filters first; then embeddings, hybrid search, reranking and top-k.
+
+[[Q]]Faithfulness is 0.98, but users say the answers are factually wrong. How is that possible?[[/Q]]
+The answer may faithfully use an incorrect, outdated or unauthorized document. Check source quality, document version, effective date and metadata filtering.
+
+[[Q]]Context precision is 0.90 and recall is 0.92, but response relevancy is 0.45. Where is the problem?[[/Q]]
+Retrieval is working. Investigate the prompt, model selection, excessive instructions, answer format and generation configuration.
+
+[[Q]]The RAG response increased from 4 to 12 seconds. How would you investigate?[[/Q]]
+Use traces to measure query processing, retrieval, reranking, prompt construction, model generation and tool calls independently.
+
+[[Q]]The agent repeatedly calls the same Salesforce tool until it times out. What controls are missing?[[/Q]]
+Maximum tool-call count, duplicate-call detection, timeout, idempotency, state tracking, circuit breaker and human escalation.
+
+[[Q]]Production cost suddenly rises by 60%, although traffic is unchanged. Where do you look?[[/Q]]
+Check tokens per request, retrieved context size, model-routing changes, repeated tool loops, retries, cache hit rate and prompt/version changes.
+
+[[Q]]The RAG system retrieves five relevant chunks, but they contain conflicting policy rules. What should the agent do?[[/Q]]
+Apply version and authority metadata. If the conflict cannot be resolved deterministically, disclose that coverage cannot be confirmed and escalate to a human.</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>
+        </code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 5 -->
     <div class="row g-2">
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>**Python Coding Exercises

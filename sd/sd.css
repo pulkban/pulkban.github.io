@@ -63,6 +63,37 @@ body { font-family: "Lato", sans-serif; background: var(--bg-main); color: var(-
 .tamil-verse { font-size: 65%; line-height: 1.35; }
 .highlight-yellow { background-color: #fff9b1; padding: 0.15em 0.4em; border-radius: 0.25em; color: #222; font-weight: bold; }
 
+/* Compact numbered jump links for Thiruvasagam sections */
+.section-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.55rem 1rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+}
+.section-jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--toggle-border);
+  border-radius: 0.3rem;
+  background: var(--header-bg);
+  color: var(--text-main);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+.section-jump-nav a:hover,
+.section-jump-nav a:focus-visible {
+  background: #fff0a6;
+  color: #111;
+}
+.section-anchor { scroll-margin-top: 0.75rem; }
+
 /* Mooka Pancha Shathi: readable notes and a compact segmented section control */
 .mooka-content {
   font-size: 1rem;
