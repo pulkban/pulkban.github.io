@@ -4,8 +4,8 @@ journalDetails = {
 	'Salesforce': 'Salesforce.html',
 	'qa_python': 'qa_python.html',
 	'java': 'java.html',
-	'java2': 'java2.html',
 	'python': 'python.html',
+	'forward-deployed': 'forward-deployed.html',
 	'learn_ai': 'learn_ai.html',
 	'react': 'react.html',
 	'angular': 'angular.html',
@@ -90,8 +90,18 @@ function formatCheatsheetCode() {
 		var lines = codeEl.textContent.replace(/\r\n?/g, '\n').split('\n');
 		codeEl.textContent = '';
 
-		lines.forEach(function(line, index) {
-			if (line.trimStart().startsWith('--') || /---+\s*$/.test(line)) {
+	lines.forEach(function(line, index) {
+			if (line.indexOf('[[Q]]') !== -1 && line.indexOf('[[/Q]]') !== -1) {
+				// Format only the marked question portion in red.
+				var questionStart = line.indexOf('[[Q]]');
+				var questionEnd = line.indexOf('[[/Q]]');
+				codeEl.appendChild(document.createTextNode(line.slice(0, questionStart)));
+				var questionEl = document.createElement('span');
+				questionEl.className = 'code-section';
+				questionEl.textContent = line.slice(questionStart + 5, questionEnd);
+				codeEl.appendChild(questionEl);
+				codeEl.appendChild(document.createTextNode(line.slice(questionEnd + 6)));
+			} else if (line.trimStart().startsWith('--') || /---+\s*$/.test(line)) {
 				// Format comment lines in red
 				var sectionLine = document.createElement('span');
 				sectionLine.className = 'code-section';

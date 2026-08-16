@@ -9,7 +9,7 @@ body,html{margin:0;padding:0;background:#f5f7fb;font-family:monospace;}
 .container-fluid{max-width:100%;}
 .card{border:1px solid #ddd;margin:2px;}
 .card-body{padding:8px;}
-pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;overflow-x:auto;}
+pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:0.85rem;line-height:1.4;white-space:pre-wrap;word-break:break-word;}
 code{color:inherit;background:transparent;}
 .row{margin:0;}
 .col-12,.col-md-6,.col-xl-6{padding:2px;}
@@ -97,7 +97,49 @@ print(count)
 
       <div class="col-12 col-md-6 col-xl-6">
         <div class="card h-100"><div class="card-body"><pre><code>
-                <!--Your content here-->
+ECU Input (engine mgt systems) - AirTemp, Coolant, Throttle position, Manifold pressure, Engine speed
+engine and its operating conditions is known
+ECU then signals out to fuel injectors and injection system - how much to open and close fuel - to achieve AFR (Air Fuel ratio)
+signals - when to get spark
+lookup table (3D) - based on engine rpm (16-32 load points), throttle position, manifold pressure (all these describes load on engine)
+load in x-axis, rpm (4000) in y-axis - ignition timing e.g. 20 deg
+many engines - appropriate tables
+tuner tunes the tables - based on area/ based on engine
+ECU - is called - Engine management systems - takes wide range
+INPUT - AFR (fuel ratio), Oil Pres, Exhaust Gas Temp, Fuel pressure
+OUTPUT - control - Thermofan, shift flights, tacos, variable cam control
+====
+💬 How ECUs Work - Technically Speaking
+https://www.youtube.com/watch?v=49SjHjnnVn4
+==========
+ECUnit, ECModule, PowertrainControlModule PCM
+regulates fuel flow, airflow, fuel injection, ignition
+many sensors, anti brakes,
+lambda - stociometric - name of ideal mixture - all fuel and all oxygen is burnt
+ECU keeps it closely to 1 - ration between fuel and o2
+when accelerator is pressed - ECU increases both
+when fuel is ineffiecinty - ECU increases fuel
+ECU = computer + switching system + power management system
+after ECU gathered the data, processor must use sw inside the device to establish output chars (e.g. fuel injector pulse width)
+when fault code is placed in mem - portion of sw logic bypassed - reduce engine efficiency -
+fault code is saved as 5-digit alpha numeric - starting P B C U and 4 nums
+short circuit - can effect ECU
+1 gram of gasoline to burn - 14.7 gram of air (14.7:1) - stociometric
+fuel table/fuel map - sports car at 12.7 - more fuel to gas
+table - y axis 2200 rpm = for getting g/rev(engine load) = use 14.0
+==============
+MiL, SiL, PiL, HiL, DriL, ViL
+Model-in-the-Loop, SoftwareInThe, ProcessorInThe, HardwareInThe, DriverInThe, VehicleInThe
+MIL = PlantModel(simulated), ControllerLogic(simulated) - without hardware
+SIL - Plant is simulated - but controller is actual software - SiL in Simulink - s functions in controller
+
+
+PIL -(next level realism) plant is simulated - controller: target processor - timing issues, latency, performance (almost a real world)
+HIL - ECU' itself is brought in Controller
+
+DIL - Real driver interacts with Plant model - ECU is in controller
+VIL - Plant is real vehicle
+==============
         </code></pre></div></div>
       </div>
     </div>

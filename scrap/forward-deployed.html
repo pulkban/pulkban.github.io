@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forward-Deployed AI Cheatsheet</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+body,html{margin:0;padding:0;background:#f5f7fb;font-family:monospace;}
+.container-fluid{max-width:100%;}
+.card{border:1px solid #ddd;margin:2px;}
+.card-body{padding:8px;}
+pre{background:#e6f3ff;color:#1e293b;padding:8px;margin:0;font-size:.85rem;line-height:1.4;overflow-x:auto;white-space:pre-wrap;}
+code{color:inherit;background:transparent;}
+.row{margin:0;}
+.col-12,.col-md-6,.col-xl-6{padding:2px;}
+.code-section{color:#b91c1c;font-weight:inherit;}
+  </style>
+</head>
+<body>
+<section class="cheatsheet bg-light py-2">
+  <div class="container-fluid px-2">
+
+    <!-- ROW 1 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**LLM / RAG Fundamentals
+
+[[Q]]Temperature 0 vs 1 — difference?[[/Q]] = 0: high-probability/deterministic choices; 1: more variation
+[[Q]]Top-k[[/Q]] = limits token selection to the k most probable next tokens
+[[Q]]k=1?[[/Q]] = only the highest-probability token is considered; greedy decoding. k=5 means top 5 candidates
+[[Q]]Top-p?[[/Q]] = nucleus sampling; selects from the smallest group whose cumulative probability reaches p
+[[Q]]Top-k vs top-p?[[/Q]] = top-k fixes the number of candidates; top-p dynamically chooses candidates by cumulative probability
+[[Q]]Context window?[[/Q]] = maximum input + generated-token context a model can process within a request/conversation
+[[Q]]What if context is too large?[[/Q]] = higher cost/latency and poorer focus; content may need truncation depending on implementation
+[[Q]]Embedding[[/Q]] = numerical vector capturing semantic meaning
+[[Q]]Semantic search[[/Q]] = search by meaning/similarity, not exact keyword matching
+[[Q]]Cosine similarity?[[/Q]] = metric measuring similarity between two vectors
+[[Q]]RAG vs fine-tuning[[/Q]] = RAG supplies knowledge; fine-tuning changes model behavior using training examples
+[[Q]]Chunking[[/Q]] = splitting documents into smaller retrievable pieces for embedding and retrieval
+[[Q]]Why does chunk size matter?[[/Q]] = too small loses context; too large adds irrelevant content and consumes tokens
+[[Q]]Chunk overlap[[/Q]] = repeats some content to preserve context across boundaries
+[[Q]]Vector DB[[/Q]] = database optimized for storing embeddings and performing vector/similarity searches
+[[Q]]Hallucination[[/Q]] = model generates plausible-looking information unsupported by facts/context
+[[Q]]Grounding[[/Q]] = ensuring a response is based on trusted or retrieved source information
+[[Q]]System prompt[[/Q]] = highest-level instructions defining the model's role, constraints and expected behavior
+[[Q]]Prompt engineering vs context engineering[[/Q]] = designing instructions vs managing all tools/knowledge given to the model
+[[Q]]Few-shot / zero-shot prompting[[/Q]] = provide examples of desired input/output vs provide none
+[[Q]]Tool calling[[/Q]] = LLM chooses an external function, supplies structured arguments and obtains information
+[[Q]]AI agent[[/Q]] = LLM-driven system capable of reasoning over a goal and using tools/actions
+[[Q]]Agent vs chatbot[[/Q]] = chatbot responds; agent plans, invokes tools and performs actions toward a goal
+[[Q]]MCP[[/Q]] = standard way for AI apps to connect with external tools and data sources
+[[Q]]Prompt injection[[/Q]] = malicious instructions attempting to override model behavior
+[[Q]]Guardrail[[/Q]] = control that restricts or validates AI inputs, outputs or actions
+[[Q]]HITL[[/Q]] = human approval in an AI workflow
+[[Q]]Golden dataset[[/Q]] = curated input/output set used for regression evaluation
+[[Q]]What should LLMOps monitor?[[/Q]] = quality, groundedness, latency, errors, safety, retrieval performance and token usage/cost
+[[Q]]MLOps vs LLMOps[[/Q]] = LLMOps extends operational practices to prompts, RAG, model versions, evaluations and token cost
+[[Q]]Model drift[[/Q]] = model/app performance changes or degrades as data, usage patterns or environment changes
+[[Q]]Inference[[/Q]] = running a trained model to generate output
+[[Q]]Model routing[[/Q]] = dynamic model selection based on task complexity, cost and latency
+[[Q]]Knowledge graph[[/Q]] = entities and relationships represented as a graph</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**Common AI Misconceptions
+
+[[Q]]Higher temperature means a more intelligent model?[[/Q]]  ❌ No — it primarily increases randomness/diversity.
+
+[[Q]]Vector DB contains the actual LLM knowledge?[[/Q]]  ❌ No — it typically stores embeddings plus associated content/metadata for retrieval.
+
+[[Q]]RAG prevents hallucinations?[[/Q]]  ❌ It reduces risk; it does not guarantee prevention.
+
+[[Q]]Fine-tuning is the best way to give today's company data to an LLM?[[/Q]]  ❌ Usually RAG/tools are more appropriate for changing factual knowledge.
+
+[[Q]]If an LLM answer looks correct, do we still need evaluation?[[/Q]]  ✅ Yes.
+
+[[Q]]Temperature = 0 guarantees identical responses every time?[[/Q]]  ❌ Not necessarily; infrastructure/model implementation can still introduce nondeterminism.
+
+[[Q]]Can you just increase top-k to improve accuracy?[[/Q]]  ❌ No — it increases the candidate-token space; accuracy is not guaranteed.
+
+[[Q]]Copilot-generated code that compiles is production-ready?[[/Q]]  ❌ Definitely not; compile success says nothing about correctness, security or architecture quality.</code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**Forward-Deployed Engineering Scenarios
+
+[[Q]]An external API allows only 100 requests/minute, but your application may generate 5,000 transactions in a burst. How would you code the integration?[[/Q]]
+Answer: Async processing, queue/batching, throttling/rate limiting, retry with backoff, error handling, idempotency and monitoring.
+
+[[Q]]Customer says: “We need AI to reduce support workload by 30%.” What requirements would you derive?[[/Q]]
+Answer: Clarify use cases such as summarization, classification, response generation and routing. Define baseline, target metric, data sources, accuracy, latency, human-in-the-loop and acceptance criteria.
+
+[[Q]]Customer data exists in Salesforce, SAP and a data lake, and all three have different customer IDs. How would you integrate them?[[/Q]]
+Answer: Establish canonical identity/mapping, system of record, external IDs/MDM strategy, transformations, deduplication, reconciliation and ownership of updates.
+
+[[Q]]Customer says, “Your application is slow,” but your API logs show 200 ms response time. What would you investigate?[[/Q]]
+Answer: Trace end-to-end latency: browser/network → API gateway → application → downstream APIs/DB → rendering. Use correlation IDs, telemetry and distributed tracing.</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**RAG Architecture Scenarios
+
+[[Q]]“Show me how you would build a small RAG application for internal policy documents.”[[/Q]]
+Answer: Documents → chunking → embeddings → vector DB → retrieval → prompt → LLM → response with citations. Explain chunk size, metadata and retrieval strategy.
+
+[[Q]]“Build/show a prompt that forces the AI to answer only from retrieved context.”[[/Q]]
+Answer: Clear system instruction, context delimiters, “do not answer if evidence is unavailable,” source/citation requirement and structured output.
+
+[[Q]]“The customer updates documents every day. How will your solution keep the knowledge base current?”[[/Q]]
+Answer: Incremental ingestion, change detection, re-embedding only changed content, deleting stale vectors, scheduled/event-driven pipeline and monitoring.
+
+[[Q]]“An AI agent needs to update Salesforce records. Would you directly give the LLM Salesforce credentials?”[[/Q]]
+Answer: No. Use a controlled API/tool layer, OAuth, least privilege, allow-listed actions, validations, audit logging and preferably approval for sensitive operations.
+
+[[Q]]“Customer says RAG response takes 12 seconds. Show me where you would investigate.”[[/Q]]
+Answer: Measure each stage: retrieval → reranking → prompt construction → model latency → downstream calls. Consider caching, a smaller model, parallel calls and reduced context size.</code></pre></div></div>
+      </div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**Python Coding Exercises
+
+[[Q]]Write a function to split a large document into chunks of 500 characters with 50-character overlap.[[/Q]]
+
+def chunk_text(text, size=500, overlap=50):
+    chunks = []
+    start = 0
+    while start &lt; len(text):
+        end = start + size
+        chunks.append(text[start:end])
+        start += size - overlap
+    return chunks
+
+-----
+[[Q]]You retrieved 5 RAG chunks. Construct a prompt that answers only from that context.[[/Q]]
+
+def build_prompt(question, chunks):
+    context = "\n\n".join(chunks)
+    return f"""
+Answer only using the context below.
+If the answer is not available, say 'I don't know'.
+
+Context:
+{context}
+
+Question:
+{question}
+"""
+
+-----
+[[Q]]Calculate cosine similarity and return the top 3 document embeddings.[[/Q]]
+
+import numpy as np
+
+def cosine(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+def top_k(query, docs, k=3):
+    scored = [(cosine(query, emb), text) for text, emb in docs]
+    return sorted(scored, reverse=True)[:k]
+
+-----
+[[Q]]Retry an intermittently failing AI API 3 times with exponential backoff.[[/Q]]
+
+import time
+
+def call_with_retry(fn):
+    for attempt in range(3):
+        try:
+            return fn()
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** attempt)
+
+-----
+[[Q]]Remove duplicate retrieved RAG chunks before sending them to the LLM.[[/Q]]
+
+def dedupe_chunks(chunks):
+    seen = set()
+    result = []
+    for chunk in chunks:
+        normalized = chunk.strip().lower()
+        if normalized not in seen:
+            seen.add(normalized)
+            result.append(chunk)
+    return result</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**AI Coding and Debugging Exercises
+
+[[Q]]Debug this RAG code:[[/Q]]
+def retrieve(query, documents):
+    results = []
+    for document in documents:
+        score = cosine_similarity(query, document["text"])
+        if score &gt; 0.8:
+            results.append(document)
+    return results
+
+Answer: Cosine similarity should normally compare embeddings, not raw strings.
+score = cosine_similarity(query_embedding, document["embedding"])
+
+-----
+[[Q]]Complete answer_question:[[/Q]]
+
+def answer_question(question):
+    query_embedding = embed(question)
+    chunks = vector_store.search(query_embedding, top_k=5)
+    context = "\n".join(chunk["text"] for chunk in chunks)
+    prompt = f"""
+Use only the context below.
+If the answer is unavailable, say you don't know.
+
+Context:
+{context}
+
+Question:
+{question}
+"""
+    return llm.generate(prompt)
+
+-----
+[[Q]]Hybrid retrieval: combine vector and keyword results without duplicates.[[/Q]]
+
+def hybrid_merge(vector_results, keyword_results):
+    scores = {}
+    for item in vector_results:
+        scores[item["id"]] = {"doc": item, "score": item["score"] * 0.7}
+    for item in keyword_results:
+        if item["id"] in scores:
+            scores[item["id"]]["score"] += item["score"] * 0.3
+        else:
+            scores[item["id"]] = {"doc": item, "score": item["score"] * 0.3}
+    ranked = sorted(scores.values(), key=lambda x: x["score"], reverse=True)
+    return ranked[:5]
+
+-----
+[[Q]]Hallucination check: retrieved context is empty. What should the code do?[[/Q]]
+
+def generate_answer(question, docs):
+    if not docs:
+        return "I don't have enough information to answer that."
+    context = "\n".join(docs)
+    prompt = f"""
+Answer only using the supplied context.
+Do not use outside knowledge.
+If the context does not contain the answer, return: INSUFFICIENT_CONTEXT
+
+Context:
+{context}
+
+Question:
+{question}
+"""
+    return llm.invoke(prompt)
+
+-----
+[[Q]]LLM API intermittently returns 429 and 500. Write retry logic.[[/Q]]
+
+import time
+
+def call_llm(prompt, max_retries=3):
+    for attempt in range(max_retries):
+        try:
+            return llm.invoke(prompt, timeout=10)
+        except (RateLimitError, ServerError, TimeoutError):
+            if attempt == max_retries - 1:
+                raise
+            time.sleep(2 ** attempt)
+    raise RuntimeError("LLM call failed")
+
+-----
+[[Q]]NL to SQL: “Give me the top 10 customers by revenue.” Safely convert and execute it.[[/Q]]
+
+schema = """
+customers(id, name)
+orders(id, customer_id, amount)
+"""
+prompt = f"""
+Generate PostgreSQL SELECT queries only.
+Schema:
+{schema}
+Question:
+{question}
+Do not generate INSERT, UPDATE, DELETE, DROP, ALTER or TRUNCATE.
+"""
+sql = llm.invoke(prompt)
+if not sql.strip().lower().startswith("select"):
+    raise ValueError("Unsafe query")
+rows = readonly_db.execute(sql)
+
+-----
+[[Q]]LangGraph: Research Agent → Analyst Agent → Writer Agent state and nodes.[[/Q]]
+
+from typing import TypedDict
+
+class State(TypedDict):
+    question: str
+    research: str
+    analysis: str
+    answer: str
+
+def research_node(state):
+    state["research"] = search(state["question"])
+    return state
+
+def analyst_node(state):
+    state["analysis"] = llm.invoke(state["research"])
+    return state
+
+def writer_node(state):
+    state["answer"] = llm.invoke(f"""
+Question: {state['question']}
+Analysis: {state['analysis']}
+""")
+    return state</code></pre></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script src="scrap.js"></script>
+<script>formatCheatsheetCode();</script>
+</body>
+</html>

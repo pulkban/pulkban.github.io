@@ -35,6 +35,7 @@ const journalDetails = [
 	//--Devi
 	['sep9', 'Devi'],
 	['MahalakshmiAshtakam', 'MahalakshmiAshtakam.html'],
+	['ShriDeviNamanaStotram', 'ShriDeviNamanaStotram.html'],
 	['DeviAparadhaKshamapanaStotram', 'DeviAparadhaKshamapanaStotram.html'],
 	['DurgaChandrakalaStuti', 'DurgaChandrakalaStuti.html'],
 	['GowriDashakam', 'GowriDashakam.html'],
