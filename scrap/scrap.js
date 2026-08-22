@@ -6,6 +6,7 @@ journalDetails = {
 	'java': 'java.html',
 	'python': 'python.html',
 	'forward-deployed': 'forward-deployed.html',
+	'ai-product-owner': 'ai-product-owner.html',
 	'learn_ai': 'learn_ai.html',
 	'react': 'react.html',
 	'angular': 'angular.html',

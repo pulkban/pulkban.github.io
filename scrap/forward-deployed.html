@@ -263,8 +263,43 @@ Apply version and authority metadata. If the conflict cannot be resolved determi
       </div>
 
       <div class="col-12 col-md-6 col-xl-6">
-        <div class="card h-100"><div class="card-body"><pre><code>
-        </code></pre></div></div>
+        <div class="card h-100"><div class="card-body"><div class="fde-content">
+          <p><strong>LLMOps Trace: Token and Cost Analysis</strong></p>
+          <img class="fde-diagram" src="llmops-trace-cost.png" alt="LLMOps trace showing token usage and cost breakdown">
+
+          <p class="question">How many total tokens?</p>
+          <p><strong>45,526 input + 2,057 output = 47,583 total tokens</strong></p>
+
+          <p class="question">What is the total cost?</p>
+          <p><strong>$0.07121 per request</strong></p>
+
+          <p class="question">Why is the cost so high?</p>
+          <p>Every subsequent LLM call may resend:</p>
+          <ul>
+            <li>System prompt</li>
+            <li>Chat history</li>
+            <li>Tool definitions</li>
+            <li>Retrieved documents</li>
+            <li>Previous tool results</li>
+            <li>Current question</li>
+          </ul>
+
+          <p class="question">What is the cost for 100,000 requests?</p>
+          <p class="fde-emphasis">$0.07121 × 100,000 = <strong>$7,121</strong></p>
+
+          <p class="question">What would you investigate first?</p>
+          <ul>
+            <li>Did the MCP/tool return too much content?</li>
+            <li>Was the complete tool output passed to the model?</li>
+            <li>Were unnecessary documents retrieved?</li>
+            <li>Was the full conversation repeatedly included?</li>
+            <li>Could frequently repeated instructions use prompt caching?</li>
+          </ul>
+
+          <p><strong>References</strong></p>
+          <p><a href="https://langfuse.com/docs/observability/overview?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">https://langfuse.com/docs/observability/overview?utm_source=chatgpt.com</a></p>
+          <p><a href="https://docs.ragas.io/en/stable/concepts/experimentation/" target="_blank" rel="noopener noreferrer">https://docs.ragas.io/en/stable/concepts/experimentation/</a></p>
+        </div></div></div>
       </div>
     </div>
 
