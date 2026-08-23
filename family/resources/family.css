@@ -22,6 +22,7 @@ body {
 .page-header { max-width: 1100px; margin: auto; padding: 1.5rem; text-align: center; }
 .eyebrow { margin: 0 0 .25rem; color: var(--gold); font: 700 .75rem Arial, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
 h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 500; }
+.tree-count { margin: .3rem 0 0; color: var(--muted); font: .8rem Arial, sans-serif; }
 .toolbar { display: flex; justify-content: center; gap: .5rem; margin-top: .8rem; }
 .toolbar button { padding: .5rem .9rem; border: 1px solid var(--sage-soft); border-radius: 999px; color: var(--ink); background: #fff; cursor: pointer; }
 .toolbar button:hover, .toolbar button:focus-visible { border-color: var(--sage); background: var(--sage-soft); }
@@ -37,6 +38,7 @@ main { padding: 0 1rem; }
 .tree li::before { right: 50%; }
 .tree li::after { left: 50%; border-left: 1.5px solid var(--line); }
 .tree li:first-child::before, .tree li:last-child::after, .tree li:only-child::before, .tree li:only-child::after, .tree > ul > li::before, .tree > ul > li::after { display: none; }
+.tree .children > li:only-child::after { display: block; left: 50%; width: 0; border: 0; border-left: 1.5px solid var(--line); }
 .tree li:last-child::before { border-right: 1.5px solid var(--line); border-radius: 0 8px 0 0; }
 .tree li:first-child::after { border-radius: 8px 0 0 0; }
 .children::before { content: ""; position: absolute; top: 0; left: 50%; height: 1.5rem; border-left: 1.5px solid var(--line); }

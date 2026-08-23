@@ -74,13 +74,47 @@
                          "name":  "Vasantha",
                          "dob":  "1943",
                          "place":  "Vadamalpet, India",
-                         "picture":  "pics/vasantha.jpg"
+                         "picture":  "pics/vasantha.jpg",
+                         "children":  [
+                                          {
+                                              "name":  "Sri Lakshmi",
+                                              "dob":  "",
+                                              "place":  "Renigunta",
+                                              "picture":  "pics/sri_lakshmi.jpg"
+                                          },
+                                          {
+                                              "name":  "VaraBhagya Lakshmi",
+                                              "dob":  "",
+                                              "place":  "Renigunta",
+                                              "picture":  "pics/varabhagya_lakshmi.jpg"
+                                          }
+                                      ]
                      },
                      {
                          "name":  "Shyamala",
                          "dob":  "1949",
-                         "place":  "Alangayam, India",
-                         "picture":  "pics/shyamala.jpg"
+                         "place":  "Alangayam",
+                         "picture":  "pics/shyamala.jpg",
+                         "spouse":  {
+                                        "name":  "Nagaraja",
+                                        "dob":  "",
+                                        "place":  "Alangayam",
+                                        "picture":  "pics/nagaraja.jpg"
+                                    },
+                         "children":  [
+                                          {
+                                              "name":  "Kumudha",
+                                              "dob":  "",
+                                              "place":  "PN Palayam",
+                                              "picture":  "pics/kumudha.jpg"
+                                          },
+                                          {
+                                              "name":  "Sujatha",
+                                              "dob":  "",
+                                              "place":  "Vaalikandapuram",
+                                              "picture":  "pics/sujatha.jpg"
+                                          }
+                                      ]
                      },
                      {
                          "name":  "Ramamurthy",

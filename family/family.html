@@ -83,13 +83,47 @@
                            "name":  "Vasantha",
                            "dob":  "1943",
                            "place":  "Vadamalpet, India",
-                           "picture":  "pics/vasantha.jpg"
+                           "picture":  "pics/vasantha.jpg",
+                           "children":  [
+                                            {
+                                                "name":  "Sri Lakshmi",
+                                                "dob":  "",
+                                                "place":  "Renigunta",
+                                                "picture":  "pics/sri_lakshmi.jpg"
+                                            },
+                                            {
+                                                "name":  "VaraBhagya Lakshmi",
+                                                "dob":  "",
+                                                "place":  "Renigunta",
+                                                "picture":  "pics/varabhagya_lakshmi.jpg"
+                                            }
+                                        ]
                        },
                        {
                            "name":  "Shyamala",
                            "dob":  "1949",
-                           "place":  "Alangayam, India",
-                           "picture":  "pics/shyamala.jpg"
+                           "place":  "Alangayam",
+                           "picture":  "pics/shyamala.jpg",
+                           "spouse":  {
+                                          "name":  "Nagaraja",
+                                          "dob":  "",
+                                          "place":  "Alangayam",
+                                          "picture":  "pics/nagaraja.jpg"
+                                      },
+                           "children":  [
+                                            {
+                                                "name":  "Kumudha",
+                                                "dob":  "",
+                                                "place":  "PN Palayam",
+                                                "picture":  "pics/kumudha.jpg"
+                                            },
+                                            {
+                                                "name":  "Sujatha",
+                                                "dob":  "",
+                                                "place":  "Vaalikandapuram",
+                                                "picture":  "pics/sujatha.jpg"
+                                            }
+                                        ]
                        },
                        {
                            "name":  "Ramamurthy",
@@ -168,7 +202,7 @@
                      }
                  ]
   }
-
+  
   </script>
   <script defer src="resources/family.js" data-family-src="data/family.json"></script>
 </head>
@@ -177,6 +211,7 @@
     <div>
       <p class="eyebrow">Generations &amp; memories</p>
       <h1>Vathaluru Family Tree</h1>
+      <p class="tree-count" id="family-count"></p>
     </div>
     <div class="toolbar" aria-label="Family tree controls">
       <button id="expand-all" type="button"><span aria-hidden="true">▼</span> Expand all</button>
@@ -193,8 +228,6 @@
   </main>
 
   <footer>
-    <span id="family-count"></span>
-    <span aria-hidden="true">•</span>
     <span>Made with love</span>
   </footer>
 </body>
