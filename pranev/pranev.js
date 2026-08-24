@@ -23,6 +23,9 @@ const journalDetails = {
     'allen_bio': 'allen_bio.html',
     'allen_maths': 'allen_maths.html',
 
+    'sep04': 'KAVYA',
+    'kisa_4e': 'kisa_4e.html',
+
 };
 
 
