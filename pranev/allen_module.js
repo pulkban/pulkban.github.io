@@ -1,5 +1,7 @@
 (function () {
     const bank = Array.isArray(window.allenQuestionBank) ? window.allenQuestionBank : [];
+    const allIdentifierValue = '__ALL__';
+    const includeAllIdentifier = document.body.dataset.includeAllIdentifier === 'true';
 
     const identifierSelect = document.getElementById('identifier-select');
     const styleSelect = document.getElementById('style-select');
@@ -109,6 +111,12 @@
             option.textContent = id;
             identifierSelect.appendChild(option);
         });
+        if (includeAllIdentifier) {
+            const allOption = document.createElement('option');
+            allOption.value = allIdentifierValue;
+            allOption.textContent = '<ALL>';
+            identifierSelect.appendChild(allOption);
+        }
     }
 
     function setDefaultSelections() {
@@ -515,7 +523,9 @@
     function onGo() {
         const selectedIdentifier = identifierSelect.value;
         const selectedStyle = styleSelect.value;
-        filteredQuestions = bank.filter(function (q) { return q.identifier === selectedIdentifier; });
+        filteredQuestions = selectedIdentifier === allIdentifierValue
+            ? bank.slice()
+            : bank.filter(function (q) { return q.identifier === selectedIdentifier; });
 
         if (!filteredQuestions.length) {
             alert('No questions found for selected identifier.');

@@ -16,6 +16,7 @@ const journalDetails = {
 	'Q Pranev 3H': 'q.html',
 	'vup_gk': 'vup_gk.html',
 	'vup_maths': 'vup_maths.html',
+	'kisa_8a': 'kisa_8a.html',
 
     'sep03': 'ALLEN 8',
     'allen_physics': 'allen_physics.html',

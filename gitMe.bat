@@ -29,7 +29,7 @@ if errorlevel 1 (
 
 echo.
 echo Staged files:
-git diff --cached --name-status
+git --no-pager diff --cached --name-status
 
 git commit -m "%COMMIT_MSG%"
 if errorlevel 1 (
@@ -39,7 +39,7 @@ if errorlevel 1 (
 
 echo.
 echo Files included in last commit:
-git show --name-status --pretty="" HEAD
+git --no-pager show --name-status --pretty="" HEAD
 
 echo.
 echo Doing git push...
