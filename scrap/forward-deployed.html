@@ -320,6 +320,17 @@ def chunk_text(text, size=500, overlap=50):
     return chunks
 
 -----
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+def doc_chunk(documents):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,
+        chunk_overlap=50
+    )
+
+    return splitter.split_text(documents)
+
+-----
 [[Q]]You retrieved 5 RAG chunks. Construct a prompt that answers only from that context.[[/Q]]
 
 def build_prompt(question, chunks):
