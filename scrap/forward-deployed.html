@@ -518,6 +518,169 @@ Analysis: {state['analysis']}
       </div>
     </div>
 
+    <!-- ROW 6 -->
+    <div class="row g-2">
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**RAG Pipeline with LangChain
+
+===================================Load a PDF
+from langchain_community.document_loaders import PyPDFLoader
+
+def load_pdf(path):
+    loader = PyPDFLoader(path)
+    return loader.load()
+
+[[Q]]PDF has 200 pages. Do you combine all pages before chunking?[[/Q]]
+
+===================================Create Embeddings
+from langchain_openai import OpenAIEmbeddings
+
+def get_embeddings():
+    return OpenAIEmbeddings(
+        model="text-embedding-3-small"
+    )
+
+[[Q]]What happens if documents were embedded using one model and queries using another?[[/Q]]
+
+===================================3. Build Vector Store
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings
+
+def create_vector_store(chunks):
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-small"
+    )
+
+    return FAISS.from_documents(
+        chunks,
+        embeddings
+    )
+
+===================================Retrieve top 5 documents for a question
+def retrieve(vector_store, question):
+    retriever = vector_store.as_retriever(
+        search_kwargs={"k": 5}
+    )
+
+    return retriever.invoke(question)
+
+===================================Construct grounded prompt from retrieved chunks
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+def answer_question(context, question):
+    prompt = ChatPromptTemplate.from_template("""
+Answer only from the context below.
+
+Context:
+{context}
+
+Question:
+{question}
+
+If the answer is unavailable,
+say "I don't know".
+""")
+
+    llm = ChatOpenAI(model="gpt-4.1")
+
+    chain = prompt | llm
+
+    return chain.invoke({
+        "context": context,
+        "question": question
+    })
+
+===</code></pre></div></div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-6">
+        <div class="card h-100"><div class="card-body"><pre><code>**Hands-on RAG and API Exercises
+
+=====Hands-on 1 — Fix the RAG Chunking Code
+“Requirement is 500-character chunks with 50-character overlap. Identify the problem and correct it.”
+
+[[Q]]What happens if overlap &gt;= chunk_size?[[/Q]]
+
+--incorrect
+def chunk_text(text, chunk_size=500, overlap=50):
+    chunks = []
+
+    for i in range(0, len(text), chunk_size):
+        chunk = text[i:i + chunk_size]
+        chunks.append(chunk)
+
+    return chunks
+
+--correct
+def chunk_text(text, chunk_size=500, overlap=50):
+    chunks = []
+    step = chunk_size - overlap
+
+    for i in range(0, len(text), step):
+        chunks.append(text[i:i + chunk_size])
+
+    return chunks
+
+=====Hands-on 2 — Debug an Async API Problem
+[[Q]]Why isn't this actually giving us asynchronous performance? Improve it.[[/Q]]
+
+import requests
+
+async def get_customer():
+    return requests.get(
+        "https://api.example.com/customer/123"
+    ).json()
+
+async def get_policy():
+    return requests.get(
+        "https://api.example.com/policy/123"
+    ).json()
+
+async def main():
+    customer = await get_customer()
+    policy = await get_policy()
+
+    return customer, policy
+
+---expected issues:
+requests is synchronous/blocking.
+Calls execute sequentially.
+Use aiohttp / httpx.AsyncClient.
+Execute independent calls using asyncio.gather.
+Add timeout/error handling.
+
+=====Hands-on 3 — Troubleshoot a RAG Security Defect
+[[Q]]There is a serious defect here. Find it.[[/Q]]
+
+results = search_client.search(
+    search_text=user_question,
+    vector_queries=[vector_query],
+    top=5
+)
+
+authorized_results = [
+    x for x in results
+    if x["customer_id"] == current_customer
+]
+
+answer = llm.generate(user_question, results)
+
+2 issues:
+
+1. Filtering is being performed after retrieval.
+2. LLM receives `results`, not `authorized_results`.
+
+----preferred:
+results = search_client.search(
+    search_text=user_question,
+    vector_queries=[vector_query],
+    filter=f"customer_id eq '{current_customer}'",
+    top=5
+)</code></pre></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 <script src="scrap.js"></script>
