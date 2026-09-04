@@ -27,7 +27,7 @@ h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 500; }
 .toolbar button { padding: .5rem .9rem; border: 1px solid var(--sage-soft); border-radius: 999px; color: var(--ink); background: #fff; cursor: pointer; }
 .toolbar button:hover, .toolbar button:focus-visible { border-color: var(--sage); background: var(--sage-soft); }
 main { padding: 0 1rem; }
-.tree-viewport { overflow: auto; min-height: 30rem; padding: 2rem 1rem 4rem; border: 1px solid rgba(100,123,109,.16); border-radius: 1.5rem; background: rgba(255,255,255,.42); }
+.tree-viewport { overflow: auto; min-height: 30rem; padding: 2rem 1rem 4rem; border: 1px solid rgba(100,123,109,.16); border-radius: 1.5rem; background: rgba(255,255,255,.42); -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain; }
 .tree { display: table; min-width: 100%; text-align: center; }
 .tree ul { position: relative; display: flex; justify-content: center; gap: 0; margin: 0; padding: 1.5rem 0 0; }
 .tree .children[hidden] { display: none !important; }
@@ -65,6 +65,9 @@ main { padding: 0 1rem; }
 .error { color: #943f3f; }
 footer { display: flex; justify-content: center; gap: .65rem; padding: 2rem 1rem 3rem; color: var(--muted); font-size: .85rem; }
 @media (max-width: 650px) {
+  .page-header { padding: 1.25rem .75rem; }
+  main { padding: 0; }
+  .tree-viewport { min-height: 26rem; padding: 1.5rem .5rem 3rem; border-right: 0; border-left: 0; border-radius: 0; }
   .tree > ul { gap: 2.5rem; }
   .person-card { width: 8rem; }
   .family-unit { align-items: stretch; }

@@ -2,6 +2,7 @@
   "use strict";
 
   const tree = document.getElementById("family-tree");
+  const viewport = document.getElementById("tree-viewport") || tree.parentElement;
   const count = document.getElementById("family-count");
   const dataSource = document.currentScript.dataset.familySrc;
 
@@ -121,6 +122,11 @@
       const list = document.createElement("ul");
       roots.forEach(family => list.appendChild(branch(family)));
       tree.replaceChildren(list);
+      // Wide generations overflow on small screens. Start at the centre of the
+      // tree so the root family is visible instead of showing its empty left edge.
+      requestAnimationFrame(() => {
+        viewport.scrollLeft = Math.max(0, (viewport.scrollWidth - viewport.clientWidth) / 2);
+      });
       const total = roots.reduce((sum, family) => sum + countPeople(family), 0);
       count.textContent = `${total} family members`;
       document.getElementById("expand-all")?.addEventListener("click", () => {
