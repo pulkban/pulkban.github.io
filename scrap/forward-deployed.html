@@ -681,6 +681,72 @@ results = search_client.search(
       </div>
     </div>
 
+        <!-- ROW 6 -->
+        <div class="row g-2">
+            <div class="col-12 col-md-6 col-xl-6">
+                <div class="card h-100"><div class="card-body"><pre><code>from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# 1. Load documents
+documents = loader.load()
+
+# 2. Split documents into smaller chunks
+splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=150
+)
+
+chunks = splitter.split_documents(documents)
+
+# 3. Create vector store using CHUNKS
+vectorstore = FAISS.from_documents(
+        chunks,
+        embeddings
+)
+
+# 4. Create retriever
+retriever = vectorstore.as_retriever(
+        search_kwargs={"k": 4}
+)
+
+# 5. User question
+question = "What is the employee maternity leave policy?"
+
+# 6. Retrieve relevant chunks
+retrieved_docs = retriever.invoke(question)
+
+# 7. Convert retrieved documents into clean context
+context = "\n\n".join(
+        doc.page_content for doc in retrieved_docs
+)
+
+# 8. Grounded prompt
+prompt = f"""
+You are answering questions based only on the provided context.
+
+If the answer is not available in the context, say:
+"I could not find this information in the provided documents."
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:
+"""
+
+# 9. Invoke LLM
+response = llm.invoke(prompt)
+
+print(response.content)</code></pre></div></div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-6">
+                <div class="card h-100"><div class="card-body"></div></div>
+            </div>
+        </div>
+
   </div>
 </section>
 <script src="scrap.js"></script>
