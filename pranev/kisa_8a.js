@@ -1900,7 +1900,7 @@ window.allenQuestionBank = [
       "D": "None of these"
     },
     "answer": [
-      "C"
+      "A"
     ],
     "explanation": "The supplied answer key identifies C: 8 as the correct answer."
   },
