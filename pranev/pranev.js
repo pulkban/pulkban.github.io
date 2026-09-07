@@ -26,6 +26,7 @@ const journalDetails = {
 
     'sep04': 'KAVYA',
     'kisa_4e': 'kisa_4e.html',
+    'gk_tat2_4e': 'gk_tat2_4e.html',
 
 };
 
