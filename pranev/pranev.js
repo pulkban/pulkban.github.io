@@ -18,6 +18,7 @@ const journalDetails = {
 	'vup_maths': 'vup_maths.html',
 	'kisa_8a': 'kisa_8a.html',
 	'dcl_8a_2026': 'dcl_8a_2026.html',
+	'gk_tat1_8a': 'gk_tat1_8a.html',
 
     'sep03': 'ALLEN 8',
     'allen_physics': 'allen_physics.html',
