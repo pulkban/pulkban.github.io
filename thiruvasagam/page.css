@@ -4,3 +4,19 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+
+/* Preserve the source text's verse lines and indentation. */
+.thiruchchadhagam-stanza {
+  margin: 0 0 2em;
+  color: inherit;
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 4;
+}
+
+.thiruchchadhagam-heading {
+  text-align: center;
+  margin: 0 0 0.5em;
+  font: inherit;
+}
