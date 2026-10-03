@@ -1,6 +1,7 @@
 journalDetails = {
 
 	'GaneshStarting': 'GaneshStarting.html',
+	'Ganesh Initial': 'Ganesh Initial.html',
 	'GaneshChathurthi': 'GaneshChathurthi.html',
 	'Taligai': 'Taligai.html',
 	'Chenchalamma': 'Chenchalamma.html',
