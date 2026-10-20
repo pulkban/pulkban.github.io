@@ -3,3 +3,5 @@
 .slingshot/
 .git/
 .tmp_docx_review/
+.agent/
+.agents/
