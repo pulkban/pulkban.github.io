@@ -73,12 +73,7 @@ body { font-family: 'Montserrat', sans-serif; background-color: #f8f9fa; }
                 <table class="quiz-table">
                     <tbody id="options"></tbody>
                 </table>
-				<div class="d-flex justify-content-between mt-4">
-					<button class="btn btn-danger" onclick="finishQuiz()" accesskey="f">Finish</button>
-					<div class="d-flex gap-2"> <button class="btn btn-primary" onclick="validateAnswer()" accesskey="n">Next</button>
-						<button class="btn btn-warning" onclick="showAnswer()" accesskey="s">Show Answer</button>
-					</div>
-				</div>
+				<div class="d-flex justify-content-between mt-4"><div class="d-flex gap-2"><button class="btn btn-danger" onclick="finishQuiz()" accesskey="f">Finish</button><button class="btn btn-warning" onclick="showAnswer()" accesskey="s">Show Answer</button></div><button class="btn btn-primary" onclick="validateAnswer()" accesskey="n">Next</button></div>
                 <div id="explanationText"></div>
             </div>
 
