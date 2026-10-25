@@ -14,6 +14,7 @@ const journalDetails = {
 	'sep02': 'Pranev',
 	'olympiad_comp': 'olympiad_comp.html',
 	'olympiad-8-gk': 'olympiad-8-gk.html',
+	'olympiad-8-science': 'olympiad-8-science.html',
 	'Q Pranev 3H': 'q.html',
 	'vup_gk': 'vup_gk.html',
 	'vup_maths': 'vup_maths.html',
