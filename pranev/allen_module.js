@@ -436,7 +436,7 @@
         return new Promise(function (resolve) {
             const div = document.createElement('div');
             div.className = 'falling-item question';
-            div.textContent = questionObj.question;
+            div.innerHTML = processQuestionTextForImages(questionObj.question);
             fallingAnswerDisplay.textContent = '';
             div.style.animation = 'fall ' + fallDuration + 's linear forwards';
             div.style.animationPlayState = isPaused ? 'paused' : 'running';
