@@ -5460,5 +5460,762 @@
     ],
     "answerSource": "printed",
     "explanation": null
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q01",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 1,
+    "question": "1. Which of the following were the key features of the Industrial Revolution?",
+    "type": "single",
+    "options": {
+      "A": "Urbanisation and technological innovations",
+      "B": "Revival of classical art and literature",
+      "C": "Exploration of uncharted territories",
+      "D": "Emphasis on individual rights and democracy"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Industrialisation brought technological innovations, factory production and urbanisation.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q02",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 2,
+    "question": "2. In 1953, an Indian diplomat made history by becoming the first woman to be elected President of the United Nations General Assembly. Who was she?",
+    "type": "single",
+    "options": {
+      "A": "Indira Gandhi",
+      "B": "Sarojini Naidu",
+      "C": "Annie Besant",
+      "D": "Vijaya Lakshmi Pandit"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Vijaya Lakshmi Pandit became the first woman President of the UN General Assembly in 1953.",
+    "section": "General Awareness",
+    "sources": [
+      "https://www.un.org/en/ga/president/bios/bio08.shtml"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q03",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 3,
+    "question": "3. Which of the following statements about the Indian freedom struggle is incorrect?",
+    "type": "single",
+    "options": {
+      "A": "Subhas Chandra Bose led the Indian National Army against the British.",
+      "B": "Mahatma Gandhi led several non-violent movements against British rule.",
+      "C": "Sardar Vallabhbhai Patel helped integrate princely states into India.",
+      "D": "B. R. Ambedkar led the Quit India Movement against the British."
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Mahatma Gandhi led the Quit India Movement; B. R. Ambedkar did not lead it.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q04",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 4,
+    "question": "4. In which year did the Cripps Mission arrive in India?",
+    "type": "single",
+    "options": {
+      "A": "1946",
+      "B": "1945",
+      "C": "1942",
+      "D": "1940"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "The Cripps Mission came to India in March 1942.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q05",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 5,
+    "question": "5. “Swaraj is my birthright and I shall have it” became a famous slogan during India’s freedom struggle. Which Indian nationalist leader gave this slogan?",
+    "type": "single",
+    "options": {
+      "A": "Mahatma Gandhi",
+      "B": "Bal Gangadhar Tilak",
+      "C": "Lala Lajpat Rai",
+      "D": "Subhas Chandra Bose"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "researched",
+    "explanation": "The slogan is associated with Bal Gangadhar Tilak.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q06",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 6,
+    "question": "6. Which of the following is NOT a Fundamental Duty of every citizen of India?",
+    "type": "single",
+    "options": {
+      "A": "To uphold and protect the sovereignty, unity and integrity of India",
+      "B": "To preserve the rich heritage of India’s composite culture",
+      "C": "To promote harmony and the spirit of common brotherhood",
+      "D": "To participate in every election held in India"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Article 51A lists the Fundamental Duties. Participation in every election is not one of those listed duties.",
+    "section": "General Awareness",
+    "sources": [
+      "https://indiacode.ecourtsindia.com/constitution-of-india/article/51A/"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q07",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 7,
+    "question": "7. The Prime Minister is an important leader in the Indian parliamentary system and plays a key role in the functioning of the Union Government. Which of the following best describes the position of the Prime Minister of India?",
+    "type": "single",
+    "options": {
+      "A": "Head of the Supreme Court of India",
+      "B": "Constitutional head of the Union",
+      "C": "Presiding officer of the Rajya Sabha",
+      "D": "Head of the Union Council of Ministers"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "The Prime Minister heads the Union Council of Ministers.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q08",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 8,
+    "question": "8. Political parties are an important part of a democratic system and perform various functions in the political process. Which of the following is one of the main functions of political parties?",
+    "type": "single",
+    "options": {
+      "A": "To form the government after securing a majority in the legislature",
+      "B": "To appoint judges in the courts",
+      "C": "To conduct elections independently",
+      "D": "To make laws without elected representatives"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Political parties seek electoral support to form a government with a legislative majority.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q09",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 9,
+    "question": "9. An Assertion is followed by a Reason. Read the question carefully and select the correct option.<br><br>Assertion (A): The Election Commission of India is a constitutional body that oversees elections in India.<br>Reason (R): Electronic Voting Machines (EVMs) are used to record votes in elections.",
+    "type": "single",
+    "options": {
+      "A": "Both A and R are true, and R is the correct explanation of A.",
+      "B": "Both A and R are true, but R is not the correct explanation of A.",
+      "C": "A is true, but R is false.",
+      "D": "A is false, but R is true."
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "researched",
+    "explanation": "Both statements are true, but the use of EVMs does not explain the constitutional status or mandate of the Election Commission under Article 324.",
+    "section": "General Awareness",
+    "sources": [
+      "https://www.eci.gov.in/evm-faqs/"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q10",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 10,
+    "question": "10. During a journey through South America, students explore a vast tropical forest with dense vegetation and a remarkable variety of plants and animals. Which geographical feature are they exploring?",
+    "type": "single",
+    "options": {
+      "A": "The Amazon Rainforest",
+      "B": "The Andes Mountains",
+      "C": "The Atacama Desert",
+      "D": "The Pampas Grasslands"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "The Amazon Rainforest is the vast tropical rainforest of South America.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q11",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 11,
+    "question": "11. Which of the following is NOT a characteristic of the Thar Desert?",
+    "type": "single",
+    "options": {
+      "A": "High rainfall",
+      "B": "Sand dunes",
+      "C": "Sparse vegetation",
+      "D": "Arid land"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "The Thar is an arid desert with low rainfall.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q12",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 12,
+    "question": "12. How is climate different from weather?",
+    "type": "single",
+    "options": {
+      "A": "Climate refers to short-term conditions, while weather refers to long-term conditions.",
+      "B": "Climate refers to day-to-day conditions, while weather refers to long-term conditions.",
+      "C": "Climate refers to long-term average conditions, while weather refers to day-to-day conditions.",
+      "D": "Climate refers to atmospheric conditions, while weather refers to geological conditions."
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "Climate describes long-term patterns and averages; weather describes short-term atmospheric conditions.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q13",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 13,
+    "question": "13. Look at the historical site shown in the image. It is Machu Picchu, a famous Inca site in the Andes Mountains, known for its stone structures and terraces. In which country is it located?<br>{{images_olympiad_8_gk/exam-27oct2026-q13.jpg}}",
+    "type": "single",
+    "options": {
+      "A": "Chile",
+      "B": "Peru",
+      "C": "Bolivia",
+      "D": "Ecuador"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "researched",
+    "explanation": "Machu Picchu is in Peru.",
+    "section": "General Awareness",
+    "sources": [
+      "https://whc.unesco.org/en/list/274"
+    ],
+    "answerVerifiedOn": "2026-10-28",
+    "image": "images_olympiad_8_gk/exam-27oct2026-q13.jpg",
+    "imageAlt": "Machu Picchu: Inca stone ruins and terraces in the Andes."
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q14",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 14,
+    "question": "14. Read the following statements about the Universe:<br>i. The Universe contains many galaxies, along with stars, planets, moons, asteroids, comets, and other forms of matter and energy.<br>ii. Stars produce energy mainly through nuclear fusion and play an important role in the formation of many elements.<br>iii. All planets produce their own light and heat.<br>Which of the above statements are correct?",
+    "type": "single",
+    "options": {
+      "A": "Only i and ii",
+      "B": "Only ii and iii",
+      "C": "Only i and iii",
+      "D": "All i, ii and iii"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Statements i and ii are correct. Planets shine mainly by reflected starlight; statement iii is false.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q15",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 15,
+    "question": "15. In which state is Keoladeo National Park located?",
+    "type": "single",
+    "options": {
+      "A": "Assam",
+      "B": "Odisha",
+      "C": "Jharkhand",
+      "D": "Rajasthan"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Keoladeo National Park is in Bharatpur, Rajasthan.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q16",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 16,
+    "question": "16. As concern about climate change increases, countries are adopting solar and wind power. Why are these sources important for a sustainable future?",
+    "type": "single",
+    "options": {
+      "A": "They are renewable resources to generate cleaner electricity.",
+      "B": "They increase dependence on coal and petroleum.",
+      "C": "They use fossil fuels to generate electricity.",
+      "D": "They provide energy only for transportation."
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Solar and wind power use renewable energy sources to generate electricity without burning fossil fuels during operation.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q17",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 17,
+    "question": "17. What does consumption refer to in economics?",
+    "type": "single",
+    "options": {
+      "A": "The creation of goods and services",
+      "B": "The distribution of goods and services",
+      "C": "The use of goods and services by individuals and households",
+      "D": "The transportation of goods and services"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "Consumption is the use of goods and services to satisfy wants and needs.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q18",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 18,
+    "question": "18. Which of the following pairs of books and authors is incorrectly matched?",
+    "type": "single",
+    "options": {
+      "A": "“Ignited Minds” — Dr. A.P.J. Abdul Kalam",
+      "B": "“A Suitable Boy” — Vikram Seth",
+      "C": "“Pride and Prejudice” — Jane Austen",
+      "D": "“A Tale of Two Cities” — Leo Tolstoy"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "A Tale of Two Cities was written by Charles Dickens, not Leo Tolstoy.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q19",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 19,
+    "question": "19. During a class discussion, three students share their views on the impact of films. Which students are correct?<br>• Aarav said that Indian films can promote cultural exchange and tourism.<br>• Meera said that films can raise awareness about social issues and challenge stereotypes.<br>• Rohan said that films only provide entertainment and do not influence society.",
+    "type": "single",
+    "options": {
+      "A": "Aarav and Meera",
+      "B": "Meera and Rohan",
+      "C": "Aarav and Rohan",
+      "D": "All three students"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Films can promote cultural exchange and tourism and raise awareness of social issues. Rohan’s claim is incorrect.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q20",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 20,
+    "question": "20. Copenhagen is the capital of which one of the following countries?",
+    "type": "single",
+    "options": {
+      "A": "Greece",
+      "B": "Ireland",
+      "C": "Denmark",
+      "D": "Brazil"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "Copenhagen is the capital of Denmark.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q21",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 21,
+    "question": "21. Which of the following country–currency pairs is incorrectly matched?",
+    "type": "single",
+    "options": {
+      "A": "Malaysia — Ringgit",
+      "B": "Thailand — Baht",
+      "C": "South Korea — Won",
+      "D": "Switzerland — Peso"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Switzerland uses the Swiss franc, not the peso.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q22",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 22,
+    "question": "22. Which of the following best describes the purpose of the Pulitzer Prize?",
+    "type": "single",
+    "options": {
+      "A": "To recognise excellence in journalism, letters, drama and music",
+      "B": "To reward the best-selling books each year",
+      "C": "To recognise only translated works of fiction",
+      "D": "To honour only lifetime contributions to literature"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Pulitzer Prizes recognise distinguished journalism and work in books, drama and music.",
+    "section": "General Awareness",
+    "sources": [
+      "https://www.pulitzer.org/prize-winners-categories"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q23",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 23,
+    "question": "23. Which Indian space organisation is mainly responsible for developing satellites, launch vehicles, and space technologies?",
+    "type": "single",
+    "options": {
+      "A": "ISRO",
+      "B": "DRDO",
+      "C": "CSIR",
+      "D": "ICAR"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "The Indian Space Research Organisation (ISRO) develops space technology, satellites and launch vehicles.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q24",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 24,
+    "question": "24. The World Bank works with countries around the world to reduce poverty and improve living conditions. Which of the following best describes its main role?",
+    "type": "single",
+    "options": {
+      "A": "To promote global health matters",
+      "B": "To regulate international trade",
+      "C": "To provide financial and technical assistance for development projects",
+      "D": "To promote labour rights and internationally recognised human rights"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "The World Bank provides finance, technical assistance and knowledge for development.",
+    "section": "General Awareness",
+    "sources": [
+      "https://www.worldbank.org/ext/en/what-we-do"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q25",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 25,
+    "question": "25. Madan is planning to visit a hill station in the Garhwal Himalayas that is famous for Gun Hill, Lal Tibba, and Kempty Falls. Which place is he planning to visit?",
+    "type": "single",
+    "options": {
+      "A": "Mussoorie",
+      "B": "Manali",
+      "C": "Darjeeling",
+      "D": "Mount Abu"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Gun Hill, Lal Tibba and Kempty Falls are attractions associated with Mussoorie, Uttarakhand.",
+    "section": "General Awareness"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q26",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 26,
+    "question": "26. In July 2026, Nandan Nilekani chaired a high-powered task force formed to suggest reforms in public examinations, including those conducted by which organisation?",
+    "type": "single",
+    "options": {
+      "A": "University Grants Commission (UGC)",
+      "B": "National Council of Educational Research and Training (NCERT)",
+      "C": "National Testing Agency (NTA)",
+      "D": "Central Board of Secondary Education (CBSE)"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "The government’s task force covers public examination reforms, including examinations conducted by the NTA.",
+    "section": "Current Affairs",
+    "sources": [
+      "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2304227&lang=2&reg=48",
+      "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2289657&lang=1&reg=6"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q27",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 27,
+    "question": "27. Who succeeded Sir Keir Starmer as the Prime Minister of the United Kingdom in July 2026?",
+    "type": "single",
+    "options": {
+      "A": "Boris Johnson",
+      "B": "Rishi Sunak",
+      "C": "Andy Burnham",
+      "D": "David Cameron"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "Andy Burnham became UK Prime Minister on 20 July 2026.",
+    "section": "Current Affairs",
+    "sources": [
+      "https://www.gov.uk/government/ministers/prime-minister"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q28",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 28,
+    "question": "28. Who was crowned Femina Miss India World 2026?",
+    "type": "single",
+    "options": {
+      "A": "Nikita Porwal",
+      "B": "Sadhvi Satish Sail",
+      "C": "Nandini Gupta",
+      "D": "Manasa Varanasi"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "researched",
+    "explanation": "Sadhvi Sail of Goa was crowned Femina Miss India World 2026.",
+    "section": "Current Affairs",
+    "sources": [
+      "https://www.femina.in/beauty-pageants/miss-india/sadhvi-sail-from-goa-wins-femina-miss-india-world-2026/articleshow/154109672.cms"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q29",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 29,
+    "question": "29. Who won the men’s singles title at Wimbledon in 2026?",
+    "type": "single",
+    "options": {
+      "A": "Daniil Medvedev",
+      "B": "Jannik Sinner",
+      "C": "Carlos Alcaraz",
+      "D": "Alexander Zverev"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "researched",
+    "explanation": "Jannik Sinner defeated Alexander Zverev in the 2026 Wimbledon men’s singles final.",
+    "section": "Current Affairs",
+    "sources": [
+      "https://www.wimbledon.com/en_GB/news/wimbledon_2026_sinner_zverev_final"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q30",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 30,
+    "question": "30. Which city hosted the India AI Impact Summit 2026?",
+    "type": "single",
+    "options": {
+      "A": "Mumbai",
+      "B": "Bengaluru",
+      "C": "New Delhi",
+      "D": "Hyderabad"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "The summit was held at Bharat Mandapam in New Delhi.",
+    "section": "Current Affairs",
+    "sources": [
+      "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2230090&lang=1&reg=1"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q31",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 31,
+    "question": "31. Consider the following statements and choose the correct option.<br>I. The English East India Company came to India as traders and gradually established political control.<br>II. Indians resisted British rule through protests, boycotts, and demands for rights.<br>III. The Salt March challenged the British salt law, while the Quit India Movement demanded an end to British rule.",
+    "type": "single",
+    "options": {
+      "A": "Only I and II",
+      "B": "Only II and III",
+      "C": "Only I and III",
+      "D": "All I, II and III"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "All three statements accurately describe British expansion and the Indian freedom struggle.",
+    "section": "Scholar’s Zone"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q32",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 32,
+    "question": "32. Which of the following statements about the planets is incorrect?",
+    "type": "single",
+    "options": {
+      "A": "Saturn is the second-largest planet and is mainly composed of hydrogen and helium.",
+      "B": "Mars is called the “Red Planet” because of iron minerals on its surface.",
+      "C": "Venus is called Earth’s “sister planet” because of its similar size and composition.",
+      "D": "Uranus is the largest planet and is classified as a gas giant."
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "researched",
+    "explanation": "Jupiter is the largest planet. Uranus is an ice giant, not a gas giant.",
+    "section": "Scholar’s Zone",
+    "sources": [
+      "https://science.nasa.gov/solar-system/planets/"
+    ],
+    "answerVerifiedOn": "2026-10-28"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q33",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 33,
+    "question": "33. Madhu and Mohan are discussing Artificial Intelligence (AI).<br>Madhu: “AI enables machines to learn from data, recognise patterns, and make decisions.”<br>Mohan: “AI is used in various fields, including self-driving cars and virtual assistants like Siri and Alexa.”<br>Who is correct?",
+    "type": "single",
+    "options": {
+      "A": "Only Madhu",
+      "B": "Only Mohan",
+      "C": "Both Madhu and Mohan",
+      "D": "Neither Madhu nor Mohan"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "researched",
+    "explanation": "Both statements describe common AI capabilities and applications.",
+    "section": "Scholar’s Zone"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q34",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 34,
+    "question": "34. A bakery uses labour, capital, and natural resources to make bread. The bread is transported to shops and sold to households, where people eat it. Which sequence of economic activities is represented?",
+    "type": "single",
+    "options": {
+      "A": "Production → Distribution → Consumption",
+      "B": "Distribution → Production → Consumption",
+      "C": "Consumption → Distribution → Production",
+      "D": "Production → Consumption → Distribution"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "Making bread is production, delivering and selling it is distribution, and eating it is consumption.",
+    "section": "Scholar’s Zone"
+  },
+  {
+    "id": "Exam-Paper-27Oct2026-Q35",
+    "identifier": "EXAM Paper 27Oct2026",
+    "chapter": "EXAM Paper 27Oct2026",
+    "questionNumber": 35,
+    "question": "35. Match Column A with Column B and select the correct option.<br><br>Column A (International Organisations):<br>i. United Nations (UN)<br>ii. International Monetary Fund (IMF)<br>iii. UNESCO<br>iv. World Health Organization (WHO)<br><br>Column B (Headquarters):<br>a. Geneva, Switzerland<br>b. Paris, France<br>c. New York, USA<br>d. Washington, D.C., USA",
+    "type": "single",
+    "options": {
+      "A": "i → c, ii → d, iii → b, iv → a",
+      "B": "i → d, ii → c, iii → b, iv → a",
+      "C": "i → a, ii → b, iii → d, iv → c",
+      "D": "i → b, ii → a, iii → c, iv → d"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "researched",
+    "explanation": "The headquarters are UN: New York; IMF: Washington, D.C.; UNESCO: Paris; WHO: Geneva.",
+    "section": "Scholar’s Zone",
+    "sources": [
+      "https://www.imf.org/external/pubs/ft/bl/bl01.htm",
+      "https://www.unesco.org/en/practical-info",
+      "https://www.who.int/about/contact-us"
+    ],
+    "answerVerifiedOn": "2026-10-28"
   }
 ]

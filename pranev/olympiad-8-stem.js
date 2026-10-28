@@ -1,0 +1,5252 @@
+// Generated from olympiad-8-stem.json by tools/build-olympiad-stem.py.
+// Edit the JSON source, then rerun the build script.
+window.allenQuestionBank = [
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q01",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 1,
+    "question": "1. In a periscope, what is the angle between the incident ray and the first mirror?",
+    "type": "single",
+    "options": {
+      "A": "90 degrees",
+      "B": "45 degrees",
+      "C": "180 degrees",
+      "D": "0 degrees"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q02",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 2,
+    "question": "2. What is the primary factor affecting the frequency of sound waves?",
+    "type": "single",
+    "options": {
+      "A": "Amplitude",
+      "B": "Medium density",
+      "C": "Vibrational frequency of the source",
+      "D": "Temperature of the medium"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q03",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 3,
+    "question": "3. Electrolysis is widely used in industries for processes such as:",
+    "type": "single",
+    "options": {
+      "A": "Electroplating metals",
+      "B": "Generating electricity",
+      "C": "Producing sound waves",
+      "D": "Transmitting signals"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q04",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 4,
+    "question": "4. Which part of the human eye is responsible for focusing light onto the retina?",
+    "type": "single",
+    "options": {
+      "A": "Cornea",
+      "B": "Lens",
+      "C": "Iris",
+      "D": "Optic nerve"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q05",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 5,
+    "question": "5. Which characteristic of electrolyte enables it to conduct electricity?",
+    "type": "single",
+    "options": {
+      "A": "Generating heat",
+      "B": "Producing light",
+      "C": "Producing ions",
+      "D": "Absorbing electrons"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q06",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 6,
+    "question": "6. What type of reflection occurs when light interacts with a rough surface?",
+    "type": "single",
+    "options": {
+      "A": "Regular reflection",
+      "B": "Diffuse reflection",
+      "C": "Specular reflection",
+      "D": "Refractive reflection"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q07",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 7,
+    "question": "7. What determines the pitch of a sound?",
+    "type": "single",
+    "options": {
+      "A": "Amplitude",
+      "B": "Frequency",
+      "C": "Wavelength",
+      "D": "Velocity"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q08",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 8,
+    "question": "8. The phenomenon of dispersion of light occurs due to differences in light’s:",
+    "type": "single",
+    "options": {
+      "A": "Velocity",
+      "B": "Wavelength",
+      "C": "Intensity",
+      "D": "All of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null,
+    "note": "Printed key gives B (Wavelength). Dispersion involves different wavelengths travelling at different speeds in a medium, so option A also relates to the physical mechanism. The supplied key is preserved."
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q09",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 9,
+    "question": "9. Which part of the ear is responsible for converting sound waves into electrical impulses?",
+    "type": "single",
+    "options": {
+      "A": "Outer ear",
+      "B": "Middle ear",
+      "C": "Inner ear",
+      "D": "Auditory nerve"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q10",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 10,
+    "question": "10. The process of electroplating involves:",
+    "type": "single",
+    "options": {
+      "A": "Breaking down compounds using electricity",
+      "B": "Covering a metal with a thin layer of another metal",
+      "C": "Generating electricity through chemical reactions",
+      "D": "Refining metals using electric currents"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q11",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 11,
+    "question": "11. Which type of friction is experienced by objects moving through fluids?",
+    "type": "single",
+    "options": {
+      "A": "Static friction",
+      "B": "Sliding friction",
+      "C": "Rolling friction",
+      "D": "Fluid friction"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q12",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 12,
+    "question": "12. Buoyancy is determined by the:",
+    "type": "single",
+    "options": {
+      "A": "Weight of the object",
+      "B": "Volume of the fluid displaced",
+      "C": "Density of the object",
+      "D": "Surface tension of the fluid"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q13",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 13,
+    "question": "13. Which statement best describes the relationship between frequency and wavelength?",
+    "type": "single",
+    "options": {
+      "A": "They are directly proportional",
+      "B": "They are inversely proportional",
+      "C": "They are unrelated",
+      "D": "They are the same thing"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q14",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 14,
+    "question": "14. What determines the loudness of a sound wave?",
+    "type": "single",
+    "options": {
+      "A": "Amplitude",
+      "B": "Frequency",
+      "C": "Wavelength",
+      "D": "Velocity"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-01-Important-Physical-Quantities-Q15",
+    "identifier": "Ch-01-Important-Physical-Quantities",
+    "chapter": "Important Physical Quantities",
+    "questionNumber": 15,
+    "question": "15. In the laws of reflection, the angle of incidence is measured between:",
+    "type": "single",
+    "options": {
+      "A": "The incident ray and the reflected ray",
+      "B": "The reflected ray and the normal",
+      "C": "The incident ray and the normal",
+      "D": "The refracted ray and the normal"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q01",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 1,
+    "question": "1. What is the term used for sudden movements in the Earth’s crust that cause ground shaking?",
+    "type": "single",
+    "options": {
+      "A": "Tornado",
+      "B": "Earthquake",
+      "C": "Lightning",
+      "D": "Cyclone"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q02",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 2,
+    "question": "2. Which natural phenomena can cause significant damage to human life and property?",
+    "type": "single",
+    "options": {
+      "A": "Lightning",
+      "B": "Earthquake",
+      "C": "Cyclone",
+      "D": "All of the above"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q03",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 3,
+    "question": "3. What instrument is used to measure and record the magnitude of earthquakes?",
+    "type": "single",
+    "options": {
+      "A": "Electroscope",
+      "B": "Seismograph",
+      "C": "Lightning conductor",
+      "D": "None of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q04",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 4,
+    "question": "4. What process involves transferring electric charge from a charged object to the Earth?",
+    "type": "single",
+    "options": {
+      "A": "Lightning",
+      "B": "Earthing",
+      "C": "Electrification",
+      "D": "Charging"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q05",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 5,
+    "question": "5. Which type of charge does an electron carry?",
+    "type": "single",
+    "options": {
+      "A": "Positive",
+      "B": "Negative",
+      "C": "Neutral",
+      "D": "None of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q06",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 6,
+    "question": "6. What is the point directly above the focus of an earthquake on the Earth’s surface called?",
+    "type": "single",
+    "options": {
+      "A": "Seismic zone",
+      "B": "Epicentre",
+      "C": "Electroscope",
+      "D": "Seismograph"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q07",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 7,
+    "question": "7. What is the purpose of a lightning conductor?",
+    "type": "single",
+    "options": {
+      "A": "To generate lightning",
+      "B": "To measure lightning intensity",
+      "C": "To protect buildings from lightning",
+      "D": "To attract lightning"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q08",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 8,
+    "question": "8. Which natural phenomenon is characterized by a bright flash of light within clouds?",
+    "type": "single",
+    "options": {
+      "A": "Cyclone",
+      "B": "Tornado",
+      "C": "Lightning",
+      "D": "Earthquake"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q09",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 9,
+    "question": "9. What is the point of origin within the Earth’s crust where an earthquake originates called?",
+    "type": "single",
+    "options": {
+      "A": "Seismic zone",
+      "B": "Epicentre",
+      "C": "Focus",
+      "D": "Electroscope"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q10",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 10,
+    "question": "10. How does an electroscope indicate the presence of electric charge?",
+    "type": "single",
+    "options": {
+      "A": "By emitting light",
+      "B": "By emitting sound",
+      "C": "By causing leaves to diverge",
+      "D": "None of these"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q11",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 11,
+    "question": "11. What type of charges repel each other?",
+    "type": "single",
+    "options": {
+      "A": "Like charges",
+      "B": "Unlike charges",
+      "C": "Neutral charges",
+      "D": "None of these"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q12",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 12,
+    "question": "12. What type of particles carry positive charges?",
+    "type": "single",
+    "options": {
+      "A": "Electrons",
+      "B": "Neutrons",
+      "C": "Protons",
+      "D": "Photons"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q13",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 13,
+    "question": "13. Which method of charging involves the direct transfer of charge between objects through physical contact?",
+    "type": "single",
+    "options": {
+      "A": "Charging by fusion",
+      "B": "Charging by induction",
+      "C": "Charging by conduction",
+      "D": "None of these"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q14",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 14,
+    "question": "14. Which of the following natural phenomena is characterized by sudden, violent winds rotating around a central low-pressure area?",
+    "type": "single",
+    "options": {
+      "A": "Lightning",
+      "B": "Cyclone",
+      "C": "Earthquake",
+      "D": "None of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-02-Natural-Phenomena-Q15",
+    "identifier": "Ch-02-Natural-Phenomena",
+    "chapter": "Natural Phenomena",
+    "questionNumber": 15,
+    "question": "15. Which one of the following statements is incorrect?",
+    "type": "single",
+    "options": {
+      "A": "Lightning is caused by the discharge of electric charges within clouds.",
+      "B": "Lightning conductors are installed to attract lightning towards buildings.",
+      "C": "Lightning can cause significant damage to life and property.",
+      "D": "Lightning can occur between clouds or between clouds and the Earth’s surface."
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q01",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 1,
+    "question": "1. Which of the following statements is true about elements?",
+    "type": "single",
+    "options": {
+      "A": "Elements are composed of various substances.",
+      "B": "Each element is made up of only one type of atom.",
+      "C": "Elements can be broken down into simpler substances by ordinary chemical means.",
+      "D": "Elements cannot be categorized based on their properties."
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q02",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 2,
+    "question": "2. Which category of elements forms positive ions through the loss of electrons?",
+    "type": "single",
+    "options": {
+      "A": "Non-metals",
+      "B": "Metalloids",
+      "C": "Alloys",
+      "D": "Metals"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q03",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 3,
+    "question": "3. Which property is not a characteristic of metals?",
+    "type": "single",
+    "options": {
+      "A": "Poor conductors of electricity",
+      "B": "Shiny appearance when polished",
+      "C": "Malleability and ductility",
+      "D": "Solid state at room temperature"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q04",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 4,
+    "question": "4. What property of metals allows them to be hammered or pressed into thin sheets without breaking?",
+    "type": "single",
+    "options": {
+      "A": "Malleability",
+      "B": "Ductility",
+      "C": "Conductivity",
+      "D": "Density"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q05",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 5,
+    "question": "5. Which metal is a liquid at room temperature?",
+    "type": "single",
+    "options": {
+      "A": "Iron",
+      "B": "Gold",
+      "C": "Mercury",
+      "D": "Silver"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q06",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 6,
+    "question": "6. Metals generally have high melting and boiling points compared to non-metals. This property is primarily due to:",
+    "type": "single",
+    "options": {
+      "A": "Low density",
+      "B": "High electronegativity",
+      "C": "Strong metallic bonds",
+      "D": "Poor conductivity"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q07",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 7,
+    "question": "7. How many valence electrons do metals typically have?",
+    "type": "single",
+    "options": {
+      "A": "5-8",
+      "B": "2-4",
+      "C": "1-3",
+      "D": "6-10"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q08",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 8,
+    "question": "8. Which of the following is a chemical property of metals?",
+    "type": "single",
+    "options": {
+      "A": "Reaction with water to form hydrogen gas",
+      "B": "Oxide formation when reacting with oxygen",
+      "C": "Serving as reducing agents in chemical reactions",
+      "D": "All of these"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q09",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 9,
+    "question": "9. Which of the following is a characteristic of non-metals?",
+    "type": "single",
+    "options": {
+      "A": "High density",
+      "B": "Shiny appearance",
+      "C": "Poor conductivity",
+      "D": "Malleability"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q10",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 10,
+    "question": "10. Which element is essential for respiration?",
+    "type": "single",
+    "options": {
+      "A": "Carbon",
+      "B": "Oxygen",
+      "C": "Nitrogen",
+      "D": "Chlorine"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q11",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 11,
+    "question": "11. What type of oxides do nonmetals typically form when they react with oxygen?",
+    "type": "single",
+    "options": {
+      "A": "Basic",
+      "B": "Acidic",
+      "C": "Neutral",
+      "D": "Amphoteric"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q12",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 12,
+    "question": "12. Polyester is commonly used in the production of clothing items due to its:",
+    "type": "single",
+    "options": {
+      "A": "Low durability",
+      "B": "High absorbency",
+      "C": "Resistance to creases",
+      "D": "Heavyweight nature"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q13",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 13,
+    "question": "13. Plastics are composed of long carbon chains known as:",
+    "type": "single",
+    "options": {
+      "A": "Isomers",
+      "B": "Polymers",
+      "C": "Monomers",
+      "D": "Elements"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q14",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 14,
+    "question": "14. Which type of plastic can be molded into various shapes repeatedly by heating?",
+    "type": "single",
+    "options": {
+      "A": "Thermosetting plastics",
+      "B": "Thermoplastics",
+      "C": "Polyethylene",
+      "D": "PVC"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-03-Important-Materials-Q15",
+    "identifier": "Ch-03-Important-Materials",
+    "chapter": "Important Materials",
+    "questionNumber": 15,
+    "question": "15. What property of nonmetals makes them poor conductors of electricity?",
+    "type": "single",
+    "options": {
+      "A": "High density",
+      "B": "Low electronegativity",
+      "C": "High brittleness",
+      "D": "Lack of free electrons"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q01",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 1,
+    "question": "1. What is the primary constituent of asteroids?",
+    "type": "single",
+    "options": {
+      "A": "Dust",
+      "B": "Gas",
+      "C": "Rock",
+      "D": "Ice"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q02",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 2,
+    "question": "2. Which region of the solar system do asteroids primarily orbit?",
+    "type": "single",
+    "options": {
+      "A": "Between Mercury and Venus",
+      "B": "Between Earth and Mars",
+      "C": "Between Jupiter and Mars",
+      "D": "Beyond Neptune"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q03",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 3,
+    "question": "3. What is the largest known asteroid?",
+    "type": "single",
+    "options": {
+      "A": "Vesta",
+      "B": "Pallas",
+      "C": "Ceres",
+      "D": "Hygiea"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q04",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 4,
+    "question": "4. What is the distinctive feature of comets when they approach the Sun?",
+    "type": "single",
+    "options": {
+      "A": "Formation of rings",
+      "B": "Development of a tail",
+      "C": "Increase in mass",
+      "D": "Change in colour"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q05",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 5,
+    "question": "5. How long does it take for Halley's Comet to complete one revolution around the Sun?",
+    "type": "single",
+    "options": {
+      "A": "5 years",
+      "B": "25 years",
+      "C": "50 years",
+      "D": "76 years"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q06",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 6,
+    "question": "6. Which of the following is not a characteristic of meteors?",
+    "type": "single",
+    "options": {
+      "A": "They are part of our solar system",
+      "B": "They can be tiny grains or massive boulders",
+      "C": "They are primarily composed of gas",
+      "D": "They become visible as shooting stars in Earth's atmosphere"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q07",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 7,
+    "question": "7. Which of the following statements is correct?",
+    "type": "single",
+    "options": {
+      "A": "Stars have their own light, while shooting stars do not",
+      "B": "Shooting stars have their own light, while stars do not",
+      "C": "Stars are larger than shooting stars",
+      "D": "Shooting stars are part of constellations"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q08",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 8,
+    "question": "8. Which constellation is also known as the Big Dipper or the Saptarshi?",
+    "type": "single",
+    "options": {
+      "A": "Ursa Major",
+      "B": "Orion",
+      "C": "Leo Major",
+      "D": "Cassiopeia"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q09",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 9,
+    "question": "9. What is the characteristic of an artificial satellite?",
+    "type": "single",
+    "options": {
+      "A": "It occurs naturally",
+      "B": "It orbits a planet",
+      "C": "It is composed of rock and dust",
+      "D": "It is not man-made"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q10",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 10,
+    "question": "10. How many years does it take for the Sun to complete one revolution around the centre of the Milky Way galaxy?",
+    "type": "single",
+    "options": {
+      "A": "10 to 50 years",
+      "B": "100 to 200 years",
+      "C": "225 to 250 million years",
+      "D": "1 to 10 billion years"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q11",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 11,
+    "question": "11. Which of the following is not a type of celestial body found in the solar system?",
+    "type": "single",
+    "options": {
+      "A": "Asteroids",
+      "B": "Comets",
+      "C": "Nebulae",
+      "D": "Meteoroids"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q12",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 12,
+    "question": "12. Which constellation resembles a lion?",
+    "type": "single",
+    "options": {
+      "A": "Ursa Major",
+      "B": "Orion",
+      "C": "Leo Major",
+      "D": "Cassiopeia"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q13",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 13,
+    "question": "13. What is the primary source of energy production in stars?",
+    "type": "single",
+    "options": {
+      "A": "Nuclear fusion",
+      "B": "Chemical reactions",
+      "C": "Gravitational collapse",
+      "D": "Electromagnetic radiation"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q14",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 14,
+    "question": "14. How long does it take for the Sun to complete one rotation on its axis?",
+    "type": "single",
+    "options": {
+      "A": "1 hour",
+      "B": "24 hours",
+      "C": "25 to 30 days",
+      "D": "1 year"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-04-World-Beyond-Earth-Q15",
+    "identifier": "Ch-04-World-Beyond-Earth",
+    "chapter": "World Beyond Earth",
+    "questionNumber": 15,
+    "question": "15. What holds together the stars, gas, and dust in a galaxy?",
+    "type": "single",
+    "options": {
+      "A": "Magnetism",
+      "B": "Centrifugal force",
+      "C": "Gravity",
+      "D": "Solar wind"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q01",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 1,
+    "question": "1. Which female organ provides a site for fetal development during pregnancy?",
+    "type": "single",
+    "options": {
+      "A": "Ovaries",
+      "B": "Uterus",
+      "C": "Oviducts",
+      "D": "Testes"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q02",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 2,
+    "question": "2. Which component of blood contains hemoglobin and gives blood its red colour?",
+    "type": "single",
+    "options": {
+      "A": "Plasma",
+      "B": "Red Blood Cells (RBC)",
+      "C": "White Blood Cells (WBC)",
+      "D": "Platelets"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q03",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 3,
+    "question": "3. Which blood vessel carries oxygen-rich blood away from the heart to the body?",
+    "type": "single",
+    "options": {
+      "A": "Arteries",
+      "B": "Veins",
+      "C": "Capillaries",
+      "D": "Pulmonary artery"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q04",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 4,
+    "question": "4. What is the function of the kidneys in the excretory system?",
+    "type": "single",
+    "options": {
+      "A": "Pumping blood throughout the body",
+      "B": "Filtering waste products from the blood",
+      "C": "Storing urine temporarily",
+      "D": "Transporting urine to the bladder"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q05",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 5,
+    "question": "5. What tube-like structures carry urine from the kidneys to the urinary bladder?",
+    "type": "single",
+    "options": {
+      "A": "Ovaries",
+      "B": "Ureters",
+      "C": "Urethra",
+      "D": "Fallopian tubes"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q06",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 6,
+    "question": "6. Which organ temporarily stores urine until it is expelled from the body during urination?",
+    "type": "single",
+    "options": {
+      "A": "Kidneys",
+      "B": "Ureters",
+      "C": "Bladder",
+      "D": "Urethra"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q07",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 7,
+    "question": "7. Which organ produces male gametes (sperms)?",
+    "type": "single",
+    "options": {
+      "A": "Ovaries",
+      "B": "Uterus",
+      "C": "Testes",
+      "D": "Fallopian tubes"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q08",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 8,
+    "question": "8. What is the function of the oviducts (fallopian tubes) in the female reproductive system?",
+    "type": "single",
+    "options": {
+      "A": "Producing eggs",
+      "B": "Transporting eggs from the ovaries to the uterus",
+      "C": "Producing sperms",
+      "D": "None of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q09",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 9,
+    "question": "9. What is the purpose of the penis in the male reproductive system?",
+    "type": "single",
+    "options": {
+      "A": "Production of sperms",
+      "B": "Storage of sperms",
+      "C": "Transferring sperms to the female reproductive system",
+      "D": "Fertilizing the egg"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q10",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 10,
+    "question": "10. Which component of blood carries oxygen to various parts of the body?",
+    "type": "single",
+    "options": {
+      "A": "Plasma",
+      "B": "Red Blood Cells (RBC)",
+      "C": "White Blood Cells (WBC)",
+      "D": "Platelets"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q11",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 11,
+    "question": "11. Through which of the following, blood exchange oxygen and carbon dioxide with body tissues?",
+    "type": "single",
+    "options": {
+      "A": "Arteries",
+      "B": "Veins",
+      "C": "Capillaries",
+      "D": "Heart"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q12",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 12,
+    "question": "12. Which chamber of the heart pumps oxygen-rich blood to the body?",
+    "type": "single",
+    "options": {
+      "A": "Left atrium",
+      "B": "Left ventricle",
+      "C": "Right atrium",
+      "D": "Right ventricle"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q13",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 13,
+    "question": "13. What is the main waste product excreted in urine?",
+    "type": "single",
+    "options": {
+      "A": "Oxygen",
+      "B": "Carbon dioxide",
+      "C": "Urea",
+      "D": "Glucose"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q14",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 14,
+    "question": "14. What is the function of the urethra in the excretory system?",
+    "type": "single",
+    "options": {
+      "A": "Filtering waste products from the blood",
+      "B": "Transporting urine to the bladder",
+      "C": "Storing urine temporarily",
+      "D": "Removing urine from the body during urination"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-05-Systems-Inside-Human-Body-Q15",
+    "identifier": "Ch-05-Systems-Inside-Human-Body",
+    "chapter": "Systems Inside Human Body",
+    "questionNumber": 15,
+    "question": "15. Which blood vessel carries deoxygenated blood from the heart to the lungs in the circulatory system?",
+    "type": "single",
+    "options": {
+      "A": "Pulmonary artery",
+      "B": "Pulmonary vein",
+      "C": "Aorta",
+      "D": "Superior vena cava"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q01",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 1,
+    "question": "1. Which of the following is NOT mentioned as a benefit of AI?",
+    "type": "single",
+    "options": {
+      "A": "Risk management in hazardous environments",
+      "B": "Slower decision-making process",
+      "C": "Daily convenience through AI assistants",
+      "D": "Faster decision-making in games like chess"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q02",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 2,
+    "question": "2. AI enables machines to:",
+    "type": "single",
+    "options": {
+      "A": "Think and act like humans",
+      "B": "Think better than humans",
+      "C": "Perform only mechanical tasks",
+      "D": "Perform only intellectual tasks"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q03",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 3,
+    "question": "3. Which of the following is the branch of Artificial Intelligence?",
+    "type": "single",
+    "options": {
+      "A": "Machine Learning",
+      "B": "Cyber forensics",
+      "C": "Full-Stack Developer",
+      "D": "Network Design"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q04",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 4,
+    "question": "4. Who is credited with coining the term \"Artificial Intelligence\" in 1955?",
+    "type": "single",
+    "options": {
+      "A": "Alan Turing",
+      "B": "Marvin Minsky",
+      "C": "John McCarthy",
+      "D": "Elon Musk"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q05",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 5,
+    "question": "5. What is one of the disadvantages of Artificial Intelligence mentioned in the text?",
+    "type": "single",
+    "options": {
+      "A": "Increased human productivity",
+      "B": "Reduced human error",
+      "C": "Potential unemployment due to automation",
+      "D": "Enhanced decision-making capabilities"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q06",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 6,
+    "question": "6. What dimension of intelligence often dominates our understanding of AI's impact on society?",
+    "type": "single",
+    "options": {
+      "A": "Emotional",
+      "B": "Practical",
+      "C": "Intellectual",
+      "D": "Physical"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q07",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 7,
+    "question": "7. What is the primary purpose of AI, as described in the text?",
+    "type": "single",
+    "options": {
+      "A": "To replace human intelligence entirely",
+      "B": "To simulate human-like behaviour in machines",
+      "C": "To minimise human effort in performing tasks",
+      "D": "To enhance human capabilities and share the workload"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q08",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 8,
+    "question": "8. Which of the following is NOT an advantage of Artificial Intelligence?",
+    "type": "single",
+    "options": {
+      "A": "Reduction in human error",
+      "B": "Risk management in hazardous environments",
+      "C": "Enhanced human creativity",
+      "D": "Faster decision-making"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q09",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 9,
+    "question": "9. What is the significance of the Dartmouth conference in the history of AI?",
+    "type": "single",
+    "options": {
+      "A": "It introduced the concept of machine learning",
+      "B": "It kickstarted the field of AI",
+      "C": "It developed the first AI-powered robot",
+      "D": "It established the ethical guidelines for AI research"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence-Q10",
+    "identifier": "Ch-06-Introduction-and-Development-of-Artificial-Intelligence",
+    "chapter": "Introduction and Development of Artificial Intelligence",
+    "questionNumber": 10,
+    "question": "10. What limitation of AI is related to the lack of emotional understanding in machines?",
+    "type": "single",
+    "options": {
+      "A": "Limited processing power",
+      "B": "Inability to think like humans",
+      "C": "No support for creative tasks",
+      "D": "Machines cannot develop a bond with humans"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q01",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 1,
+    "question": "1. What is one potential benefit of using artificial intelligence in agriculture?",
+    "type": "single",
+    "options": {
+      "A": "Increasing crop yields with fewer resources",
+      "B": "Eliminating the need for human labour entirely",
+      "C": "Decreasing the quality of crops produced",
+      "D": "Creating environmental hazards"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q02",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 2,
+    "question": "2. Which transportation system exemplifies AI's impact by utilising sensors and painted tracks for efficient travel?",
+    "type": "single",
+    "options": {
+      "A": "China's Autonomous Rail Rapid Transit System (ART)",
+      "B": "London Underground",
+      "C": "New York City Subway",
+      "D": "Tokyo Bullet Train"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q03",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 3,
+    "question": "3. Which of the following is not an application of artificial intelligence?",
+    "type": "single",
+    "options": {
+      "A": "Computer Vision",
+      "B": "Natural language Processing",
+      "C": "Digital Assistants",
+      "D": "Database Management System"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q04",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 4,
+    "question": "4. In what year did British computer scientist Alan Turing record computer-generated music?",
+    "type": "single",
+    "options": {
+      "A": "1965",
+      "B": "1978",
+      "C": "1951",
+      "D": "1982"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q05",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 5,
+    "question": "5. How does NASA utilise AI in space exploration?",
+    "type": "single",
+    "options": {
+      "A": "To create music for space missions",
+      "B": "To automate administrative tasks",
+      "C": "To search for life on other planets using rovers",
+      "D": "To enhance video game experiences"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q06",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 6,
+    "question": "6. What role does AI play in enhancing video games?",
+    "type": "single",
+    "options": {
+      "A": "Generating human-like behaviours in non-player characters",
+      "B": "Automating administrative tasks for game developers",
+      "C": "Designing game graphics",
+      "D": "Enhancing physical controllers"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q07",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 7,
+    "question": "7. How does AI empower teachers in education?",
+    "type": "single",
+    "options": {
+      "A": "By eliminating the need for human teachers",
+      "B": "By creating digital learning materials",
+      "C": "By decreasing accessibility to education",
+      "D": "By reducing the quality of education"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q08",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 8,
+    "question": "8. What everyday use of artificial intelligence involves analysing user preferences to recommend personalised content?",
+    "type": "single",
+    "options": {
+      "A": "Smart Cars/Driverless Cars",
+      "B": "Chatbots",
+      "C": "Netflix",
+      "D": "Smart Speakers"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q09",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 9,
+    "question": "9. What software applications engage in text-based conversations to streamline online interactions?",
+    "type": "single",
+    "options": {
+      "A": "Smart Speakers",
+      "B": "Chatbots",
+      "C": "Search Engines",
+      "D": "Music and Video Recommendations"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-07-Application-of-Artificial-Intelligence-Q10",
+    "identifier": "Ch-07-Application-of-Artificial-Intelligence",
+    "chapter": "Application of Artificial Intelligence",
+    "questionNumber": 10,
+    "question": "10. Which AI-powered device provides hands-free assistance by processing speech and understanding language?",
+    "type": "single",
+    "options": {
+      "A": "Smart Cars/Driverless Cars",
+      "B": "Search Engines",
+      "C": "Smart Speakers",
+      "D": "Music and Video Recommendations"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q01",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 1,
+    "question": "1. What is Artificial Intelligence (AI)?",
+    "type": "single",
+    "options": {
+      "A": "A type of computer",
+      "B": "A programming language",
+      "C": "A technology that mimics human intelligence",
+      "D": "A new type of electricity"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q02",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 2,
+    "question": "2. What does ITU stand for in the context of AI?",
+    "type": "single",
+    "options": {
+      "A": "International Technology Union",
+      "B": "International Telecommunication Union",
+      "C": "International Trade Union",
+      "D": "International Training Union"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q03",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 3,
+    "question": "3. In which industry is AI making an impact?",
+    "type": "single",
+    "options": {
+      "A": "Transportation",
+      "B": "Agriculture",
+      "C": "Both A and B",
+      "D": "None of the above"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q04",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 4,
+    "question": "4. Which of the following is a futuristic feature of smart homes?",
+    "type": "single",
+    "options": {
+      "A": "Controlling lighting with a clap",
+      "B": "Total control via smartphone for lighting, music, and room temperature",
+      "C": "Using Morse code to communicate with appliances",
+      "D": "Sending smoke signals to activate security systems"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q05",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 5,
+    "question": "5. What is one of the roles AI plays in healthcare?",
+    "type": "single",
+    "options": {
+      "A": "Cooking meals for patients",
+      "B": "Expediting disease diagnosis",
+      "C": "Writing prescriptions",
+      "D": "Performing surgeries autonomously"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q06",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 6,
+    "question": "6. What kind of tasks can Google's AI assistant perform?",
+    "type": "single",
+    "options": {
+      "A": "Flying drones",
+      "B": "Making realistic phone calls for appointments",
+      "C": "Cooking dinner",
+      "D": "Playing video games"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q07",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 7,
+    "question": "7. What is the potential application of AI in education?",
+    "type": "single",
+    "options": {
+      "A": "Teaching dolphins to dance",
+      "B": "Creating personalised learning experiences with virtual tutors",
+      "C": "Building sandcastles",
+      "D": "Organising field trips"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q08",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 8,
+    "question": "8. What is one example of AI's influence on manufacturing?",
+    "type": "single",
+    "options": {
+      "A": "Painting landscapes",
+      "B": "Handling assembly tasks with AI-powered robots",
+      "C": "Organising picnics",
+      "D": "Conducting choirs"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q09",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 9,
+    "question": "9. Which organisation advocates for AI's positive impact and hosts events like the \"AI for Good\" summit?",
+    "type": "single",
+    "options": {
+      "A": "NASA",
+      "B": "ITU",
+      "C": "FIFA",
+      "D": "WHO"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-08-Future-of-Artificial-Intelligence-Q10",
+    "identifier": "Ch-08-Future-of-Artificial-Intelligence",
+    "chapter": "Future of Artificial Intelligence",
+    "questionNumber": 10,
+    "question": "10. Which of the following is NOT a feature of smart homes in the future?",
+    "type": "single",
+    "options": {
+      "A": "Personalised scheduling",
+      "B": "Voice interaction with virtual assistants",
+      "C": "Intelligent security with smoke signals",
+      "D": "Total control via smartphone"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q01",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 1,
+    "question": "1. What is the primary focus of AI ethics?",
+    "type": "single",
+    "options": {
+      "A": "Maximising profits for organisations",
+      "B": "Ensuring the ethical use of artificial intelligence",
+      "C": "Expanding government surveillance",
+      "D": "Developing advanced AI algorithms"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q02",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 2,
+    "question": "2. According to the Alan Turing Institute, what does AI ethics involve?",
+    "type": "single",
+    "options": {
+      "A": "Maximising the processing power of AI systems",
+      "B": "Developing AI systems without considering moral standards",
+      "C": "Guiding AI development and application based on widely accepted moral standards",
+      "D": "Avoiding the use of AI in any organisational policies"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q03",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 3,
+    "question": "3. How does AI security differ from traditional security methods?",
+    "type": "single",
+    "options": {
+      "A": "It relies solely on human intervention",
+      "B": "It focuses on physical security rather than cyber defence",
+      "C": "It uses AI to identify and address cybersecurity threats with minimal human intervention",
+      "D": "It does not involve any form of data analysis"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q04",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 4,
+    "question": "4. What is one common usage of AI security tools?",
+    "type": "single",
+    "options": {
+      "A": "Predicting stock market trends",
+      "B": "Analysing weather patterns",
+      "C": "Discerning between benign and malicious activities",
+      "D": "Designing new software applications"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q05",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 5,
+    "question": "5. What is one potential disadvantage of AI security tools?",
+    "type": "single",
+    "options": {
+      "A": "They are highly expensive to implement",
+      "B": "They cannot detect any cybersecurity threats",
+      "C": "They may introduce new risks if over-relied upon",
+      "D": "They require constant human intervention"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q06",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 6,
+    "question": "6. Why is AI security considered important?",
+    "type": "single",
+    "options": {
+      "A": "To maximise the profits of cybersecurity companies",
+      "B": "To automate all cybersecurity processes",
+      "C": "To complement human cybersecurity efforts and address the industry's talent gap",
+      "D": "To eliminate the need for cybersecurity professionals"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q07",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 7,
+    "question": "7. What trend does Gartner identify as significant in 2020 regarding AI security?",
+    "type": "single",
+    "options": {
+      "A": "The decline of AI usage in cybersecurity",
+      "B": "The increasing reliance on traditional security methods",
+      "C": "The continued relevance of AI security",
+      "D": "The complete automation of cybersecurity processes"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q08",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 8,
+    "question": "8. How do AI security tools help cybersecurity professionals save time?",
+    "type": "single",
+    "options": {
+      "A": "By increasing the number of false positives",
+      "B": "By automating threat detection and response processes",
+      "C": "By eliminating the need for human intervention",
+      "D": "By slowing down the analysis of extensive datasets"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q09",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 9,
+    "question": "9. What does Awake's AI platform offer to aid security teams?",
+    "type": "single",
+    "options": {
+      "A": "Solutions to completely replace human analysts",
+      "B": "Insights and context to facilitate swift threat detection and response",
+      "C": "Autonomous response without any human involvement",
+      "D": "Automated threat detection without any human oversight"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-09-AI-Ethics-and-Bias-Q10",
+    "identifier": "Ch-09-AI-Ethics-and-Bias",
+    "chapter": "AI Ethics and Bias",
+    "questionNumber": 10,
+    "question": "10. How does Awake's platform blend AI-driven analysis with manual response options?",
+    "type": "single",
+    "options": {
+      "A": "By relying solely on human expertise",
+      "B": "By providing automated response options only",
+      "C": "By offering tailored playbooks for analysts",
+      "D": "By avoiding any form of response options"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q01",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 1,
+    "question": "1. What are programming languages primarily used for?",
+    "type": "single",
+    "options": {
+      "A": "Creating hardware components",
+      "B": "Dictating computer actions based on conditions",
+      "C": "Running software programs independently",
+      "D": "Designing graphical user interfaces"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q02",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 2,
+    "question": "2. Which control structure type guides the code path based on given variables?",
+    "type": "single",
+    "options": {
+      "A": "Sequential",
+      "B": "Selection/Conditional",
+      "C": "Iteration",
+      "D": "Structural"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q03",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 3,
+    "question": "3. What does a sequential control structure entail?",
+    "type": "single",
+    "options": {
+      "A": "Evaluating conditions within the program",
+      "B": "Executing statements step-by-step in the order they are written",
+      "C": "Repeating a set of instructions until a specific condition is met",
+      "D": "Both A and C"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q04",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 4,
+    "question": "4. What is the primary function of an IF-ELSE statement in programming?",
+    "type": "single",
+    "options": {
+      "A": "To execute statements sequentially",
+      "B": "To repeat a set of instructions",
+      "C": "To bring logic into the program by making choices based on conditions",
+      "D": "To analyse extensive datasets for anomalies"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q05",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 5,
+    "question": "5. How is the logical operator AND typically used in programming?",
+    "type": "single",
+    "options": {
+      "A": "To determine if at least one condition is true",
+      "B": "To flip the outcome of a condition",
+      "C": "To check if all conditions are true",
+      "D": "To evaluate multiple conditions simultaneously"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q06",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 6,
+    "question": "6. What keyword serves as a backup plan in an IF-ELSE statement if the initial check falls short?",
+    "type": "single",
+    "options": {
+      "A": "else",
+      "B": "or",
+      "C": "elif",
+      "D": "and"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q07",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 7,
+    "question": "7. What type of statement is used to check complex scenarios with multiple conditions in programming?",
+    "type": "single",
+    "options": {
+      "A": "Sequential statement",
+      "B": "Nested conditional statement",
+      "C": "Selection statement",
+      "D": "Iteration statement"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q08",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 8,
+    "question": "8. How does the NOT operator function in programming?",
+    "type": "single",
+    "options": {
+      "A": "It checks if all conditions are true",
+      "B": "It flips the outcome of a condition",
+      "C": "It determines if at least one condition is true",
+      "D": "It evaluates multiple conditions simultaneously"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q09",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 9,
+    "question": "9. Which programming construct allows a set of instructions to repeat until a specific condition is met?",
+    "type": "single",
+    "options": {
+      "A": "Nested conditions",
+      "B": "Logical operators",
+      "C": "Iteration",
+      "D": "Sequential control structure"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-10-Conditionals-in-Details-Q10",
+    "identifier": "Ch-10-Conditionals-in-Details",
+    "chapter": "Conditionals in Details",
+    "questionNumber": 10,
+    "question": "10. What is the purpose of the elif statement in Python?",
+    "type": "single",
+    "options": {
+      "A": "To execute a block of code if the previous conditions are false",
+      "B": "To define a loop",
+      "C": "To perform arithmetic operations",
+      "D": "To exit from a loop"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q01",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 1,
+    "question": "1. What happens if the condition in a while loop is always true?",
+    "type": "single",
+    "options": {
+      "A": "The loop will never execute",
+      "B": "The loop will execute once",
+      "C": "The loop will enter an infinite loop",
+      "D": "The program will crash"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q02",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 2,
+    "question": "2. What is the purpose of the while loop in Python?",
+    "type": "single",
+    "options": {
+      "A": "To execute a block of code repeatedly until a condition is false",
+      "B": "To execute a block of code a fixed number of times",
+      "C": "To define a function",
+      "D": "To iterate over items in a sequence"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q03",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 3,
+    "question": "3. Which of the following is NOT a valid reason to use a loop?",
+    "type": "single",
+    "options": {
+      "A": "To repeat a block of code a specific number of times",
+      "B": "To perform calculations on a sequence of data",
+      "C": "To check if a user has entered a valid input",
+      "D": "To simulate repetitive tasks"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null,
+    "note": "The printed key gives C and is preserved. Input validation can also legitimately use a loop, so this question is ambiguous."
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q04",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 4,
+    "question": "4. How can you exit a loop early in some programming languages?",
+    "type": "single",
+    "options": {
+      "A": "By setting the loop counter to a very high value",
+      "B": "Using a continue statement to skip to the next iteration",
+      "C": "Using a break statement to terminate the loop completely",
+      "D": "There is no way to exit a loop early"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q05",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 5,
+    "question": "5. How can you skip the current iteration of a loop and continue with the next iteration?",
+    "type": "single",
+    "options": {
+      "A": "Using the skip statement",
+      "B": "Using the pass statement",
+      "C": "Using the break statement",
+      "D": "Using the continue statement"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q06",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 6,
+    "question": "6. What does the condition a > 0 evaluate to when a is -1?",
+    "type": "single",
+    "options": {
+      "A": "True",
+      "B": "False",
+      "C": "Error",
+      "D": "None of the above"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q07",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 7,
+    "question": "7. In a \"while\" loop, what happens when the logical expression evaluates to false?",
+    "type": "single",
+    "options": {
+      "A": "The program terminates",
+      "B": "The loop continues executing",
+      "C": "Control passes to the line after the loop-body",
+      "D": "None of the above"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q08",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 8,
+    "question": "8. What is a \"nested\" loop?",
+    "type": "single",
+    "options": {
+      "A": "A loop that contains another loop within it",
+      "B": "A loop that never ends",
+      "C": "A loop that only executes once",
+      "D": "None of the above"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q09",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 9,
+    "question": "9. What type of loop is used in the example of nested loops?",
+    "type": "single",
+    "options": {
+      "A": "\"While\" loop",
+      "B": "\"For\" loop",
+      "C": "Both \"while\" and \"for\" loops",
+      "D": "None of the above"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null,
+    "note": "Questions 9 and 10 are identical in the supplied book. Both are retained with the printed answer C."
+  },
+  {
+    "id": "Ch-11-Get-Creative-with-Loops-Q10",
+    "identifier": "Ch-11-Get-Creative-with-Loops",
+    "chapter": "Get Creative with Loops",
+    "questionNumber": 10,
+    "question": "10. What type of loop is used in the example of nested loops?",
+    "type": "single",
+    "options": {
+      "A": "\"While\" loop",
+      "B": "\"For\" loop",
+      "C": "Both \"while\" and \"for\" loops",
+      "D": "None of the above"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null,
+    "note": "Questions 9 and 10 are identical in the supplied book. Both are retained with the printed answer C."
+  },
+  {
+    "id": "Ch-12-Functions-Q01",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 1,
+    "question": "1. What are functions in Python?",
+    "type": "single",
+    "options": {
+      "A": "Variables",
+      "B": "Loops",
+      "C": "Instructions or routines that perform a specific task",
+      "D": "Conditional statements"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q02",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 2,
+    "question": "2. What is an argument in the context of functions?",
+    "type": "single",
+    "options": {
+      "A": "It is a value returned by the function",
+      "B": "It is a variable defined inside the function",
+      "C": "It is a value passed to a function as a parameter",
+      "D": "It is a keyword used to define a function"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q03",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 3,
+    "question": "3. How does a function header end in Python?",
+    "type": "single",
+    "options": {
+      "A": "With a semicolon (;)",
+      "B": "With a comma (,)",
+      "C": "With a colon (:)",
+      "D": "With a period (.)"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q04",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 4,
+    "question": "4. Which keyword is used to define a function in Python?",
+    "type": "single",
+    "options": {
+      "A": "function",
+      "B": "define",
+      "C": "def",
+      "D": "func"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q05",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 5,
+    "question": "5. How are function parameters separated in Python?",
+    "type": "single",
+    "options": {
+      "A": "By commas (,)",
+      "B": "By semicolons (;)",
+      "C": "By periods (.)",
+      "D": "By colons (:)"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q06",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 6,
+    "question": "6. What is the purpose of the \"return\" keyword in Python functions?",
+    "type": "single",
+    "options": {
+      "A": "To define the function's name",
+      "B": "To indicate the end of the function",
+      "C": "To specify the function's return type",
+      "D": "To return a value from the function"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q07",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 7,
+    "question": "7. How do user-defined functions contribute to code reusability?",
+    "type": "single",
+    "options": {
+      "A": "They make code more complex",
+      "B": "They decrease code redundancy",
+      "C": "They increase code readability",
+      "D": "They require more memory"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q08",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 8,
+    "question": "8. What is the syntax for defining a function that returns a value in Python?",
+    "type": "single",
+    "options": {
+      "A": "def my_function:",
+      "B": "def my_function():",
+      "C": "def my_function -> value:",
+      "D": "def my_function{}:"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q09",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 9,
+    "question": "9. Can a function have no parameters?",
+    "type": "single",
+    "options": {
+      "A": "No, every function must have at least one parameter",
+      "B": "Yes, functions can have no parameters",
+      "C": "Only if the function does not return a value",
+      "D": "Only in certain programming languages"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-12-Functions-Q10",
+    "identifier": "Ch-12-Functions",
+    "chapter": "Functions",
+    "questionNumber": 10,
+    "question": "10. What does \"reuse and recycle\" in the context of functions mean?",
+    "type": "single",
+    "options": {
+      "A": "Functions can be reused without modification in different parts of the program",
+      "B": "Functions need to be slightly modified before each reuse",
+      "C": "Functions are rewritten each time they are used",
+      "D": "Functions can only be used once before being discarded"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q01",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>Select the one which is different from the other three alternatives.",
+    "type": "single",
+    "options": {
+      "A": "EFVU",
+      "B": "GHTS",
+      "C": "IJRS",
+      "D": "KLPO"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q02",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 2,
+    "question": "2. <strong>Commonly Asked Question:</strong><br>Select the one which is different from the other three alternatives.",
+    "type": "single",
+    "options": {
+      "A": "P6J",
+      "B": "R8J",
+      "C": "J4F",
+      "D": "M5G"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q03",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 3,
+    "question": "3. <strong>Commonly Asked Question:</strong><br>Choose the correct alternative from the given ones that will complete the series: 3, 6, 11, 18, __.",
+    "type": "single",
+    "options": {
+      "A": "25",
+      "B": "26",
+      "C": "27",
+      "D": "28"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q04",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 4,
+    "question": "4. <strong>Commonly Asked Question:</strong><br>Choose the correct alternative from the given ones that will complete the series: A3D, C6H, E9L, G12P, __.",
+    "type": "single",
+    "options": {
+      "A": "I14R",
+      "B": "J15T",
+      "C": "I15S",
+      "D": "I15T"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q05",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 5,
+    "question": "5. <strong>Commonly Asked Question:</strong><br>Suresh walked 2 km north from his office at P to Q, then turned east and walked 5 km to R. He moved 1 km north to S, then 1 km west to T. How far is T from his starting position?",
+    "type": "single",
+    "options": {
+      "A": "3 km",
+      "B": "4 km",
+      "C": "5 km",
+      "D": "6 km"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q06",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 6,
+    "question": "6. <strong>Commonly Asked Question:</strong><br>Ravi walks 15 km west from P to Q, then 15 km north to R, and then 7 km east to S. How far and in which direction is he from P?",
+    "type": "single",
+    "options": {
+      "A": "17 km, North-West",
+      "B": "17 km, North-East",
+      "C": "27 km, South-East",
+      "D": "15 km, South-East"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q07",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 7,
+    "question": "7. <strong>Commonly Asked Question:</strong><br>If SHOP is written as VKRS, how can NICE be written in the same code?",
+    "type": "single",
+    "options": {
+      "A": "QLFH",
+      "B": "QMFH",
+      "C": "QLGH",
+      "D": "QLFJ"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q08",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 8,
+    "question": "8. <strong>Commonly Asked Question:</strong><br>If EDUCATION is written as UDETACNO, how can CORPORATE be written in the same code?",
+    "type": "single",
+    "options": {
+      "A": "ROCROPDTA",
+      "B": "ROCRONETA",
+      "C": "ROCPOPETA",
+      "D": "ROCROPETA"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q09",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 9,
+    "question": "9. <strong>Commonly Asked Question:</strong><br>How many triangles are there in the figure? The figure is a large triangle PQR with points T on PQ, S on PR, and U on QR; segments PS-to-U, Q-to-S, and T-to-R meet at O.",
+    "type": "single",
+    "options": {
+      "A": "8",
+      "B": "12",
+      "C": "13",
+      "D": "16"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q10",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 10,
+    "question": "10. <strong>Commonly Asked Question:</strong><br>Find the water image of the figure POA followed by a circle with its upper half shaded and the digit 4. Choose the option showing the whole figure flipped vertically, with left-to-right order unchanged and the shaded half moved to the bottom.",
+    "type": "single",
+    "options": {
+      "A": "Letters flipped vertically but circle's shaded half stays at the top",
+      "B": "All symbols flipped vertically; left-to-right order is unchanged",
+      "C": "Letters flipped vertically but the 4 remains upright",
+      "D": "Figure flipped vertically but circle's shaded half stays at the top"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q11",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q1:</strong><br>Select the one which is different from the other three alternatives.",
+    "type": "single",
+    "options": {
+      "A": "SVAH",
+      "B": "HKPW",
+      "C": "JMRY",
+      "D": "CFJP"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q12",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q2:</strong><br>Select the one which is different from the other three alternatives.",
+    "type": "single",
+    "options": {
+      "A": "K2I",
+      "B": "N4J",
+      "C": "O3L",
+      "D": "J2G"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q13",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 13,
+    "question": "13. <strong>Practice Exercise Q3:</strong><br>Select the odd number pair from the given alternatives.",
+    "type": "single",
+    "options": {
+      "A": "9, 81",
+      "B": "13, 169",
+      "C": "18, 332",
+      "D": "16, 256"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q14",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 14,
+    "question": "14. <strong>Practice Exercise Q4:</strong><br>Choose the letter-number pair which is different from the others in the group.",
+    "type": "single",
+    "options": {
+      "A": "MAN - 13114",
+      "B": "CAT - 3120",
+      "C": "BIG - 297",
+      "D": "ICE - 395"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q15",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 15,
+    "question": "15. <strong>Practice Exercise Q5:</strong><br>Choose the numeral pair/group which is different from the others.",
+    "type": "single",
+    "options": {
+      "A": "3 : 27",
+      "B": "5 : 128",
+      "C": "9 : 729",
+      "D": "6 : 216"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q16",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 16,
+    "question": "16. <strong>Practice Exercise Q6:</strong><br>Choose the correct alternative to complete the series: BEH, FIL, JMP, NQT, __.",
+    "type": "single",
+    "options": {
+      "A": "RWY",
+      "B": "RUX",
+      "C": "SVY",
+      "D": "RWX"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q17",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 17,
+    "question": "17. <strong>Practice Exercise Q7:</strong><br>Choose the correct alternative to complete the series: A7D, E11H, I15L, M19P, __.",
+    "type": "single",
+    "options": {
+      "A": "Q22R",
+      "B": "Q23T",
+      "C": "R22G",
+      "D": "Q22T"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q18",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 18,
+    "question": "18. <strong>Practice Exercise Q8:</strong><br>Choose the correct alternative to complete the series: 1, 8, 27, 64, __.",
+    "type": "single",
+    "options": {
+      "A": "144",
+      "B": "125",
+      "C": "135",
+      "D": "216"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q19",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 19,
+    "question": "19. <strong>Practice Exercise Q9:</strong><br>Find the missing term in the number series: 6, 11, 18, 27, 38, 51, 66, __.",
+    "type": "single",
+    "options": {
+      "A": "73",
+      "B": "83",
+      "C": "78",
+      "D": "81"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q20",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 20,
+    "question": "20. <strong>Practice Exercise Q10:</strong><br>Find the next term in the series: C5X, E12W, G19V, I26U, __.",
+    "type": "single",
+    "options": {
+      "A": "K28U",
+      "B": "K32T",
+      "C": "K30R",
+      "D": "K33T"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q21",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 21,
+    "question": "21. <strong>Practice Exercise Q11:</strong><br>Rahul walks 50 m east from home, then turns right and walks 30 m, turns right and walks 20 m, and turns right again and walks 30 m to point Y. What is the shortest distance between home and Y?",
+    "type": "single",
+    "options": {
+      "A": "20 m",
+      "B": "30 m",
+      "C": "40 m",
+      "D": "50 m"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q22",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 22,
+    "question": "22. <strong>Practice Exercise Q12:</strong><br>A woman walks 40 metres west, turns right and walks 40 metres, turns left and walks 30 metres, then turns left and walks 40 metres. How far is she from her starting position?",
+    "type": "single",
+    "options": {
+      "A": "30 metres",
+      "B": "40 metres",
+      "C": "70 metres",
+      "D": "90 metres"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q23",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 23,
+    "question": "23. <strong>Practice Exercise Q13:</strong><br>Arjun walks 40 m south from home, turns left and walks 55 m, turns left and walks 15 m, then turns left and walks 55 m. How far is he from home?",
+    "type": "single",
+    "options": {
+      "A": "24 m",
+      "B": "25 m",
+      "C": "26 m",
+      "D": "27 m"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q24",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 24,
+    "question": "24. <strong>Practice Exercise Q14:</strong><br>P is 5 m north of Q, which is 7 m east of R. T is 3 m south of U, which is 6 m west of P. Q is 9 m west of V, which is 3 m north of W. In which direction is W with respect to T?",
+    "type": "single",
+    "options": {
+      "A": "North-east",
+      "B": "South-west",
+      "C": "South-east",
+      "D": "North-west"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q25",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 25,
+    "question": "25. <strong>Practice Exercise Q15:</strong><br>In the morning, Suman was standing facing a pole. The shadow of the pole fell exactly to her left. Which direction was she facing?",
+    "type": "single",
+    "options": {
+      "A": "South",
+      "B": "North",
+      "C": "East",
+      "D": "West"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q26",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 26,
+    "question": "26. <strong>Practice Exercise Q16:</strong><br>If BROTHER is written as 2 18 15 20 8 5 18, how can SISTER be written in the same code?",
+    "type": "single",
+    "options": {
+      "A": "19 9 19 20 5 18",
+      "B": "19 9 19 21 5 18",
+      "C": "19 9 19 20 6 18",
+      "D": "19 9 19 20 5 19"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q27",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 27,
+    "question": "27. <strong>Practice Exercise Q17:</strong><br>If PEN is written as 35 and BOAT is written as 38, how can PAPER be written in the same code?",
+    "type": "single",
+    "options": {
+      "A": "56",
+      "B": "52",
+      "C": "55",
+      "D": "54"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q28",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 28,
+    "question": "28. <strong>Practice Exercise Q18:</strong><br>In a certain language, 'la pa ja' means 'she walks fast', 'ta la ka' means 'he walks slowly', and 'ma ta pa' means 'he runs fast'. Which code means 'walks'?",
+    "type": "single",
+    "options": {
+      "A": "ta",
+      "B": "pa",
+      "C": "la",
+      "D": "ka"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q29",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 29,
+    "question": "29. <strong>Practice Exercise Q19:</strong><br>Find the mirror image of GOLF when the mirror is placed to its right. Choose the option with the letters in reverse order and each letter horizontally reflected.",
+    "type": "single",
+    "options": {
+      "A": "Reverse letter order only",
+      "B": "Keep letter order and reflect each letter",
+      "C": "Reverse order and turn each letter upside down",
+      "D": "Reverse order and horizontally reflect each letter"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-13-Logical-Reasoning-Q30",
+    "identifier": "Ch-13-Logical-Reasoning",
+    "chapter": "Logical Reasoning",
+    "questionNumber": 30,
+    "question": "30. <strong>Practice Exercise Q20:</strong><br>Find the mirror image of the letter D when the mirror is placed to its right.",
+    "type": "single",
+    "options": {
+      "A": "D unchanged",
+      "B": "D turned upside down",
+      "C": "D reflected left-to-right",
+      "D": "D turned upside down and reflected left-to-right"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q01",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 1,
+    "question": "1. <strong>Practice Exercise Q1:</strong><br>If √(324) = 18, find √(3.24) + √(0.000324).",
+    "type": "single",
+    "options": {
+      "A": "1.198",
+      "B": "1.188",
+      "C": "1.818",
+      "D": "None of these"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q02",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 2,
+    "question": "2. <strong>Practice Exercise Q2:</strong><br>Simplify the cube root of 42875/117649.",
+    "type": "single",
+    "options": {
+      "A": "5/3",
+      "B": "5/7",
+      "C": "3/5",
+      "D": "3/7"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q03",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q3:</strong><br>Find the sum: (3/8 + 2/7 - 1) + 5/14.",
+    "type": "single",
+    "options": {
+      "A": "1/28",
+      "B": "1/56",
+      "C": "-5/28",
+      "D": "-1/28"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q04",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q4:</strong><br>A cube-shaped water tank holds 4913 litres. If 1 litre equals 1 cubic decimetre, what is the length of one side?",
+    "type": "single",
+    "options": {
+      "A": "21 dm",
+      "B": "19 dm",
+      "C": "13 dm",
+      "D": "17 dm"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q05",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q5:</strong><br>Evaluate √(252) + √(448) - √(1008).",
+    "type": "single",
+    "options": {
+      "A": "2√(2)",
+      "B": "√(6)",
+      "C": "2√(7)",
+      "D": "2√(8)"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q06",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q6:</strong><br>Evaluate: 1/(√(2.25)+√(3.25)) + 1/(√(3.25)+√(4.25)) + 1/(√(4.25)+√(5.25)).",
+    "type": "single",
+    "options": {
+      "A": "1.25",
+      "B": "1.00",
+      "C": "2.25",
+      "D": "2.50"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed key gives B (1.00). Evaluating the visible decimal expression literally gives about 0.79, which is not listed; verify the expression against the original print before relying on the key."
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q07",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q7:</strong><br>By what number should 9792 be divided to get a perfect square?",
+    "type": "single",
+    "options": {
+      "A": "10",
+      "B": "15",
+      "C": "17",
+      "D": "19"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q08",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q8:</strong><br>Which number should be multiplied by 18432 to get a perfect cube?",
+    "type": "single",
+    "options": {
+      "A": "4",
+      "B": "6",
+      "C": "8",
+      "D": "12"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q09",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q9:</strong><br>A room costs Rs 250,000 to construct, contributed by a mother and her two daughters. The elder daughter contributes three-fifths of the mother's contribution and the younger contributes two-fifths of the mother's contribution. Which statement is correct?",
+    "type": "single",
+    "options": {
+      "A": "The mother contributed Rs 50,000 more than the elder daughter.",
+      "B": "The elder daughter contributed Rs 25,000 more than the younger daughter.",
+      "C": "The younger daughter contributed Rs 50,000.",
+      "D": "All the above are correct."
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q10",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q10:</strong><br>Three-fifths of a school's students arrive by car and one-fourth by bus. Of the remainder, two-fifths walk on their own. If 288 students walk on their own, how many students are in the school?",
+    "type": "single",
+    "options": {
+      "A": "4200",
+      "B": "3600",
+      "C": "3800",
+      "D": "4000"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed key gives A (4200), but the stated fractions give 288 = (2/5)(3/20) of the total, so the total is 4800, which is not listed."
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q11",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q11:</strong><br>In a square mass-drill formation, 4360 students are arranged in rows with the same number in each row, and 4 students are left out. How many students are in each row?",
+    "type": "single",
+    "options": {
+      "A": "46",
+      "B": "56",
+      "C": "66",
+      "D": "None of these"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots-Q12",
+    "identifier": "Ch-14-Numbers-Square-and-Square-Roots-Cube-and-Cube-Roots",
+    "chapter": "Numbers, Square and Square Roots, Cube and Cube Roots",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q12:</strong><br>A boy should multiply a sum of money by 3/7, but instead divides it by 3/7, and his answer exceeds the correct answer by 4760. Find the correct answer.",
+    "type": "single",
+    "options": {
+      "A": "Rs 3589",
+      "B": "Rs 2547",
+      "C": "Rs 5831",
+      "D": "Rs 1071"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q01",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>Find the maximum value: (125)^(1/3), (2187)^(1/7), (4096)^(1/6), or (343)^(1/3).",
+    "type": "single",
+    "options": {
+      "A": "Option A: (125)^(1/3)",
+      "B": "Option B: (2187)^(1/7)",
+      "C": "Option C: (4096)^(1/6)",
+      "D": "Option D: (343)^(1/3)"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q02",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 2,
+    "question": "2. <strong>Practice Exercise Q1:</strong><br>Evaluate (√(20))(√(75))(√(50))(√(120)).",
+    "type": "single",
+    "options": {
+      "A": "300",
+      "B": "3000",
+      "C": "200",
+      "D": "2000"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q03",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q2:</strong><br>Simplify ((55^4 x 12^8)^(1/4))/((55^2 x 12^4)^(1/2)).",
+    "type": "single",
+    "options": {
+      "A": "660",
+      "B": "4",
+      "C": "2",
+      "D": "1"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q04",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q3:</strong><br>Find (0.00032)^(4/5) / (0.0000128)^(5/7).",
+    "type": "single",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "8"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q05",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q4:</strong><br>If (8x)^6 = 24^12, find x.",
+    "type": "single",
+    "options": {
+      "A": "24",
+      "B": "48",
+      "C": "72",
+      "D": "96"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q06",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q5:</strong><br>Solve (30)^(1.5) x (15)^(0.5) x (2)^(1.5).",
+    "type": "single",
+    "options": {
+      "A": "360",
+      "B": "180",
+      "C": "3600",
+      "D": "1800"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q07",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q6:</strong><br>Find the least value among (25)^(1/3), (27)^(1/4), (32)^(1/6), and (49)^(1/5).",
+    "type": "single",
+    "options": {
+      "A": "(25)^(1/3)",
+      "B": "(27)^(1/4)",
+      "C": "(32)^(1/6)",
+      "D": "(49)^(1/5)"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q08",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q7:</strong><br>If 81^x = (1/9)^y = 27^4, find 4x - 3y.",
+    "type": "single",
+    "options": {
+      "A": "10",
+      "B": "20",
+      "C": "30",
+      "D": "40"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q09",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q8:</strong><br>If 5^(x-3) = 125, find 27^(x-5).",
+    "type": "single",
+    "options": {
+      "A": "729",
+      "B": "27",
+      "C": "81",
+      "D": "243"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q10",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q9:</strong><br>Evaluate (1.331)^(1/3) x (0.216)^(1/3) x (0.512)^(1/3).",
+    "type": "single",
+    "options": {
+      "A": "264/625",
+      "B": "125/132",
+      "C": "132/125",
+      "D": "66/125"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-15-Exponents-and-Powers-Q11",
+    "identifier": "Ch-15-Exponents-and-Powers",
+    "chapter": "Exponents and Powers",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q10:</strong><br>If 2^(2x) = 4^(3y) = 16^4, find 5^(x/y).",
+    "type": "single",
+    "options": {
+      "A": "25",
+      "B": "125",
+      "C": "625",
+      "D": "5"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q01",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>Find the product on multiplying 2x by the polynomial 3x² + 4xy - 5y.",
+    "type": "single",
+    "options": {
+      "A": "4x³ + 8x²y + 10xy",
+      "B": "8x³ + 6x²y - 10xy",
+      "C": "6x³ + 8x²y - 10xy",
+      "D": "6x³ - 8x²y + 10y"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q02",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 2,
+    "question": "2. <strong>Commonly Asked Question:</strong><br>The product on multiplying (x + 2) by (3x² - x + 4) is __.",
+    "type": "single",
+    "options": {
+      "A": "3x³ + 5x² + 2x + 8",
+      "B": "3x³ + 8x² + 5x - 8",
+      "C": "3x³ - 5x² + 2x + 8",
+      "D": "3x³ + 9x² + 6x + 8"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q03",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 3,
+    "question": "3. <strong>Commonly Asked Question:</strong><br>A rectangular table has length (3x - 2) feet and width (x + 4) feet. What expression represents its total area?",
+    "type": "single",
+    "options": {
+      "A": "3x² + 10x - 8",
+      "B": "3x² + 10x + 8",
+      "C": "3x² - 10x + 8",
+      "D": "3x² - 10x - 8"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q04",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q1:</strong><br>Add: 5x²y + 3yz² - 2zx, 4y²z + 3zx - 2y, and -3xz + 5x - 2x²y.",
+    "type": "single",
+    "options": {
+      "A": "3x²y + 3yz² + 4y²z + 2xz + 5x - 2y",
+      "B": "3x²y + 3yz² + 4y²z - 2xz + 5x + 2y",
+      "C": "3x²y + 3yz² + 4y²z - 2xz - 5x - 2y",
+      "D": "3x²y + 3yz² + 4y²z - 2xz + 5x - 2y"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": "The scan's options are blurry. Combining like terms gives option D."
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q05",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q2:</strong><br>Subtract 3x²y - 2zx - yz² - 2y from -3xz + 5x - 2x²y.",
+    "type": "single",
+    "options": {
+      "A": "2y + 5x - x²y - xz + yz²",
+      "B": "2y + 5x - 5x²y - zx + yz²",
+      "C": "2y + 5x - 5x²y + xz + yz²",
+      "D": "2y + 5x - 5x²y - xz - yz²"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q06",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q3:</strong><br>A rectangular field has length (x + 3) metres and width (2x - 1) metres. What expression represents its area?",
+    "type": "single",
+    "options": {
+      "A": "2x² + 5x - 3",
+      "B": "2x² + 5x + 3",
+      "C": "2x² - 5x + 3",
+      "D": "2x² - 5x - 3"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q07",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q4:</strong><br>Books on a shelf are arranged in (3x - 2) rows with (5x + 3) books in each row. What expression gives the total number of books?",
+    "type": "single",
+    "options": {
+      "A": "12x² + 5x - 8",
+      "B": "13x² + 5x - 9",
+      "C": "15x² - 3x + 3",
+      "D": "15x² - x - 6"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q08",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q5:</strong><br>What is the quotient when (2x³ - 5x² + 3x - 2) is divided by (x - 2)?",
+    "type": "single",
+    "options": {
+      "A": "2x² - x - 1",
+      "B": "2x² - x + 1",
+      "C": "2x² + x - 1",
+      "D": "2x² + x + 1"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q09",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q6:</strong><br>A rectangular garden has area x² + 7x + 12 square metres and length (x + 3) metres. What is its width?",
+    "type": "single",
+    "options": {
+      "A": "x + 4",
+      "B": "x + 2",
+      "C": "x + 1",
+      "D": "x + 5"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q10",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q7:</strong><br>The revenue from selling x units is 2x² + 8x + 50 rupees. How many units were sold if the revenue is ₹1500?",
+    "type": "single",
+    "options": {
+      "A": "25 units",
+      "B": "30 units",
+      "C": "40 units",
+      "D": "50 units"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q11",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q8:</strong><br>A rectangular piece of cloth has area 6x² + 11x + 4 square metres and length (3x + 4) metres. What is its width?",
+    "type": "single",
+    "options": {
+      "A": "2x + 4",
+      "B": "2x + 3",
+      "C": "2x + 2",
+      "D": "2x + 1"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q12",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q9:</strong><br>The profit from selling x gadgets is P = x² - 5x - 24. How many gadgets must be sold to achieve zero profit?",
+    "type": "single",
+    "options": {
+      "A": "3",
+      "B": "6",
+      "C": "8",
+      "D": "12"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-16-Algebraic-Expression-Identity-and-Factorization-Q13",
+    "identifier": "Ch-16-Algebraic-Expression-Identity-and-Factorization",
+    "chapter": "Algebraic Expression, Identity and Factorization",
+    "questionNumber": 13,
+    "question": "13. <strong>Practice Exercise Q10:</strong><br>The area of a square is 4x² + 12x + 9. What is the side length?",
+    "type": "single",
+    "options": {
+      "A": "4x + 1",
+      "B": "2x + 3",
+      "C": "x²",
+      "D": "x + 3"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q01",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>If the number of workers is directly proportional to the amount of work completed, what happens to the amount of work if the number of workers doubles?",
+    "type": "single",
+    "options": {
+      "A": "The amount of work remains the same.",
+      "B": "The amount of work is halved.",
+      "C": "The amount of work doubles.",
+      "D": "The amount of work decreases."
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q02",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 2,
+    "question": "2. <strong>Commonly Asked Question:</strong><br>For a fixed distance, what happens to the time taken for a car journey if the speed doubles?",
+    "type": "single",
+    "options": {
+      "A": "The time taken doubles.",
+      "B": "The time taken remains the same.",
+      "C": "The time taken is halved.",
+      "D": "The time taken increases."
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q03",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 3,
+    "question": "3. <strong>Commonly Asked Question:</strong><br>Water pressure is directly proportional to applied force and inversely proportional to pipe diameter. What happens to pressure if force triples and diameter doubles?",
+    "type": "single",
+    "options": {
+      "A": "The water pressure triples.",
+      "B": "The water pressure remains the same.",
+      "C": "The water pressure quadruples.",
+      "D": "The water pressure is halved."
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed key gives C (quadruples), but the stated proportionality gives a pressure factor of 3/2, which is not among the choices."
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q04",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q1:</strong><br>An item priced at ₹1800 is discounted by 20%. What is its price after the discount?",
+    "type": "single",
+    "options": {
+      "A": "₹1240",
+      "B": "₹1440",
+      "C": "₹1360",
+      "D": "₹1460"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q05",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q2:</strong><br>A sweater discounted by 25% sells for ₹1800. What was its original price?",
+    "type": "single",
+    "options": {
+      "A": "₹2000",
+      "B": "₹2400",
+      "C": "₹3000",
+      "D": "₹3200"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q06",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q3:</strong><br>If the principal is ₹8500, the interest rate is 8%, and the time is 3 years, what is the simple interest?",
+    "type": "single",
+    "options": {
+      "A": "₹1840",
+      "B": "₹2140",
+      "C": "₹2040",
+      "D": "₹2100"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q07",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q4:</strong><br>How long will ₹800 take to earn ₹160 simple interest at 10% per annum?",
+    "type": "single",
+    "options": {
+      "A": "2 years",
+      "B": "3 years",
+      "C": "4 years",
+      "D": "5 years"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q08",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q5:</strong><br>A sum amounts to ₹8820 in 2 years and ₹9261 in 3 years with annual compounding. Find the principal and rate.",
+    "type": "single",
+    "options": {
+      "A": "₹5000, 8%",
+      "B": "₹8000, 5%",
+      "C": "₹5000, 5%",
+      "D": "₹6000, 8%"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q09",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q6:</strong><br>A sum invested at compound interest becomes ₹12,100 in 2 years and ₹13,310 in 3 years. Find the annual interest rate.",
+    "type": "single",
+    "options": {
+      "A": "10%",
+      "B": "12%",
+      "C": "15%",
+      "D": "20%"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q10",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q7:</strong><br>The compound interest on a sum for 2 years at 12% per annum is ₹31,800. What will be the compound interest for 3 years at the same rate?",
+    "type": "single",
+    "options": {
+      "A": "₹52,406",
+      "B": "₹50,000",
+      "C": "₹51,600",
+      "D": "₹50,616"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": "The 2-year compound interest is 0.2544P = ₹31,800, so P = ₹1,25,000. The 3-year compound interest is 0.404928P = ₹50,616."
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q11",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q8:</strong><br>A showroom lists an article at ₹2500 and gives successive discounts of 20% and 15%. What is its net selling price?",
+    "type": "single",
+    "options": {
+      "A": "₹1900",
+      "B": "₹1700",
+      "C": "₹1640",
+      "D": "₹1700"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": "Options B and D appear identical in the scan; the printed answer key marks D."
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q12",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q9:</strong><br>A trader marks goods 40% above cost price and gives a 25% discount on the marked price. What is the gain percentage?",
+    "type": "single",
+    "options": {
+      "A": "5%",
+      "B": "4%",
+      "C": "9%",
+      "D": "6%"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q13",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 13,
+    "question": "13. <strong>Practice Exercise Q10:</strong><br>A train crosses a platform in 30 seconds at 90 km/h. If the train is 400 metres long, what is the platform length?",
+    "type": "single",
+    "options": {
+      "A": "400 m",
+      "B": "350 m",
+      "C": "200 m",
+      "D": "500 m"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q14",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 14,
+    "question": "14. <strong>Practice Exercise Q11:</strong><br>The difference between compound interest (compounded annually) and simple interest on a sum at 5% per annum for 2 years is ₹50. Find the sum.",
+    "type": "single",
+    "options": {
+      "A": "₹40,000",
+      "B": "₹20,000",
+      "C": "₹24,000",
+      "D": "₹28,000"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-17-Comparing-Quantities-Q15",
+    "identifier": "Ch-17-Comparing-Quantities",
+    "chapter": "Comparing Quantities",
+    "questionNumber": 15,
+    "question": "15. <strong>Practice Exercise Q12:</strong><br>Yashasvi and Rohit can complete a job in 8 days, Rohit and Surya in 12 days, and Surya and Yashasvi in 8 days. In how many days can all three complete it together?",
+    "type": "single",
+    "options": {
+      "A": "4 days",
+      "B": "5 days",
+      "C": "6 days",
+      "D": "7 days"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q01",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>If x - 1/x = 11, find x + 1/x.",
+    "type": "single",
+    "options": {
+      "A": "√5",
+      "B": "5√5",
+      "C": "√11",
+      "D": "5√3"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q02",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 2,
+    "question": "2. <strong>Practice Exercise Q1:</strong><br>Two stations A and B are 480 km apart. Two cars travel towards each other. After 3 hours they are 60 km apart. If one car is 20 km/h slower than the other, find the faster car's speed.",
+    "type": "single",
+    "options": {
+      "A": "100 km/h",
+      "B": "80 km/h",
+      "C": "60 km/h",
+      "D": "None of these"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q03",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q2:</strong><br>The tens digit of a two-digit number is 5 less than its units digit. If the units digit is x, represent the number.",
+    "type": "single",
+    "options": {
+      "A": "11x + 30",
+      "B": "10x + 30",
+      "C": "10x + 35",
+      "D": "11x - 50"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q04",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q3:</strong><br>Find a number whose one-third increased by 80 equals its half decreased by 130.",
+    "type": "single",
+    "options": {
+      "A": "1140",
+      "B": "1260",
+      "C": "1320",
+      "D": "1500"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q05",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q4:</strong><br>For what value(s) of a is x² - (3x/2) + a² a perfect square?",
+    "type": "single",
+    "options": {
+      "A": "±1/18",
+      "B": "±1/8",
+      "C": "±3/4",
+      "D": "±1/4"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q06",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q5:</strong><br>If x² - 5x + 1 = 0, find x + 1/x.",
+    "type": "single",
+    "options": {
+      "A": "5",
+      "B": "4",
+      "C": "3",
+      "D": "2"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q07",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q6:</strong><br>If a³b = abc = 1000, where a, b and c are positive integers, what can c be?",
+    "type": "single",
+    "options": {
+      "A": "1",
+      "B": "25",
+      "C": "4",
+      "D": "All the above"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q08",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q7:</strong><br>Three chairs and four tables cost ₹2880; three tables and four chairs cost ₹2720. Find the difference between the cost of a table and a chair.",
+    "type": "single",
+    "options": {
+      "A": "₹160",
+      "B": "₹180",
+      "C": "₹140",
+      "D": "₹120"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q09",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q8:</strong><br>If 2s = p + q + r, find s(s - p) + (s - q)(s - r).",
+    "type": "single",
+    "options": {
+      "A": "pq",
+      "B": "pqr",
+      "C": "0",
+      "D": "qr"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q10",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q9:</strong><br>Richa pays ₹97 using two-rupee and five-rupee coins. If she gives 32 coins in total, how many two-rupee coins does she give?",
+    "type": "single",
+    "options": {
+      "A": "12",
+      "B": "17",
+      "C": "18",
+      "D": "21"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q11",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q10:</strong><br>Which of the following is a solution of 9x² + 25 = 30x?",
+    "type": "single",
+    "options": {
+      "A": "2/3",
+      "B": "1",
+      "C": "5/3",
+      "D": "None of these"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q12",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q11:</strong><br>There are 20 bus passengers, some with ₹5 tickets and the rest with ₹10 tickets. The total collection is ₹180. How many passengers have ₹5 tickets?",
+    "type": "single",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "8"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-18-Algebraic-Equation-Q13",
+    "identifier": "Ch-18-Algebraic-Equation",
+    "chapter": "Algebraic Equation",
+    "questionNumber": 13,
+    "question": "13. <strong>Practice Exercise Q12:</strong><br>The denominator of a fraction is 7 more than its numerator. If 2 is subtracted from the numerator, the fraction becomes half the denominator. Find the fraction.",
+    "type": "single",
+    "options": {
+      "A": "6/13",
+      "B": "10/17",
+      "C": "9/13",
+      "D": "11/18"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q01",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>In which quadrilateral are the diagonals equal but do not bisect each other at right angles?",
+    "type": "single",
+    "options": {
+      "A": "Rectangle",
+      "B": "Rhombus",
+      "C": "Parallelogram",
+      "D": "Kite"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q02",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 2,
+    "question": "2. <strong>Commonly Asked Question:</strong><br>Which quadrilateral has one pair of opposite angles equal and diagonals perpendicular to each other?",
+    "type": "single",
+    "options": {
+      "A": "Kite",
+      "B": "Rectangle",
+      "C": "Parallelogram",
+      "D": "Trapezoid"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q03",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q1:</strong><br>In parallelogram HOPE, I is the intersection of the diagonals. If IP = 6 cm and EO is 2 cm less than PH, find EI.",
+    "type": "single",
+    "options": {
+      "A": "3 cm",
+      "B": "4 cm",
+      "C": "5 cm",
+      "D": "6 cm"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q04",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q2:</strong><br>In parallelogram RISE, IO = x + 2y, SO = 2y, EO = 16 cm and RO = 10 cm. Find x.",
+    "type": "single",
+    "options": {
+      "A": "4 cm",
+      "B": "5 cm",
+      "C": "6 cm",
+      "D": "7 cm"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": "The measurements as legible imply x = 3, not among the choices; the printed key marks C."
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q05",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q3:</strong><br>TEAM is a rectangle whose diagonals meet at O. If OT = (5x + 4) cm and OM = (3x + 8) cm, find OA.",
+    "type": "single",
+    "options": {
+      "A": "10 cm",
+      "B": "12 cm",
+      "C": "14 cm",
+      "D": "16 cm"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q06",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q4:</strong><br>Two adjacent angles of a parallelogram are in the ratio 3:9. Find their difference.",
+    "type": "single",
+    "options": {
+      "A": "30°",
+      "B": "60°",
+      "C": "90°",
+      "D": "120°"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q07",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q5:</strong><br>KITE is a rhombus with diagonals meeting at O. KO = 6 cm, EO = 8 cm, OI = 2x + 3 and OT = x + y. Choose the correct statement.",
+    "type": "single",
+    "options": {
+      "A": "x = 2.5 cm",
+      "B": "y = 3.5 cm",
+      "C": "The perimeter is 40 cm",
+      "D": "All the above"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q08",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q6:</strong><br>What is the maximum number of obtuse angles a quadrilateral can have?",
+    "type": "single",
+    "options": {
+      "A": "4",
+      "B": "3",
+      "C": "2",
+      "D": "1"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed answer key gives D (1), but a quadrilateral can have three obtuse angles (B)."
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q09",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q7:</strong><br>A quadrilateral having all its sides, diagonals and angles equal is a __.",
+    "type": "single",
+    "options": {
+      "A": "Rectangle",
+      "B": "Square",
+      "C": "Kite",
+      "D": "Rhombus"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed answer key gives D (Rhombus), but the description corresponds to a square (B)."
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q10",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q8:</strong><br>In trapezium ABCD, AB is parallel to CD and ∠ADC = 65°. Find ∠BAD.",
+    "type": "single",
+    "options": {
+      "A": "65°",
+      "B": "135°",
+      "C": "25°",
+      "D": "115°"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q11",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q9:</strong><br>Find the number of sides of a regular polygon whose exterior angle measures 15°.",
+    "type": "single",
+    "options": {
+      "A": "15",
+      "B": "20",
+      "C": "24",
+      "D": "30"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": "The printed answer key gives B (20), but 360°/15° = 24 sides, option C."
+  },
+  {
+    "id": "Ch-19-Quadrilaterals-Q12",
+    "identifier": "Ch-19-Quadrilaterals",
+    "chapter": "Quadrilaterals",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q10:</strong><br>If one angle of a parallelogram is 70°, what are the measures of the other three angles?",
+    "type": "single",
+    "options": {
+      "A": "70°, 110°, 110°",
+      "B": "70°, 70°, 110°",
+      "C": "110°, 110°, 110°",
+      "D": "70°, 70°, 70°"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q01",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>A 66 cm by 18 cm rectangular sheet is rolled without overlap to form a cylinder of height 18 cm. Calculate its volume. Use π = 22/7.",
+    "type": "single",
+    "options": {
+      "A": "6237 cm³",
+      "B": "3358 cm³",
+      "C": "6257 cm³",
+      "D": "6360 cm³"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q02",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 2,
+    "question": "2. <strong>Practice Exercise Q1:</strong><br>The total surface area of a cube is 1944 cm². Find its side length.",
+    "type": "single",
+    "options": {
+      "A": "16 cm",
+      "B": "18 cm",
+      "C": "20 cm",
+      "D": "24 cm"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q03",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q2:</strong><br>A cuboid has length 12 cm and height 18 cm. If its total surface area is 1272 cm², find its breadth.",
+    "type": "single",
+    "options": {
+      "A": "14 cm",
+      "B": "16 cm",
+      "C": "15 cm",
+      "D": "17 cm"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q04",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q3:</strong><br>A cuboid measures 15 cm by 12 cm by 24 cm. What is its volume?",
+    "type": "single",
+    "options": {
+      "A": "4220 cm³",
+      "B": "4020 cm³",
+      "C": "4320 cm³",
+      "D": "3920 cm³"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q05",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q4:</strong><br>The surface area of a cube is 648 cm². What is the length of each side?",
+    "type": "single",
+    "options": {
+      "A": "6√3 cm",
+      "B": "8√3 cm",
+      "C": "12 cm",
+      "D": "10 cm"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q06",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q5:</strong><br>A trapezium-shaped field has area 399 m², parallel sides 19 m apart, and one parallel side 28 m long. Find the other parallel side.",
+    "type": "single",
+    "options": {
+      "A": "12 m",
+      "B": "14 m",
+      "C": "16 m",
+      "D": "18 m"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q07",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q6:</strong><br>A rectangular picture frame has outer dimensions 32 cm × 28 cm and inner dimensions 22 cm × 18 cm. Determine the total area of the frame used, assuming that the width of each section remains the same.<br>{{images_olympiad_8_stem/ch20-q07-rectangular-frame.png}}",
+    "type": "single",
+    "options": {
+      "A": "300 m²",
+      "B": "280 m²",
+      "C": "330 m²",
+      "D": "340 m²"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q08",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q7:</strong><br>A rectangular frame has outer dimensions 32 cm × 28 cm and inner dimensions 22 cm × 18 cm. Find the area of the frame.",
+    "type": "single",
+    "options": {
+      "A": "400 cm²",
+      "B": "500 cm²",
+      "C": "600 cm²",
+      "D": "800 cm²"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q09",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q8:</strong><br>There are 25 cylindrical pillars, each radius 35 cm and height 4.2 m. Find the cost of painting their curved surfaces at ₹600 per square metre.",
+    "type": "single",
+    "options": {
+      "A": "₹128600",
+      "B": "₹118400",
+      "C": "₹138600",
+      "D": "₹134600"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q10",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q9:</strong><br>How many cubes of side 12 cm can fit inside a cuboid measuring 80 cm × 54 cm × 60 cm?",
+    "type": "single",
+    "options": {
+      "A": "120",
+      "B": "150",
+      "C": "180",
+      "D": "200"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q11",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q10:</strong><br>How long will it take to fill a 216 m³ cuboidal reservoir at 30 litres per minute?",
+    "type": "single",
+    "options": {
+      "A": "30 hours",
+      "B": "60 hours",
+      "C": "90 hours",
+      "D": "120 hours"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q12",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 12,
+    "question": "12. <strong>Practice Exercise Q11:</strong><br>A cube of side 8 cm is cut into 1 cm cubes. What is the ratio of the original cube's surface area to the total surface area of the small cubes?",
+    "type": "single",
+    "options": {
+      "A": "1:2",
+      "B": "1:3",
+      "C": "1:4",
+      "D": "1:8"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q13",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 13,
+    "question": "13. <strong>Practice Exercise Q12:</strong><br>A covered wooden box has inner dimensions 125 cm × 100 cm × 50 cm and wood thickness 5 cm. Find the volume of wood.",
+    "type": "single",
+    "options": {
+      "A": "250000 cm³",
+      "B": "200000 cm³",
+      "C": "221250 cm³",
+      "D": "266000 cm³"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-20-Surface-Area-and-Volume-Q14",
+    "identifier": "Ch-20-Surface-Area-and-Volume",
+    "chapter": "Surface Area and Volume",
+    "questionNumber": 14,
+    "question": "14. <strong>Practice Exercise Q13:</strong><br>Water from a tank with rectangular base 90 cm × 80 cm flows into a tank with square base of side 80 cm. If the first tank has water 40 cm deep, how deep will it be in the second?",
+    "type": "single",
+    "options": {
+      "A": "45 cm",
+      "B": "50 cm",
+      "C": "55 cm",
+      "D": "60 cm"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q01",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 1,
+    "question": "1. <strong>Commonly Asked Question:</strong><br>Two fair coins are tossed simultaneously. What is the probability of getting exactly one head?",
+    "type": "single",
+    "options": {
+      "A": "1/8",
+      "B": "1/4",
+      "C": "3/4",
+      "D": "1/2"
+    },
+    "answer": [
+      "D"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q02",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 2,
+    "question": "2. <strong>Practice Exercise Q1:</strong><br>The pie chart shows the monthly expenses of a family. Which category has the highest percentage of expenses?<br>{{images_olympiad_8_stem/ch21-expense-pie-chart.png}}",
+    "type": "single",
+    "options": {
+      "A": "Rent",
+      "B": "Food",
+      "C": "Groceries",
+      "D": "Transportation"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q03",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 3,
+    "question": "3. <strong>Practice Exercise Q2:</strong><br>If the total monthly expenses of the family amount to ₹50,000, what is the approximate amount spent on Health?<br>{{images_olympiad_8_stem/ch21-expense-pie-chart.png}}",
+    "type": "single",
+    "options": {
+      "A": "₹4,000",
+      "B": "₹5,000",
+      "C": "₹15,000",
+      "D": "₹20,000"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q04",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 4,
+    "question": "4. <strong>Practice Exercise Q3:</strong><br>What amount of the family's expenses is spent on groceries, if the monthly income of the family is ₹75,000?<br>{{images_olympiad_8_stem/ch21-expense-pie-chart.png}}",
+    "type": "single",
+    "options": {
+      "A": "₹20,000",
+      "B": "₹18,750",
+      "C": "₹17,500",
+      "D": "₹19,250"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q05",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 5,
+    "question": "5. <strong>Practice Exercise Q4:</strong><br>If the family decides to reduce its food expenses to 10%, how much will their savings increase if initially they were saving ₹9600?<br>{{images_olympiad_8_stem/ch21-expense-pie-chart.png}}",
+    "type": "single",
+    "options": {
+      "A": "₹2,000",
+      "B": "₹3,000",
+      "C": "₹4,000",
+      "D": "₹5,000"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q06",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 6,
+    "question": "6. <strong>Practice Exercise Q5:</strong><br>A fair six-sided die is rolled. What is the probability of rolling an odd number?",
+    "type": "single",
+    "options": {
+      "A": "1/2",
+      "B": "1/3",
+      "C": "1/4",
+      "D": "1/6"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q07",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 7,
+    "question": "7. <strong>Practice Exercise Q6:</strong><br>A bag contains 5 red marbles and 3 green marbles. What is the probability of selecting a red marble?",
+    "type": "single",
+    "options": {
+      "A": "5/8",
+      "B": "3/8",
+      "C": "5/3",
+      "D": "3/5"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q08",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 8,
+    "question": "8. <strong>Practice Exercise Q7:</strong><br>A card is drawn from a standard deck of 52 cards. What is the probability of drawing a spade?",
+    "type": "single",
+    "options": {
+      "A": "1/13",
+      "B": "1/4",
+      "C": "1/2",
+      "D": "1/52"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q09",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 9,
+    "question": "9. <strong>Practice Exercise Q8:</strong><br>In a class of 30 students, 10 play cricket, 5 play football, and no student plays both. What is the probability that a randomly chosen student plays neither?",
+    "type": "single",
+    "options": {
+      "A": "1/3",
+      "B": "1/2",
+      "C": "2/3",
+      "D": "1/6"
+    },
+    "answer": [
+      "B"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q10",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 10,
+    "question": "10. <strong>Practice Exercise Q9:</strong><br>A fair die is rolled. What is the probability of getting a prime number?",
+    "type": "single",
+    "options": {
+      "A": "1/4",
+      "B": "2/3",
+      "C": "1/2",
+      "D": "1/3"
+    },
+    "answer": [
+      "C"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  },
+  {
+    "id": "Ch-21-Data-Handling-Q11",
+    "identifier": "Ch-21-Data-Handling",
+    "chapter": "Data Handling",
+    "questionNumber": 11,
+    "question": "11. <strong>Practice Exercise Q10:</strong><br>Two dice are rolled. What is the probability of getting the same number on both dice?",
+    "type": "single",
+    "options": {
+      "A": "1/6",
+      "B": "1/8",
+      "C": "1/9",
+      "D": "1/12"
+    },
+    "answer": [
+      "A"
+    ],
+    "answerSource": "printed",
+    "explanation": null
+  }
+];
